@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Strategy Press — Business Strategy Booklets</title>
+  <title>Mathew - Blogs</title>
   <meta name="description" content="An interactive digital library of business strategy booklets: frameworks, case studies, case-competition slide strategy and startup ideas." />
 
   <!-- Netlify Identity -->
@@ -36,9 +36,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
   <style>
-    html { scroll-padding-top: 5rem; }
+    html { scroll-padding-top: 8.5rem; }
     body { -webkit-font-smoothing: antialiased; }
-    .chapter { scroll-margin-top: 5rem; }
+    .chapter { scroll-margin-top: 8.5rem; }
+    .bar-link.active { background: #121211; color: #fff; border-color: #121211; }
+    .dark .bar-link.active { background: #fff; color: #121211; border-color: #fff; }
+    .topic-chip.active { background: #121211; color: #fff; border-color: #121211; }
+    .dark .topic-chip.active { background: #fff; color: #121211; border-color: #fff; }
+    .no-scrollbar { scrollbar-width: none; } .no-scrollbar::-webkit-scrollbar { display: none; }
     .prose-body p { line-height: 1.8; }
     #booklet { transition: opacity .25s ease, transform .25s ease; }
     #booklet.is-switching { opacity: 0; transform: translateY(8px); }
@@ -66,8 +71,8 @@
         </button>
         <a href="#" class="flex items-center gap-2.5" id="brand">
           <span class="w-8 h-8 rounded-lg bg-ink-900 dark:bg-white text-white dark:text-ink-900 grid place-items-center text-sm"><i class="fa-solid fa-book-open"></i></span>
-          <span class="font-serif text-lg font-semibold tracking-tight">Strategy Press</span>
-          <span class="hidden sm:inline text-xs text-ink-700/60 dark:text-white/40 border-l border-ink-200 dark:border-white/10 pl-2.5 ml-0.5">Booklet Library</span>
+          <span class="font-serif text-lg font-semibold tracking-tight">Mathew - Blogs</span>
+          <span class="hidden sm:inline text-xs text-ink-700/60 dark:text-white/40 border-l border-ink-200 dark:border-white/10 pl-2.5 ml-0.5">Strategy Booklets</span>
         </a>
       </div>
       <div class="flex items-center gap-2">
@@ -87,15 +92,19 @@
   <!-- Sidebar -->
   <aside id="sidebar" class="fixed top-16 bottom-0 left-0 w-72 z-40 bg-ink-50 dark:bg-ink-900 border-r border-ink-200 dark:border-white/10 -translate-x-full lg:translate-x-0 transition-transform duration-300">
     <div class="sidebar-scroll h-full overflow-y-auto px-4 py-6 space-y-8">
+      <button data-home class="home-link w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium border border-ink-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/5 transition">
+        <i class="fa-solid fa-house text-accent dark:text-accent-dark"></i><span>Library Home</span>
+        <span id="homeCount" class="ml-auto text-[11px] font-mono text-ink-700/50 dark:text-white/40"></span>
+      </button>
       <section>
         <h2 class="px-2 mb-3 text-[11px] font-semibold uppercase tracking-[.14em] text-ink-700/50 dark:text-white/40">Select Booklet</h2>
         <ul id="bookletList" class="space-y-1.5"></ul>
       </section>
-      <section>
+      <section id="chapterSection">
         <h2 class="px-2 mb-3 text-[11px] font-semibold uppercase tracking-[.14em] text-ink-700/50 dark:text-white/40">Chapter Navigation</h2>
         <nav id="chapterNav" class="space-y-0.5"></nav>
       </section>
-      <section class="mx-2 p-4 rounded-xl border border-dashed border-ink-200 dark:border-white/10 text-xs leading-relaxed text-ink-700/70 dark:text-white/50">
+      <section id="tipSection" class="mx-2 p-4 rounded-xl border border-dashed border-ink-200 dark:border-white/10 text-xs leading-relaxed text-ink-700/70 dark:text-white/50">
         <i class="fa-solid fa-lightbulb text-accent dark:text-accent-dark mr-1"></i>
         Tip: press <kbd class="px-1.5 py-0.5 rounded bg-ink-100 dark:bg-white/10 font-mono">1</kbd>–<kbd class="px-1.5 py-0.5 rounded bg-ink-100 dark:bg-white/10 font-mono">5</kbd> to jump between chapters.
       </section>
@@ -104,9 +113,26 @@
 
   <!-- Main canvas -->
   <main class="pt-16 lg:ml-72">
-    <article id="booklet" class="max-w-4xl mx-auto px-4 sm:px-8 py-10 sm:py-14"></article>
+    <!-- Home / library view -->
+    <section id="home" class="max-w-5xl mx-auto px-4 sm:px-8 py-10 sm:py-14 hidden"></section>
+
+    <!-- Booklet view -->
+    <div id="bookletView" class="hidden">
+      <div id="contentBar" class="sticky top-16 z-30 bg-ink-50/90 dark:bg-ink-900/90 backdrop-blur border-b border-ink-200 dark:border-white/10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-8 h-14 flex items-center gap-3">
+          <button data-home class="shrink-0 inline-flex items-center gap-1.5 h-8 px-3 rounded-full text-xs font-medium border border-ink-200 dark:border-white/15 hover:bg-white dark:hover:bg-white/5" title="Back to library">
+            <i class="fa-solid fa-arrow-left text-[10px]"></i><span class="hidden sm:inline">Library</span>
+          </button>
+          <span class="shrink-0 w-px h-5 bg-ink-200 dark:bg-white/10"></span>
+          <nav id="barLinks" class="flex-1 min-w-0 flex items-center gap-1.5 overflow-x-auto no-scrollbar" aria-label="Chapters in this booklet"></nav>
+          <label for="bookletJump" class="sr-only">Jump to booklet</label>
+          <select id="bookletJump" class="hidden md:block shrink-0 max-w-[11rem] h-8 rounded-full text-xs pl-3 pr-7 border border-ink-200 dark:border-white/15 bg-white dark:bg-ink-800 text-ink-800 dark:text-white/80"></select>
+        </div>
+      </div>
+      <article id="booklet" class="max-w-4xl mx-auto px-4 sm:px-8 py-10 sm:py-14"></article>
+    </div>
     <footer class="max-w-4xl mx-auto px-4 sm:px-8 pb-12 text-xs text-ink-700/50 dark:text-white/30 flex flex-wrap justify-between gap-2 border-t border-ink-200 dark:border-white/10 pt-6">
-      <span>&copy; <span id="year"></span> Strategy Press. Educational content for strategy students &amp; operators.</span>
+      <span>&copy; <span id="year"></span> Mathew - Blogs. Educational content for strategy students &amp; operators.</span>
       <span>Figures in startup models are illustrative.</span>
     </footer>
   </main>
@@ -133,6 +159,7 @@
       industry: 'Technology & Marketplaces',
       audience: 'MBA / Case Competitors',
       readTime: 22,
+      topics: ['Platforms & Marketplaces', 'Network Effects', 'Technology', 'Growth Strategy'],
       icon: 'fa-diagram-project',
       color: 'from-indigo-500 to-violet-500',
 
@@ -317,6 +344,7 @@
       industry: 'Consumer Goods & Retail',
       audience: 'Undergrad / Strategy Consultants',
       readTime: 19,
+      topics: ['Value Chain', 'Direct-to-Consumer', 'Consumer & Retail', 'Growth Strategy'],
       icon: 'fa-boxes-stacked',
       color: 'from-amber-500 to-orange-600',
 
@@ -739,9 +767,116 @@
     `;
   }
 
+  /* =========================================================
+     HOME / LIBRARY VIEW
+     ========================================================= */
+  let view = 'home';
+  let activeTopic = 'All';
+  let query = '';
+
+  function allTopics() {
+    const counts = {};
+    BOOKLETS.forEach(b => b.topics.forEach(t => { counts[t] = (counts[t] || 0) + 1; }));
+    return Object.entries(counts).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  }
+
+  function filteredBooklets() {
+    const q = query.trim().toLowerCase();
+    return BOOKLETS.filter(b => {
+      const topicOk = activeTopic === 'All' || b.topics.includes(activeTopic);
+      const hay = [b.title, b.subtitle, b.industry, b.audience, ...b.topics].join(' ').toLowerCase();
+      return topicOk && (!q || hay.includes(q));
+    });
+  }
+
+  function renderHomeShell() {
+    const totalMin = BOOKLETS.reduce((n, b) => n + b.readTime, 0);
+    $('#home').innerHTML = `
+      <div class="mb-10">
+        <p class="text-[11px] font-semibold uppercase tracking-[.14em] text-accent dark:text-accent-dark mb-3">The Library</p>
+        <h1 class="font-serif text-4xl sm:text-5xl font-semibold tracking-tight leading-[1.1]">Mathew - Blogs</h1>
+        <p class="mt-4 text-lg max-w-2xl ${muted} leading-relaxed">Business strategy booklets for case competitors, students and operators. Each one moves from a plain-English intuition to a full framework, a real case, a 3-slide deck plan and a startup idea with numbers.</p>
+        <div class="mt-6 flex flex-wrap gap-6 text-sm">
+          <div><span class="font-serif text-2xl font-bold">${BOOKLETS.length}</span> <span class="${muted}">booklets</span></div>
+          <div><span class="font-serif text-2xl font-bold">${BOOKLETS.length * CHAPTERS.length}</span> <span class="${muted}">chapters</span></div>
+          <div><span class="font-serif text-2xl font-bold">${totalMin}</span> <span class="${muted}">minutes of reading</span></div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-4 mb-8">
+        <div class="relative max-w-md">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-xs ${muted}"></i>
+          <label for="librarySearch" class="sr-only">Search booklets</label>
+          <input id="librarySearch" type="search" placeholder="Search booklets, industries, topics…" value="${query.replace(/"/g, '&quot;')}"
+            class="w-full h-10 pl-9 pr-3 rounded-xl text-sm border border-ink-200 dark:border-white/15 bg-white dark:bg-white/5 focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-accent-dark" />
+        </div>
+        <div>
+          <p class="text-[11px] font-semibold uppercase tracking-[.14em] ${muted} mb-2">Filter by topic</p>
+          <div id="topicChips" class="flex flex-wrap gap-2"></div>
+        </div>
+      </div>
+
+      <p id="resultCount" class="text-sm ${muted} mb-4"></p>
+      <div id="bookletGrid" class="grid md:grid-cols-2 gap-6"></div>`;
+    $('#librarySearch').addEventListener('input', e => { query = e.target.value; renderHomeResults(); });
+    renderHomeResults();
+  }
+
+  function renderHomeResults() {
+    const chipCls = 'topic-chip inline-flex items-center gap-1.5 h-8 px-3.5 rounded-full text-xs font-medium border border-ink-200 dark:border-white/15 hover:border-ink-900 dark:hover:border-white/50 transition';
+    $('#topicChips').innerHTML = [['All', BOOKLETS.length], ...allTopics()].map(([t, n]) => `
+      <button data-topic="${t}" class="${chipCls} ${t === activeTopic ? 'active' : ''}" aria-pressed="${t === activeTopic}">
+        ${t}<span class="opacity-50 font-mono">${n}</span>
+      </button>`).join('');
+
+    const list = filteredBooklets();
+    $('#resultCount').textContent = `Showing ${list.length} of ${BOOKLETS.length} booklets` + (activeTopic !== 'All' ? ` in “${activeTopic}”` : '') + (query.trim() ? ` matching “${query.trim()}”` : '');
+
+    $('#bookletGrid').innerHTML = list.length ? list.map(b => `
+      <div class="${card} overflow-hidden flex flex-col hover:shadow-xl hover:shadow-black/5 hover:-translate-y-0.5 transition">
+        <button data-open="${b.id}" class="text-left relative bg-ink-900 text-white p-6 overflow-hidden">
+          <div class="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-gradient-to-br ${b.color} opacity-40 blur-2xl"></div>
+          <div class="absolute right-5 bottom-4 text-5xl opacity-10"><i class="fa-solid ${b.icon}"></i></div>
+          <p class="relative text-[10px] font-mono tracking-widest text-white/50">${b.volume} · ${b.industry.toUpperCase()}</p>
+          <h2 class="relative font-serif text-2xl font-semibold leading-tight mt-2 pr-10">${b.title}</h2>
+        </button>
+        <div class="p-6 flex-1 flex flex-col gap-4">
+          <p class="text-sm leading-relaxed ${muted}">${b.subtitle}</p>
+          <div class="flex flex-wrap gap-1.5">
+            ${b.topics.map(t => `<button data-topic="${t}" class="text-[11px] px-2 py-0.5 rounded-md bg-ink-100 dark:bg-white/10 hover:bg-ink-200 dark:hover:bg-white/20">#${t}</button>`).join('')}
+          </div>
+          <div>
+            <p class="text-[11px] font-semibold uppercase tracking-[.14em] ${muted} mb-2">Jump to chapter</p>
+            <div class="flex flex-wrap gap-1.5">
+              ${CHAPTERS.map(c => `<a href="#${b.id}" data-open="${b.id}" data-chapter-target="${c.id}" title="${c.label}" class="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full border border-ink-200 dark:border-white/15 hover:border-accent hover:text-accent dark:hover:border-accent-dark dark:hover:text-accent-dark"><i class="fa-solid ${c.icon} text-[10px]"></i>Ch ${c.num}</a>`).join('')}
+            </div>
+          </div>
+          <div class="mt-auto pt-4 border-t border-ink-200 dark:border-white/10 flex items-center justify-between text-xs ${muted}">
+            <span><i class="fa-regular fa-clock mr-1"></i>${b.readTime} min · ${b.audience}</span>
+            <button data-open="${b.id}" class="font-semibold text-ink-900 dark:text-white hover:text-accent dark:hover:text-accent-dark">Read booklet <i class="fa-solid fa-arrow-right ml-1"></i></button>
+          </div>
+        </div>
+      </div>`).join('') : `
+      <div class="md:col-span-2 ${card} p-10 text-center">
+        <i class="fa-regular fa-folder-open text-3xl ${muted}"></i>
+        <p class="font-semibold mt-3">No booklets match these filters</p>
+        <p class="text-sm ${muted} mt-1">Try another topic or clear the search.</p>
+        <button data-reset-filters class="mt-4 text-sm font-medium text-accent dark:text-accent-dark">Clear filters</button>
+      </div>`;
+  }
+
+  /* =========================================================
+     SIDEBAR, CONTENT BAR & ROUTING
+     ========================================================= */
   function renderSidebar() {
+    $('#homeCount').textContent = BOOKLETS.length;
+    $('.home-link').classList.toggle('bg-white', view === 'home');
+    $('.home-link').classList.toggle('dark:bg-white/5', view === 'home');
+    $('#chapterSection').classList.toggle('hidden', view !== 'booklet');
+    $('#tipSection').classList.toggle('hidden', view !== 'booklet');
+
     $('#bookletList').innerHTML = BOOKLETS.map(b => {
-      const active = b.id === currentId;
+      const active = view === 'booklet' && b.id === currentId;
       return `
         <li>
           <button data-open="${b.id}" class="w-full text-left flex gap-3 p-2.5 rounded-xl transition border ${active
@@ -764,35 +899,73 @@
       </a>`).join('');
   }
 
+  function renderContentBar() {
+    $('#barLinks').innerHTML = CHAPTERS.map(c => `
+      <a href="#${c.id}" data-target="${c.id}" class="bar-link shrink-0 inline-flex items-center gap-1.5 h-8 px-3 rounded-full text-xs font-medium border border-transparent text-ink-700/80 dark:text-white/70 hover:border-ink-200 dark:hover:border-white/15 transition whitespace-nowrap">
+        <span class="font-mono opacity-60">${c.num}</span>${c.label}
+      </a>`).join('');
+    $('#bookletJump').innerHTML = BOOKLETS.map(b => `<option value="${b.id}" ${b.id === currentId ? 'selected' : ''}>${b.volume} · ${b.title}</option>`).join('');
+  }
+
   function setupScrollSpy() {
     if (observer) observer.disconnect();
-    const links = $$('.nav-link');
     observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if (e.isIntersecting) {
-          links.forEach(l => l.classList.toggle('active', l.dataset.target === e.target.id));
-        }
+        if (!e.isIntersecting) return;
+        $$('.nav-link, .bar-link').forEach(l => l.classList.toggle('active', l.dataset.target === e.target.id));
+        const pill = $(`.bar-link[data-target="${e.target.id}"]`);
+        const bar = $('#barLinks');
+        if (pill && bar) bar.scrollTo({ left: pill.offsetLeft - bar.offsetLeft - 16, behavior: 'smooth' });
       });
     }, { rootMargin: '-30% 0px -60% 0px' });
     $$('.chapter').forEach(s => observer.observe(s));
   }
 
-  function openBooklet(id, { scroll = true } = {}) {
+  function showHome() {
+    view = 'home';
+    if (observer) observer.disconnect();
+    $('#bookletView').classList.add('hidden');
+    $('#home').classList.remove('hidden');
+    renderHomeShell();
+    renderSidebar();
+    document.title = 'Mathew - Blogs';
+    window.scrollTo({ top: 0 });
+  }
+
+  function showBooklet(id, chapter) {
     const b = BOOKLETS.find(x => x.id === id);
-    if (!b) return;
+    if (!b) return showHome();
+    const switching = view === 'booklet' && currentId !== id;
+    view = 'booklet';
     currentId = id;
+    $('#home').classList.add('hidden');
+    $('#bookletView').classList.remove('hidden');
     const el = $('#booklet');
-    el.classList.add('is-switching');
-    setTimeout(() => {
+    const paint = () => {
       el.innerHTML = renderBooklet(b);
       renderSidebar();
+      renderContentBar();
       setupScrollSpy();
-      document.title = `${b.title} — Strategy Press`;
-      if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
-      if (location.hash.slice(1) !== id) history.replaceState(null, '', '#' + id);
+      document.title = `${b.title} · Mathew - Blogs`;
+      if (chapter) setTimeout(() => scrollToChapter(chapter), 60);
+      else window.scrollTo({ top: 0, behavior: switching ? 'smooth' : 'auto' });
       requestAnimationFrame(() => el.classList.remove('is-switching'));
-    }, 200);
+    };
+    if (switching) { el.classList.add('is-switching'); setTimeout(paint, 200); } else paint();
   }
+
+  function route(hash, chapter) {
+    if (BOOKLETS.some(b => b.id === hash)) showBooklet(hash, chapter);
+    else showHome();
+  }
+
+  function navigate(hash, chapter) {
+    try { if (location.hash.slice(1) !== hash) history.pushState(null, '', '#' + hash); } catch (_) {}
+    route(hash, chapter);
+  }
+  window.addEventListener('popstate', () => route(location.hash.slice(1)));
+
+  function openBooklet(id, chapter) { navigate(id, chapter); }
 
   function scrollToChapter(chId) {
     const target = document.getElementById(chId);
@@ -813,15 +986,27 @@
   $('#overlay').addEventListener('click', closeMenu);
 
   document.addEventListener('click', e => {
+    const home = e.target.closest('[data-home]');
+    if (home) { e.preventDefault(); closeMenu(); navigate('home'); return; }
+    const topic = e.target.closest('[data-topic]');
+    if (topic) { e.preventDefault(); activeTopic = topic.dataset.topic; renderHomeResults(); return; }
+    if (e.target.closest('[data-reset-filters]')) { activeTopic = 'All'; query = ''; renderHomeShell(); return; }
     const open = e.target.closest('[data-open]');
-    if (open) { e.preventDefault(); closeMenu(); if (open.dataset.open !== currentId) openBooklet(open.dataset.open); return; }
-    const nav = e.target.closest('.nav-link');
+    if (open) {
+      e.preventDefault(); closeMenu();
+      const chapter = open.dataset.chapterTarget;
+      if (view === 'booklet' && open.dataset.open === currentId) { if (chapter) scrollToChapter(chapter); return; }
+      openBooklet(open.dataset.open, chapter);
+      return;
+    }
+    const nav = e.target.closest('.nav-link, .bar-link');
     if (nav) { e.preventDefault(); closeMenu(); scrollToChapter(nav.dataset.target); }
   });
-  $('#brand').addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  $('#bookletJump').addEventListener('change', e => openBooklet(e.target.value));
+  $('#brand').addEventListener('click', e => { e.preventDefault(); navigate('home'); });
 
   document.addEventListener('keydown', e => {
-    if (e.target.matches('input, textarea') || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (view !== 'booklet' || e.target.matches('input, textarea, select') || e.metaKey || e.ctrlKey || e.altKey) return;
     const n = parseInt(e.key, 10);
     if (n >= 1 && n <= CHAPTERS.length) scrollToChapter(CHAPTERS[n - 1].id);
   });
@@ -866,14 +1051,7 @@
 
   // Boot
   $('#year').textContent = new Date().getFullYear();
-  (function boot() {
-    const hash = location.hash.slice(1);
-    if (BOOKLETS.some(b => b.id === hash)) currentId = hash;
-    $('#booklet').innerHTML = renderBooklet(BOOKLETS.find(b => b.id === currentId));
-    renderSidebar();
-    setupScrollSpy();
-    if (CHAPTERS.some(c => c.id === hash)) setTimeout(() => scrollToChapter(hash), 50);
-  })();
+  route(location.hash.slice(1));
   </script>
 </body>
 </html>
