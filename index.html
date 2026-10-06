@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strategy Press — Business Strategy Booklets</title>
+  <meta name="description" content="An interactive digital library of business strategy booklets: frameworks, case studies, case-competition slide strategy and startup ideas." />
+
+  <!-- Netlify Identity -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    if (window.tailwind) tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+          },
+          colors: {
+            ink: { 50: '#f7f7f5', 100: '#efeeea', 200: '#e2e0d9', 700: '#2b2a27', 800: '#1c1b19', 900: '#121211' },
+            accent: { DEFAULT: '#c2410c', soft: '#fff1e8', dark: '#fb923c' },
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <style>
+    html { scroll-padding-top: 5rem; }
+    body { -webkit-font-smoothing: antialiased; }
+    .chapter { scroll-margin-top: 5rem; }
+    .prose-body p { line-height: 1.8; }
+    #booklet { transition: opacity .25s ease, transform .25s ease; }
+    #booklet.is-switching { opacity: 0; transform: translateY(8px); }
+    .nav-link.active { color: #c2410c; background: rgba(194, 65, 12, .08); }
+    .dark .nav-link.active { color: #fb923c; background: rgba(251, 146, 60, .12); }
+    .nav-link.active .nav-dot { background: currentColor; transform: scale(1.3); }
+    .sidebar-scroll::-webkit-scrollbar { width: 6px; }
+    .sidebar-scroll::-webkit-scrollbar-thumb { background: rgba(120,120,120,.25); border-radius: 9999px; }
+    table { border-collapse: separate; border-spacing: 0; }
+    @media print { aside, header, #progress { display: none !important; } main { margin: 0 !important; } }
+  </style>
+</head>
+
+<body class="bg-ink-50 text-ink-800 dark:bg-ink-900 dark:text-ink-100 font-sans transition-colors duration-300">
+
+  <!-- Reading progress -->
+  <div id="progress" class="fixed top-0 left-0 h-0.5 bg-accent dark:bg-accent-dark z-[60] w-0 transition-[width] duration-100"></div>
+
+  <!-- Top bar -->
+  <header class="fixed top-0 inset-x-0 h-16 z-50 bg-ink-50/85 dark:bg-ink-900/85 backdrop-blur border-b border-ink-200 dark:border-white/10">
+    <div class="h-full flex items-center justify-between px-4 lg:px-6">
+      <div class="flex items-center gap-3">
+        <button id="menuBtn" class="lg:hidden w-10 h-10 grid place-items-center rounded-lg hover:bg-ink-100 dark:hover:bg-white/5" aria-label="Open navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <a href="#" class="flex items-center gap-2.5" id="brand">
+          <span class="w-8 h-8 rounded-lg bg-ink-900 dark:bg-white text-white dark:text-ink-900 grid place-items-center text-sm"><i class="fa-solid fa-book-open"></i></span>
+          <span class="font-serif text-lg font-semibold tracking-tight">Strategy Press</span>
+          <span class="hidden sm:inline text-xs text-ink-700/60 dark:text-white/40 border-l border-ink-200 dark:border-white/10 pl-2.5 ml-0.5">Booklet Library</span>
+        </a>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="themeBtn" class="w-10 h-10 grid place-items-center rounded-lg hover:bg-ink-100 dark:hover:bg-white/5" aria-label="Toggle dark mode" title="Toggle theme">
+          <span class="dark:hidden"><i class="fa-solid fa-moon"></i></span><span class="hidden dark:inline"><i class="fa-solid fa-sun"></i></span>
+        </button>
+        <button id="authBtn" class="inline-flex items-center gap-2 h-9 px-3.5 rounded-lg text-sm font-medium bg-ink-900 text-white dark:bg-white dark:text-ink-900 hover:opacity-90">
+          <i class="fa-regular fa-user"></i><span id="authLabel">Sign in</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile overlay -->
+  <div id="overlay" class="fixed inset-0 bg-black/40 z-40 hidden lg:hidden"></div>
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="fixed top-16 bottom-0 left-0 w-72 z-40 bg-ink-50 dark:bg-ink-900 border-r border-ink-200 dark:border-white/10 -translate-x-full lg:translate-x-0 transition-transform duration-300">
+    <div class="sidebar-scroll h-full overflow-y-auto px-4 py-6 space-y-8">
+      <section>
+        <h2 class="px-2 mb-3 text-[11px] font-semibold uppercase tracking-[.14em] text-ink-700/50 dark:text-white/40">Select Booklet</h2>
+        <ul id="bookletList" class="space-y-1.5"></ul>
+      </section>
+      <section>
+        <h2 class="px-2 mb-3 text-[11px] font-semibold uppercase tracking-[.14em] text-ink-700/50 dark:text-white/40">Chapter Navigation</h2>
+        <nav id="chapterNav" class="space-y-0.5"></nav>
+      </section>
+      <section class="mx-2 p-4 rounded-xl border border-dashed border-ink-200 dark:border-white/10 text-xs leading-relaxed text-ink-700/70 dark:text-white/50">
+        <i class="fa-solid fa-lightbulb text-accent dark:text-accent-dark mr-1"></i>
+        Tip: press <kbd class="px-1.5 py-0.5 rounded bg-ink-100 dark:bg-white/10 font-mono">1</kbd>–<kbd class="px-1.5 py-0.5 rounded bg-ink-100 dark:bg-white/10 font-mono">5</kbd> to jump between chapters.
+      </section>
+    </div>
+  </aside>
+
+  <!-- Main canvas -->
+  <main class="pt-16 lg:ml-72">
+    <article id="booklet" class="max-w-4xl mx-auto px-4 sm:px-8 py-10 sm:py-14"></article>
+    <footer class="max-w-4xl mx-auto px-4 sm:px-8 pb-12 text-xs text-ink-700/50 dark:text-white/30 flex flex-wrap justify-between gap-2 border-t border-ink-200 dark:border-white/10 pt-6">
+      <span>&copy; <span id="year"></span> Strategy Press. Educational content for strategy students &amp; operators.</span>
+      <span>Figures in startup models are illustrative.</span>
+    </footer>
+  </main>
+
+  <script>
+  /* =========================================================
+     DATASET
+     ========================================================= */
+  const CHAPTERS = [
+    { id: 'ch1', num: 1, label: 'Simple Business Case', icon: 'fa-seedling' },
+    { id: 'ch2', num: 2, label: 'Detailed Framework Breakdown', icon: 'fa-sitemap' },
+    { id: 'ch3', num: 3, label: 'Real-World Application', icon: 'fa-globe' },
+    { id: 'ch4', num: 4, label: 'Case Competition Slide Strategy', icon: 'fa-person-chalkboard' },
+    { id: 'ch5', num: 5, label: 'Inspired Startup Idea & Financials', icon: 'fa-rocket' },
+  ];
+
+  const BOOKLETS = [
+    /* ---------------- Booklet 1 ---------------- */
+    {
+      id: 'platform-economics',
+      volume: 'Vol. 01',
+      title: 'Platform Economics & Two-Sided Network Effects',
+      subtitle: 'Why the most valuable companies of the century own no inventory — and how they win the chicken-and-egg game.',
+      industry: 'Technology & Marketplaces',
+      audience: 'MBA / Case Competitors',
+      readTime: 22,
+      icon: 'fa-diagram-project',
+      color: 'from-indigo-500 to-violet-500',
+
+      ch1: {
+        analogy: 'Think of a platform as a <strong>night-club owner</strong>, not a bartender. The bartender makes money selling drinks (a pipeline). The club owner makes money because people come to meet <em>other people</em>. A club with nobody in it is worthless, no matter how good the music. A packed club becomes more attractive with every new guest — and that crowd is the moat.',
+        summary: 'Platforms create value by connecting two (or more) groups who need each other — buyers and sellers, riders and drivers, developers and users. Each new participant on one side makes the platform more valuable for the other side. That feedback loop is the <strong>network effect</strong>, and when it works, it tends to produce winner-take-most markets.',
+        takeaways: [
+          { icon: 'fa-arrows-rotate', title: 'The flywheel', text: 'More sellers → more choice → more buyers → more revenue opportunity → more sellers.' },
+          { icon: 'fa-egg', title: 'The hard part', text: 'Day one has no buyers and no sellers. Solving the "chicken-and-egg" problem is the whole game.' },
+          { icon: 'fa-scale-unbalanced', title: 'The pricing twist', text: 'Platforms often subsidise one side (free for users) and monetise the other (fees for merchants).' },
+        ],
+        oneLiner: 'A pipeline sells products. A platform sells access to each other.',
+      },
+
+      ch2: {
+        intro: 'Platform strategy flips the classical value-chain logic. Instead of controlling inputs and pushing products downstream, a platform orchestrates interactions between external producers and consumers. Value creation moves from <em>inside</em> the firm to the <em>ecosystem</em> around it. The four building blocks below are the levers every platform strategist must pull.',
+        sections: [
+          {
+            heading: '1. Map the Sides and the Core Interaction',
+            body: 'Start by naming the producers, the consumers, and the single repeatable unit of value exchanged between them (a ride, a listing, a video view). Everything else — features, pricing, policies — should make that core interaction easier, more frequent, or higher quality.',
+            bullets: [
+              '<strong>Participants:</strong> who creates value, who consumes it, and who can switch roles (e.g., Airbnb guests becoming hosts).',
+              '<strong>Value unit:</strong> the atomic piece of information or product that is matched.',
+              '<strong>Filter:</strong> the algorithm or curation that decides which value unit reaches which consumer.',
+            ],
+          },
+          {
+            heading: '2. Understand the Types of Network Effects',
+            body: 'Not all network effects are equal. Their direction and strength determine how defensible the platform is.',
+            bullets: [
+              '<strong>Same-side (direct):</strong> more users on a side attract more users on that same side (WhatsApp, LinkedIn).',
+              '<strong>Cross-side (indirect):</strong> more users on one side attract the other side (Uber riders ↔ drivers).',
+              '<strong>Negative effects:</strong> congestion, spam or competition among sellers can reduce value as the network grows — curation must scale with size.',
+              '<strong>Local vs. global:</strong> Uber\'s effects are city-local (easier to attack); Visa\'s are global (much harder).',
+            ],
+          },
+          {
+            heading: '3. Solve the Chicken-and-Egg Problem',
+            body: 'Early platforms have zero value. Proven ignition tactics include:',
+            bullets: [
+              '<strong>Single-side utility first ("come for the tool, stay for the network"):</strong> OpenTable gave restaurants booking software before diners arrived.',
+              '<strong>Subsidise the harder side:</strong> Uber guaranteed hourly earnings to early drivers.',
+              '<strong>Seed supply manually:</strong> Reddit founders posted under fake accounts; Airbnb photographed listings themselves.',
+              '<strong>Piggyback an existing network:</strong> PayPal on eBay; Airbnb cross-posting to Craigslist.',
+              '<strong>Constrain the market:</strong> Facebook launched at one campus at a time to reach local density.',
+            ],
+          },
+          {
+            heading: '4. Monetise Without Breaking the Flywheel',
+            body: 'Charging too early or charging the wrong side can kill the network. Monetise where willingness-to-pay is highest and price-sensitivity is lowest — typically the side that captures the most direct economic value.',
+            bullets: [
+              '<strong>Transaction fee (take rate):</strong> % of GMV — Airbnb, Etsy, App Store.',
+              '<strong>Access/subscription:</strong> charge for premium visibility or tools — LinkedIn Premium.',
+              '<strong>Advertising:</strong> monetise attention while keeping consumer access free — Google, Meta.',
+              '<strong>Enhanced curation:</strong> pay for promoted placement — Amazon Sponsored Products.',
+            ],
+          },
+        ],
+        tableTitle: 'Pipeline vs. Platform: Structured Comparison',
+        table: {
+          headers: ['Dimension', 'Pipeline Business', 'Platform Business'],
+          rows: [
+            ['Value creation', 'Inside the firm, linear', 'In the ecosystem, via interactions'],
+            ['Key asset', 'Inventory, factories, IP', 'Network of participants & data'],
+            ['Scaling cost', 'Grows roughly with output', 'Near-zero marginal cost per interaction'],
+            ['Competitive moat', 'Economies of scale (supply-side)', 'Network effects (demand-side)'],
+            ['Core metric', 'Units sold, margin', 'Liquidity, match rate, take rate, GMV'],
+            ['Market structure', 'Multiple viable players', 'Tends toward winner-take-most'],
+            ['Main risk', 'Cost-out competitors', 'Multi-homing, disintermediation, regulation'],
+          ],
+        },
+        table2Title: 'Monetisation Model Trade-offs',
+        table2: {
+          headers: ['Model', 'Best when…', 'Risk', 'Example'],
+          rows: [
+            ['Take rate', 'Transactions are on-platform and high value', 'Leakage (users go off-platform)', 'Airbnb ~14–16%'],
+            ['Subscription', 'Recurring utility for producers', 'Slows supply acquisition', 'Shopify, LinkedIn'],
+            ['Advertising', 'Huge consumer attention, low WTP', 'Degrades user experience', 'Meta, YouTube'],
+            ['Freemium tools', 'One side needs SaaS workflow', 'Low conversion', 'OpenTable, Toast'],
+          ],
+        },
+      },
+
+      ch3: {
+        company: 'Airbnb',
+        tagline: 'From air mattresses to a global hospitality network with ~8M listings',
+        context: 'In 2008 Airbnb faced the textbook cold-start problem: travellers would not visit a site with no listings, and hosts would not list on a site with no travellers. Incumbent hotel chains owned the inventory and the brand trust. Airbnb owned neither.',
+        execution: [
+          { phase: 'Ignite', text: 'Founders flew to New York, met hosts in person and professionally photographed their homes — booking volume in the city roughly doubled after better photos.' },
+          { phase: 'Piggyback', text: 'Built a growth hack that let hosts cross-post listings to Craigslist, borrowing an existing audience to seed demand.' },
+          { phase: 'Trust layer', text: 'Introduced two-way reviews, verified IDs, secure payments held in escrow and the Host Guarantee — reducing the risk of transacting with strangers.' },
+          { phase: 'Scale', text: 'Expanded city-by-city, using local density as the unit of success, then layered on Experiences and long-term stays to deepen engagement.' },
+        ],
+        metrics: [
+          { value: '~8M', label: 'Active listings' },
+          { value: '~14%', label: 'Blended take rate' },
+          { value: '220+', label: 'Countries & regions' },
+          { value: '0', label: 'Rooms owned' },
+        ],
+        drivers: [
+          '<strong>Trust infrastructure</strong> turned a risky stranger-interaction into a routine purchase.',
+          '<strong>Split fee structure</strong> (small host fee, larger guest service fee) kept supply acquisition friction-free.',
+          '<strong>Supply heterogeneity</strong> — treehouses, castles, entire homes — created selection hotels could not match.',
+          '<strong>Asset-light model</strong> allowed rapid global expansion with minimal capital.',
+        ],
+        lessons: [
+          { title: 'Do things that don\'t scale', text: 'Manual seeding of supply is not a failure of strategy; it is the strategy at the ignition stage.' },
+          { title: 'Trust is a product feature', text: 'In two-sided markets, reducing perceived risk unlocks more transactions than lowering price.' },
+          { title: 'Watch the negative effects', text: 'Over-tourism and housing-cost regulation in cities like Barcelona and New York show that platforms must manage externalities to keep their licence to operate.' },
+        ],
+      },
+
+      ch4: {
+        intro: 'Judges see dozens of decks. A tight three-slide spine forces you to tell one story: <em>why now → what we do → what it\'s worth</em>. Use this structure when the case asks you to launch, defend or grow a marketplace.',
+        slides: [
+          {
+            n: 1, title: 'Situation & Trigger', icon: 'fa-bolt',
+            headline: '"Fragmented supply and unmet demand create a $XB matching gap"',
+            content: ['Quantify both sides: # of potential producers vs. consumers', 'Show the friction cost today (search time, idle capacity, price opacity)', 'Name the trigger: tech shift, regulation, or behaviour change that makes a platform viable now'],
+            visual: 'Two-column "supply vs demand" bar chart with the gap highlighted',
+          },
+          {
+            n: 2, title: 'Core Solution Architecture', icon: 'fa-diagram-project',
+            headline: '"A curated two-sided marketplace ignited city-by-city"',
+            content: ['Platform canvas: producers, consumers, value unit, filter', 'Cold-start plan: which side you subsidise and why', 'Trust & quality mechanisms + monetisation model (take rate %)'],
+            visual: 'Flywheel diagram with the ignition lever marked in accent colour',
+          },
+          {
+            n: 3, title: 'Impact & Execution', icon: 'fa-chart-line',
+            headline: '"Reaching liquidity in 3 launch markets unlocks $Y revenue by Year 3"',
+            content: ['GMV × take rate revenue build (Y1–Y3)', 'Phased roadmap: Ignite → Densify → Expand', 'Top 3 risks (multi-homing, leakage, regulation) with mitigations and KPIs'],
+            visual: 'Stacked GMV waterfall + 3-phase Gantt strip + risk matrix',
+          },
+        ],
+        tips: [
+          'Lead each slide with an action title that states the conclusion, not the topic.',
+          'Always show the metric that proves liquidity (match rate, time-to-fill, repeat rate).',
+          'Anticipate the judge\'s question: "What stops a competitor from copying this?" — answer with network density.',
+        ],
+      },
+
+      ch5: {
+        name: 'SkillSwap Pro',
+        tagline: 'A B2B marketplace matching retired senior engineers with SMEs for on-demand technical advisory.',
+        problem: 'Small manufacturers cannot afford full-time senior engineering talent, while thousands of recently retired engineers want flexible, meaningful work. Existing freelancing platforms are generalist and lack vetting for deep industrial expertise.',
+        solution: 'A curated two-sided platform with skills verification, scoped "advisory sprints" (4–20 hours), escrowed payments and outcome-based reviews. Ignition via partnerships with engineering alumni associations (supply) and regional manufacturing chambers (demand).',
+        market: [
+          { tier: 'TAM', value: '$42B', desc: 'Global SME technical consulting spend' },
+          { tier: 'SAM', value: '$6.5B', desc: 'English-speaking SMEs in manufacturing & engineering' },
+          { tier: 'SOM', value: '$65M', desc: '1% of SAM within 5 years' },
+        ],
+        unitEconomics: [
+          { label: 'Avg. sprint value (GMV)', value: '$2,400' },
+          { label: 'Take rate', value: '18%' },
+          { label: 'Net revenue / sprint', value: '$432' },
+          { label: 'Sprints per client / yr', value: '3.5' },
+          { label: 'Client CAC', value: '$650' },
+          { label: 'Gross margin', value: '78%' },
+          { label: 'Client LTV (3 yrs)', value: '$3,540' },
+          { label: 'LTV : CAC', value: '5.4x' },
+        ],
+        funding: {
+          ask: '$1.5M Seed',
+          runway: '18 months',
+          uses: [
+            { label: 'Supply vetting & onboarding', pct: 30 },
+            { label: 'Product & matching engine', pct: 35 },
+            { label: 'Demand-side sales (3 regions)', pct: 25 },
+            { label: 'Legal, ops & buffer', pct: 10 },
+          ],
+          milestones: ['500 vetted advisors', '1,200 completed sprints', '$2.9M GMV run-rate', '45% client repeat rate'],
+        },
+      },
+    },
+
+    /* ---------------- Booklet 2 ---------------- */
+    {
+      id: 'value-chain-dtc',
+      volume: 'Vol. 02',
+      title: 'Value Chain Unbundling & Direct-to-Consumer Disruption',
+      subtitle: 'How challenger brands slice out the middlemen, own the customer relationship, and rewrite the economics of consumer goods.',
+      industry: 'Consumer Goods & Retail',
+      audience: 'Undergrad / Strategy Consultants',
+      readTime: 19,
+      icon: 'fa-boxes-stacked',
+      color: 'from-amber-500 to-orange-600',
+
+      ch1: {
+        analogy: 'Imagine buying a $20 pair of glasses that costs you $300. Along the way, a designer brand took a licence fee, a wholesaler took a cut, a landlord charged rent for the mall store, and the retailer marked it all up again. <strong>Unbundling</strong> is like a farmer who stops selling through three middlemen and opens a stall right at your door — same product, a fraction of the price, and now the farmer actually <em>knows</em> you.',
+        summary: 'Every industry has a value chain: the sequence of steps from raw material to customer. When technology makes one of those steps cheap (online shopping, social media ads, contract manufacturing), a new entrant can <strong>skip the expensive links</strong> and sell directly to consumers. They trade the incumbent\'s scale for lower prices, better margins and first-party customer data.',
+        takeaways: [
+          { icon: 'fa-scissors', title: 'Unbundle', text: 'Identify the link in the chain that captures outsized margin without adding proportional value.' },
+          { icon: 'fa-handshake', title: 'Go direct', text: 'Own the customer relationship, the brand story and the data — not just the product.' },
+          { icon: 'fa-layer-group', title: 'Rebundle', text: 'Once you own the customer, expand into adjacent categories they trust you for.' },
+        ],
+        oneLiner: '"There are only two ways to make money in business: bundling and unbundling." — Jim Barksdale',
+      },
+
+      ch2: {
+        intro: 'Value-chain analysis (Porter, 1985) decomposes a business into primary activities — inbound logistics, operations, outbound logistics, marketing & sales, service — and support activities. Disruption happens when an entrant <em>reconfigures</em> this chain so that a margin pool controlled by incumbents becomes accessible. DTC is the most visible consumer-facing form of that reconfiguration.',
+        sections: [
+          {
+            heading: '1. Map the Margin Pools',
+            body: 'Lay out every step from raw material to consumer and estimate the share of the final price captured at each step. The most attractive disruption targets are links with high margin but low differentiated value.',
+            bullets: [
+              '<strong>Typical eyewear chain:</strong> manufacturing ~5–10% of retail price; licensing + wholesale + retail markups capture the rest.',
+              '<strong>Typical mattress chain:</strong> showroom rent and commissioned sales staff add 40–50% to price.',
+              '<strong>Ask:</strong> "Which link would customers not miss if it disappeared?"',
+            ],
+          },
+          {
+            heading: '2. Identify the Enabling Shift',
+            body: 'Unbundling is rarely possible until something changes the cost of a link. Common triggers:',
+            bullets: [
+              '<strong>Distribution:</strong> e-commerce platforms (Shopify) and 3PLs eliminate the need for physical retail.',
+              '<strong>Demand generation:</strong> social and search ads enable precise targeting without TV budgets.',
+              '<strong>Production:</strong> contract manufacturers let brands launch without owning factories.',
+              '<strong>Payments & logistics:</strong> Stripe, subscription billing and cheap parcel shipping reduce friction.',
+            ],
+          },
+          {
+            heading: '3. Choose the Unbundling Play',
+            body: 'Entrants pick one of several patterns depending on where incumbents are weakest:',
+            bullets: [
+              '<strong>Cut the middleman:</strong> sell direct at a lower price point (Warby Parker, Dollar Shave Club).',
+              '<strong>Unbundle the product:</strong> sell one high-value component separately (Spotify unbundling the album into songs).',
+              '<strong>Unbundle the service:</strong> carve out a single profitable use-case from a broad incumbent (fintechs unbundling the bank).',
+              '<strong>Vertical integration upstream:</strong> own design + brand + retail while outsourcing manufacturing.',
+            ],
+          },
+          {
+            heading: '4. Plan for the Rebundle (and the CAC Trap)',
+            body: 'Pure DTC economics deteriorate as paid-acquisition costs rise and competitors copy the model. Winning brands plan their second act early.',
+            bullets: [
+              '<strong>Rising CAC:</strong> iOS privacy changes and ad auction saturation raised acquisition costs dramatically from 2021.',
+              '<strong>Omnichannel return:</strong> many DTC brands now open stores or sell through wholesale (Allbirds, Warby Parker, Glossier).',
+              '<strong>Category expansion:</strong> rebundle around the customer (Warby Parker → contact lenses, eye exams).',
+              '<strong>Retention as moat:</strong> subscriptions, community and loyalty programmes lift LTV to offset CAC.',
+            ],
+          },
+        ],
+        tableTitle: 'Traditional Wholesale vs. Direct-to-Consumer',
+        table: {
+          headers: ['Dimension', 'Traditional Wholesale', 'Direct-to-Consumer'],
+          rows: [
+            ['Gross margin', '30–45% (after retailer cut)', '60–75%'],
+            ['Customer data', 'Owned by retailer', 'First-party, granular'],
+            ['Price control', 'Retailer sets promotions', 'Brand controls pricing'],
+            ['Launch speed', 'Months (shelf negotiations)', 'Weeks (online test & learn)'],
+            ['Biggest cost', 'Trade spend & slotting fees', 'Customer acquisition (CAC)'],
+            ['Reach', 'Instant national distribution', 'Must be earned via marketing'],
+            ['Feedback loop', 'Slow, aggregated sell-through data', 'Real-time reviews & A/B testing'],
+          ],
+        },
+        table2Title: 'Incumbent Response Playbook',
+        table2: {
+          headers: ['Response', 'Mechanism', 'Example'],
+          rows: [
+            ['Acquire', 'Buy the challenger and its customer base', 'Unilever → Dollar Shave Club ($1B)'],
+            ['Imitate', 'Launch own DTC sub-brand', 'Gillette Shave Club'],
+            ['Leverage scale', 'Undercut on price via procurement power', 'Private-label retail ranges'],
+            ['Partner', 'Distribute challenger in own channels', 'Target stocking DTC brands'],
+          ],
+        },
+      },
+
+      ch3: {
+        company: 'Warby Parker',
+        tagline: 'Turning a $95 pair of prescription glasses into a category-defining brand',
+        context: 'In 2010, prescription eyewear was dominated by a vertically-integrated incumbent that owned major frame brands, retail chains and a large vision-insurance business. Retail prices of $300+ bore little relation to production costs. Consumers had never bought glasses online because they couldn\'t try them on.',
+        execution: [
+          { phase: 'Unbundle', text: 'Designed frames in-house, sourced from the same quality of manufacturers, and sold online at a flat $95 including prescription lenses — skipping licensors and retail markups.' },
+          { phase: 'Remove friction', text: 'Home Try-On let customers order five frames for free, solving the core objection to online eyewear purchase.' },
+          { phase: 'Brand & mission', text: '"Buy a Pair, Give a Pair" and PR-led launch (a GQ feature) generated a 20,000-person waitlist in the first month.' },
+          { phase: 'Rebundle', text: 'Opened 250+ physical stores with eye exams, added contacts and insurance billing — re-entering the very links of the chain it once bypassed, now on its own terms.' },
+        ],
+        metrics: [
+          { value: '$95', label: 'Launch price point' },
+          { value: '5', label: 'Frames in Home Try-On' },
+          { value: '250+', label: 'Retail stores' },
+          { value: '~55%', label: 'Gross margin (approx.)' },
+        ],
+        drivers: [
+          '<strong>Clear price anchor</strong> — a single, transparent price made the value proposition instantly understandable.',
+          '<strong>Friction removal</strong> — Home Try-On addressed the #1 barrier to adoption.',
+          '<strong>Brand-led acquisition</strong> — PR and word-of-mouth kept early CAC low.',
+          '<strong>Data-informed retail</strong> — online demand data guided where to open stores, reducing location risk.',
+        ],
+        lessons: [
+          { title: 'Find the bloated link', text: 'Disruption works when price is far from cost and the gap is caused by structure, not value.' },
+          { title: 'Solve the switching objection', text: 'The innovation was not selling online — it was making online buying feel safe.' },
+          { title: 'DTC is a starting point, not an end state', text: 'Long-term winners use DTC to build brand and data, then expand to omnichannel profitably.' },
+        ],
+      },
+
+      ch4: {
+        intro: 'For a case asking "Should brand X go direct?" or "How should incumbent Y respond to a DTC attacker?", structure your story around the margin pool, the reconfigured chain, and the payback math.',
+        slides: [
+          {
+            n: 1, title: 'Situation & Trigger', icon: 'fa-bolt',
+            headline: '"60% of the consumer\'s price is captured by links that add little value"',
+            content: ['Value-chain waterfall: cost build-up from factory to shelf', 'Highlight the margin pool you will attack', 'Trigger: channel shift, ad-tech, or consumer behaviour data'],
+            visual: 'Price waterfall chart with the targeted links shaded',
+          },
+          {
+            n: 2, title: 'Core Solution Architecture', icon: 'fa-diagram-project',
+            headline: '"A reconfigured chain delivers 40% lower price at 2× gross margin"',
+            content: ['Before/after value-chain diagram (which links you keep, cut, outsource)', 'Customer acquisition engine & friction-removal mechanism', 'Rebundle path: Year-3 category or channel expansion'],
+            visual: 'Side-by-side "old chain vs new chain" flow with margin labels',
+          },
+          {
+            n: 3, title: 'Impact & Execution', icon: 'fa-chart-line',
+            headline: '"Payback in 7 months; break-even at 120k customers by Year 2"',
+            content: ['Unit economics: AOV, gross margin, CAC, LTV, payback', 'Phased launch: Online MVP → Retention engine → Omnichannel', 'Risks: CAC inflation, incumbent retaliation, inventory — with mitigations'],
+            visual: 'LTV vs CAC curve + 3-phase roadmap + sensitivity table on CAC',
+          },
+        ],
+        tips: [
+          'Judges love a price waterfall — it makes the disruption obvious in five seconds.',
+          'Always stress-test CAC: show what happens if acquisition cost rises 50%.',
+          'If you represent the incumbent, frame options as acquire / imitate / partner and pick one decisively.',
+        ],
+      },
+
+      ch5: {
+        name: 'Loop Kitchen',
+        tagline: 'A DTC brand selling chef-grade, refillable pantry staples in reusable steel tins via subscription.',
+        problem: 'Premium pantry goods (spices, oils, grains) pass through importers, distributors and grocers — each adding margin while freshness declines. Shoppers also generate ~30 kg of single-use packaging waste per household per year from pantry items alone.',
+        solution: 'Source directly from cooperatives, pack to order in a regional micro-fulfilment centre, and ship in reusable tins with refill pouches. A monthly subscription with recipe content builds retention; returned tins are credited, creating a closed loop.',
+        market: [
+          { tier: 'TAM', value: '$28B', desc: 'US specialty & premium pantry market' },
+          { tier: 'SAM', value: '$3.1B', desc: 'Online premium pantry, eco-conscious urban households' },
+          { tier: 'SOM', value: '$46M', desc: '~1.5% of SAM in 5 years' },
+        ],
+        unitEconomics: [
+          { label: 'Average order value', value: '$48' },
+          { label: 'Gross margin', value: '64%' },
+          { label: 'Contribution / order', value: '$22' },
+          { label: 'Orders per subscriber / yr', value: '9' },
+          { label: 'Blended CAC', value: '$58' },
+          { label: 'Annual churn', value: '38%' },
+          { label: 'LTV (contribution)', value: '$385' },
+          { label: 'CAC payback', value: '2.6 orders' },
+        ],
+        funding: {
+          ask: '$2.2M Seed',
+          runway: '20 months',
+          uses: [
+            { label: 'Inventory & supplier deposits', pct: 28 },
+            { label: 'Micro-fulfilment & tin fleet', pct: 22 },
+            { label: 'Growth marketing & content', pct: 35 },
+            { label: 'Team, tech & buffer', pct: 15 },
+          ],
+          milestones: ['15,000 active subscribers', '$4.5M ARR', '70% tin return rate', 'Positive contribution margin by month 12'],
+        },
+      },
+    },
+  ];
+
+  /* =========================================================
+     RENDERING
+     ========================================================= */
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+
+  let currentId = BOOKLETS[0].id;
+  let observer = null;
+
+  function chapterHeader(ch, title, kicker) {
+    return `
+      <div class="flex items-start gap-4 mb-6">
+        <div class="shrink-0 w-11 h-11 rounded-xl bg-ink-900 dark:bg-white text-white dark:text-ink-900 grid place-items-center font-serif font-bold text-lg">${ch.num}</div>
+        <div>
+          <p class="text-[11px] font-semibold uppercase tracking-[.14em] text-accent dark:text-accent-dark">Chapter ${ch.num} · ${kicker}</p>
+          <h2 class="font-serif text-2xl sm:text-3xl font-semibold tracking-tight mt-1">${title}</h2>
+        </div>
+      </div>`;
+  }
+
+  const card = 'rounded-2xl border border-ink-200 dark:border-white/10 bg-white dark:bg-white/[.03]';
+  const muted = 'text-ink-700/75 dark:text-white/60';
+
+  function renderTable(title, t) {
+    return `
+      <h3 class="font-semibold text-lg mt-10 mb-3 flex items-center gap-2"><i class="fa-solid fa-table-columns text-accent dark:text-accent-dark text-sm"></i>${title}</h3>
+      <div class="${card} overflow-x-auto">
+        <table class="w-full text-sm min-w-[560px]">
+          <thead>
+            <tr class="bg-ink-100/70 dark:bg-white/5">
+              ${t.headers.map((h, i) => `<th class="text-left font-semibold px-4 py-3 ${i === 0 ? 'rounded-tl-2xl' : ''} ${i === t.headers.length - 1 ? 'rounded-tr-2xl' : ''}">${h}</th>`).join('')}
+            </tr>
+          </thead>
+          <tbody>
+            ${t.rows.map(r => `
+              <tr class="border-t border-ink-200 dark:border-white/10 hover:bg-ink-50 dark:hover:bg-white/[.02]">
+                ${r.map((c, i) => `<td class="px-4 py-3 border-t border-ink-200/70 dark:border-white/5 ${i === 0 ? 'font-medium' : muted}">${c}</td>`).join('')}
+              </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>`;
+  }
+
+  function renderBooklet(b) {
+    const [c1, c2, c3, c4, c5] = CHAPTERS;
+    return `
+      <!-- HEADER -->
+      <header class="mb-14">
+        <div class="relative overflow-hidden rounded-3xl bg-ink-900 text-white p-7 sm:p-10">
+          <div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-gradient-to-br ${b.color} opacity-30 blur-2xl"></div>
+          <div class="absolute right-8 bottom-6 text-7xl sm:text-8xl opacity-10"><i class="fa-solid ${b.icon}"></i></div>
+          <p class="relative text-xs font-mono tracking-widest text-white/50 mb-4">${b.volume} · STRATEGY BOOKLET</p>
+          <h1 class="relative font-serif text-3xl sm:text-5xl font-semibold leading-[1.1] tracking-tight max-w-3xl">${b.title}</h1>
+          <p class="relative mt-4 text-white/70 text-base sm:text-lg max-w-2xl leading-relaxed">${b.subtitle}</p>
+          <div class="relative mt-7 flex flex-wrap gap-2.5 text-xs font-medium">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/15"><i class="fa-solid fa-industry"></i>${b.industry}</span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/15"><i class="fa-solid fa-user-graduate"></i>${b.audience}</span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-accent-dark/20 text-orange-200 border border-orange-300/30"><i class="fa-regular fa-clock"></i>${b.readTime} min read</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- CH 1 -->
+      <section id="ch1" class="chapter mb-20" data-chapter="ch1">
+        ${chapterHeader(c1, 'The Business Case, in Simple Terms', 'Quick Intuition')}
+        <div class="relative rounded-2xl border border-orange-200 dark:border-orange-400/20 bg-accent-soft dark:bg-orange-400/[.06] p-6 sm:p-8">
+          <div class="flex items-center gap-2 text-accent dark:text-accent-dark font-semibold text-sm mb-3"><i class="fa-solid fa-comment-dots"></i> The Analogy</div>
+          <p class="font-serif text-lg sm:text-xl leading-relaxed">${b.ch1.analogy}</p>
+        </div>
+        <div class="prose-body mt-6 text-[17px] ${muted}"><p>${b.ch1.summary}</p></div>
+        <div class="grid sm:grid-cols-3 gap-4 mt-8">
+          ${b.ch1.takeaways.map(t => `
+            <div class="${card} p-5">
+              <div class="w-9 h-9 rounded-lg bg-ink-100 dark:bg-white/10 grid place-items-center mb-3"><i class="fa-solid ${t.icon} text-accent dark:text-accent-dark"></i></div>
+              <h4 class="font-semibold mb-1">${t.title}</h4>
+              <p class="text-sm leading-relaxed ${muted}">${t.text}</p>
+            </div>`).join('')}
+        </div>
+        <blockquote class="mt-8 border-l-4 border-ink-900 dark:border-white pl-5 font-serif italic text-xl">${b.ch1.oneLiner}</blockquote>
+      </section>
+
+      <!-- CH 2 -->
+      <section id="ch2" class="chapter mb-20" data-chapter="ch2">
+        ${chapterHeader(c2, 'Detailed Framework Breakdown', 'Deep Dive')}
+        <div class="prose-body text-[17px] ${muted} mb-8"><p>${b.ch2.intro}</p></div>
+        <div class="space-y-8">
+          ${b.ch2.sections.map(s => `
+            <div>
+              <h3 class="font-serif text-xl font-semibold mb-2">${s.heading}</h3>
+              <p class="leading-relaxed ${muted} mb-3">${s.body}</p>
+              <ul class="space-y-2">
+                ${s.bullets.map(x => `<li class="flex gap-3 leading-relaxed"><i class="fa-solid fa-angle-right text-accent dark:text-accent-dark mt-1.5 text-xs"></i><span class="${muted}">${x}</span></li>`).join('')}
+              </ul>
+            </div>`).join('')}
+        </div>
+        ${renderTable(b.ch2.tableTitle, b.ch2.table)}
+        ${renderTable(b.ch2.table2Title, b.ch2.table2)}
+      </section>
+
+      <!-- CH 3 -->
+      <section id="ch3" class="chapter mb-20" data-chapter="ch3">
+        ${chapterHeader(c3, 'Real-World Application: ' + b.ch3.company, 'Case Study')}
+        <p class="font-serif text-lg italic ${muted} mb-6">${b.ch3.tagline}</p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+          ${b.ch3.metrics.map(m => `
+            <div class="${card} p-4 text-center">
+              <div class="font-serif text-2xl sm:text-3xl font-bold">${m.value}</div>
+              <div class="text-xs mt-1 ${muted}">${m.label}</div>
+            </div>`).join('')}
+        </div>
+        <h3 class="font-semibold text-lg mb-2">The Context</h3>
+        <p class="leading-relaxed ${muted} mb-8">${b.ch3.context}</p>
+
+        <h3 class="font-semibold text-lg mb-4">Execution Timeline</h3>
+        <ol class="relative border-l-2 border-ink-200 dark:border-white/10 ml-3 space-y-6 mb-10">
+          ${b.ch3.execution.map((e, i) => `
+            <li class="pl-6 relative">
+              <span class="absolute -left-[13px] top-0 w-6 h-6 rounded-full bg-white dark:bg-ink-900 border-2 border-accent dark:border-accent-dark text-[10px] font-bold grid place-items-center">${i + 1}</span>
+              <p class="font-semibold">${e.phase}</p>
+              <p class="text-sm leading-relaxed ${muted} mt-1">${e.text}</p>
+            </li>`).join('')}
+        </ol>
+
+        <div class="grid md:grid-cols-2 gap-5">
+          <div class="${card} p-6">
+            <h3 class="font-semibold mb-3 flex items-center gap-2"><i class="fa-solid fa-gauge-high text-emerald-600 dark:text-emerald-400"></i>Success Drivers</h3>
+            <ul class="space-y-2.5 text-sm">
+              ${b.ch3.drivers.map(d => `<li class="flex gap-2.5"><i class="fa-solid fa-check text-emerald-600 dark:text-emerald-400 mt-1"></i><span class="${muted} leading-relaxed">${d}</span></li>`).join('')}
+            </ul>
+          </div>
+          <div class="${card} p-6">
+            <h3 class="font-semibold mb-3 flex items-center gap-2"><i class="fa-solid fa-graduation-cap text-sky-600 dark:text-sky-400"></i>Lessons Learned</h3>
+            <div class="space-y-3 text-sm">
+              ${b.ch3.lessons.map(l => `<div><p class="font-medium">${l.title}</p><p class="${muted} leading-relaxed">${l.text}</p></div>`).join('')}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CH 4 -->
+      <section id="ch4" class="chapter mb-20" data-chapter="ch4">
+        ${chapterHeader(c4, 'Case Competition Slide Strategy', 'The 3-Slide Deck')}
+        <p class="leading-relaxed ${muted} mb-8 text-[17px]">${b.ch4.intro}</p>
+        <div class="grid md:grid-cols-3 gap-5">
+          ${b.ch4.slides.map(s => `
+            <div class="${card} overflow-hidden flex flex-col group hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5 transition">
+              <div class="aspect-video bg-ink-900 dark:bg-black/40 text-white p-4 flex flex-col justify-between relative">
+                <div class="flex items-center justify-between text-[10px] font-mono text-white/50"><span>SLIDE ${s.n}/3</span><i class="fa-solid ${s.icon} text-accent-dark text-base"></i></div>
+                <p class="font-serif text-sm leading-snug">${s.headline}</p>
+                <div class="flex gap-1"><span class="h-1 flex-1 rounded bg-white/20"></span><span class="h-1 flex-1 rounded bg-white/20"></span><span class="h-1 w-6 rounded bg-accent-dark"></span></div>
+              </div>
+              <div class="p-5 flex-1 flex flex-col">
+                <h4 class="font-semibold mb-3">${s.title}</h4>
+                <ul class="space-y-2 text-sm flex-1">
+                  ${s.content.map(c => `<li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent dark:bg-accent-dark mt-2 shrink-0"></span><span class="${muted}">${c}</span></li>`).join('')}
+                </ul>
+                <div class="mt-4 pt-3 border-t border-ink-200 dark:border-white/10 text-xs ${muted}"><i class="fa-regular fa-image mr-1"></i><strong>Visual:</strong> ${s.visual}</div>
+              </div>
+            </div>`).join('')}
+        </div>
+        <div class="mt-6 rounded-2xl bg-ink-100/70 dark:bg-white/5 p-5">
+          <p class="font-semibold text-sm mb-2"><i class="fa-solid fa-trophy text-amber-500 mr-1.5"></i>Judge-winning tips</p>
+          <ul class="space-y-1.5 text-sm ${muted}">${b.ch4.tips.map(t => `<li>— ${t}</li>`).join('')}</ul>
+        </div>
+      </section>
+
+      <!-- CH 5 -->
+      <section id="ch5" class="chapter mb-10" data-chapter="ch5">
+        ${chapterHeader(c5, 'Inspired Startup Idea & Financial Model', 'Optional · Venture Lab')}
+        <div class="rounded-3xl border-2 border-ink-900 dark:border-white/20 overflow-hidden">
+          <div class="p-6 sm:p-8 bg-white dark:bg-white/[.03]">
+            <div class="flex flex-wrap items-center gap-3 mb-2">
+              <span class="w-10 h-10 rounded-xl bg-gradient-to-br ${b.color} grid place-items-center text-white"><i class="fa-solid fa-rocket"></i></span>
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold">${b.ch5.name}</h3>
+              <span class="text-[10px] uppercase tracking-wider font-semibold px-2 py-1 rounded bg-ink-100 dark:bg-white/10">Concept</span>
+            </div>
+            <p class="${muted} text-lg">${b.ch5.tagline}</p>
+            <div class="grid md:grid-cols-2 gap-5 mt-6 text-sm">
+              <div><p class="font-semibold mb-1"><i class="fa-solid fa-triangle-exclamation text-rose-500 mr-1.5"></i>Problem</p><p class="${muted} leading-relaxed">${b.ch5.problem}</p></div>
+              <div><p class="font-semibold mb-1"><i class="fa-solid fa-wand-magic-sparkles text-emerald-500 mr-1.5"></i>Solution</p><p class="${muted} leading-relaxed">${b.ch5.solution}</p></div>
+            </div>
+          </div>
+
+          <div class="p-6 sm:p-8 border-t border-ink-200 dark:border-white/10">
+            <h4 class="text-[11px] font-semibold uppercase tracking-[.14em] ${muted} mb-4">Market Sizing</h4>
+            <div class="flex flex-col sm:flex-row items-center gap-6">
+              <div class="relative w-48 h-48 shrink-0">
+                <div class="absolute inset-0 rounded-full bg-ink-200 dark:bg-white/10 grid place-items-start justify-center pt-3 text-[10px] font-bold">TAM</div>
+                <div class="absolute inset-[22%] rounded-full bg-ink-700/30 dark:bg-white/20 grid place-items-start justify-center pt-2 text-[10px] font-bold">SAM</div>
+                <div class="absolute inset-[40%] rounded-full bg-accent dark:bg-accent-dark grid place-items-center text-[10px] font-bold text-white">SOM</div>
+              </div>
+              <div class="grid gap-3 flex-1 w-full">
+                ${b.ch5.market.map(m => `
+                  <div class="flex items-center gap-4 ${card} px-4 py-3">
+                    <span class="w-12 text-xs font-bold text-accent dark:text-accent-dark">${m.tier}</span>
+                    <span class="font-serif text-xl font-bold w-20">${m.value}</span>
+                    <span class="text-sm ${muted}">${m.desc}</span>
+                  </div>`).join('')}
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 sm:p-8 border-t border-ink-200 dark:border-white/10 bg-ink-50 dark:bg-transparent">
+            <h4 class="text-[11px] font-semibold uppercase tracking-[.14em] ${muted} mb-4">Unit Economics</h4>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              ${b.ch5.unitEconomics.map((u, i) => `
+                <div class="${card} p-4 ${i === b.ch5.unitEconomics.length - 1 ? 'ring-2 ring-accent dark:ring-accent-dark' : ''}">
+                  <div class="text-xs ${muted}">${u.label}</div>
+                  <div class="font-serif text-xl font-bold mt-1">${u.value}</div>
+                </div>`).join('')}
+            </div>
+          </div>
+
+          <div class="p-6 sm:p-8 border-t border-ink-200 dark:border-white/10 bg-ink-900 text-white">
+            <div class="flex flex-wrap items-end justify-between gap-4 mb-5">
+              <div>
+                <h4 class="text-[11px] font-semibold uppercase tracking-[.14em] text-white/50 mb-1">Funding Requirement</h4>
+                <p class="font-serif text-3xl font-bold">${b.ch5.funding.ask}</p>
+              </div>
+              <span class="text-sm text-white/60"><i class="fa-regular fa-hourglass-half mr-1"></i>${b.ch5.funding.runway} runway</span>
+            </div>
+            <div class="flex h-3 rounded-full overflow-hidden mb-4">
+              ${b.ch5.funding.uses.map((u, i) => `<div style="width:${u.pct}%" class="${['bg-orange-400', 'bg-amber-300', 'bg-sky-400', 'bg-white/40'][i % 4]}"></div>`).join('')}
+            </div>
+            <div class="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm mb-6">
+              ${b.ch5.funding.uses.map((u, i) => `<div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-sm ${['bg-orange-400', 'bg-amber-300', 'bg-sky-400', 'bg-white/40'][i % 4]}"></span><span class="text-white/80 flex-1">${u.label}</span><span class="font-mono">${u.pct}%</span></div>`).join('')}
+            </div>
+            <p class="text-xs uppercase tracking-wider text-white/50 mb-2">Milestones this round unlocks</p>
+            <div class="flex flex-wrap gap-2">
+              ${b.ch5.funding.milestones.map(m => `<span class="text-xs px-3 py-1.5 rounded-full border border-white/20"><i class="fa-solid fa-flag-checkered mr-1.5 text-orange-300"></i>${m}</span>`).join('')}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Next booklet -->
+      ${(() => {
+        const idx = BOOKLETS.findIndex(x => x.id === b.id);
+        const next = BOOKLETS[(idx + 1) % BOOKLETS.length];
+        if (next.id === b.id) return '';
+        return `<button data-open="${next.id}" class="mt-10 w-full text-left ${card} p-6 hover:border-ink-900 dark:hover:border-white/40 transition flex items-center justify-between gap-4">
+          <div><p class="text-xs ${muted}">Next booklet · ${next.volume}</p><p class="font-serif text-xl font-semibold mt-1">${next.title}</p></div>
+          <i class="fa-solid fa-arrow-right text-xl"></i></button>`;
+      })()}
+    `;
+  }
+
+  function renderSidebar() {
+    $('#bookletList').innerHTML = BOOKLETS.map(b => {
+      const active = b.id === currentId;
+      return `
+        <li>
+          <button data-open="${b.id}" class="w-full text-left flex gap-3 p-2.5 rounded-xl transition border ${active
+            ? 'bg-white dark:bg-white/5 border-ink-200 dark:border-white/10 shadow-sm'
+            : 'border-transparent hover:bg-ink-100 dark:hover:bg-white/5'}" aria-current="${active}">
+            <span class="shrink-0 w-10 h-12 rounded-md bg-gradient-to-br ${b.color} grid place-items-center text-white text-sm shadow ${active ? '' : 'opacity-70'}"><i class="fa-solid ${b.icon}"></i></span>
+            <span class="min-w-0">
+              <span class="block text-[10px] font-mono ${active ? 'text-accent dark:text-accent-dark' : 'text-ink-700/50 dark:text-white/40'}">${b.volume}</span>
+              <span class="block text-sm leading-snug ${active ? 'font-semibold' : 'text-ink-700/80 dark:text-white/70'}">${b.title}</span>
+            </span>
+          </button>
+        </li>`;
+    }).join('');
+
+    $('#chapterNav').innerHTML = CHAPTERS.map(c => `
+      <a href="#${c.id}" data-target="${c.id}" class="nav-link flex items-center gap-3 px-2.5 py-2 rounded-lg text-sm text-ink-700/80 dark:text-white/60 hover:text-ink-900 dark:hover:text-white transition">
+        <span class="nav-dot w-1.5 h-1.5 rounded-full bg-ink-200 dark:bg-white/20 transition"></span>
+        <span class="text-[11px] font-mono w-8 shrink-0 opacity-60">Ch ${c.num}</span>
+        <span class="leading-snug">${c.label}</span>
+      </a>`).join('');
+  }
+
+  function setupScrollSpy() {
+    if (observer) observer.disconnect();
+    const links = $$('.nav-link');
+    observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.toggle('active', l.dataset.target === e.target.id));
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    $$('.chapter').forEach(s => observer.observe(s));
+  }
+
+  function openBooklet(id, { scroll = true } = {}) {
+    const b = BOOKLETS.find(x => x.id === id);
+    if (!b) return;
+    currentId = id;
+    const el = $('#booklet');
+    el.classList.add('is-switching');
+    setTimeout(() => {
+      el.innerHTML = renderBooklet(b);
+      renderSidebar();
+      setupScrollSpy();
+      document.title = `${b.title} — Strategy Press`;
+      if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (location.hash.slice(1) !== id) history.replaceState(null, '', '#' + id);
+      requestAnimationFrame(() => el.classList.remove('is-switching'));
+    }, 200);
+  }
+
+  function scrollToChapter(chId) {
+    const target = document.getElementById(chId);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  /* =========================================================
+     UI WIRING
+     ========================================================= */
+  function closeMenu() {
+    $('#sidebar').classList.add('-translate-x-full');
+    $('#overlay').classList.add('hidden');
+  }
+  $('#menuBtn').addEventListener('click', () => {
+    $('#sidebar').classList.remove('-translate-x-full');
+    $('#overlay').classList.remove('hidden');
+  });
+  $('#overlay').addEventListener('click', closeMenu);
+
+  document.addEventListener('click', e => {
+    const open = e.target.closest('[data-open]');
+    if (open) { e.preventDefault(); closeMenu(); if (open.dataset.open !== currentId) openBooklet(open.dataset.open); return; }
+    const nav = e.target.closest('.nav-link');
+    if (nav) { e.preventDefault(); closeMenu(); scrollToChapter(nav.dataset.target); }
+  });
+  $('#brand').addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  document.addEventListener('keydown', e => {
+    if (e.target.matches('input, textarea') || e.metaKey || e.ctrlKey || e.altKey) return;
+    const n = parseInt(e.key, 10);
+    if (n >= 1 && n <= CHAPTERS.length) scrollToChapter(CHAPTERS[n - 1].id);
+  });
+
+  // Reading progress
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)) * 100;
+    $('#progress').style.width = pct + '%';
+  }, { passive: true });
+
+  // Theme
+  function applyTheme(t) {
+    document.documentElement.classList.toggle('dark', t === 'dark');
+  }
+  (function initTheme() {
+    let saved = null;
+    try { saved = localStorage.getItem('sp-theme'); } catch (_) {}
+    applyTheme(saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+  })();
+  $('#themeBtn').addEventListener('click', () => {
+    const next = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+    applyTheme(next);
+    try { localStorage.setItem('sp-theme', next); } catch (_) {}
+  });
+
+  // Netlify Identity
+  (function initIdentity() {
+    const label = $('#authLabel');
+    const ni = window.netlifyIdentity;
+    const setUser = u => { label.textContent = u ? (u.user_metadata?.full_name || u.email || 'Account') : 'Sign in'; };
+    $('#authBtn').addEventListener('click', () => {
+      if (!ni) { alert('Sign-in is available once the site is deployed on Netlify with Identity enabled.'); return; }
+      ni.open();
+    });
+    if (!ni) return;
+    ni.on('init', setUser);
+    ni.on('login', u => { setUser(u); ni.close(); });
+    ni.on('logout', () => setUser(null));
+    setUser(ni.currentUser());
+  })();
+
+  // Boot
+  $('#year').textContent = new Date().getFullYear();
+  (function boot() {
+    const hash = location.hash.slice(1);
+    if (BOOKLETS.some(b => b.id === hash)) currentId = hash;
+    $('#booklet').innerHTML = renderBooklet(BOOKLETS.find(b => b.id === currentId));
+    renderSidebar();
+    setupScrollSpy();
+    if (CHAPTERS.some(c => c.id === hash)) setTimeout(() => scrollToChapter(hash), 50);
+  })();
+  </script>
+</body>
+</html>
