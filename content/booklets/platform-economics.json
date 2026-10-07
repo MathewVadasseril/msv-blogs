@@ -1,7 +1,8 @@
 {
-  "volume": "Vol. 01",
   "title": "Platform Economics & Two-Sided Network Effects",
   "subtitle": "Why the most valuable companies of the century own no inventory — and how they win the chicken-and-egg game.",
+  "volume": "Vol. 01",
+  "order": 1,
   "industry": "Technology & Marketplaces",
   "audience": "MBA / Case Competitors",
   "readTime": 22,
@@ -13,6 +14,7 @@
   ],
   "icon": "fa-diagram-project",
   "color": "from-indigo-500 to-violet-500",
+  "draft": true,
   "ch1": {
     "analogy": "Think of a platform as a **night-club owner**, not a bartender. The bartender makes money selling drinks (a pipeline). The club owner makes money because people come to meet *other people*. A club with nobody in it is worthless, no matter how good the music. A packed club becomes more attractive with every new guest — and that crowd is the moat.",
     "summary": "Platforms create value by connecting two (or more) groups who need each other — buyers and sellers, riders and drivers, developers and users. Each new participant on one side makes the platform more valuable for the other side. That feedback loop is the **network effect**, and when it works, it tends to produce winner-take-most markets.",
@@ -116,24 +118,6 @@
     "company": "Airbnb",
     "tagline": "From air mattresses to a global hospitality network with ~8M listings",
     "context": "In 2008 Airbnb faced the textbook cold-start problem: travellers would not visit a site with no listings, and hosts would not list on a site with no travellers. Incumbent hotel chains owned the inventory and the brand trust. Airbnb owned neither.",
-    "execution": [
-      {
-        "phase": "Ignite",
-        "text": "Founders flew to New York, met hosts in person and professionally photographed their homes — booking volume in the city roughly doubled after better photos."
-      },
-      {
-        "phase": "Piggyback",
-        "text": "Built a growth hack that let hosts cross-post listings to Craigslist, borrowing an existing audience to seed demand."
-      },
-      {
-        "phase": "Trust layer",
-        "text": "Introduced two-way reviews, verified IDs, secure payments held in escrow and the Host Guarantee — reducing the risk of transacting with strangers."
-      },
-      {
-        "phase": "Scale",
-        "text": "Expanded city-by-city, using local density as the unit of success, then layered on Experiences and long-term stays to deepen engagement."
-      }
-    ],
     "metrics": [
       {
         "value": "~8M",
@@ -150,6 +134,24 @@
       {
         "value": "0",
         "label": "Rooms owned"
+      }
+    ],
+    "execution": [
+      {
+        "phase": "Ignite",
+        "text": "Founders flew to New York, met hosts in person and professionally photographed their homes — booking volume in the city roughly doubled after better photos."
+      },
+      {
+        "phase": "Piggyback",
+        "text": "Built a growth hack that let hosts cross-post listings to Craigslist, borrowing an existing audience to seed demand."
+      },
+      {
+        "phase": "Trust layer",
+        "text": "Introduced two-way reviews, verified IDs, secure payments held in escrow and the Host Guarantee — reducing the risk of transacting with strangers."
+      },
+      {
+        "phase": "Scale",
+        "text": "Expanded city-by-city, using local density as the unit of success, then layered on Experiences and long-term stays to deepen engagement."
       }
     ],
     "drivers": [
@@ -303,6 +305,5 @@
         "45% client repeat rate"
       ]
     }
-  },
-  "order": 1
+  }
 }
