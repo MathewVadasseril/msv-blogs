@@ -2,7 +2,7 @@
 # on the branch below, and Netlify redeploys the site automatically.
 backend:
   name: github
-  repo: MathewVadasseril/web-app-msv-blog
+  repo: MathewVadasseril/msv-blogs
   branch: main
   commit_messages:
     create: "Add {{collection}} “{{slug}}”"

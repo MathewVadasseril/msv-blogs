@@ -6,7 +6,7 @@ How changes reach **Mathew - Blogs**. Read this before changing the site.
 
 | | Live site | Test site |
 |---|---|---|
-| Address | https://mathewvadasseril.github.io/web-app-msv-blog/ | https://msvblogs-dev.netlify.app |
+| Address | https://mathewvadasseril.github.io/msv-blogs/ | https://msvblogs-dev.netlify.app |
 | Hosted on | GitHub Pages | Netlify (project `msvblogs-dev`) |
 | Deploys from branch | `main` | `develop` |
 | Who can see it | Everyone | Only the owner (Private) |
@@ -27,7 +27,7 @@ changes), put `[skip netlify]` in the commit message.
 
 ### Blog posts and small changes → straight to `main`
 
-- **Posts and booklets:** write them at https://mathewvadasseril.github.io/web-app-msv-blog/admin/. Saving publishes to the live site. Turn on **Draft** to keep a post hidden until it's ready.
+- **Posts and booklets:** write them at https://mathewvadasseril.github.io/msv-blogs/admin/. Saving publishes to the live site. Turn on **Draft** to keep a post hidden until it's ready.
 - **Small fixes** (copy, a button, a style tweak): commit directly to `main`.
 
 ### Major design changes or new features → through `develop`
@@ -54,7 +54,7 @@ When no major change is in progress, `develop` sits idle and falls behind `main`
 - On every deploy, `node scripts/build-content.js` bundles the content into `content/library.json`.
   - GitHub Pages runs it from `.github/workflows/pages.yml` on every push to `main`.
   - Netlify runs it from `netlify.toml`. On builds of any branch other than `main`, it also points the editor at that branch.
-- Paths in the site are relative (no leading `/`), because GitHub Pages serves it from the `/web-app-msv-blog/` sub-folder. Keep new paths relative.
+- Paths in the site are relative (no leading `/`), because GitHub Pages serves it from the `/msv-blogs/` sub-folder. Keep new paths relative.
 - Uploaded images go to `images/uploads/`.
 
 ### Preview locally
@@ -70,7 +70,7 @@ Opening `index.html` directly from disk won't work, because the browser blocks i
 
 `/admin` signs in with a GitHub **fine-grained personal access token**:
 
-- **Repository access:** only `MathewVadasseril/web-app-msv-blog`
+- **Repository access:** only `MathewVadasseril/msv-blogs`
 - **Permissions:** Contents → **Read and write** (GitHub adds Metadata: Read-only automatically)
 
 When the token expires, create a new one the same way and sign in again.
