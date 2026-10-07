@@ -1,0 +1,11 @@
+# Netlify reads this file automatically, so the build settings in the
+# Netlify UI can stay empty.
+[build]
+  command = "node scripts/build-content.js"
+  publish = "."
+
+# The CMS editor should never be cached, so updates to it load right away.
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    Cache-Control = "no-cache"
