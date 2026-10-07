@@ -91,11 +91,6 @@
           <span class="hidden sm:inline text-xs text-ink-700/60 dark:text-white/40 border-l border-ink-200 dark:border-white/10 pl-2.5 ml-0.5">Strategy Booklets</span>
         </a>
       </div>
-      <div class="flex items-center gap-2">
-        <button id="themeBtn" class="w-10 h-10 grid place-items-center rounded-lg hover:bg-ink-100 dark:hover:bg-white/5" aria-label="Toggle dark mode" title="Toggle theme">
-          <span class="dark:hidden"><i class="fa-solid fa-moon"></i></span><span class="hidden dark:inline"><i class="fa-solid fa-sun"></i></span>
-        </button>
-      </div>
     </div>
   </header>
 
@@ -779,20 +774,11 @@
     $('#progress').style.width = pct + '%';
   }, { passive: true });
 
-  // Theme
-  function applyTheme(t) {
-    document.documentElement.classList.toggle('dark', t === 'dark');
-  }
-  (function initTheme() {
-    let saved = null;
-    try { saved = localStorage.getItem('sp-theme'); } catch (_) {}
-    applyTheme(saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
-  })();
-  $('#themeBtn').addEventListener('click', () => {
-    const next = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
-    applyTheme(next);
-    try { localStorage.setItem('sp-theme', next); } catch (_) {}
-  });
+  // Theme: follow the visitor's device setting, including when it changes.
+  const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  const applyTheme = () => document.documentElement.classList.toggle('dark', darkQuery.matches);
+  applyTheme();
+  darkQuery.addEventListener('change', applyTheme);
 
   // Boot
   $('#year').textContent = new Date().getFullYear();
