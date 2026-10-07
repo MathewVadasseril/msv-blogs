@@ -6,8 +6,6 @@
   <title>Mathew - Blogs</title>
   <meta name="description" content="An interactive digital library of business strategy booklets: frameworks, case studies, case-competition slide strategy and startup ideas." />
 
-  <!-- Netlify Identity -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -96,9 +94,6 @@
       <div class="flex items-center gap-2">
         <button id="themeBtn" class="w-10 h-10 grid place-items-center rounded-lg hover:bg-ink-100 dark:hover:bg-white/5" aria-label="Toggle dark mode" title="Toggle theme">
           <span class="dark:hidden"><i class="fa-solid fa-moon"></i></span><span class="hidden dark:inline"><i class="fa-solid fa-sun"></i></span>
-        </button>
-        <button id="authBtn" class="inline-flex items-center gap-2 h-9 px-3.5 rounded-lg text-sm font-medium bg-ink-900 text-white dark:bg-white dark:text-ink-900 hover:opacity-90">
-          <i class="fa-regular fa-user"></i><span id="authLabel">Sign in</span>
         </button>
       </div>
     </div>
@@ -798,22 +793,6 @@
     applyTheme(next);
     try { localStorage.setItem('sp-theme', next); } catch (_) {}
   });
-
-  // Netlify Identity
-  (function initIdentity() {
-    const label = $('#authLabel');
-    const ni = window.netlifyIdentity;
-    const setUser = u => { label.textContent = u ? (u.user_metadata?.full_name || u.email || 'Account') : 'Sign in'; };
-    $('#authBtn').addEventListener('click', () => {
-      if (!ni) { alert('Sign-in is available once the site is deployed on Netlify with Identity enabled.'); return; }
-      ni.open();
-    });
-    if (!ni) return;
-    ni.on('init', setUser);
-    ni.on('login', u => { setUser(u); ni.close(); });
-    ni.on('logout', () => setUser(null));
-    setUser(ni.currentUser());
-  })();
 
   // Boot
   $('#year').textContent = new Date().getFullYear();
