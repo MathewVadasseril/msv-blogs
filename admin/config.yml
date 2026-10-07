@@ -3,7 +3,7 @@
 backend:
   name: github
   repo: MathewVadasseril/Blogging-Website-Strategy
-  branch: claude/strategy-booklet-library-as6rkl
+  branch: main
   commit_messages:
     create: "Add {{collection}} “{{slug}}”"
     update: "Update {{collection}} “{{slug}}”"
