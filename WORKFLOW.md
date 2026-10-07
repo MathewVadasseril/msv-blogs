@@ -6,19 +6,28 @@ How changes reach **Mathew - Blogs**. Read this before changing the site.
 
 | | Live site | Test site |
 |---|---|---|
-| Address | https://msvblogs.netlify.app | https://msvblogs-dev.netlify.app |
-| Netlify project | `msvblogs` | `msvblogs-dev` |
+| Address | https://mathewvadasseril.github.io/web-app-msv-blog/ | https://msvblogs-dev.netlify.app |
+| Hosted on | GitHub Pages | Netlify (project `msvblogs-dev`) |
 | Deploys from branch | `main` | `develop` |
 | Who can see it | Everyone | Only the owner (Private) |
 | Editor (`/admin`) saves to | `main` | `develop` |
+| Cost per deploy | Free | Netlify credits (free plan: 300 a month) |
 
-Both sites rebuild automatically, about a minute after a push to their branch.
+Both sites rebuild automatically, a minute or two after a push to their branch.
+The live site's progress shows in the repo's **Actions** tab ("Deploy to GitHub Pages").
+
+**Why two hosts:** every saved post is a deploy. GitHub Pages deploys for free, so
+everyday publishing lives there. Netlify can keep a site private, so it's used only
+for testing major changes, which keeps credit use low.
+
+To push to `develop` without spending Netlify credits (for example, docs-only
+changes), put `[skip netlify]` in the commit message.
 
 ## Which path to use
 
 ### Blog posts and small changes → straight to `main`
 
-- **Posts and booklets:** write them at https://msvblogs.netlify.app/admin. Saving publishes to the live site. Turn on **Draft** to keep a post hidden until it's ready.
+- **Posts and booklets:** write them at https://mathewvadasseril.github.io/web-app-msv-blog/admin/. Saving publishes to the live site. Turn on **Draft** to keep a post hidden until it's ready.
 - **Small fixes** (copy, a button, a style tweak): commit directly to `main`.
 
 ### Major design changes or new features → through `develop`
@@ -42,7 +51,10 @@ When no major change is in progress, `develop` sits idle and falls behind `main`
 
 - `index.html` is the whole site. It loads `content/library.json` at startup.
 - Posts live in `content/posts/*.json` and booklets in `content/booklets/*.json`. The editor at `/admin` ([Sveltia CMS](https://github.com/sveltia/sveltia-cms), configured in `admin/config.yml`) creates and edits these files as commits.
-- On every deploy, Netlify runs `node scripts/build-content.js` (set in `netlify.toml`). It bundles the content into `content/library.json`. On builds of any branch other than `main`, it also points the editor at that branch.
+- On every deploy, `node scripts/build-content.js` bundles the content into `content/library.json`.
+  - GitHub Pages runs it from `.github/workflows/pages.yml` on every push to `main`.
+  - Netlify runs it from `netlify.toml`. On builds of any branch other than `main`, it also points the editor at that branch.
+- Paths in the site are relative (no leading `/`), because GitHub Pages serves it from the `/web-app-msv-blog/` sub-folder. Keep new paths relative.
 - Uploaded images go to `images/uploads/`.
 
 ### Preview locally

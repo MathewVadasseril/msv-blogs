@@ -10,7 +10,7 @@ backend:
     delete: "Delete {{collection}} “{{slug}}”"
 
 media_folder: images/uploads
-public_folder: /images/uploads
+public_folder: images/uploads
 
 collections:
   # ---------------------------------------------------------------- Posts
