@@ -34,3 +34,15 @@ const posts = readFolder('posts')
 
 fs.writeFileSync(dir('library.json'), JSON.stringify({ generated: new Date().toISOString(), booklets, posts }));
 console.log(`content/library.json: ${booklets.length} booklets, ${posts.length} posts`);
+
+// The /admin editor saves to the branch named in admin/config.yml (main).
+// Netlify sets BRANCH during a build, so on a site that deploys another
+// branch (e.g. the private develop test site) the editor saves there instead.
+const branch = process.env.BRANCH;
+if (branch && branch !== 'main') {
+  const configPath = path.join(root, 'admin', 'config.yml');
+  const config = fs.readFileSync(configPath, 'utf8');
+  if (!/^  branch: main$/m.test(config)) throw new Error('admin/config.yml: expected "  branch: main" under backend');
+  fs.writeFileSync(configPath, config.replace(/^  branch: main$/m, `  branch: ${branch}`));
+  console.log(`admin/config.yml: editor will save to the "${branch}" branch`);
+}
