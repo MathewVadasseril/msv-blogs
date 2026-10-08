@@ -50,7 +50,7 @@ When no major change is in progress, `develop` sits idle and falls behind `main`
 ## How the site is built
 
 - `index.html` is the whole site. It loads `content/library.json` at startup.
-- Posts live in `content/posts/*.json` and booklets in `content/booklets/*.json`. The editor at `/admin` ([Sveltia CMS](https://github.com/sveltia/sveltia-cms), configured in `admin/config.yml`) creates and edits these files as commits.
+- Posts live in `content/posts/*.json`, booklets in `content/booklets/*.json`, and the home page, header and footer text in `content/site.json` ("Site Settings" in the editor). The editor at `/admin` ([Sveltia CMS](https://github.com/sveltia/sveltia-cms), configured in `admin/config.yml`) creates and edits these files as commits.
 - On every deploy, `node scripts/build-content.js` bundles the content into `content/library.json`.
   - GitHub Pages runs it from `.github/workflows/pages.yml` on every push to `main`.
   - Netlify runs it from `netlify.toml`. On builds of any branch other than `main`, it also points the editor at that branch.

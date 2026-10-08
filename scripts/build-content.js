@@ -32,7 +32,11 @@ const posts = readFolder('posts')
   .map(p => ({ topics: [], summary: '', ...p }))
   .sort((a, b) => String(b.date).localeCompare(String(a.date)));
 
-fs.writeFileSync(dir('library.json'), JSON.stringify({ generated: new Date().toISOString(), booklets, posts }));
+// Home page, header and footer text edited under "Site Settings" in the editor.
+const siteFile = path.join(dir('site.json'));
+const site = fs.existsSync(siteFile) ? JSON.parse(fs.readFileSync(siteFile, 'utf8')) : {};
+
+fs.writeFileSync(dir('library.json'), JSON.stringify({ generated: new Date().toISOString(), site, booklets, posts }));
 console.log(`content/library.json: ${booklets.length} booklets, ${posts.length} posts`);
 
 // The /admin editor saves to the branch named in admin/config.yml (main).

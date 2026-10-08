@@ -87,8 +87,8 @@
         </button>
         <a href="#" class="flex items-center gap-2.5" id="brand">
           <span class="w-8 h-8 rounded-lg bg-ink-900 dark:bg-white text-white dark:text-ink-900 grid place-items-center text-sm"><i class="fa-solid fa-book-open"></i></span>
-          <span class="font-serif text-lg font-semibold tracking-tight">Mathew - Blogs</span>
-          <span class="hidden sm:inline text-xs text-ink-700/60 dark:text-white/40 border-l border-ink-200 dark:border-white/10 pl-2.5 ml-0.5">Strategy Booklets</span>
+          <span id="siteName" class="font-serif text-lg font-semibold tracking-tight">Mathew - Blogs</span>
+          <span id="siteTagline" class="hidden sm:inline text-xs text-ink-700/60 dark:text-white/40 border-l border-ink-200 dark:border-white/10 pl-2.5 ml-0.5">Strategy Booklets</span>
         </a>
       </div>
     </div>
@@ -147,8 +147,8 @@
       <article id="booklet" class="max-w-4xl mx-auto px-4 sm:px-8 py-10 sm:py-14"></article>
     </div>
     <footer class="max-w-4xl mx-auto px-4 sm:px-8 pb-12 text-xs text-ink-700/50 dark:text-white/30 flex flex-wrap justify-between gap-2 border-t border-ink-200 dark:border-white/10 pt-6">
-      <span>&copy; <span id="year"></span> Mathew - Blogs. Educational content for strategy students &amp; operators.</span>
-      <span>Figures in startup models are illustrative.</span>
+      <span id="footerText">&copy; <span id="year"></span> Mathew - Blogs. Educational content for strategy students &amp; operators.</span>
+      <span id="footerNote">Figures in startup models are illustrative.</span>
     </footer>
   </main>
 
@@ -185,6 +185,19 @@
   // content/library.json, which is loaded below.
   let BOOKLETS = [];
   let POSTS = [];
+
+  // Home page, header and footer text, edited under "Site Settings" in the editor.
+  const SITE_DEFAULTS = {
+    siteName: 'Mathew - Blogs',
+    headerTagline: 'Strategy Booklets',
+    homeEyebrow: 'The Library',
+    homeIntro: 'Business strategy booklets and blog posts for case competitors, students and operators. Each booklet moves from a plain-English intuition to a full framework, a real case, a 3-slide deck plan and a startup idea with numbers.',
+    bookletsHeading: 'Strategy Booklets',
+    postsHeading: 'Blog Posts',
+    footerText: 'Educational content for strategy students & operators.',
+    footerNote: 'Figures in startup models are illustrative.',
+  };
+  let SITE = { ...SITE_DEFAULTS };
 
   const inlineMd = str => (window.marked ? marked.parseInline(str) : str);
   const blockMd = str => (window.marked ? marked.parse(str) : `<p>${str}</p>`);
@@ -240,6 +253,23 @@
       readTime: Math.max(1, Math.round(words / 220)),
       html: blockMd(String(p.body || '')),
     };
+  }
+
+  // Escapes every field for safe display; the introduction may use inline Markdown.
+  function prepareSite(raw) {
+    const merged = { ...SITE_DEFAULTS, ...(raw || {}) };
+    const site = Object.fromEntries(Object.entries(merged).map(([k, v]) => [k, esc(v ?? '')]));
+    site.homeIntro = inlineMd(String(merged.homeIntro ?? ''));
+    site.plainName = String(merged.siteName || SITE_DEFAULTS.siteName); // for browser tab titles
+    return site;
+  }
+
+  function applySiteText() {
+    $('#siteName').innerHTML = SITE.siteName;
+    $('#siteTagline').innerHTML = SITE.headerTagline;
+    $('#siteTagline').classList.toggle('sm:inline', !!SITE.headerTagline);
+    $('#footerText').innerHTML = `&copy; ${new Date().getFullYear()} ${SITE.siteName}.${SITE.footerText ? ' ' + SITE.footerText : ''}`;
+    $('#footerNote').innerHTML = SITE.footerNote;
   }
 
   function formatDate(d) {
@@ -518,9 +548,9 @@
     const totalMin = BOOKLETS.reduce((n, b) => n + b.readTime, 0);
     $('#home').innerHTML = `
       <div class="mb-10">
-        <p class="text-[11px] font-semibold uppercase tracking-[.14em] text-accent dark:text-accent-dark mb-3">The Library</p>
-        <h1 class="font-serif text-4xl sm:text-5xl font-semibold tracking-tight leading-[1.1]">Mathew - Blogs</h1>
-        <p class="mt-4 text-lg max-w-2xl ${muted} leading-relaxed">Business strategy booklets and blog posts for case competitors, students and operators. Each booklet moves from a plain-English intuition to a full framework, a real case, a 3-slide deck plan and a startup idea with numbers.</p>
+        ${SITE.homeEyebrow ? `<p class="text-[11px] font-semibold uppercase tracking-[.14em] text-accent dark:text-accent-dark mb-3">${SITE.homeEyebrow}</p>` : ''}
+        <h1 class="font-serif text-4xl sm:text-5xl font-semibold tracking-tight leading-[1.1]">${SITE.siteName}</h1>
+        ${SITE.homeIntro ? `<p class="mt-4 text-lg max-w-2xl ${muted} leading-relaxed">${SITE.homeIntro}</p>` : ''}
         <div class="mt-6 flex flex-wrap gap-6 text-sm">
           <div><span class="font-serif text-2xl font-bold">${BOOKLETS.length}</span> <span class="${muted}">booklets</span></div>
           <div><span class="font-serif text-2xl font-bold">${POSTS.length}</span> <span class="${muted}">${POSTS.length === 1 ? 'post' : 'posts'}</span></div>
@@ -598,8 +628,8 @@
       </div>`).join('');
 
     $('#homeResults').innerHTML = (list.length + posts.length) ? `
-      ${list.length ? `<section>${sectionHead('fa-book', 'Strategy Booklets', list.length)}<div class="grid md:grid-cols-2 gap-6">${bookletHtml}</div></section>` : ''}
-      ${posts.length ? `<section>${sectionHead('fa-pen-nib', 'Blog Posts', posts.length)}<div class="space-y-4">${postHtml}</div></section>` : ''}` : `
+      ${list.length ? `<section>${sectionHead('fa-book', SITE.bookletsHeading, list.length)}<div class="grid md:grid-cols-2 gap-6">${bookletHtml}</div></section>` : ''}
+      ${posts.length ? `<section>${sectionHead('fa-pen-nib', SITE.postsHeading, posts.length)}<div class="space-y-4">${postHtml}</div></section>` : ''}` : `
       <div class="${card} p-10 text-center">
         <i class="fa-regular fa-folder-open text-3xl ${muted}"></i>
         <p class="font-semibold mt-3">Nothing matches these filters</p>
@@ -683,7 +713,7 @@
     showOnly('#home');
     renderHomeShell();
     renderSidebar();
-    document.title = 'Mathew - Blogs';
+    document.title = SITE.plainName;
     window.scrollTo({ top: 0 });
   }
 
@@ -700,7 +730,7 @@
       renderSidebar();
       renderContentBar();
       setupScrollSpy();
-      document.title = `${b.title.replace(/&amp;/g, '&')} · Mathew - Blogs`;
+      document.title = `${b.title.replace(/&amp;/g, '&')} · ${SITE.plainName}`;
       if (chapter) setTimeout(() => scrollToChapter(chapter), 60);
       else window.scrollTo({ top: 0, behavior: switching ? 'smooth' : 'auto' });
       requestAnimationFrame(() => el.classList.remove('is-switching'));
@@ -726,7 +756,7 @@
       </div>
       <div class="post-body mt-8">${p.html}</div>`;
     renderSidebar();
-    document.title = `${p.title.replace(/&amp;/g, '&')} · Mathew - Blogs`;
+    document.title = `${p.title.replace(/&amp;/g, '&')} · ${SITE.plainName}`;
     window.scrollTo({ top: 0 });
   }
 
@@ -818,6 +848,8 @@
   fetch('content/library.json', { cache: 'no-cache' })
     .then(res => { if (!res.ok) throw new Error(res.status + ' ' + res.statusText); return res.json(); })
     .then(data => {
+      SITE = prepareSite(data.site);
+      applySiteText();
       BOOKLETS = (data.booklets || []).map(b => renderInlineMarkdown(withDefaults(b)));
       POSTS = (data.posts || []).map(preparePost);
       currentId = BOOKLETS[0]?.id ?? null;

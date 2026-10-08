@@ -238,3 +238,22 @@ collections:
                       - { name: label, label: Use, widget: string }
                       - { name: pct, label: Percent, widget: number, value_type: int }
                   - { name: milestones, label: Milestones, widget: list, field: { name: milestone, label: Milestone, widget: string } }
+
+  # ---------------------------------------------------------------- Site text
+  - name: settings
+    label: Site Settings
+    description: Text on the home page, header and footer.
+    format: json
+    files:
+      - name: site
+        label: Home page, header & footer text
+        file: content/site.json
+        fields:
+          - { name: siteName, label: Site name, widget: string, hint: "Shown in the header, as the big home page title, and in browser tabs." }
+          - { name: headerTagline, label: Header tagline, widget: string, required: false, hint: "Small text next to the site name in the header. Leave empty to hide." }
+          - { name: homeEyebrow, label: Home page label, widget: string, required: false, hint: "Small coloured text above the home page title. Leave empty to hide." }
+          - { name: homeIntro, label: Home page introduction, widget: text, required: false, hint: "Paragraph under the title. Supports **bold**, *italic* and [links](https://example.com)." }
+          - { name: bookletsHeading, label: Booklets section heading, widget: string, default: Strategy Booklets }
+          - { name: postsHeading, label: Blog posts section heading, widget: string, default: Blog Posts }
+          - { name: footerText, label: Footer text, widget: string, required: false, hint: "Shown after © year and the site name." }
+          - { name: footerNote, label: Footer note (right side), widget: string, required: false }
