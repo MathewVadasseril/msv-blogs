@@ -89,6 +89,108 @@ collections:
         widget: list
         hint: "Add chapters with the + button, rename them, drag to reorder, or delete. A chapter's type sets its layout."
         types:
+          - name: blocks
+            label: "Build your own (stack blocks in any order)"
+            widget: object
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: Chapter title, widget: string }
+              - { name: kicker, label: "Small label above the title (optional)", widget: string, required: false }
+              - name: blocks
+                label: Blocks
+                label_singular: Block
+                widget: list
+                hint: "Add blocks with the + button and drag them into any order."
+                types:
+                  - name: text
+                    label: Text
+                    widget: object
+                    fields:
+                      - { name: markdown, label: Text, widget: markdown, hint: "Paragraphs, headings, lists, links and images." }
+                  - name: image
+                    label: Image
+                    widget: object
+                    fields:
+                      - { name: image, label: Image, widget: image, hint: "Upload a picture (ideally under 1 MB) or paste an image link." }
+                      - { name: alt, label: Image description, widget: string, required: false, hint: "Describes the picture for screen readers and if it fails to load." }
+                      - { name: caption, label: Caption, widget: string, required: false }
+                      - name: size
+                        label: Size
+                        widget: select
+                        default: medium
+                        options:
+                          - { label: Small, value: small }
+                          - { label: Medium, value: medium }
+                          - { label: Full width, value: wide }
+                  - name: callout
+                    label: Callout box
+                    widget: object
+                    summary: "{{fields.heading}}"
+                    fields:
+                      - { name: heading, label: Label, widget: string, required: false, default: The Analogy }
+                      - { name: icon, label: "Icon (Font Awesome name, e.g. fa-comment-dots)", widget: string, required: false, default: fa-comment-dots }
+                      - { name: text, label: Text, widget: text }
+                  - name: cards
+                    label: Cards
+                    widget: object
+                    fields:
+                      - name: items
+                        label: Cards
+                        label_singular: Card
+                        widget: list
+                        summary: "{{fields.title}}"
+                        fields:
+                          - { name: icon, label: "Icon (Font Awesome name, e.g. fa-bolt)", widget: string, required: false, default: fa-bolt }
+                          - { name: title, label: Title, widget: string }
+                          - { name: text, label: Text, widget: text }
+                  - name: quote
+                    label: Quote
+                    widget: object
+                    fields:
+                      - { name: text, label: Quote, widget: text }
+                      - { name: author, label: Author, widget: string, required: false }
+                  - name: table
+                    label: Table
+                    widget: object
+                    summary: "{{fields.title}}"
+                    fields:
+                      - { name: title, label: Table title, widget: string, required: false }
+                      - { name: headers, label: Column headers, widget: list, field: { name: header, label: Header, widget: string } }
+                      - { name: rows, label: "Rows (separate cells with |)", widget: list, field: { name: row, label: Row, widget: string } }
+                  - name: metrics
+                    label: Number tiles
+                    widget: object
+                    fields:
+                      - name: items
+                        label: Tiles
+                        label_singular: Tile
+                        widget: list
+                        summary: "{{fields.value}} {{fields.label}}"
+                        fields:
+                          - { name: value, label: "Number (e.g. $95, 250+)", widget: string }
+                          - { name: label, label: Label, widget: string }
+                  - name: timeline
+                    label: Timeline
+                    widget: object
+                    summary: "{{fields.title}}"
+                    fields:
+                      - { name: title, label: Heading, widget: string, required: false }
+                      - name: steps
+                        label: Steps
+                        label_singular: Step
+                        widget: list
+                        summary: "{{fields.phase}}"
+                        fields:
+                          - { name: phase, label: Step title, widget: string }
+                          - { name: text, label: Description, widget: text }
+                  - name: listbox
+                    label: List box
+                    widget: object
+                    summary: "{{fields.title}}"
+                    fields:
+                      - { name: title, label: Heading, widget: string, required: false }
+                      - { name: icon, label: "Bullet icon (Font Awesome name)", widget: string, required: false, default: fa-check }
+                      - { name: items, label: Items, widget: list, field: { name: item, label: Item, widget: text } }
           - name: text
             label: "Free-form chapter (write anything)"
             widget: object
