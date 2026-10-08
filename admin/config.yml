@@ -83,138 +83,158 @@ collections:
           - { label: Slate → Zinc, value: from-slate-500 to-zinc-700 }
       - { name: draft, label: "Draft (hide from site)", widget: boolean, default: false, required: false }
 
-      - label: "Ch 1 · Simple Business Case"
-        name: ch1
-        widget: object
-        collapsed: true
-        fields:
-          - { name: analogy, label: Analogy (callout card), widget: text }
-          - { name: summary, label: Plain-English summary, widget: text }
-          - label: Takeaway cards
-            name: takeaways
-            widget: list
+      - label: Chapters
+        label_singular: Chapter
+        name: chapters
+        widget: list
+        hint: "Add chapters with the + button, rename them, drag to reorder, or delete. A chapter's type sets its layout."
+        types:
+          - name: text
+            label: "Free-form chapter (write anything)"
+            widget: object
             summary: "{{fields.title}}"
             fields:
-              - { name: icon, label: "Icon (Font Awesome name, e.g. fa-bolt)", widget: string, default: fa-bolt }
-              - { name: title, label: Title, widget: string }
-              - { name: text, label: Text, widget: text }
-          - { name: oneLiner, label: One-line summary quote, widget: string }
-
-      - label: "Ch 2 · Detailed Framework Breakdown"
-        name: ch2
-        widget: object
-        collapsed: true
-        fields:
-          - { name: intro, label: Introduction, widget: text }
-          - label: Sections
-            name: sections
-            widget: list
-            summary: "{{fields.heading}}"
-            fields:
-              - { name: heading, label: Heading, widget: string }
-              - { name: body, label: Paragraph, widget: text }
-              - { name: bullets, label: Bullet points, widget: list, field: { name: bullet, label: Bullet, widget: text } }
-          - { name: tableTitle, label: Table 1 title, widget: string }
-          - label: Table 1
-            name: table
+              - { name: title, label: Chapter title, widget: string }
+              - { name: kicker, label: "Small label above the title (optional)", widget: string, required: false }
+              - { name: markdown, label: Chapter content, widget: markdown }
+          - name: intuition
+            label: "Simple business case (analogy, summary, takeaways)"
             widget: object
-            fields:
-              - { name: headers, label: Column headers, widget: list, field: { name: header, label: Header, widget: string } }
-              - { name: rows, label: "Rows (separate cells with |)", widget: list, field: { name: row, label: Row, widget: string } }
-          - { name: table2Title, label: Table 2 title, widget: string, required: false }
-          - label: Table 2
-            name: table2
-            widget: object
-            required: false
-            fields:
-              - { name: headers, label: Column headers, widget: list, required: false, field: { name: header, label: Header, widget: string } }
-              - { name: rows, label: "Rows (separate cells with |)", widget: list, required: false, field: { name: row, label: Row, widget: string } }
-
-      - label: "Ch 3 · Real-World Application"
-        name: ch3
-        widget: object
-        collapsed: true
-        fields:
-          - { name: company, label: Company, widget: string }
-          - { name: tagline, label: Tagline, widget: string }
-          - { name: context, label: Context, widget: text }
-          - label: Key metrics
-            name: metrics
-            widget: list
-            summary: "{{fields.value}} {{fields.label}}"
-            fields:
-              - { name: value, label: Value, widget: string }
-              - { name: label, label: Label, widget: string }
-          - label: Execution timeline
-            name: execution
-            widget: list
-            summary: "{{fields.phase}}"
-            fields:
-              - { name: phase, label: Phase, widget: string }
-              - { name: text, label: Description, widget: text }
-          - { name: drivers, label: Success drivers, widget: list, field: { name: driver, label: Driver, widget: text } }
-          - label: Lessons learned
-            name: lessons
-            widget: list
             summary: "{{fields.title}}"
             fields:
-              - { name: title, label: Title, widget: string }
-              - { name: text, label: Text, widget: text }
-
-      - label: "Ch 4 · Case Competition Slide Strategy"
-        name: ch4
-        widget: object
-        collapsed: true
-        fields:
-          - { name: intro, label: Introduction, widget: text }
-          - label: Slides
-            name: slides
-            widget: list
-            summary: "Slide {{fields.n}}: {{fields.title}}"
-            fields:
-              - { name: n, label: Slide number, widget: number, value_type: int }
-              - { name: title, label: Title, widget: string }
-              - { name: icon, label: Icon (Font Awesome name), widget: string, default: fa-bolt }
-              - { name: headline, label: Action headline, widget: string }
-              - { name: content, label: Content points, widget: list, field: { name: point, label: Point, widget: string } }
-              - { name: visual, label: Suggested visual, widget: string }
-          - { name: tips, label: Judge-winning tips, widget: list, field: { name: tip, label: Tip, widget: text } }
-
-      - label: "Ch 5 · Inspired Startup Idea & Financials"
-        name: ch5
-        widget: object
-        collapsed: true
-        fields:
-          - { name: name, label: Startup name, widget: string }
-          - { name: tagline, label: Tagline, widget: string }
-          - { name: problem, label: Problem, widget: text }
-          - { name: solution, label: Solution, widget: text }
-          - label: Market sizing
-            name: market
-            widget: list
-            summary: "{{fields.tier}} {{fields.value}}"
-            fields:
-              - { name: tier, label: Tier (TAM / SAM / SOM), widget: string }
-              - { name: value, label: Value, widget: string }
-              - { name: desc, label: Description, widget: string }
-          - label: Unit economics
-            name: unitEconomics
-            widget: list
-            summary: "{{fields.label}}: {{fields.value}}"
-            fields:
-              - { name: label, label: Metric, widget: string }
-              - { name: value, label: Value, widget: string }
-          - label: Funding
-            name: funding
-            widget: object
-            fields:
-              - { name: ask, label: Round & amount, widget: string }
-              - { name: runway, label: Runway, widget: string }
-              - label: Use of funds
-                name: uses
+              - { name: title, label: Chapter title, widget: string }
+              - { name: kicker, label: "Small label above the title (optional)", widget: string, required: false }
+              - { name: analogy, label: Analogy (callout card), widget: text }
+              - { name: summary, label: Plain-English summary, widget: text }
+              - label: Takeaway cards
+                name: takeaways
                 widget: list
-                summary: "{{fields.label}} ({{fields.pct}}%)"
+                summary: "{{fields.title}}"
                 fields:
-                  - { name: label, label: Use, widget: string }
-                  - { name: pct, label: Percent, widget: number, value_type: int }
-              - { name: milestones, label: Milestones, widget: list, field: { name: milestone, label: Milestone, widget: string } }
+                  - { name: icon, label: "Icon (Font Awesome name, e.g. fa-bolt)", widget: string, default: fa-bolt }
+                  - { name: title, label: Title, widget: string }
+                  - { name: text, label: Text, widget: text }
+              - { name: oneLiner, label: One-line summary quote, widget: string }
+          - name: framework
+            label: "Framework breakdown (sections, bullets, tables)"
+            widget: object
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: Chapter title, widget: string }
+              - { name: kicker, label: "Small label above the title (optional)", widget: string, required: false }
+              - { name: intro, label: Introduction, widget: text }
+              - label: Sections
+                name: sections
+                widget: list
+                summary: "{{fields.heading}}"
+                fields:
+                  - { name: heading, label: Heading, widget: string }
+                  - { name: body, label: Paragraph, widget: text }
+                  - { name: bullets, label: Bullet points, widget: list, field: { name: bullet, label: Bullet, widget: text } }
+              - { name: tableTitle, label: Table 1 title, widget: string }
+              - label: Table 1
+                name: table
+                widget: object
+                fields:
+                  - { name: headers, label: Column headers, widget: list, field: { name: header, label: Header, widget: string } }
+                  - { name: rows, label: "Rows (separate cells with |)", widget: list, field: { name: row, label: Row, widget: string } }
+              - { name: table2Title, label: Table 2 title, widget: string, required: false }
+              - label: Table 2
+                name: table2
+                widget: object
+                required: false
+                fields:
+                  - { name: headers, label: Column headers, widget: list, required: false, field: { name: header, label: Header, widget: string } }
+                  - { name: rows, label: "Rows (separate cells with |)", widget: list, required: false, field: { name: row, label: Row, widget: string } }
+          - name: casestudy
+            label: "Case study (metrics, timeline, drivers, lessons)"
+            widget: object
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: Chapter title, widget: string }
+              - { name: kicker, label: "Small label above the title (optional)", widget: string, required: false }
+              - { name: company, label: Company, widget: string }
+              - { name: tagline, label: Tagline, widget: string }
+              - { name: context, label: Context, widget: text }
+              - label: Key metrics
+                name: metrics
+                widget: list
+                summary: "{{fields.value}} {{fields.label}}"
+                fields:
+                  - { name: value, label: Value, widget: string }
+                  - { name: label, label: Label, widget: string }
+              - label: Execution timeline
+                name: execution
+                widget: list
+                summary: "{{fields.phase}}"
+                fields:
+                  - { name: phase, label: Phase, widget: string }
+                  - { name: text, label: Description, widget: text }
+              - { name: drivers, label: Success drivers, widget: list, field: { name: driver, label: Driver, widget: text } }
+              - label: Lessons learned
+                name: lessons
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { name: title, label: Title, widget: string }
+                  - { name: text, label: Text, widget: text }
+          - name: slides
+            label: "Slide strategy (slide cards, tips)"
+            widget: object
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: Chapter title, widget: string }
+              - { name: kicker, label: "Small label above the title (optional)", widget: string, required: false }
+              - { name: intro, label: Introduction, widget: text }
+              - label: Slides
+                name: slides
+                widget: list
+                summary: "Slide {{fields.n}}: {{fields.title}}"
+                fields:
+                  - { name: n, label: Slide number, widget: number, value_type: int }
+                  - { name: title, label: Title, widget: string }
+                  - { name: icon, label: Icon (Font Awesome name), widget: string, default: fa-bolt }
+                  - { name: headline, label: Action headline, widget: string }
+                  - { name: content, label: Content points, widget: list, field: { name: point, label: Point, widget: string } }
+                  - { name: visual, label: Suggested visual, widget: string }
+              - { name: tips, label: Judge-winning tips, widget: list, field: { name: tip, label: Tip, widget: text } }
+          - name: venture
+            label: "Startup idea & financials (market, unit economics, funding)"
+            widget: object
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: Chapter title, widget: string }
+              - { name: kicker, label: "Small label above the title (optional)", widget: string, required: false }
+              - { name: name, label: Startup name, widget: string }
+              - { name: tagline, label: Tagline, widget: string }
+              - { name: problem, label: Problem, widget: text }
+              - { name: solution, label: Solution, widget: text }
+              - label: Market sizing
+                name: market
+                widget: list
+                summary: "{{fields.tier}} {{fields.value}}"
+                fields:
+                  - { name: tier, label: Tier (TAM / SAM / SOM), widget: string }
+                  - { name: value, label: Value, widget: string }
+                  - { name: desc, label: Description, widget: string }
+              - label: Unit economics
+                name: unitEconomics
+                widget: list
+                summary: "{{fields.label}}: {{fields.value}}"
+                fields:
+                  - { name: label, label: Metric, widget: string }
+                  - { name: value, label: Value, widget: string }
+              - label: Funding
+                name: funding
+                widget: object
+                fields:
+                  - { name: ask, label: Round & amount, widget: string }
+                  - { name: runway, label: Runway, widget: string }
+                  - label: Use of funds
+                    name: uses
+                    widget: list
+                    summary: "{{fields.label}} ({{fields.pct}}%)"
+                    fields:
+                      - { name: label, label: Use, widget: string }
+                      - { name: pct, label: Percent, widget: number, value_type: int }
+                  - { name: milestones, label: Milestones, widget: list, field: { name: milestone, label: Milestone, widget: string } }

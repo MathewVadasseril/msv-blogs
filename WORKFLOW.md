@@ -55,6 +55,7 @@ When no major change is in progress, `develop` sits idle and falls behind `main`
   - GitHub Pages runs it from `.github/workflows/pages.yml` on every push to `main`.
   - Netlify runs it from `netlify.toml`. On builds of any branch other than `main`, it also points the editor at that branch.
 - Paths in the site are relative (no leading `/`), because GitHub Pages serves it from the `/msv-blogs/` sub-folder. Keep new paths relative.
+- Each booklet has a `chapters` list. A chapter's `type` picks its layout: `intuition`, `framework`, `casestudy`, `slides`, `venture`, or `text` (free-form Markdown). Older files with fixed `ch1`–`ch5` fields still display.
 - Uploaded images go to `images/uploads/`.
 
 ### Preview locally
