@@ -47,20 +47,20 @@
     .prose-body p { line-height: 1.8; }
     .post-body { font-size: 1.0625rem; line-height: 1.8; }
     .post-body > * + * { margin-top: 1.1em; }
-    .post-body h2 { font-family: "Source Serif 4", Georgia, serif; font-size: 1.6rem; font-weight: 600; line-height: 1.25; margin-top: 2em; }
-    .post-body h3 { font-weight: 600; font-size: 1.2rem; margin-top: 1.6em; }
-    .post-body a { color: #c2410c; text-decoration: underline; text-underline-offset: 3px; }
-    .dark .post-body a { color: #fb923c; }
-    .post-body ul { list-style: disc; padding-left: 1.4em; } .post-body ol { list-style: decimal; padding-left: 1.4em; }
-    .post-body li + li { margin-top: .35em; }
-    .post-body blockquote { border-left: 4px solid currentColor; padding-left: 1.1em; font-family: "Source Serif 4", Georgia, serif; font-style: italic; font-size: 1.2rem; }
-    .post-body code { font-size: .9em; padding: .1em .35em; border-radius: .35em; background: rgba(120,120,120,.15); }
-    .post-body pre { overflow-x: auto; padding: 1em; border-radius: .75em; background: #121211; color: #efeeea; }
-    .post-body pre code { background: none; padding: 0; }
-    .post-body img { border-radius: .9em; margin-inline: auto; max-height: 80vh; width: auto; }
-    .post-body hr { border-color: rgba(120,120,120,.25); margin-block: 2em; }
-    .post-body table { width: 100%; font-size: .95em; display: block; overflow-x: auto; }
-    .post-body th, .post-body td { border-bottom: 1px solid rgba(120,120,120,.25); padding: .5em .75em; text-align: left; }
+    .post-body h2:not(.msv-widget *) { font-family: "Source Serif 4", Georgia, serif; font-size: 1.6rem; font-weight: 600; line-height: 1.25; margin-top: 2em; }
+    .post-body h3:not(.msv-widget *) { font-weight: 600; font-size: 1.2rem; margin-top: 1.6em; }
+    .post-body a:not(.msv-widget *) { color: #c2410c; text-decoration: underline; text-underline-offset: 3px; }
+    .dark .post-body a:not(.msv-widget *) { color: #fb923c; }
+    .post-body ul:not(.msv-widget *) { list-style: disc; padding-left: 1.4em; } .post-body ol:not(.msv-widget *) { list-style: decimal; padding-left: 1.4em; }
+    .post-body li:not(.msv-widget *) + li { margin-top: .35em; }
+    .post-body blockquote:not(.msv-widget *) { border-left: 4px solid currentColor; padding-left: 1.1em; font-family: "Source Serif 4", Georgia, serif; font-style: italic; font-size: 1.2rem; }
+    .post-body code:not(.msv-widget *) { font-size: .9em; padding: .1em .35em; border-radius: .35em; background: rgba(120,120,120,.15); }
+    .post-body pre:not(.msv-widget *) { overflow-x: auto; padding: 1em; border-radius: .75em; background: #121211; color: #efeeea; }
+    .post-body pre code:not(.msv-widget *) { background: none; padding: 0; }
+    .post-body img:not(.msv-widget *) { border-radius: .9em; margin-inline: auto; max-height: 80vh; width: auto; }
+    .post-body hr:not(.msv-widget *) { border-color: rgba(120,120,120,.25); margin-block: 2em; }
+    .post-body table:not(.msv-widget *) { width: 100%; font-size: .95em; display: block; overflow-x: auto; }
+    .post-body th:not(.msv-widget *), .post-body td:not(.msv-widget *) { border-bottom: 1px solid rgba(120,120,120,.25); padding: .5em .75em; text-align: left; }
     #booklet { transition: opacity .25s ease, transform .25s ease; }
     #booklet.is-switching { opacity: 0; transform: translateY(8px); }
     .nav-link.active { color: #c2410c; background: rgba(194, 65, 12, .08); }
@@ -201,7 +201,22 @@
   let SITE = { ...SITE_DEFAULTS };
 
   const inlineMd = str => (window.marked ? marked.parseInline(str) : str);
-  const blockMd = str => (window.marked ? marked.parse(str) : `<p>${str}</p>`);
+  // Widgets inserted from the editor toolbar are saved inside Markdown as ```msv-block fences
+  // holding JSON. They're swapped for placeholders, Markdown is rendered, then each widget
+  // is drawn with the same renderers as the "Build your own" chapter blocks.
+  const WIDGET_FENCE = /^```msv-block[ \t]*\n([\s\S]*?)\n```[ \t]*$/gm;
+  function blockMd(str) {
+    if (!window.marked) return `<p>${str}</p>`;
+    const widgets = [];
+    const source = String(str).replace(WIDGET_FENCE, (_, json) => `\n<div data-msv-widget="${widgets.push(json) - 1}"></div>\n`);
+    return marked.parse(source).replace(/<div data-msv-widget="(\d+)"><\/div>/g, (_, i) => renderWidget(widgets[+i]));
+  }
+  function renderWidget(json) {
+    try {
+      const block = renderInlineMarkdown(blockWithDefaults(JSON.parse(json)));
+      return `<div class="msv-widget my-8">${(BLOCK_RENDERERS[block.type] || (() => ''))(block)}</div>`;
+    } catch (_) { return ''; }
+  }
   const esc = str => String(str ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
   // Fields shown as plain text; every other text field may use Markdown (**bold**, *italic*, links).
@@ -209,7 +224,7 @@
   function renderInlineMarkdown(value, key) {
     if (key === 'markdown') return blockMd(String(value ?? '')); // free-form chapter body
     if (PLAIN_FIELDS.has(key)) return Array.isArray(value) ? value.map(v => esc(v)) : esc(value);
-    if (typeof value === 'string') return inlineMd(value);
+    if (typeof value === 'string') return value.includes('\n') ? blockMd(value) : inlineMd(value);
     if (Array.isArray(value)) return value.map(v => renderInlineMarkdown(v, key));
     if (value && typeof value === 'object') {
       return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, renderInlineMarkdown(v, k)]));
@@ -929,6 +944,47 @@
   applyTheme();
   darkQuery.addEventListener('change', applyTheme);
 
+  /* =========================================================
+     EDITOR PREVIEW
+     The editor at /admin loads this page as index.html#preview and sends the entry being
+     edited with postMessage, so the preview uses exactly the same design as the live site.
+     ========================================================= */
+  const PREVIEW = location.hash === '#preview';
+  let libraryReady = false;
+  let pendingPreview = null;
+
+  function renderPreview(msg) {
+    if (!libraryReady) { pendingPreview = msg; return; }
+    const scrollY = window.scrollY;
+    const data = msg.data || {};
+    if (msg.kind === 'posts') {
+      const post = preparePost({ topics: [], summary: '', ...data, slug: '__preview' });
+      POSTS = [post, ...POSTS.filter(x => x.slug !== '__preview')];
+      showPost('__preview');
+    } else if (msg.kind === 'booklets') {
+      const booklet = renderInlineMarkdown(withDefaults({ ...data, id: '__preview' }));
+      BOOKLETS = [booklet, ...BOOKLETS.filter(x => x.id !== '__preview')];
+      view = 'booklet';
+      currentId = '__preview';
+      showOnly('#bookletView');
+      $('#booklet').innerHTML = renderBooklet(booklet);
+      renderSidebar();
+      renderContentBar();
+      setupScrollSpy();
+    } else if (msg.kind === 'settings') {
+      SITE = prepareSite(data);
+      applySiteText();
+      showHome();
+    }
+    window.scrollTo(0, scrollY); // keep the reader's place while typing
+  }
+
+  if (PREVIEW) {
+    window.addEventListener('message', e => {
+      if (e.origin === location.origin && e.data?.type === 'msv-preview') renderPreview(e.data);
+    });
+  }
+
   // Boot
   $('#year').textContent = new Date().getFullYear();
   $('#home').classList.remove('hidden');
@@ -941,9 +997,13 @@
       BOOKLETS = (data.booklets || []).map(b => renderInlineMarkdown(withDefaults(b)));
       POSTS = (data.posts || []).map(preparePost);
       currentId = BOOKLETS[0]?.id ?? null;
+      libraryReady = true;
+      if (PREVIEW) { if (pendingPreview) renderPreview(pendingPreview); return; }
       route(location.hash.slice(1));
     })
     .catch(err => {
+      libraryReady = true;
+      if (PREVIEW) { if (pendingPreview) renderPreview(pendingPreview); return; }
       $('#home').innerHTML = `<div class="rounded-2xl border border-rose-300 bg-rose-50 dark:bg-rose-500/10 dark:border-rose-400/30 p-6 text-sm">
         <p class="font-semibold">The library couldn't be loaded.</p>
         <p class="mt-1 opacity-80">content/library.json is missing or unreadable (${esc(err.message)}). On Netlify it is created by the build command in netlify.toml. To preview on your computer, run <code>node scripts/build-content.js</code> and serve the folder, for example with <code>npx serve</code>.</p></div>`;

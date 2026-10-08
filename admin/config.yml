@@ -24,12 +24,12 @@ collections:
     create: true
     slug: "{{slug}}"
     identifier_field: title
-    summary: "{{title}} · {{date}}{{draft}}"
+    summary: "{{title}} · {{date}}"
     sortable_fields: [date, title]
     fields:
       - { name: title, label: Title, widget: string }
       - { name: date, label: Publish date, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD" }
-      - { name: summary, label: Summary, widget: text, hint: "One or two sentences shown on the home page." }
+      - { name: summary, label: Summary, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [], hint: "One or two sentences shown on the home page." }
       - { name: topics, label: Topics, widget: list, hint: "Comma-separated, e.g. Growth Strategy, Pricing. These power the topic filters." }
       - { name: draft, label: "Draft (hide from site)", widget: boolean, default: false, required: false }
       - { name: body, label: Article, widget: markdown }
@@ -48,7 +48,7 @@ collections:
     sortable_fields: [order, title]
     fields:
       - { name: title, label: Title, widget: string }
-      - { name: subtitle, label: Subtitle, widget: text }
+      - { name: subtitle, label: Subtitle, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [] }
       - { name: volume, label: Volume label, widget: string, hint: "e.g. Vol. 03" }
       - { name: order, label: Order in library, widget: number, value_type: int, default: 99 }
       - { name: industry, label: Industry badge, widget: string }
@@ -129,7 +129,7 @@ collections:
                     fields:
                       - { name: heading, label: Label, widget: string, required: false, default: The Analogy }
                       - { name: icon, label: "Icon (Font Awesome name, e.g. fa-comment-dots)", widget: string, required: false, default: fa-comment-dots }
-                      - { name: text, label: Text, widget: text }
+                      - { name: text, label: Text, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [] }
                   - name: cards
                     label: Cards
                     widget: object
@@ -142,12 +142,12 @@ collections:
                         fields:
                           - { name: icon, label: "Icon (Font Awesome name, e.g. fa-bolt)", widget: string, required: false, default: fa-bolt }
                           - { name: title, label: Title, widget: string }
-                          - { name: text, label: Text, widget: text }
+                          - { name: text, label: Text, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [] }
                   - name: quote
                     label: Quote
                     widget: object
                     fields:
-                      - { name: text, label: Quote, widget: text }
+                      - { name: text, label: Quote, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [] }
                       - { name: author, label: Author, widget: string, required: false }
                   - name: table
                     label: Table
@@ -182,7 +182,7 @@ collections:
                         summary: "{{fields.phase}}"
                         fields:
                           - { name: phase, label: Step title, widget: string }
-                          - { name: text, label: Description, widget: text }
+                          - { name: text, label: Description, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [] }
                   - name: listbox
                     label: List box
                     widget: object
@@ -190,7 +190,7 @@ collections:
                     fields:
                       - { name: title, label: Heading, widget: string, required: false }
                       - { name: icon, label: "Bullet icon (Font Awesome name)", widget: string, required: false, default: fa-check }
-                      - { name: items, label: Items, widget: list, field: { name: item, label: Item, widget: text } }
+                      - { name: items, label: Items, widget: list, field: { name: item, label: Item, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [] } }
           - name: text
             label: "Free-form chapter (write anything)"
             widget: object
@@ -206,8 +206,8 @@ collections:
             fields:
               - { name: title, label: Chapter title, widget: string }
               - { name: kicker, label: "Small label above the title (optional)", widget: string, required: false }
-              - { name: analogy, label: Analogy (callout card), widget: text }
-              - { name: summary, label: Plain-English summary, widget: text }
+              - { name: analogy, label: Analogy (callout card), widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [] }
+              - { name: summary, label: Plain-English summary, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [] }
               - label: Takeaway cards
                 name: takeaways
                 widget: list
@@ -215,7 +215,7 @@ collections:
                 fields:
                   - { name: icon, label: "Icon (Font Awesome name, e.g. fa-bolt)", widget: string, default: fa-bolt }
                   - { name: title, label: Title, widget: string }
-                  - { name: text, label: Text, widget: text }
+                  - { name: text, label: Text, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [] }
               - { name: oneLiner, label: One-line summary quote, widget: string }
           - name: framework
             label: "Framework breakdown (sections, bullets, tables)"
@@ -224,15 +224,15 @@ collections:
             fields:
               - { name: title, label: Chapter title, widget: string }
               - { name: kicker, label: "Small label above the title (optional)", widget: string, required: false }
-              - { name: intro, label: Introduction, widget: text }
+              - { name: intro, label: Introduction, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [] }
               - label: Sections
                 name: sections
                 widget: list
                 summary: "{{fields.heading}}"
                 fields:
                   - { name: heading, label: Heading, widget: string }
-                  - { name: body, label: Paragraph, widget: text }
-                  - { name: bullets, label: Bullet points, widget: list, field: { name: bullet, label: Bullet, widget: text } }
+                  - { name: body, label: Paragraph, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [] }
+                  - { name: bullets, label: Bullet points, widget: list, field: { name: bullet, label: Bullet, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [] } }
               - { name: tableTitle, label: Table 1 title, widget: string }
               - label: Table 1
                 name: table
@@ -257,7 +257,7 @@ collections:
               - { name: kicker, label: "Small label above the title (optional)", widget: string, required: false }
               - { name: company, label: Company, widget: string }
               - { name: tagline, label: Tagline, widget: string }
-              - { name: context, label: Context, widget: text }
+              - { name: context, label: Context, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [] }
               - label: Key metrics
                 name: metrics
                 widget: list
@@ -271,15 +271,15 @@ collections:
                 summary: "{{fields.phase}}"
                 fields:
                   - { name: phase, label: Phase, widget: string }
-                  - { name: text, label: Description, widget: text }
-              - { name: drivers, label: Success drivers, widget: list, field: { name: driver, label: Driver, widget: text } }
+                  - { name: text, label: Description, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [] }
+              - { name: drivers, label: Success drivers, widget: list, field: { name: driver, label: Driver, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [] } }
               - label: Lessons learned
                 name: lessons
                 widget: list
                 summary: "{{fields.title}}"
                 fields:
                   - { name: title, label: Title, widget: string }
-                  - { name: text, label: Text, widget: text }
+                  - { name: text, label: Text, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [] }
           - name: slides
             label: "Slide strategy (slide cards, tips)"
             widget: object
@@ -287,7 +287,7 @@ collections:
             fields:
               - { name: title, label: Chapter title, widget: string }
               - { name: kicker, label: "Small label above the title (optional)", widget: string, required: false }
-              - { name: intro, label: Introduction, widget: text }
+              - { name: intro, label: Introduction, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [] }
               - label: Slides
                 name: slides
                 widget: list
@@ -299,7 +299,7 @@ collections:
                   - { name: headline, label: Action headline, widget: string }
                   - { name: content, label: Content points, widget: list, field: { name: point, label: Point, widget: string } }
                   - { name: visual, label: Suggested visual, widget: string }
-              - { name: tips, label: Judge-winning tips, widget: list, field: { name: tip, label: Tip, widget: text } }
+              - { name: tips, label: Judge-winning tips, widget: list, field: { name: tip, label: Tip, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [] } }
           - name: venture
             label: "Startup idea & financials (market, unit economics, funding)"
             widget: object
@@ -309,8 +309,8 @@ collections:
               - { name: kicker, label: "Small label above the title (optional)", widget: string, required: false }
               - { name: name, label: Startup name, widget: string }
               - { name: tagline, label: Tagline, widget: string }
-              - { name: problem, label: Problem, widget: text }
-              - { name: solution, label: Solution, widget: text }
+              - { name: problem, label: Problem, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [] }
+              - { name: solution, label: Solution, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [] }
               - label: Market sizing
                 name: market
                 widget: list
@@ -354,7 +354,7 @@ collections:
           - { name: siteName, label: Site name, widget: string, hint: "Shown in the header, as the big home page title, and in browser tabs." }
           - { name: headerTagline, label: Header tagline, widget: string, required: false, hint: "Small text next to the site name in the header. Leave empty to hide." }
           - { name: homeEyebrow, label: Home page label, widget: string, required: false, hint: "Small coloured text above the home page title. Leave empty to hide." }
-          - { name: homeIntro, label: Home page introduction, widget: text, required: false, hint: "Paragraph under the title. Supports **bold**, *italic* and [links](https://example.com)." }
+          - { name: homeIntro, label: Home page introduction, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [], required: false, hint: "Paragraph under the title. Supports **bold**, *italic* and [links](https://example.com)." }
           - { name: bookletsHeading, label: Booklets section heading, widget: string, default: Strategy Booklets }
           - { name: postsHeading, label: Blog posts section heading, widget: string, default: Blog Posts }
           - { name: footerText, label: Footer text, widget: string, required: false, hint: "Shown after © year and the site name." }
