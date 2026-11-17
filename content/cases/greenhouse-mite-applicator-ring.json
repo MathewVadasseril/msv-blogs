@@ -16,7 +16,7 @@
   ],
   "icon": "fa-leaf",
   "color": "from-emerald-500 to-teal-600",
-  "draft": true,
+  "draft": false,
   "chapters": [
     {
       "type": "blocks",
