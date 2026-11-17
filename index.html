@@ -633,7 +633,7 @@
     c.event && ['fa-building', c.event],
     c.team && ['fa-people-group', c.team],
   ].filter(Boolean);
-  const caseKindIcon = kind => ({ 'Case competition': 'fa-trophy', Venture: 'fa-rocket', Internship: 'fa-id-badge', Consulting: 'fa-handshake' }[kind] || 'fa-briefcase');
+  const caseKindIcon = kind => ({ 'Case competition': 'fa-trophy', Venture: 'fa-rocket', Internship: 'fa-id-badge', Consulting: 'fa-handshake', Observation: 'fa-eye' }[kind] || 'fa-briefcase');
 
   function renderCase(c) {
     const idx = CASES.findIndex(x => x.id === c.id);

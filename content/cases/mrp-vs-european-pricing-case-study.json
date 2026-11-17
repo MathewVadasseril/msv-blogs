@@ -1,0 +1,286 @@
+{
+  "title": "The MRP ceiling: the full case study",
+  "summary": "Why one can of Coke earns two margins in Europe and one in India: reference prices, fairness, the experience economy and price-quality signals from published research, and how Indian premium venues get around the MRP with costlier, imported and new SKUs.",
+  "kind": "Observation",
+  "year": "",
+  "event": "Personal observation, Europe and India",
+  "role": "",
+  "outcome": "Case study",
+  "team": "",
+  "order": 7,
+  "topics": [
+    "Pricing",
+    "Consumer Behaviour",
+    "Strategy"
+  ],
+  "icon": "fa-tags",
+  "color": "from-rose-600 to-red-700",
+  "draft": false,
+  "chapters": [
+    {
+      "type": "blocks",
+      "kicker": "Overview",
+      "title": "The case in one page",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "*The full case study behind my observation. For the short version, read [the blog post](#case-mrp-vs-european-pricing).*\n\nIn Europe, one 330 ml can of Coca-Cola sells for about **€0.90** in a supermarket and about **€4** at a kiosk or venue, and both sell. In India, the same can carries a printed **MRP of ₹40**, and that is the most anyone may charge for it, anywhere.\n\nThe case question is simple: **how does a brand capture a premium for place and convenience in a market where the price ceiling is printed on the product?**\n\nHere we answer it in four steps: the two pricing systems, four frameworks from published research that explain buyer behaviour, how premium locations in India already get around the ceiling, and what a beverage brand should do about it."
+        },
+        {
+          "type": "metrics",
+          "items": [
+            {
+              "value": "~4.4×",
+              "label": "Gap between a European kiosk can (€4) and a supermarket can (€0.90)"
+            },
+            {
+              "value": "1×",
+              "label": "Gap allowed on the same sealed can in India: the MRP is the ceiling everywhere"
+            },
+            {
+              "value": "82%",
+              "label": "Share of people who called a demand-driven price rise unfair (Kahneman, Knetsch & Thaler, 1986)"
+            }
+          ]
+        },
+        {
+          "type": "cards",
+          "items": [
+            {
+              "icon": "fa-scale-balanced",
+              "title": "The rule",
+              "text": "India fixes a maximum price on every pack. Europe leaves the price to the shop and stops brands from fixing it."
+            },
+            {
+              "icon": "fa-brain",
+              "title": "The psychology",
+              "text": "Buyers judge price against a reference. Europe lets the place set it; India prints it on the can."
+            },
+            {
+              "icon": "fa-arrows-split-up-and-left",
+              "title": "The workaround",
+              "text": "Indian premium venues change the product, not the price: costlier brands, imported SKUs, new pack sizes, or a service."
+            },
+            {
+              "icon": "fa-route",
+              "title": "The strategy",
+              "text": "Build a price ladder out of SKUs and formats, one rung per channel, instead of one can at many prices."
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "heading": "How to read the evidence",
+          "icon": "fa-circle-info",
+          "text": "The euro prices are my own observation. The frameworks come from peer-reviewed papers, each linked where it is used. Most of these studies were run in the US or Europe, so applying them to India is my reading, not their finding. Where I give a view of my own, I say so."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Context",
+      "title": "Two pricing systems for one product",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Retail price regulation** is any rule that controls who sets the shelf price and how high it may go. India and the EU sit at opposite ends.\n\n1. **India: the brand sets a ceiling for the whole country.** Rule 6 of the Legal Metrology (Packaged Commodities) Rules, 2011 requires every pre-packaged product to declare an \"MRP … inclusive of all taxes\" ([Legal Metrology (Packaged Commodities) Rules, 2011, Rule 6 (iPleaders summary)](https://blog.ipleaders.in/legal-metrology-rules/)). Selling above it is an offence. e.g. a ₹40 can of Coke costs at most ₹40 in a kirana in Kochi and at a mall in Gurugram.\n2. **India: no second price for premium places.** From 1 January 2018, \"no person shall declare different MRPs (dual MRP) on an identical pre-packaged commodity\", aimed at cinemas, airports and malls ([Deccan Chronicle, 30 June 2017](https://www.deccanchronicle.com/business/economy/300617/no-dual-mrps-from-2018-cinemas-malls-cannot-charge-extra.html)). e.g. before 2018 a brand could print a higher MRP on water bottles meant for cinemas. Thus the obvious premium channels lost their premium on the same pack.\n3. **India: services are different.** In December 2017 the Supreme Court held that hotels and restaurants may charge above MRP, because \"there is an element of service in it\" ([Business Today, 13 December 2017](https://www.businesstoday.in/latest/economy-politics/story/supreme-court-allows-restaurants-charge-above-mrp-bottled-water-88026-2017-12-13)). Hence the ceiling applies to the *pack*, not to the *experience*.\n4. **Europe: the shop sets the price, and the brand may not.** There is no MRP. Under EU Regulation 2022/720, a supplier imposing a fixed or minimum resale price is a hardcore restriction; only maximum or recommended prices are allowed ([Cuatrecasas, on EU Regulation 2022/720, 2023](https://www.cuatrecasas.com/en/global/competition-eu-law/art/resale-price-restrictions-a-new-horizon-under-the-new-vertical-block-exemption-regulation)). e.g. Coca-Cola cannot tell a Berlin kiosk what to charge. Thus the price is free to follow the place."
+        },
+        {
+          "type": "table",
+          "title": "The same can across channels",
+          "headers": [
+            "Channel",
+            "Europe (what one can costs)",
+            "India (what one can may cost)"
+          ],
+          "rows": [
+            "Supermarket|About €0.35 to €0.99 on German deals ([Supermarktcheck, Coca-Cola price reports](https://www.supermarktcheck.de/product/12394-coca-cola-))|Up to ₹40 MRP; wholesale ₹29.40 ([Hyperpure listing, Coca-Cola 300 ml can, MRP ₹40](https://www.hyperpure.com/in/coca-cola-300-ml-can-mrp-40-pc))",
+            "Restaurant|€2.80 average in Berlin, range €2 to €4 ([Numbeo, Berlin, May 2024](https://www.numbeo.com/cost-of-living/in/Berlin))|Above MRP allowed, as a service (Supreme Court, 2017)",
+            "Kiosk or station|About €4 (my observation)|Up to ₹40 MRP",
+            "Airport, cinema, mall|Set by the outlet|Up to ₹40 MRP; dual MRP banned since 2018"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Framework 1",
+      "title": "Reference prices: the place sets the price in Europe, the can sets it in India",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "A **reference price** is the price a buyer uses to judge whether a price is fair or a deal. Research splits it into two kinds: an **internal** one, held in memory, and an **external** one, taken from something in front of the buyer.\n\nHere we look at three findings and what they mean for the can.\n\n1. **Context moves the reference:** in Richard Thaler's 1985 \"beer on the beach\" study, people would pay a median **$2.65** for a beer from a fancy resort hotel and **$1.50** for the same beer from a run-down grocery store ([Thaler, \"Mental Accounting and Consumer Choice\", Marketing Science, 1985 (summary: The Decision Lab)](https://thedecisionlab.com/biases/mental-accounting)). e.g. the €4 kiosk can is judged against \"what a cold drink costs here\", not against Lidl. Thus in Europe, each place creates its own reference price, and the premium survives.\n2. **Anchors can be arbitrary and still stick:** in Ariely, Loewenstein and Prelec's experiments, people whose social security numbers ended high \"stated values from 57 percent to 107 percent greater\" than those whose numbers ended low; for a cordless keyboard, $56 against $16 ([Ariely, Loewenstein & Prelec, \"Coherent Arbitrariness\", Quarterly Journal of Economics, 2003](https://web.mit.edu/ariely/www/MIT/Papers/CA.pdf)). Once anchored, people then price related items *consistently* around that anchor; the authors call this coherent arbitrariness. e.g. the ₹40 on the can is an anchor every Indian buyer has seen thousands of times. Hence it is not just a legal cap; it is the number the whole market has learned.\n3. **Some buyers carry the price in memory, others read it off the shelf:** in a study of 341 households, 43% used a memory-based reference price and 48% a stimulus-based one, and \"memory-based (internal) reference price consumers are more price sensitive than other consumers\" ([Moon, Russell & Duvvuri, \"Profiling the Reference Price Consumer\", Journal of Retailing, 2006](https://www.biz.uiowa.edu/faculty/grussell/PDF_%20Files/Profiling%20the%20Reference%20Price%20Consumer_JR%20Article_2006.pdf)). e.g. in India the stimulus and the memory are the *same number*, because it is printed on every can. So Indian buyers get both kinds of reference at once, and both say ₹40."
+        },
+        {
+          "type": "callout",
+          "heading": "What this means",
+          "icon": "fa-lightbulb",
+          "text": "In Europe, the reference price for a can is **local**: it moves with the place. In India it is **national and printed**: it travels with the can. That is the single biggest reason the same premium cannot be charged."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Framework 2",
+      "title": "Fairness: when a premium feels like cheating",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Price fairness** is the buyer's judgement of whether a price is reasonable and acceptable, not just whether it is high.\n\nKahneman, Knetsch and Thaler set out the rule most people use, which they called **dual entitlement**: \"Transactors have an entitlement to the terms of the reference transaction and firms are entitled to their reference profit\" ([Kahneman, Knetsch & Thaler, \"Fairness as a Constraint on Profit Seeking\", American Economic Review, 1986](https://eml.berkeley.edu/~saez/course131/Kahneman-FairnessConstraintProfit-1986.pdf)).\n\nHere we look at its two sides.\n\n1. **Raising price because demand is high feels unfair:** a hardware store raised the price of snow shovels from $15 to $20 the morning after a snowstorm; **82%** of respondents called it unfair ([Kahneman, Knetsch & Thaler, \"Fairness as a Constraint on Profit Seeking\", American Economic Review, 1986](https://eml.berkeley.edu/~saez/course131/Kahneman-FairnessConstraintProfit-1986.pdf)). e.g. a shop charging ₹60 for a ₹40 can on a hot afternoon looks exactly like the snow shovel. Thus a pure \"convenience premium\" on the same pack reads as exploitation.\n2. **Passing on a cost feels fair:** by large majorities, respondents accepted price rises that passed on higher wholesale or operating costs; in one case 79% found it acceptable ([Kahneman, Knetsch & Thaler, \"Fairness as a Constraint on Profit Seeking\", American Economic Review, 1986](https://eml.berkeley.edu/~saez/course131/Kahneman-FairnessConstraintProfit-1986.pdf)). e.g. a European kiosk in a railway station pays high rent, and the buyer senses it. Hence the €4 is read as the cost of the place, not as greed.\n\nIndia's MRP turns the first side into law. The reference transaction is not a feeling; it is printed on the can, and charging above it is an offence. So the buyer is not just annoyed by a premium; they are *right*, and they know it."
+        },
+        {
+          "type": "quote",
+          "text": "Transactors have an entitlement to the terms of the reference transaction and firms are entitled to their reference profit.",
+          "author": "Kahneman, Knetsch & Thaler, American Economic Review, 1986"
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Framework 3",
+      "title": "The experience economy: sell the occasion, not the can",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "The **experience economy** is Pine and Gilmore's idea that the same item earns very different prices depending on whether it is sold as a commodity, a good, a service or an experience.\n\nTheir example is coffee ([Pine & Gilmore, The Experience Economy, Chapter 1 (from \"Welcome to the Experience Economy\", Harvard Business Review, 1998)](https://www.amcham.hr/storage/upload/gen_events_app/the_experience_economy_sample_chapter_1252.pdf)):\n\n1. **Commodity:** coffee traded as beans earns about \"1 or 2 cents a cup\".\n2. **Good:** roasted, ground and packaged in a grocery store, it \"jumps to between 5 and 25 cents a cup\".\n3. **Service:** brewed in a diner or quick-serve restaurant, it sells for \"50 cents to a dollar or so per cup\".\n4. **Experience:** in a five-star restaurant or a café such as Starbucks, people \"gladly pay $2 to $5 a cup\"; at Caffè Florian in St Mark's Square, Venice, a cup cost \"more than $15\".\n\nThe European €4 can sits at the service or experience level: cold, here and part of the match or the view. In India the law agrees with this framework. The Supreme Court allowed restaurants to charge above MRP because \"nobody goes to a restaurant to simply buy a bottle of water\" ([Business Today, 13 December 2017](https://www.businesstoday.in/latest/economy-politics/story/supreme-court-allows-restaurants-charge-above-mrp-bottled-water-88026-2017-12-13)). e.g. PVR INOX's food and beverage spend per head reached a record **₹148** in April to June 2025, against an average ticket of ₹254 ([Business Standard, PVR INOX Q1 FY26 results, 7 August 2025](https://www.business-standard.com/markets/capital-market-news/pvr-inox-gains-as-q1-losses-narrow-125080700622_1.html)). Thus Indians do pay experience prices; they just will not pay them for a sealed, printed can."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Framework 4",
+      "title": "Price as a signal of quality",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Price-quality inference** is the habit of reading a higher price as a sign of a better product, especially when other information is thin.\n\nRao and Monroe's review of 36 studies found that the relationships between price and perceived quality \"are positive and statistically significant\", with a moderately large effect for consumer products ([Rao & Monroe, \"The Effect of Price, Brand Name, and Store Name on Buyers' Perceptions of Product Quality\", Journal of Marketing Research, 1989](https://carlsonschool.umn.edu/sites/carlsonschool.umn.edu/files/2024-06/Rao%20and%20Monroe%201989.pdf)).\n\nThis matters for India in two ways.\n\n1. **A higher MRP on a different product is believable:** if the item looks different (another brand, another pack, imported), the higher price is read as higher quality, not as a mark-up. e.g. a ₹300 bottle of imported mineral water next to a ₹20 Indian bottle looks like a different product, not a rip-off.\n2. **A higher price on the same product is not:** when the pack, brand and size are identical, there is no quality story to tell, so the gap can only be read as greed. Hence the same can cannot carry two prices, but two different SKUs can.\n\nSo the way round the MRP ceiling is not a higher price. It is **a different product with its own MRP**. The next chapter shows Indian premium venues doing exactly this."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "The workaround",
+      "title": "How premium locations in India get around the ceiling",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "Since 2018, an airport, cinema or mall cannot print a higher MRP on the same pack. But nothing stops it from stocking a *different* pack. Here we look at five ways premium venues do this.\n\n1. **Costlier brands sold only in premium places:** a 2019 consumer column described a reader paying ₹120 for two 500 ml bottles of water at an airport, and noted \"these are new expensive brands sold only in the airports\", which is \"obviously being done to circumvent the amendment prohibiting dual pricing\" ([Pushpa Girimaji, \"Water battles at airports & restaurants\", The Tribune, 2019](https://www.tribuneindia.com/news/archive/features/water-battles-at-airports-restaurants-804033)). e.g. the familiar ₹20 bottle is simply not on the shelf. Thus the venue keeps its premium by choosing the range, not the price.\n2. **Imported SKUs with a high MRP:** imported waters such as Perrier, San Pellegrino and Evian \"retail for over 300 rupees\" for 750 ml, and carry over 30% import tax; Euromonitor puts premium water at 8% of India's bottled water market, up from 1% in 2021 ([Reuters, \"Premium water becomes new status symbol for India's wealthy elite\", Business Standard, 31 January 2026](https://www.business-standard.com/india-news/premium-water-becomes-new-status-symbol-for-india-s-wealthy-elite-126013100084_1.html)). A Mumbai study found premium waters such as Evian, Perrier, Voss and Veen targeted at fine dining, QSR, modern trade, airports and gyms ([Gawande, \"Impact of Premium Packaged Drinking Water in Mumbai Area\", Global Journal of Marketing Management and Research, 2016](https://www.ripublication.com/gjmmr16/gjmmrv6n1_02.pdf)). e.g. a lounge or café stocks San Pellegrino instead of Bisleri. Hence import cost and status justify a higher printed price.\n3. **A new pack size, a new MRP:** when cans ran short in 2026, Coca-Cola launched a 330 ml Diet Coke can in India at ₹50, against ₹40 for the 300 ml can, a 13.6% rise per ml ([Reuters, \"In India, Iran war forces Diet Coke to roll out a bigger can, heftier price tag\", 24 July 2026](https://www.dailymaverick.co.za/article/2026-07-24-in-india-iran-war-forces-diet-coke-to-roll-out-a-bigger-can-heftier-price-tag.md)). This was a supply response, not a venue strategy, but it shows the mechanism: a new SKU resets the reference price without breaking the rule. e.g. a slim can or a glass bottle can be priced for premium channels from day one.\n4. **Turning the pack into a service:** a drink poured into a cup, or served at a table, is sold as a service, which the Supreme Court has said may be priced above MRP ([Business Today, 13 December 2017](https://www.businesstoday.in/latest/economy-politics/story/supreme-court-allows-restaurants-charge-above-mrp-bottled-water-88026-2017-12-13)). e.g. a cinema sells a large fountain cola and a popcorn combo, not a sealed can. Thus the printed ceiling never appears.\n5. **Bundles that hide the unit price:** a combo or a meal deal sells several items at one price, so there is no single item to compare with its MRP. e.g. a multiplex \"movie meal\" with a drink inside it. Hence the buyer judges the bundle, not the can."
+        },
+        {
+          "type": "table",
+          "title": "Five workarounds compared",
+          "headers": [
+            "Workaround",
+            "Why it is allowed",
+            "Main risk"
+          ],
+          "rows": [
+            "Costlier brand, premium venues only|Different product, own MRP|Seen as a trick; consumer complaints",
+            "Imported SKU|Different product; import cost and status justify price|Small market; high landing cost and tax",
+            "New pack size or format|New SKU, new MRP|Shoppers compare price per ml",
+            "Service format (cup, table)|Sale of a service, not a packaged good|Legal position for cinemas still contested",
+            "Bundles and combos|No single printed price to compare|Lower perceived value if the bundle feels padded"
+          ]
+        },
+        {
+          "type": "callout",
+          "heading": "Where the line is",
+          "icon": "fa-triangle-exclamation",
+          "text": "The legal ground is not fully settled. Commentators note that \"location alone does not create an exception to MRP laws\", that airports get no special exemption, and that the restaurant defence for cinemas is still contested ([Law Vaani, \"Charged more than MRP for a cold drink?\", June 2026](https://lawvaani.com/charged-more-than-mrp-for-a-cold-drink-the-truth-about-shops-restaurants-multiplexes-and-youre-consumer-rights-in-india-2026/)). The safe route is the one the rules allow: a genuinely different SKU, or a genuine service."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Strategy",
+      "title": "What a beverage brand should do in India",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "Putting the frameworks together, the answer to the case question is: **do not try to charge more for the same can; build a ladder of different products, one rung per channel.**\n\nStep 1. **Protect the core SKU at MRP:** the ₹40 can is the reference price the whole country knows. Keep it everywhere, and compete on availability and cold storage, not on price. e.g. the kirana fridge.\n\nStep 2. **Create a premium pack for premium channels:** a different format (glass bottle, slim can, a limited flavour or an imported variant) with its own higher MRP, stocked mainly at airports, hotels, premium cafés and gourmet stores. This uses the price-quality signal instead of fighting the fairness rule.\n\nStep 3. **Sell the experience where the venue allows it:** fountain drinks, served drinks and combos at cinemas, restaurants and events. Here the price follows the occasion, as it does in Europe.\n\nStep 4. **Give the premium a visible reason:** the fairness research says buyers accept higher prices that pass on a real cost. e.g. \"imported\", \"glass bottle\", \"served chilled at your seat\". Thus the premium reads as cost or quality, not greed.\n\nStep 5. **Measure and adjust:** track sales of the premium SKU per venue, complaints about pricing, and how often buyers switch back to the core can. Feed that back into which channels get which pack."
+        },
+        {
+          "type": "table",
+          "title": "A price ladder by channel (my proposal, not a company plan)",
+          "headers": [
+            "Rung",
+            "Channel",
+            "Format",
+            "Price logic"
+          ],
+          "rows": [
+            "1. Everyday|Kirana, supermarket, quick commerce|Core 300 ml can|MRP; often sold below it",
+            "2. Upgrade|Premium cafés, hotels, airports|Different pack or imported SKU|Own higher MRP, justified by format or origin",
+            "3. Experience|Cinemas, restaurants, events|Fountain, served or bundled|Priced as a service, above any MRP"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Research design",
+      "title": "How I would test this with real buyers",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "The frameworks above come mostly from studies outside India. To make this case my own, here is a small study I would run.\n\n1. **Hypothesis 1, place:** Indian buyers will state a higher willingness to pay for the same cold drink at a cinema or airport than at a kirana, as Thaler found for beer, *but only when the MRP is not visible*.\n2. **Hypothesis 2, the printed ceiling:** showing the MRP on the can will pull stated willingness to pay down to the MRP, whatever the place.\n3. **Hypothesis 3, a different SKU:** a premium or imported pack will be accepted at a higher price in premium places, with fewer people calling it unfair.\n\n**Method:** a short online survey with three places (kirana, airport, cinema) and two versions (MRP visible, MRP hidden), so six scenarios. Each respondent sees one, states the most they would pay, and rates fairness from 1 to 7. Even 150 to 200 responses would show the direction of the effects."
+        },
+        {
+          "type": "callout",
+          "heading": "What would change my mind",
+          "icon": "fa-scale-balanced",
+          "text": "If buyers in premium places still refuse a higher price even when no MRP is shown, then the barrier is income and habit, not the printed number, and the strategy above would lean more on service formats than on premium SKUs."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Takeaways",
+      "title": "What the case teaches",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "1. **A printed price is a reference price:** whatever goes on the pack becomes the anchor for every buyer, in every place, for the life of that pack.\n2. **Fairness beats willingness to pay:** buyers who will happily pay ₹150 for an experience will refuse ₹50 for a ₹40 can, because one feels like a service and the other feels like cheating.\n3. **In India, the premium lives in the product, not the price:** costlier brands, imported SKUs, new pack sizes and service formats are how premium venues get around the ceiling.\n4. **Europe prices the place; India prices the pack:** that is why one can earns two margins in Europe and one in India. Thus a brand entering India should design its SKU range as carefully as its price list."
+        },
+        {
+          "type": "quote",
+          "text": "In Europe the place sets the price. In India the can does, so you have to change the can.",
+          "author": "My takeaway"
+        },
+        {
+          "type": "listbox",
+          "title": "Published research",
+          "icon": "fa-book",
+          "items": [
+            "[Thaler, \"Mental Accounting and Consumer Choice\", Marketing Science, 1985 (summary: The Decision Lab)](https://thedecisionlab.com/biases/mental-accounting)",
+            "[Kahneman, Knetsch & Thaler, \"Fairness as a Constraint on Profit Seeking\", American Economic Review, 1986](https://eml.berkeley.edu/~saez/course131/Kahneman-FairnessConstraintProfit-1986.pdf)",
+            "[Ariely, Loewenstein & Prelec, \"Coherent Arbitrariness\", Quarterly Journal of Economics, 2003](https://web.mit.edu/ariely/www/MIT/Papers/CA.pdf)",
+            "[Moon, Russell & Duvvuri, \"Profiling the Reference Price Consumer\", Journal of Retailing, 2006](https://www.biz.uiowa.edu/faculty/grussell/PDF_%20Files/Profiling%20the%20Reference%20Price%20Consumer_JR%20Article_2006.pdf)",
+            "[Rao & Monroe, \"The Effect of Price, Brand Name, and Store Name on Buyers' Perceptions of Product Quality\", Journal of Marketing Research, 1989](https://carlsonschool.umn.edu/sites/carlsonschool.umn.edu/files/2024-06/Rao%20and%20Monroe%201989.pdf)",
+            "[Pine & Gilmore, The Experience Economy, Chapter 1 (from \"Welcome to the Experience Economy\", Harvard Business Review, 1998)](https://www.amcham.hr/storage/upload/gen_events_app/the_experience_economy_sample_chapter_1252.pdf)",
+            "[Gawande, \"Impact of Premium Packaged Drinking Water in Mumbai Area\", Global Journal of Marketing Management and Research, 2016](https://www.ripublication.com/gjmmr16/gjmmrv6n1_02.pdf)"
+          ]
+        },
+        {
+          "type": "listbox",
+          "title": "Law, data and news",
+          "icon": "fa-link",
+          "items": [
+            "[Legal Metrology (Packaged Commodities) Rules, 2011, Rule 6 (iPleaders summary)](https://blog.ipleaders.in/legal-metrology-rules/)",
+            "[Deccan Chronicle, 30 June 2017](https://www.deccanchronicle.com/business/economy/300617/no-dual-mrps-from-2018-cinemas-malls-cannot-charge-extra.html)",
+            "[Business Today, 13 December 2017](https://www.businesstoday.in/latest/economy-politics/story/supreme-court-allows-restaurants-charge-above-mrp-bottled-water-88026-2017-12-13)",
+            "[Cuatrecasas, on EU Regulation 2022/720, 2023](https://www.cuatrecasas.com/en/global/competition-eu-law/art/resale-price-restrictions-a-new-horizon-under-the-new-vertical-block-exemption-regulation)",
+            "[Pushpa Girimaji, \"Water battles at airports & restaurants\", The Tribune, 2019](https://www.tribuneindia.com/news/archive/features/water-battles-at-airports-restaurants-804033)",
+            "[Reuters, \"Premium water becomes new status symbol for India's wealthy elite\", Business Standard, 31 January 2026](https://www.business-standard.com/india-news/premium-water-becomes-new-status-symbol-for-india-s-wealthy-elite-126013100084_1.html)",
+            "[Reuters, \"In India, Iran war forces Diet Coke to roll out a bigger can, heftier price tag\", 24 July 2026](https://www.dailymaverick.co.za/article/2026-07-24-in-india-iran-war-forces-diet-coke-to-roll-out-a-bigger-can-heftier-price-tag.md)",
+            "[Law Vaani, \"Charged more than MRP for a cold drink?\", June 2026](https://lawvaani.com/charged-more-than-mrp-for-a-cold-drink-the-truth-about-shops-restaurants-multiplexes-and-youre-consumer-rights-in-india-2026/)",
+            "[Business Standard, PVR INOX Q1 FY26 results, 7 August 2025](https://www.business-standard.com/markets/capital-market-news/pvr-inox-gains-as-q1-losses-narrow-125080700622_1.html)",
+            "[Numbeo, Berlin, May 2024](https://www.numbeo.com/cost-of-living/in/Berlin)",
+            "[Supermarktcheck, Coca-Cola price reports](https://www.supermarktcheck.de/product/12394-coca-cola-)",
+            "[Hyperpure listing, Coca-Cola 300 ml can, MRP ₹40](https://www.hyperpure.com/in/coca-cola-300-ml-can-mrp-40-pc)"
+          ]
+        }
+      ]
+    }
+  ]
+}

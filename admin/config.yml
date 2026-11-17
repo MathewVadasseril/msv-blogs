@@ -371,7 +371,7 @@ collections:
         label: Type
         widget: select
         default: Project
-        options: [Project, Case competition, Venture, Internship, Consulting]
+        options: [Project, Case competition, Venture, Internship, Consulting, Observation]
       - { name: year, label: Year, widget: string, hint: "e.g. 2023, or 2021–2023" }
       - { name: event, label: "Organisation or competition", widget: string, required: false, hint: "e.g. Organco Interiors, or IIM Bangalore Vista 2024" }
       - { name: role, label: My role, widget: string, required: false, hint: "e.g. Co-founder, Team lead" }
