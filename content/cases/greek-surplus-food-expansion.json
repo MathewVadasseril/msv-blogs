@@ -1,0 +1,279 @@
+{
+  "title": "Taking a Greek surplus-food startup abroad: why India said no, and where to go instead",
+  "summary": "A cross-border expansion project for a Greek startup that sells surprise boxes of leftover food. The founders asked about India; our field research said no, so we built a data-led way to pick the next country.",
+  "kind": "Consulting",
+  "year": "2024",
+  "event": "A Greek surplus-food mystery-box startup",
+  "role": "Cross-border expansion strategy and an India-adapted business model",
+  "outcome": "Letter of Recommendation",
+  "team": "",
+  "order": 3,
+  "topics": [
+    "Market Entry",
+    "International Expansion",
+    "Sustainability",
+    "Storyboarding"
+  ],
+  "icon": "fa-person-chalkboard",
+  "color": "from-emerald-500 to-teal-600",
+  "draft": true,
+  "chapters": [
+    {
+      "type": "blocks",
+      "kicker": "The brief",
+      "title": "A surprise box of today's leftovers",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "*A cross-border expansion project for a startup in Greece, 2024. The startup's name is kept private. About 8 minutes to read, plus the full deck.*\n\nA **surplus-food mystery box** is a bag of food that a café, bakery or restaurant could not sell today, sold through an app at a low price. You pay first and collect at closing time. You do not know exactly what is inside, hence the \"mystery\".\n\nThe startup we worked with runs this model in Greece, and it does decently well there. Its founders came to us with one question: **can we take this to India?**"
+        },
+        {
+          "type": "cards",
+          "items": [
+            {
+              "icon": "fa-store",
+              "title": "For the vendor",
+              "text": "Food that would go in the bin earns some money instead. e.g. a bakery recovers part of the cost of the bread left at 9 pm."
+            },
+            {
+              "icon": "fa-bag-shopping",
+              "title": "For the customer",
+              "text": "A good meal for much less than the menu price, in exchange for not choosing what is in it."
+            },
+            {
+              "icon": "fa-scale-balanced",
+              "title": "Why Greece suits it",
+              "text": "Food rules in Greece are strict, so vendors cannot carry today's food over to sell tomorrow. Thus the leftover has to go somewhere tonight, and the app is that place."
+            },
+            {
+              "icon": "fa-users",
+              "title": "Why expand now",
+              "text": "Competitors already work the same space, so growth at home has a ceiling. Hence the founders were looking abroad."
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "heading": "A note on the name",
+          "icon": "fa-eye-slash",
+          "text": "The startup is not named in this write-up. Its name and logo are covered on the slides below."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "The first answer",
+      "title": "Why India said no",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Field research** is going to the people who will use and supply a product and asking them, instead of guessing from a desk. Before building any model for India, our team did extensive research on the ground: we interviewed food vendors, and spoke to people who use food and deal apps about how they buy.\n\nThe answer was clear. The mystery model does not work in India, for two reasons."
+        },
+        {
+          "type": "text",
+          "markdown": "**(i) Weak pressure to clear food the same day:** In India the rules do not stop a vendor from selling today's food tomorrow. So the vendor has no deadline, and hence no reason to sell it cheap tonight. e.g. unsold sweets or snacks are often simply on the counter again the next morning. Without that deadline, there is no steady supply of boxes.\n\n**(ii) Too many food needs for one surprise box:** This was the bigger reason. A box only works if almost anyone is happy with almost anything in it. Indian diets split far too finely for that: vegetarian, Jain, non-vegetarian, South Indian, North Indian, and more inside each. e.g. a Jain customer who avoids onion and garlic cannot take a chance on a box that may hold a biryani. Thus the \"mystery\" that makes the product fun in Greece becomes a risk the customer will not take in India."
+        },
+        {
+          "type": "text",
+          "markdown": "We did not stop at \"no\". To understand why the model works where it does, we went to Greece and **used the startup's app and a competitor's app ourselves**. This showed us the customer experience from ordering to pick-up, and what a market needs for the model to succeed. Those needs became the yardstick for choosing a better country."
+        },
+        {
+          "type": "callout",
+          "heading": "What we still need from Mathew",
+          "icon": "fa-circle-question",
+          "text": "**[To confirm with Mathew]** How many vendors and users we spoke to in India and in which cities, and what the \"India-adapted business model\" on the CV looked like, so we can add it here."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "How we approached it",
+      "title": "From data points to a country",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Country selection** is a way of choosing the next market by scoring each option on the same few facts, instead of on gut feel. Our method had five steps."
+        },
+        {
+          "type": "timeline",
+          "title": "The five steps",
+          "steps": [
+            {
+              "phase": "Step 1: Learn why it works at home",
+              "text": "From Greece and the two apps we listed what the model needs: lots of food left over, customers who like a deal, and rules that push vendors to clear food daily."
+            },
+            {
+              "phase": "Step 2: Turn each need into a number",
+              "text": "Each need became a criterion we could measure the same way for every country. These are the six criteria below."
+            },
+            {
+              "phase": "Step 3: Shortlist and compare",
+              "text": "We compared Germany, Cyprus and the UK, using Greece as the benchmark, on every criterion side by side."
+            },
+            {
+              "phase": "Step 4: Fill each country's profile",
+              "text": "For each country we used the same template: demographics, food waste, rules, campaigns, culture and competitors. Every gap in the data was filled with what it means for our plan."
+            },
+            {
+              "phase": "Step 5: Pick the cheapest good fit",
+              "text": "We weighed market size against the cost and risk of getting in, and arrived at the most economical choice of country."
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "markdown": "### The six criteria\n\n**(i) Food wastage per capita:** The more food is wasted, the more boxes there are to sell, hence the bigger our impact.\n\n**(ii) Income share of the bottom 60%:** Our customers are the middle and lower-middle classes, so we want countries where they hold a fair share of income.\n\n**(iii) Ease of doing business:** How easy it is to register, hire and start operations. A high score means a faster and cheaper launch.\n\n**(iv) Employment ratio:** People in work have less time to cook. e.g. someone leaving the office at 7 pm is more likely to pick up a box on the way home.\n\n**(v) Population aged 15 to 64:** This is the app-using, working-age group we sell to, thus the size of the real market.\n\n**(vi) GDP per capita:** We wanted a middle band. Very rich countries were left out, because people there are less interested in a cheaper end-of-day meal."
+        },
+        {
+          "type": "table",
+          "title": "The shortlist side by side (figures from our slides)",
+          "headers": [
+            "Country",
+            "People aged 15–64",
+            "Ease of doing business",
+            "Income share, bottom 60%",
+            "GDP per capita (US$)",
+            "Employment ratio"
+          ],
+          "rows": [
+            "Germany|53,319,483|79.7|47.2%|48,718|59.4%",
+            "Cyprus|866,553|73.4|46.6%|32,048|60.7%",
+            "Greece (benchmark)|6,601,149|68.4|46.9%|20,867|45.4%",
+            "United Kingdom|42,435,350|83.6|47.4%|46,125|59.9%"
+          ]
+        },
+        {
+          "type": "text",
+          "markdown": "### What the data told us\n\n**Germany and the UK:** Big markets with high food waste and the easiest places to start a business. But both already have strong competitors, including Too Good To Go, which runs the same model as our startup, plus SIRPLUS and foodsharing in Germany and Olio and Karma in the UK. Hence entry there means paying to win customers from a rival.\n\n**Cyprus:** The smallest market, but the highest food waste per person in Europe in our data (397 kg a year) and about €1,000 of waste per inhabitant. It is close to Greece in culture, economy and distance. e.g. people eat out in meze, many small shared dishes, much like Greek dining. And the competition slide shows no consumer app, only a hotel food-waste research project. Thus a launch there needs little new learning and little marketing spend."
+        },
+        {
+          "type": "text",
+          "markdown": "These are the data points we put on the slides. Read together, they point to Cyprus as the low-cost first step out of Greece, with Germany and the UK as bigger markets for later.\n\n**[To confirm with Mathew]** Was Cyprus the final recommendation to the founders, and did the deck give a phased plan for Germany or the UK? The slides I have do not include a conclusion slide."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "How we storyboarded it",
+      "title": "A deck built to suit a young, playful startup",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "A **storyboard** is the plan of a presentation before any slide is made: one line for what each slide must prove, in the order the audience needs to hear it. We built ours with the help of AI, and shaped it to fit the startup's culture."
+        },
+        {
+          "type": "text",
+          "markdown": "**(i) Start from the client's culture:** The startup is young and informal, and its product is a fun surprise. So the deck had to feel the same: light, visual and quick to read, not a dense consulting report. e.g. every criterion and every section header carries an icon, so a founder can follow the story by skimming.\n\n**(ii) One question per slide:** Each slide answers one question, such as \"how big is the market?\" or \"who is already there?\". This keeps the story moving from criteria, to comparison, to each country.\n\n**(iii) The same template for every country:** Cyprus, Germany and the UK each get the same set of slides: profile and food waste, rules and campaigns, culture, and competitors. Thus the founders can compare countries slide for slide.\n\n**(iv) AI to draft, the team to decide:** We used AI to help lay out the storyline and draft the slide structure, and then checked and filled every slide with our own research. Hence the speed of AI without giving up the judgement."
+        },
+        {
+          "type": "callout",
+          "heading": "What we still need from Mathew",
+          "icon": "fa-circle-question",
+          "text": "**[To confirm with Mathew]** Which AI tools we used for the storyboard and how, and what about the company's culture made this style the right fit, so this section reflects exactly what we did."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "The deck",
+      "title": "Every slide, in order",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "Here is the full deck as we presented it, one slide at a time. The startup's name and logo are covered."
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greek-surplus-food-expansion-slide-01.jpg",
+          "alt": "Slide 1 of 13. Title slide: \"A Greek surplus-food startup\", presented at the Goa Institute of Management. The startup's name and logo are covered.",
+          "caption": "Slide 1 of 13. The cover. The startup's name and logo are covered on every slide.",
+          "size": "wide"
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greek-surplus-food-expansion-slide-02.jpg",
+          "alt": "Slide 2 of 13. Slide listing six country selection criteria: food wastage per capita, income share of the bottom 60%, ease of doing business, employment ratio, population aged 15 to 64, and GDP per capita",
+          "caption": "Slide 2 of 13. The six criteria. Each one ties a number to a part of the business model.",
+          "size": "wide"
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greek-surplus-food-expansion-slide-03.jpg",
+          "alt": "Slide 3 of 13. Charts comparing Germany, Cyprus, Greece and the UK on food wastage per capita, population aged 15 to 64, and ease of doing business, with five takeaways",
+          "caption": "Slide 3 of 13. Scale and ease: Germany and the UK are big and easy to start in; Cyprus wastes the most food per person and sits next door to Greece.",
+          "size": "wide"
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greek-surplus-food-expansion-slide-04.jpg",
+          "alt": "Slide 4 of 13. Charts comparing income share of the bottom 60%, GDP per capita and employment ratio for Germany, Cyprus, Greece and the UK",
+          "caption": "Slide 4 of 13. Fit with the customer: every shortlisted country is middle income, with a similar income spread and more people in work than Greece.",
+          "size": "wide"
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greek-surplus-food-expansion-slide-05.jpg",
+          "alt": "Slide 5 of 13. Cyprus country profile: 397 kg of food wasted per person a year, population table, and the competitive landscape, which lists only a hotel food-waste research project",
+          "caption": "Slide 5 of 13. Cyprus, part 1: the highest food waste in the set, and no consumer app on the competition slide.",
+          "size": "wide"
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greek-surplus-food-expansion-slide-06.jpg",
+          "alt": "Slide 6 of 13. Cyprus government regulations and measures against food waste, including the Waste Mapping Guide for Hotels, the Waste Prevention Programme 2015 to 2021 and the LIFE Foodprint project",
+          "caption": "Slide 6 of 13. Cyprus, part 2: rules and campaigns that already make people aware of food waste.",
+          "size": "wide"
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greek-surplus-food-expansion-slide-07.jpg",
+          "alt": "Slide 7 of 13. Cyprus culture: food habits such as meze, major industries, political life, social etiquette and domestic life",
+          "caption": "Slide 7 of 13. Cyprus, part 3: culture. Shared plates and a close-knit society, much like Greece.",
+          "size": "wide"
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greek-surplus-food-expansion-slide-08.jpg",
+          "alt": "Slide 8 of 13. Germany country profile: age groups, migration, population table, food safety rules and a pie chart of 11 million tonnes of food waste, 59% from households",
+          "caption": "Slide 8 of 13. Germany, part 1: a large market with strict food safety rules and 11 million tonnes of food waste.",
+          "size": "wide"
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greek-surplus-food-expansion-slide-09.jpg",
+          "alt": "Slide 9 of 13. Germany initiatives against food waste and three competitors: Too Good To Go, SIRPLUS and foodsharing.de",
+          "caption": "Slide 9 of 13. Germany, part 2: government campaigns, and three competitors already in the market, one with the same model as ours.",
+          "size": "wide"
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greek-surplus-food-expansion-slide-10.jpg",
+          "alt": "Slide 10 of 13. German culture: bread and potato dishes, formal dining, frugal and environmentally conscious shoppers, consensus politics and small households",
+          "caption": "Slide 10 of 13. Germany, part 3: culture. Frugal, green-minded shoppers, but loyal to the brands they already use.",
+          "size": "wide"
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greek-surplus-food-expansion-slide-11.jpg",
+          "alt": "Slide 11 of 13. United Kingdom country profile: age structure, population table, and 9.5 million tonnes of food waste in 2018, about 70% from households",
+          "caption": "Slide 11 of 13. United Kingdom, part 1: a large, young-enough market with 9.5 million tonnes of food waste.",
+          "size": "wide"
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greek-surplus-food-expansion-slide-12.jpg",
+          "alt": "Slide 12 of 13. UK food regulations, initiatives such as WRAP, FareShare and Love Food Hate Waste, and the trend of a 15% fall in food waste from 2007 to 2018",
+          "caption": "Slide 12 of 13. United Kingdom, part 2: strong rules and many campaigns already working on the problem.",
+          "size": "wide"
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greek-surplus-food-expansion-slide-13.jpg",
+          "alt": "Slide 13 of 13. UK cultural dynamics and three competitors: Too Good To Go, Olio and Karma",
+          "caption": "Slide 13 of 13. United Kingdom, part 3: a multicultural food scene and three competitors, one with the same model as ours.",
+          "size": "wide"
+        }
+      ]
+    }
+  ]
+}
