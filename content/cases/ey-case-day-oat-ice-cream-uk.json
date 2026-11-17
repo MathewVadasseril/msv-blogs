@@ -1,0 +1,409 @@
+{
+  "title": "Oat ice cream goes to Britain: a 30-minute EY case, finished properly",
+  "summary": "At EY's Case Day in Finland we had 30 minutes to take a Nordic oat ice cream brand abroad, and our team won with the UK. Here I re-run the case with fresh 2025–26 data and settle the question we left open: export first, then a UK subsidiary past about 1.2 million tubs a year.",
+  "kind": "Case competition",
+  "year": "2025",
+  "event": "EY Case Day, LUT University, Finland",
+  "role": "Built the deck and storyline",
+  "outcome": "Winning team",
+  "team": "3-person team",
+  "order": 9,
+  "topics": [
+    "Market Entry",
+    "International Expansion",
+    "Unit Economics",
+    "Case Competitions"
+  ],
+  "icon": "fa-trophy",
+  "color": "from-sky-500 to-blue-600",
+  "draft": false,
+  "chapters": [
+    {
+      "type": "blocks",
+      "kicker": "Overview",
+      "title": "The case in one page",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "*A 30-minute case at the EY Case Day, LUT University, Finland, 2025. Our team of three won. EY's brief stays private, so the case company is not named and no slides are shown. About 10 minutes to read.*\n\nA **market-entry case** asks two questions: *where* should a company sell next, and *how* should it get there. We had 30 minutes to answer both for a Finnish oat-based ice cream brand that was strong at home and had never sold abroad.\n\nOn the day we said: **go to the United Kingdom**, and choose between **exporting** and **setting up a UK subsidiary** once the numbers are in. That won the room, but it left the second question half-answered. So here I re-run the work with fresh 2025–26 data and finish it with a clear call."
+        },
+        {
+          "type": "metrics",
+          "items": [
+            {
+              "value": "30 min",
+              "label": "From brief to finished deck"
+            },
+            {
+              "value": "3",
+              "label": "People in the team"
+            },
+            {
+              "value": "UK",
+              "label": "The market we picked"
+            },
+            {
+              "value": "Won",
+              "label": "Result on the day"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "heading": "The answer, in one line",
+          "icon": "fa-flag-checkered",
+          "text": "Enter the UK by exporting through a specialist UK distributor, aimed at the gap between £5 and £12 a litre on the dairy-free shelf. Open a UK sales subsidiary only once sales pass about 1.2 million tubs a year, and never build a UK factory."
+        },
+        {
+          "type": "listbox",
+          "title": "How this write-up is built",
+          "icon": "fa-list-ol",
+          "items": [
+            "**The competition:** what an EY Case Day is and what 30 minutes really allows.",
+            "**The brief and our answer:** what we were asked and what we presented, in our own words.",
+            "**Why the UK, with fresh data:** the market, the shelf and the competitors, from 2025–26 sources.",
+            "**Brexit, re-checked:** tariffs, VAT and border checks as they stand in November 2026.",
+            "**Export or subsidiary:** a tub-level cost model and a break-even point.",
+            "**The roadmap and the reflection:** what I would tell the founders, and what I would do with three hours instead of 30 minutes."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "The competition",
+      "title": "EY Case Day: a full consulting job in 30 minutes",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "A **case day** is a recruiting event where a firm hands students a business problem and watches how they think under time pressure. EY ran one at **LUT University in Finland** in 2025.\n\nHere the rules were simple and harsh:\n\n1. **One brief:** a short description of a company and its question. We got it on the day, with no time to prepare.\n2. **30 minutes:** to read it, agree an answer and build the slides. e.g. that is less time than most of us take to write a two-page assignment.\n3. **Teams of three:** so the first few minutes go into agreeing who does what.\n4. **A short pitch:** each team then presented its deck to the judges.\n\nIn 30 minutes there is no time to search for data, so the judges are not testing research. They are testing **structure**: can we break a messy question into parts, pick a side and explain it simply? Hence our plan was to spend the time on the storyline, not the numbers."
+        },
+        {
+          "type": "timeline",
+          "title": "How we used the 30 minutes",
+          "steps": [
+            {
+              "phase": "Step 1: Read and split the question",
+              "text": "We broke \"go international\" into two questions we could answer one by one: which country, and which way in."
+            },
+            {
+              "phase": "Step 2: Know the company",
+              "text": "We listed what makes the brand win at home: oat-based recipes, a Nordic identity, premium branding and health appeal. These are the strengths it can carry abroad."
+            },
+            {
+              "phase": "Step 3: Pick the market",
+              "text": "We ran a SWOT for the brand against the UK and added a chart of who sells ice cream there."
+            },
+            {
+              "phase": "Step 4: Pick the route in",
+              "text": "We drew two roads into the UK, own subsidiary and export, with the benefits and the roadblocks on each."
+            },
+            {
+              "phase": "Step 5: Tell one story",
+              "text": "A three-step tracker (Introduction, Analysis, Result) ran across every slide, so the judges always knew where we were."
+            }
+          ]
+        },
+        {
+          "type": "quote",
+          "text": "In a 30-minute case, the storyline is the analysis. If the judges can follow you, they will trust you.",
+          "author": "My takeaway from the day"
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "The brief",
+      "title": "A Nordic oat ice cream brand that had never left home",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "The case company was a **Finnish maker of oat-based ice cream**, founded by a group of economics students and still run by its founders. It sold only in Finland.\n\nHere we read the brief as four facts that shape the whole answer:\n\n1. **A premium brand at home:** it already wins on taste, health and sustainability, hence it should not compete on price abroad.\n2. **Oat, not dairy:** the product sits on the dairy-free shelf, so the real market is plant-based shoppers and \"flexitarians\", not all ice cream buyers.\n3. **A small home market:** Finland has about 5.6 million people, so growth has to come from abroad.\n4. **No international experience:** the team has never handled foreign retailers, customs or a cold chain across a border, thus the first step must be low-risk."
+        },
+        {
+          "type": "cards",
+          "items": [
+            {
+              "icon": "fa-seedling",
+              "title": "What it can carry abroad",
+              "text": "Oat-based recipes, an authentic Nordic identity and a health-and-planet story. e.g. Oatly took exactly this story from Sweden to UK supermarkets."
+            },
+            {
+              "icon": "fa-triangle-exclamation",
+              "title": "What holds it back",
+              "text": "No foreign sales, a narrow range, low brand awareness outside Finland and a small team."
+            },
+            {
+              "icon": "fa-question",
+              "title": "The question",
+              "text": "Which country should it enter first, and how should it get its product onto that country's shelves?"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "heading": "A note on confidentiality",
+          "icon": "fa-eye-slash",
+          "text": "The brief belongs to EY, so I describe it only in my own words and leave out the company's name, people and details. Every number below comes from public sources, not from the brief."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Our answer on the day",
+      "title": "What we presented: the UK, and two roads in",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "Our deck had three working slides, linked by the Introduction, Analysis and Result tracker.\n\n1. **About the company:** who they are, their vision and their core competency: Nordic-inspired, oat-based ice cream with premium branding.\n2. **Why the United Kingdom:** a SWOT of the brand against the UK market, next to a chart of the UK ice cream market's biggest sellers.\n3. **Which method and why:** two roads into the UK. Road 1, our own subsidiary: bigger margins and local supply chains, but a high set-up cost and more risk. Road 2, exporting from Finland: we stick to what we do well, with less risk, but face import duty, lower margins and customs work.\n\nWe closed with: *\"With further data, the best ROI can be calculated and that path executed.\"*"
+        },
+        {
+          "type": "table",
+          "title": "Our SWOT on the day, in short",
+          "headers": [
+            "Strengths",
+            "Weaknesses",
+            "Opportunities",
+            "Threats"
+          ],
+          "rows": [
+            "Premium brand in Finland|No international presence|Growing demand for dairy-free products|Post-Brexit import costs",
+            "Innovative oat-based range|Narrow product range|Low brand loyalty in the category|Big players entering vegan and free-from",
+            "Authentic Nordic identity|Small home market|No major competitor in the dairy-free category|Fierce fight for freezer space",
+            "Founder-led team|Low global awareness|Steady growth in the category|Risk of price wars"
+          ]
+        },
+        {
+          "type": "text",
+          "markdown": "**What held up:** the structure. Splitting *where* from *how* is exactly how consultants frame entry cases, and the judges could follow every step.\n\n**What did not:** two things.\n\n1. **A contradiction:** our opportunities said there was \"no major competitor\", while our own chart showed a few giants holding most of the market. The fair version is narrower: the giants are there, but no one owns a *premium, oat-native* position.\n2. **No final call:** we laid out both roads and stopped. A board wants one answer and the condition under which it would change. The rest of this case study fixes both."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Where: fresh data",
+      "title": "Why the UK still holds up in 2026",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Market attractiveness** is how much a market can give a newcomer: its size, its growth, how ready buyers are for the product, and how hard rivals will fight. Here we check each one with 2025–26 data.\n\n1. **Size:** Mintel expects the UK ice cream market to reach about **£2 billion** in sales by 2028. Across Europe, retail ice cream was worth **€18.7 billion** in 2024, and the UK, Germany and France together make up **48%** of it. Hence the UK is one of the three biggest prizes in Europe.\n2. **Spending, not volume:** Brits are eating *less* ice cream but spending more on it, as shoppers trade up to premium tubs. e.g. Magnum alone sold about **£235 million** in the UK in 2022–23. This suits a premium brand that does not want to fight on price.\n3. **Plant-based habits:** about **31%** of UK households buy plant-based milk at least once a year, and plant-based milk takes **11.3%** of the milk category's value. Thus the oat idea needs no explaining in the UK.\n4. **Where the growth is:** UK plant-based sales fell **1.2%** in 2025 to about **£848 million**, but almost all of the fall came from meat swaps. The categories that sit closest to ice cream, yoghurt and cheese, grew by 10% and more."
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/ey-case-day-plant-based-growth.svg",
+          "alt": "Bar chart of UK plant-based retail sales growth in 2025: cheese +12.6% (£14m), yoghurt +10.0% (£102m), milk and drinks +0.5% (£419m), cream −4.7% (£12m), meat −7.3% (£295m).",
+          "caption": "Plant-based is not one market. Dairy swaps such as yoghurt and cheese still grow while meat swaps shrink, which is good news for an oat ice cream. Source: GFI Europe with Circana data, June 2026.",
+          "size": "wide"
+        },
+        {
+          "type": "metrics",
+          "items": [
+            {
+              "value": "~£2bn",
+              "label": "UK ice cream sales expected by 2028 (Mintel)"
+            },
+            {
+              "value": "48%",
+              "label": "Share of Europe's €18.7bn retail ice cream market held by the UK, Germany and France"
+            },
+            {
+              "value": "31%",
+              "label": "UK households buying plant-based milk each year (NIQ)"
+            },
+            {
+              "value": "72%",
+              "label": "Price premium of UK plant milk over cow's milk, 2025"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "heading": "The warning in the data",
+          "icon": "fa-triangle-exclamation",
+          "text": "UK plant-based shoppers already pay a lot more: plant milk costs 72% more a litre than cow's milk, against only 10% more in Germany. A premium oat ice cream has to earn its price with taste, not with the planet story alone."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Where: the shelf",
+      "title": "Fixing the contradiction: who really owns the freezer",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Market concentration** is how much of a market sits with a few firms. In UK ice cream it is very high, and the same few firms also own most of the dairy-free shelf.\n\n1. **The Magnum Ice Cream Company:** spun out of Unilever and listed in December 2025, with about **21%** of world ice cream sales and about **€7.9 billion** of revenue in 2025. In the UK it owns Wall's, Magnum, Cornetto and Ben & Jerry's, and its dairy-free brands include **Ben & Jerry's Non-Dairy** and **Swedish Glace**.\n2. **Froneri:** Nestlé's ice cream joint venture and the world's second-biggest ice cream maker. In Europe it makes Häagen-Dazs and Nestlé brands, and it is the biggest maker of own-label ice cream. e.g. our deck showed \"Nestlé\" and \"Häagen-Dazs\" as two rivals, while in the UK both sit inside one company.\n3. **Oat specialists and own label:** Oatly sells oat ice cream in UK supermarkets, and every big grocer has a cheap plant-based tub. e.g. Aldi's Plant Menu tubs often cost under £2.\n\nSo the honest SWOT says: *the big players are already on the dairy-free shelf*. The opening is not an empty shelf. It is a **price and positioning gap**."
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/ey-case-day-price-ladder.svg",
+          "alt": "Bar chart of shelf price per litre: Swedish Glace non-dairy £4.67, the proposed premium Nordic oat tub £9.00, Ben & Jerry's Non-Dairy about £11.83.",
+          "caption": "The dairy-free shelf has a cheap end (own label, Swedish Glace) and a top end (Ben & Jerry's). A premium Nordic oat tub at about £4.50 for 500 ml sits in the middle.",
+          "size": "wide"
+        },
+        {
+          "type": "table",
+          "title": "Who we would face on the UK dairy-free shelf",
+          "headers": [
+            "Player",
+            "Owner",
+            "Position",
+            "What it means for us"
+          ],
+          "rows": [
+            "Ben & Jerry's Non-Dairy|The Magnum Ice Cream Company|Indulgent, about £5–6 a 465 ml tub|Sets the top price; we price below it",
+            "Swedish Glace|The Magnum Ice Cream Company|Value, £3.50 for 750 ml at Tesco|Owns \"cheap and Scandinavian\"; we must not look like it",
+            "Oatly|Oatly Group (Sweden)|Oat specialist with a strong drinks brand|The closest rival in story; we win on Finnish origin and ice cream focus",
+            "Supermarket own label|Tesco, Sainsbury's, Aldi and others|Often under £2–3 a tub|Takes price-led buyers; we target the trade-up buyer"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "How: the Brexit question",
+      "title": "Brexit, re-checked: the duty we feared is not the real cost",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "On the day we wrote \"high post-Brexit import costs\" and \"import duty\" as threats. With time to check, the picture is different.\n\n1. **Tariff:** under the EU–UK Trade and Cooperation Agreement, goods that meet the **rules of origin** pay **zero tariff**. An oat ice cream made in Finland from EU oats should qualify, as long as the origin is proven on the customs declaration. Hence import duty is not a cost of exporting, if the paperwork is right.\n2. **VAT:** HMRC treats all ice cream as **standard-rated at 20%**, whatever it is made from. But VAT applies in *both* routes, so it does not change the choice.\n3. **Border checks:** veterinary checks apply to *composite* products that contain animal products such as milk or egg. A fully plant-based ice cream falls outside that definition, so it should avoid the heaviest checks. We would still confirm this with a customs agent.\n4. **What is coming:** in November 2026 the UK and EU agreed an **SPS (food and plant safety) deal in principle**. It is expected to start between November 2027 and early 2028 and to remove many food checks. Thus exporting gets *easier*, not harder, over the next two years.\n\nThe real extra costs of exporting are therefore **customs paperwork, a frozen supply chain across the North Sea, and the margin a UK distributor takes**. That is what the next chapter puts numbers on."
+        },
+        {
+          "type": "cards",
+          "items": [
+            {
+              "icon": "fa-scale-balanced",
+              "title": "Tariff: £0",
+              "text": "If the tub meets the TCA rules of origin and the declaration claims it."
+            },
+            {
+              "icon": "fa-receipt",
+              "title": "VAT: 20%",
+              "text": "Standard-rated, but paid the same way in both routes."
+            },
+            {
+              "icon": "fa-truck",
+              "title": "The real cost",
+              "text": "Paperwork, a frozen supply chain and the distributor's margin."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "How: the numbers",
+      "title": "Export or subsidiary: a tub-level answer",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Entry mode** is the way a firm sells into a new country, from low control and low risk (exporting) to high control and high risk (its own company or factory there). We compare four routes, then put the two from our deck into numbers.\n\n"
+        },
+        {
+          "type": "table",
+          "title": "Four ways into the UK",
+          "headers": [
+            "Route",
+            "Upfront cost",
+            "Control",
+            "Risk",
+            "Fit for a first-time exporter"
+          ],
+          "rows": [
+            "1. Export via a UK distributor|Low|Low|Low|Best start: a partner brings retailer contacts and a cold chain",
+            "2. Own UK sales subsidiary (no factory)|Medium (~£0.5m a year)|High|Medium|Right once volume proves out",
+            "3. UK co-packer makes the product|Medium|Medium|Medium|Risky for the recipe and the \"made in Finland\" story",
+            "4. Own UK factory|Very high|Full|High|No: gives up the Nordic origin and ties up capital"
+          ]
+        },
+        {
+          "type": "text",
+          "markdown": "To compare routes 1 and 2, we follow one **500 ml tub** from shelf to factory. The assumptions are mine and are shown on the charts: a shelf price of **£4.50**, a **35%** retailer margin, a **25%** distributor margin, **£1.00** to make a tub, and about **£500,000 a year** to run a small UK team, office and listings."
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/ey-case-day-tub-economics.svg",
+          "alt": "Stacked bars splitting a £4.50 tub. Export: VAT £0.75, retailer £1.31, distributor £0.61, freight and customs £0.18, production £1.00, producer keeps £0.65. Subsidiary: VAT £0.75, retailer £1.31, logistics and customs £0.38, production £1.00, producer keeps £1.06.",
+          "caption": "Exporting gives up £0.61 a tub to the distributor. A subsidiary keeps it but pays more for logistics, so it earns £0.41 more per tub, before its yearly overheads.",
+          "size": "wide"
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/ey-case-day-break-even.svg",
+          "alt": "Line chart of yearly contribution against tubs sold. Export rises at £0.65 a tub from zero. Subsidiary starts at minus £0.5 million and rises at £1.06 a tub. They cross at about 1.2 million tubs a year.",
+          "caption": "The two routes break even at about 1.2 million tubs a year, about £5.5 million at the shelf. Below that, exporting earns more; above it, a subsidiary does.",
+          "size": "wide"
+        },
+        {
+          "type": "text",
+          "markdown": "**What the numbers say:**\n\n1. **Below 1.2 million tubs a year, export wins.** e.g. at 500,000 tubs, exporting earns about £325,000 while a subsidiary earns about £30,000.\n2. **Above it, a subsidiary wins**, because the extra £0.41 a tub pays back the fixed cost.\n3. **1.2 million tubs is about £5.5 million at the shelf**, or roughly a quarter of one per cent of a £2 billion market. It is a realistic target for year three or four, not for year one.\n\nHence the answer to our own open question is not \"export *or* subsidiary\". It is **export first, then a subsidiary when sales cross the break-even line**."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "The recommendation",
+      "title": "What I would tell the founders",
+      "blocks": [
+        {
+          "type": "callout",
+          "heading": "Recommendation",
+          "icon": "fa-flag-checkered",
+          "text": "Enter the UK by exporting through a specialist UK distributor, as a premium Nordic oat ice cream at about £4.50 for 500 ml. Switch to an own UK sales subsidiary only when sales pass about 1.2 million tubs a year. Do not build or rent UK production: the Finnish origin is part of what people are buying."
+        },
+        {
+          "type": "timeline",
+          "title": "The roadmap",
+          "steps": [
+            {
+              "phase": "Months 0–6: Get ready",
+              "text": "Sign a UK distributor with frozen logistics and retailer contacts. Set up rules-of-origin proof and a customs agent. Run taste tests with UK shoppers against Ben & Jerry's Non-Dairy and Oatly."
+            },
+            {
+              "phase": "Months 6–18: Prove the product",
+              "text": "Launch in one premium grocer and online first, e.g. Waitrose or Ocado, where trade-up buyers shop. Track rate of sale per store each week, not just listings."
+            },
+            {
+              "phase": "Months 18–36: Scale with partners",
+              "text": "Add a second and third national grocer only if rate of sale holds. Use the SPS deal (expected late 2027 to early 2028) to cut border costs."
+            },
+            {
+              "phase": "When sales pass ~1.2m tubs a year: Take control",
+              "text": "Open a small UK sales subsidiary, take over key accounts from the distributor and keep the Finnish factory as the single source."
+            }
+          ]
+        },
+        {
+          "type": "listbox",
+          "title": "What would change my mind",
+          "icon": "fa-arrows-rotate",
+          "items": [
+            "**Taste tests lose to Oatly or Ben & Jerry's:** fix the product before spending on the UK.",
+            "**Rate of sale stalls in the first grocer:** stay a niche online brand and test Germany instead.",
+            "**Distributor margins above about 30%:** the break-even point falls, so a subsidiary comes sooner.",
+            "**Freight and cold-store costs rise sharply:** look again at a UK co-packer for the bulk lines only."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Reflection",
+      "title": "30 minutes vs three hours: what I learned",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**A case under time pressure** tests judgement more than knowledge. Looking back, here is what I would keep and what I would change.\n\n**What I would keep:**\n\n1. **Split the question first:** \"where\" and \"how\" are different decisions, and answering them in order kept our deck clear.\n2. **One tracker on every slide:** the Introduction, Analysis and Result bar did more for the judges than any chart.\n3. **Pictures over paragraphs:** the two roads into the UK explained risk and reward in one look.\n\n**What I would change:**\n\n1. **Always make a call:** \"it depends\" is only half an answer. Say what we would do now and the number that would change it. e.g. the 1.2 million tubs break-even above.\n2. **Check the SWOT against our own chart:** our opportunities and our evidence disagreed, and a sharp judge would catch it.\n3. **Question the scary word:** we listed \"import duty\" because Brexit felt costly. Five minutes of checking shows the tariff is zero for EU-origin goods, and the real costs are paperwork, a cold chain and margins.\n4. **Compare at least two countries:** we justified the UK but never compared it. With more time I would test Germany, which has no customs border with Finland and a much smaller plant-based price premium.\n5. **Proofread the last minute:** a few spelling slips on screen cost credibility that the thinking had earned."
+        },
+        {
+          "type": "quote",
+          "text": "Thirty minutes is enough to find the right question. It takes the numbers to earn the right answer.",
+          "author": "My takeaway"
+        },
+        {
+          "type": "text",
+          "markdown": "**Sources:** GFI Europe, *UK plant-based food retail market insights 2024–2025* (June 2026, Circana and NIQ data); Mintel *UK Ice Cream Report 2024* via FrozenFoodsBiz; Glacier figures via Food Management Today (Dec 2025); *The Magnum Ice Cream Company* (Wikipedia, 2025 figures); ConfectioneryNews on Froneri (Oct 2025); HMRC VAT manual VFOOD5520; GOV.UK guidance on rules of origin (updated Sept 2026) and on importing composite products; Food Manufacture on the UK–EU SPS deal (4 Nov 2026); Tesco.com and the isitvegan UK guide (Apr 2026) for shelf prices. The cost model and break-even use my own assumptions, shown on the charts."
+        }
+      ]
+    }
+  ]
+}
