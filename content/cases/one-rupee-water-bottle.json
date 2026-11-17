@@ -2,11 +2,11 @@
   "title": "The 1-rupee water bottle: why ₹1 beats free",
   "summary": "A GIM sustainability project: drinking water in a carton for ₹1, paid for by the ads printed on it, with a seed in the cap. The real question was why charge ₹1 at all.",
   "kind": "Project",
-  "year": "",
+  "year": "2024",
   "event": "Goa Institute of Management (GIM)",
   "role": "",
   "outcome": "Concept pitch",
-  "team": "",
+  "team": "Team project",
   "order": 2,
   "topics": [
     "Pricing",
@@ -98,7 +98,7 @@
         },
         {
           "type": "table",
-          "title": "Unit economics of one 250 ml pack (ILLUSTRATIVE, not from the original project)",
+          "title": "Unit economics of one 500 ml pack (ILLUSTRATIVE costs, not from the original project)",
           "headers": [
             "Line",
             "₹ per pack",
@@ -106,19 +106,22 @@
           ],
           "rows": [
             "Price paid by the customer|1.0|The concept",
-            "Ad revenue per pack|9.0|Low end of the ₹9–20 a real Indian brand charges advertisers (see below)",
-            "**Revenue**|**10.0**|",
-            "Water, treatment and filling|1.5|Illustrative assumption",
-            "Paper-based carton with print|3.0|Illustrative assumption",
-            "Cap with seed|1.0|Illustrative assumption",
-            "Transport and retailer margin|2.5|Illustrative assumption",
-            "**Cost**|**8.0**|",
-            "**Margin per pack**|**2.0**|Illustrative only"
+            "Ad revenue per pack|21.0|The project's own 2024 calculation",
+            "Less agency commission (15%)|−3.2|Illustrative assumption",
+            "**Revenue**|**18.8**|",
+            "Water and co-packer filling|2.0|Illustrative assumption",
+            "Paper-based carton with print|4.5|Illustrative assumption",
+            "Cap with seed|1.2|Illustrative assumption",
+            "Freight|1.0|Illustrative assumption",
+            "Trade incentive to the shop or cart|2.0|Illustrative assumption",
+            "Recycling and collection|0.3|Illustrative assumption",
+            "**Cost**|**11.0**|",
+            "**Margin per pack**|**7.8**|Illustrative, if every pack carries a paid ad"
           ]
         },
         {
           "type": "text",
-          "markdown": "The cost lines are placeholders to show the shape of the model, not quotes. The detailed case study will rebuild them properly. What the table does show is where the risk sits: the model lives or dies on **ad revenue per pack**, not on the ₹1.\n\n### Has anyone made this work?\n\n1. **Wahter (Gurugram, founded 2023):** sells 250 ml of water for ₹1 and 500 ml for ₹2. About 80% of the label is sold to advertisers, who pay roughly ₹9–20 per bottle depending on volume and location ([afaqs!, 3 January 2024](https://www.afaqs.com/news/advertising/how-wahter-is-looking-to-make-water-bottles-an-advertising-medium); [YourStory, 6 March 2024](https://yourstory.com/2024/03/a-husband-wife-duo-leverage-tech-to-make-bottled-drinking-water-affordable)). It claims 2 lakh bottles sold in its first month in Delhi NCR and raised ₹5 crore at a ₹52 crore valuation ([Indian Startup News, 22 June 2024](https://indianstartupnews.com/funding/packaged-drinking-water-startup-wahter-raises-rs-5-crore-in-pre-seed-funding-4774808)). e.g. the same logic as my concept, built with plastic bottles rather than cartons.\n2. **FreeWater (Texas, USA):** gives spring water away free in aluminium bottles and paper cartons, paid for by ads and QR codes on the pack, and gives 10 cents a bottle to build wells in East Africa ([The Daily Star, 17 January 2024](https://www.thedailystar.net/tech-startup/news/how-does-freewater-work-3522056)).\n3. **Mizu and others (Dhaka):** brands sponsor batches of free bottles carrying their label and QR code. Critics in the same report warn that shopkeepers earn little on a free bottle, so they may not push it ([The Business Standard, 17 January 2024](https://www.tbsnews.net/features/panorama/bottled-water-free-will-new-advertising-model-sustain-776254)). Hence a small price also helps the retailer, which free cannot.\n\nThese are not proof that my version would work, but they show advertisers will pay for space on a water pack in South Asia, at prices close to what the model needs."
+          "markdown": "The project packed water in 500 ml and 1 litre cartons and worked out about ₹21 of ad revenue per pack. The cost lines are placeholders to show the shape of the model, not quotes. What the table does show is where the risk sits: the model lives or dies on **ad revenue per pack**, not on the ₹1.\n\n### Has anyone made this work?\n\n1. **Wahter (Gurugram, founded 2023):** sells 250 ml of water for ₹1 and 500 ml for ₹2. About 80% of the label is sold to advertisers, who pay roughly ₹9–20 per bottle depending on volume and location ([afaqs!, 3 January 2024](https://www.afaqs.com/news/advertising/how-wahter-is-looking-to-make-water-bottles-an-advertising-medium); [YourStory, 6 March 2024](https://yourstory.com/2024/03/a-husband-wife-duo-leverage-tech-to-make-bottled-drinking-water-affordable)). It claims 2 lakh bottles sold in its first month in Delhi NCR and raised ₹5 crore at a ₹52 crore valuation ([Indian Startup News, 22 June 2024](https://indianstartupnews.com/funding/packaged-drinking-water-startup-wahter-raises-rs-5-crore-in-pre-seed-funding-4774808)). e.g. the same logic as my concept, built with plastic bottles rather than cartons.\n2. **FreeWater (Texas, USA):** gives spring water away free in aluminium bottles and paper cartons, paid for by ads and QR codes on the pack, and gives 10 cents a bottle to build wells in East Africa ([The Daily Star, 17 January 2024](https://www.thedailystar.net/tech-startup/news/how-does-freewater-work-3522056)).\n3. **Mizu and others (Dhaka):** brands sponsor batches of free bottles carrying their label and QR code. Critics in the same report warn that shopkeepers earn little on a free bottle, so they may not push it ([The Business Standard, 17 January 2024](https://www.tbsnews.net/features/panorama/bottled-water-free-will-new-advertising-model-sustain-776254)). Hence a small price also helps the retailer, which free cannot.\n\nThese are not proof that my version would work, but they show advertisers will pay for space on a water pack in South Asia. Note that ₹21 is above the top of Wahter's range; a bigger carton has more faces to sell, but that rate is the first thing a pilot must prove."
         }
       ]
     },
