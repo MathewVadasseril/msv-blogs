@@ -14,7 +14,7 @@
   ],
   "icon": "fa-tags",
   "color": "from-red-500 to-rose-600",
-  "draft": true,
+  "draft": false,
   "chapters": [
     {
       "type": "blocks",
