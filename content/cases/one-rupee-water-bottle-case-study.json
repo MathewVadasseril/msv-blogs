@@ -72,7 +72,7 @@
             {
               "icon": "fa-indian-rupee-sign",
               "title": "The bet",
-              "text": "Advertisers pay about ₹21 a pack, as in the original project. Below about ₹16, the model loses money."
+              "text": "Several brands share each carton, and together they pay about ₹21 a pack, as in the original project. Below about ₹16, the model loses money."
             }
           ]
         },
@@ -89,7 +89,7 @@
             "Format|Team project, presented in college as a 10-slide sustainability pitch",
             "Research|Online interviews with people from my startup network, plus desk research on pricing psychology",
             "Pack sizes|500 ml and 1 litre",
-            "Ad revenue per pack|₹21, from the project's own calculation",
+            "Ad revenue per pack|₹21 in total, from several advertisers across the carton's ad spaces (the project's own calculation)",
             "Feedback|Positive"
           ]
         },
@@ -97,7 +97,7 @@
           "type": "callout",
           "heading": "How to read the numbers",
           "icon": "fa-circle-info",
-          "text": "The original interview notes and spreadsheets are lost. Two figures come from the project itself: the pack sizes and the ₹21 ad revenue per pack. Market, waste and competitor figures come from the public sources linked beside them. Every cost, volume and return figure is **illustrative**: it shows how the model works, not what the project found. Download [the model spreadsheet](content/models/one-rupee-water-bottle-model.xlsx) to change the assumptions yourself."
+          "text": "The original interview notes and spreadsheets are lost. Two figures come from the project itself: the pack sizes and the ₹21 of total ad revenue per pack. How that ₹21 splits across the ad spaces is our illustration. Market, waste and competitor figures come from the public sources linked beside them. Every cost, volume and return figure is **illustrative**: it shows how the model works, not what the project found. Download [the model spreadsheet](content/models/one-rupee-water-bottle-model.xlsx) to change the assumptions yourself."
         }
       ]
     },
@@ -176,14 +176,33 @@
             "Value proposition|Safe water for ₹1, in a carton, with a seed to plant|An ad held in the hand for several minutes, placed by location",
             "Channels|Kirana shops, carts, stations, campuses, events|Direct sales team, agency partners",
             "Relationship|Habit: the ₹1 pack becomes the default|Repeat campaigns, reports by location",
-            "Revenue|₹1 per pack|About ₹21 per pack, across all faces of the carton",
+            "Revenue|₹1 per pack|About ₹21 per pack in total, from several brands buying spaces of different sizes",
             "Key activities|Co-packed filling, distribution, recycling tie-ups|Selling the space, printing, proving reach",
             "Key partners|Carton co-packers, seed supplier, recyclers|Brands, agencies, events"
           ]
         },
         {
+          "type": "table",
+          "title": "How ₹21 a pack adds up (illustrative split)",
+          "headers": [
+            "Ad space",
+            "Size",
+            "₹ per pack"
+          ],
+          "rows": [
+            "Front panel, beside the ₹1 mark|Large|₹6.00",
+            "Back panel|Large|₹5.00",
+            "Side panel 1|Medium|₹3.00",
+            "Side panel 2|Medium|₹3.00",
+            "Top strip|Small|₹1.50",
+            "QR offer slot|Small|₹1.50",
+            "Seed-cap tag|Small|₹1.00",
+            "**Total, from several brands**||**₹21.00**"
+          ]
+        },
+        {
           "type": "text",
-          "markdown": "### Why would a brand pay ₹21?\n\n1. **Attention time:** a billboard gets a glance; a water pack is held while it is drunk. e.g. reading the label while waiting for a train.\n2. **Placement:** the pack can be sent where a brand's buyers are, e.g. a gym brand on packs near gyms. Wahter geotags its carts for this reason ([afaqs!, 3 January 2024](https://www.afaqs.com/news/advertising/how-wahter-is-looking-to-make-water-bottles-an-advertising-medium)).\n3. **A budget already exists:** Indian brands spent ₹4,140 crore on outdoor advertising in 2023, up 13% in a year ([Media4Growth, on the Pitch Madison Advertising Report 2024](https://www.media4growth.com/research/indian-ooh-adex-at-rs-4140cr-in-2023-records-13-yoy-growth-vs-10-overall-adex-growth-pitch-madison-ad-report-2024-7301)). Hence the pack does not need a new budget, only a slice of an existing one.\n4. **More space than a bottle:** Wahter charges about ₹9–20 per bottle for roughly 80% of a plastic label ([afaqs!, 3 January 2024](https://www.afaqs.com/news/advertising/how-wahter-is-looking-to-make-water-bottles-an-advertising-medium); [YourStory, 6 March 2024](https://yourstory.com/2024/03/a-husband-wife-duo-leverage-tech-to-make-bottled-drinking-water-affordable)). A 500 ml or 1 litre carton offers four full faces and a top, which is how the project reached ₹21 a pack. Even so, ₹21 sits above the top of Wahter's range, so it is the number the pilot must prove first."
+          "markdown": "The ₹21 is not one advertiser's price. A 500 ml or 1 litre carton has several surfaces, big and small, and each can be sold to a different brand. e.g. a phone brand takes the front panel, a food delivery app the back, and a local café the QR offer slot. Hence the carton works like a small magazine: many advertisers, each paying for their own page.\n\n### Why would brands buy space?\n\n1. **Attention time:** a billboard gets a glance; a water pack is held while it is drunk. e.g. reading the label while waiting for a train.\n2. **Placement:** the pack can be sent where a brand's buyers are, e.g. a gym brand on packs near gyms. Wahter geotags its carts for this reason ([afaqs!, 3 January 2024](https://www.afaqs.com/news/advertising/how-wahter-is-looking-to-make-water-bottles-an-advertising-medium)).\n3. **A budget already exists:** Indian brands spent ₹4,140 crore on outdoor advertising in 2023, up 13% in a year ([Media4Growth, on the Pitch Madison Advertising Report 2024](https://www.media4growth.com/research/indian-ooh-adex-at-rs-4140cr-in-2023-records-13-yoy-growth-vs-10-overall-adex-growth-pitch-madison-ad-report-2024-7301)). Hence the pack does not need a new budget, only a slice of an existing one.\n4. **Each space is cheap:** Wahter sells roughly 80% of a plastic label to one advertiser for about ₹9–20 a bottle ([afaqs!, 3 January 2024](https://www.afaqs.com/news/advertising/how-wahter-is-looking-to-make-water-bottles-an-advertising-medium); [YourStory, 6 March 2024](https://yourstory.com/2024/03/a-husband-wife-duo-leverage-tech-to-make-bottled-drinking-water-affordable)). Here the largest space is about ₹6 and the smallest about ₹1, so each brand pays far less than at Wahter, and small local businesses can afford a slot. This means the risk moves: it is less about one brand paying a high price, and more about **selling enough of the spaces** on every pack."
         }
       ]
     },
@@ -226,7 +245,7 @@
           "type": "callout",
           "heading": "Illustrative costs",
           "icon": "fa-calculator",
-          "text": "The ₹21 ad revenue and the pack sizes come from the 2024 project. Every cost line is an assumption to show the model's shape, not a supplier quote. Replace them with real quotes before using the model for a decision."
+          "text": "The ₹21 total ad revenue per pack and the pack sizes come from the 2024 project. Every cost line is an assumption to show the model's shape, not a supplier quote. Replace them with real quotes before using the model for a decision."
         },
         {
           "type": "table",
@@ -244,14 +263,14 @@
             "Trade incentive to shop or cart|₹2.00|₹2.50",
             "**Variable cost**|**₹10.70**|**₹15.00**",
             "Recycling and collection bins|₹0.30|₹0.30",
-            "Ad revenue (₹21 less 15% agency commission)|₹17.85|₹17.85",
+            "Ad revenue (₹21 from all spaces, less 15% agency commission)|₹17.85|₹17.85",
             "Price paid by the drinker|₹1.00|₹1.00",
-            "**Margin per pack, if every pack carries a paid ad**|**₹7.85**|**₹3.55**"
+            "**Margin per pack, if every space is sold**|**₹7.85**|**₹3.55**"
           ]
         },
         {
           "type": "text",
-          "markdown": "Two adjustments turn this into the year-1 economics we use in the model:\n\n1. **Not every pack carries a paid ad:** in year 1 we assume 85% of packs do, rising to 95% by year 5. The rest carry the brand's own message. This is the **ad fill rate**, like the occupancy rate of a hotel.\n2. **The mix:** both sizes sell for ₹1. We assume 30% of packs are 1 litre and the rest 500 ml, which gives a blended cost of ₹12.29 per pack in year 1, falling about 3% a year with scale.\n\n**Break-even ad rate** is the gross ad revenue a pack needs so that it neither earns nor loses money. In year 1 it is **₹15.6 per pack**. e.g. at the project's ₹21, each pack has about 34% of headroom; at Wahter's ₹9–20, the model loses money on every pack."
+          "markdown": "Two adjustments turn this into the year-1 economics we use in the model:\n\n1. **Not every space is sold:** in year 1 we assume 85% of the ad-space value on each pack is sold, rising to 95% by year 5. Unsold spaces carry our own message. This is the **ad fill rate**, like the occupancy rate of a hotel: rooms of different sizes, and the empty ones earn nothing.\n2. **The mix:** both sizes sell for ₹1. We assume 30% of packs are 1 litre and the rest 500 ml, which gives a blended cost of ₹12.29 per pack in year 1, falling about 3% a year with scale.\n\n**Break-even ad revenue** is the total a pack's ad spaces must bring in so that the pack neither earns nor loses money. In year 1 it is **₹15.6 per pack** at our assumed fill rate. Put the other way, with spaces priced at ₹21 in total, we must sell about **63% of the space** on each pack to break even. e.g. selling the two large panels and both side panels, but none of the small spaces, gives ₹17, which clears it."
         }
       ]
     },
@@ -285,7 +304,7 @@
         },
         {
           "type": "text",
-          "markdown": "The cash need keeps growing until the business turns cash-positive in year 4. At its lowest point, at the end of year 3, the model is **₹11.6 cr** below zero. That trough includes an own carton-filling line in year 3, so we stop paying a co-packer's margin. For comparison, a 32,000 litre-a-day bottled water plant with an automatic PET line costs about ₹3.3 crore in total capital ([NIIR Project Consultancy Services, 2026](https://www.niir.org/how-to-start/packaged-drinking-water-plant/)), and small plants start at ₹5–60 lakh ([Plumint, 25 October 2025](https://www.plumint.com/blog-details/mineral-water-plant-setup-cost-business-plan)). Carton filling lines cost more, so we assume ₹5 crore.\n\n### How we would raise it\n\n- **Step 1, seed round, about ₹6 crore:** covers year 0 and year 1 (₹4.9 cr) with a buffer for delays. Raised against the pilot plan and two or three signed advertisers.\n- **Step 2, Series A, about ₹8 crore in year 2:** funds the South expansion and the own filling line, raised once the pilot proves the ad rate and the renewal rate.\n\nTogether that is about ₹14 crore, the ₹11.6 cr peak plus a 20% buffer. Hence raising in two steps lets the second, larger cheque be priced on proof rather than on a slide deck."
+          "markdown": "The cash need keeps growing until the business turns cash-positive in year 4. At its lowest point, at the end of year 3, the model is **₹11.6 cr** below zero. That trough includes an own carton-filling line in year 3, so we stop paying a co-packer's margin. For comparison, a 32,000 litre-a-day bottled water plant with an automatic PET line costs about ₹3.3 crore in total capital ([NIIR Project Consultancy Services, 2026](https://www.niir.org/how-to-start/packaged-drinking-water-plant/)), and small plants start at ₹5–60 lakh ([Plumint, 25 October 2025](https://www.plumint.com/blog-details/mineral-water-plant-setup-cost-business-plan)). Carton filling lines cost more, so we assume ₹5 crore.\n\n### How we would raise it\n\n- **Step 1, seed round, about ₹6 crore:** covers year 0 and year 1 (₹4.9 cr) with a buffer for delays. Raised against the pilot plan and two or three signed advertisers.\n- **Step 2, Series A, about ₹8 crore in year 2:** funds the South expansion and the own filling line, raised once the pilot proves how much of the space sells and how many brands renew.\n\nTogether that is about ₹14 crore, the ₹11.6 cr peak plus a 20% buffer. Hence raising in two steps lets the second, larger cheque be priced on proof rather than on a slide deck."
         }
       ]
     },
@@ -350,7 +369,7 @@
         },
         {
           "type": "text",
-          "markdown": "**Return on investment (ROI)** is what the business gives back for each rupee put in. We read it three ways:\n\n1. **Cash back:** by the end of year 5, every ₹1 of peak capital has become about ₹4.9 of cash, before any sale of the company.\n2. **IRR:** the yearly return the cash flows earn is about 66%. It is high because the losses are small and early, while the profits are large and late. Hence it is very sensitive to the ad rate, as the next chapter shows.\n3. **NPV:** discounting each year's cash at 15%, the five years are worth ₹20.2 cr today, with no value for the business after year 5. If the business were valued at 6 times its year-5 EBITDA, NPV rises to ₹261 cr.\n\n### A sense check on scale\n\nYear-5 ad revenue of ₹254 cr would be about 6% of India's 2023 outdoor ad spend of ₹4,140 crore ([Media4Growth, on the Pitch Madison Advertising Report 2024](https://www.media4growth.com/research/indian-ooh-adex-at-rs-4140cr-in-2023-records-13-yoy-growth-vs-10-overall-adex-growth-pitch-madison-ad-report-2024-7301)). Year-5 volume of 15 crore packs is small against a ₹32,040 crore water market ([IBEF, 30 March 2026](https://www.ibef.org/blogs/india-packaged-drinking-water-industry-demand-trends-and-market-outlook)). This means the limit on growth is advertiser demand, not drinkers."
+          "markdown": "**Return on investment (ROI)** is what the business gives back for each rupee put in. We read it three ways:\n\n1. **Cash back:** by the end of year 5, every ₹1 of peak capital has become about ₹4.9 of cash, before any sale of the company.\n2. **IRR:** the yearly return the cash flows earn is about 66%. It is high because the losses are small and early, while the profits are large and late. Hence it is very sensitive to how much ad revenue each pack brings in, as the next chapter shows.\n3. **NPV:** discounting each year's cash at 15%, the five years are worth ₹20.2 cr today, with no value for the business after year 5. If the business were valued at 6 times its year-5 EBITDA, NPV rises to ₹261 cr.\n\n### A sense check on scale\n\nYear-5 ad revenue of ₹254 cr would be about 6% of India's 2023 outdoor ad spend of ₹4,140 crore ([Media4Growth, on the Pitch Madison Advertising Report 2024](https://www.media4growth.com/research/indian-ooh-adex-at-rs-4140cr-in-2023-records-13-yoy-growth-vs-10-overall-adex-growth-pitch-madison-ad-report-2024-7301)). Year-5 volume of 15 crore packs is small against a ₹32,040 crore water market ([IBEF, 30 March 2026](https://www.ibef.org/blogs/india-packaged-drinking-water-industry-demand-trends-and-market-outlook)). This means the limit on growth is advertiser demand, not drinkers."
         }
       ]
     },
@@ -361,13 +380,13 @@
       "blocks": [
         {
           "type": "text",
-          "markdown": "**Sensitivity analysis** changes one assumption at a time and watches the result move. It tells us which numbers to prove first. Base case: ₹21 ad revenue per pack, NPV ₹20.2 cr."
+          "markdown": "**Sensitivity analysis** changes one assumption at a time and watches the result move. It tells us which numbers to prove first. Base case: ₹21 of ad space per pack, 85% of it sold in year 1, NPV ₹20.2 cr."
         },
         {
           "type": "table",
-          "title": "1. Ad revenue per pack decides the business",
+          "title": "1. Total ad revenue per pack decides the business",
           "headers": [
-            "Gross ad revenue per pack",
+            "Ad revenue per pack, all spaces",
             "NPV, 5 years",
             "Capital needed",
             "Year-5 EBITDA",
@@ -384,7 +403,7 @@
         },
         {
           "type": "table",
-          "title": "2. Which assumptions move NPV most (low case / high case)",
+          "title": "3. Which assumptions move NPV most (low case / high case)",
           "headers": [
             "Assumption",
             "NPV, low case",
@@ -392,18 +411,36 @@
             "Swing"
           ],
           "rows": [
-            "Ad revenue per pack ±20% (₹16.8 / ₹25.2)|−₹14.5 cr|₹54.5 cr|₹69.0 cr",
+            "Total ad revenue per pack ±20% (₹16.8 / ₹25.2)|−₹14.5 cr|₹54.5 cr|₹69.0 cr",
             "Pack cost ±20%|−₹3.8 cr|₹44.0 cr|₹47.8 cr",
             "Volume ±30%|₹1.9 cr|₹38.5 cr|₹36.6 cr",
             "Agency commission 25% / 10%|−₹0.1 cr|₹30.3 cr|₹30.4 cr",
-            "Ad fill rate −10 / +5 points|₹1.8 cr|₹29.4 cr|₹27.6 cr",
+            "Share of ad space sold −10 / +5 points|₹1.8 cr|₹29.4 cr|₹27.6 cr",
             "Days to collect ad payments 90 / 30|₹8.4 cr|₹32.0 cr|₹23.6 cr",
             "Fixed costs ±25%|₹13.2 cr|₹27.2 cr|₹14.0 cr"
           ]
         },
         {
           "type": "table",
-          "title": "3. NPV by ad rate and volume (volume as % of the base plan)",
+          "title": "2. How much of the space we sell",
+          "headers": [
+            "Share of ad-space value sold, year 1 → year 5",
+            "NPV, 5 years",
+            "Capital needed",
+            "Year-5 EBITDA",
+            "Payback"
+          ],
+          "rows": [
+            "60% → 70%|−₹27.9 cr|Not recovered in 5 years|₹13.7 cr|Not within 5 years",
+            "70% → 80%|−₹7.5 cr|Not recovered in 5 years|₹40.4 cr|Not within 5 years",
+            "80% → 90%|₹11.1 cr|₹14.5 cr|₹67.2 cr|4.1 years",
+            "**85% → 95% (base)**|₹20.2 cr|₹11.6 cr|₹80.6 cr|3.8 years",
+            "90% → 100%|₹29.4 cr|₹8.8 cr|₹94.0 cr|3.5 years"
+          ]
+        },
+        {
+          "type": "table",
+          "title": "4. NPV by ad revenue per pack and volume (volume as % of the base plan)",
           "headers": [
             "",
             "50%",
@@ -412,15 +449,15 @@
             "125%"
           ],
           "rows": [
-            "Ad ₹15|−₹41.8 cr|−₹37.1 cr|−₹32.4 cr|−₹27.7 cr",
-            "Ad ₹18|−₹24.9 cr|−₹13.7 cr|−₹4.5 cr|₹4.7 cr",
-            "Ad ₹21|−₹10.5 cr|₹5.0 cr|₹20.2 cr|₹35.4 cr",
-            "Ad ₹24|₹2.0 cr|₹23.4 cr|₹44.7 cr|₹66.0 cr"
+            "₹15 a pack|−₹41.8 cr|−₹37.1 cr|−₹32.4 cr|−₹27.7 cr",
+            "₹18 a pack|−₹24.9 cr|−₹13.7 cr|−₹4.5 cr|₹4.7 cr",
+            "₹21 a pack|−₹10.5 cr|₹5.0 cr|₹20.2 cr|₹35.4 cr",
+            "₹24 a pack|₹2.0 cr|₹23.4 cr|₹44.7 cr|₹66.0 cr"
           ]
         },
         {
           "type": "text",
-          "markdown": "**What the tables tell us:**\n\n1. **Ad rate is everything:** at ₹18 the five-year NPV is already negative, and at ₹15 the business never pays back. e.g. a ₹3 drop in ad rate per pack costs more than a 30% drop in volume. Hence the first thing a pilot must prove is that brands pay about ₹21, and then come back.\n2. **Pack cost is next:** a 20% rise in carton and filling costs turns the NPV negative. Thus firm supplier quotes come before any launch.\n3. **Volume helps only when the pack makes money:** at ₹15, selling more just loses more. This means we do not scale until the unit economics work in one city.\n4. **Fixed costs matter least:** the team and office are small next to the per-pack numbers, so cutting them is not the lever."
+          "markdown": "**What the tables tell us:**\n\n1. **Ad revenue per pack is everything:** at ₹18 of total ad revenue the five-year NPV is already negative, and at ₹15 the business never pays back. e.g. a ₹3 drop in ad revenue per pack costs more than a 30% drop in volume.\n2. **Selling the space matters as much as pricing it:** if only 70% of the space sells in year 1 instead of 85%, the business does not pay back within five years. Hence the sales team, and a booking platform that lets small local brands fill the small spaces, are as important as the big advertisers.\n3. **Pack cost is next:** a 20% rise in carton and filling costs turns the NPV negative. Thus firm supplier quotes come before any launch.\n4. **Volume helps only when the pack makes money:** at ₹15, selling more just loses more. This means we do not scale until the unit economics work in one city.\n5. **Fixed costs matter least:** the team and office are small next to the per-pack numbers, so cutting them is not the lever."
         }
       ]
     },
@@ -439,7 +476,7 @@
           "steps": [
             {
               "phase": "Phase 1, year 1: Bengaluru and Chennai (30 lakh packs)",
-              "text": "Pilot in two cities: about 150 carts and kiosks at colleges, metro stations and tech parks. Co-packed in Tamil Nadu. Test ₹1 against free in matched areas. Gate to move on: brands pay about ₹21 a pack, and at least 60% renew."
+              "text": "Pilot in two cities: about 150 carts and kiosks at colleges, metro stations and tech parks. Co-packed in Tamil Nadu. Test ₹1 against free in matched areas. Gate to move on: at least 80% of the ad space sold at list price, and at least 60% of brands renew."
             },
             {
               "phase": "Phase 2, year 2: rest of the South (1.2 crore packs)",
@@ -468,9 +505,9 @@
             "Why it matters"
           ],
           "rows": [
-            "Gross ad revenue per pack|₹19 or more|Below about ₹16 the model loses money (chapter 9)",
+            "Ad revenue per pack, all spaces|₹19 or more|Below about ₹16 the model loses money (chapter 9)",
             "Advertiser renewal rate|60% or more|Proves brands come back, not just try it once",
-            "Ad fill rate|85% or more|Unsold faces earn nothing",
+            "Share of ad space sold|80% or more|Unsold spaces earn nothing; below about 70% the model does not pay back",
             "Packs found as litter, ₹1 vs free|Lower at ₹1|Tests the core claim of the project",
             "Cartons collected for recycling|Rising each quarter|The sustainability promise needs proof"
           ]
@@ -491,7 +528,8 @@
             "How to reduce it"
           ],
           "rows": [
-            "Brands will not pay ₹21|At ₹18, NPV is already negative|Pre-sell the pilot; sell 3–6 month packages by location",
+            "Not enough space sells|At 70% sold, the model does not pay back in five years|Pre-sell the large panels; let local businesses book small spaces online",
+            "Space prices are lower than planned|At ₹18 a pack in total, NPV is negative|Sell 3–6 month packages by location; price the front panel on proven reach",
             "Carton costs more than assumed|A 20% rise removes most of the value|Get quotes from two co-packers before launch",
             "Advertisers pay late|Ties up cash and raises the capital needed|Ask for 50% upfront on first campaigns",
             "Cartons are not collected|Swaps one waste problem for another|Partner with carton recyclers; bins at every sale point",
@@ -502,7 +540,7 @@
         },
         {
           "type": "text",
-          "markdown": "The pattern is clear: almost every serious risk comes back to the advertiser. Hence the company is, at heart, an advertising business that happens to sell water."
+          "markdown": "The pattern is clear: almost every serious risk comes back to selling the ad space. Hence the company is, at heart, an advertising business that happens to sell water."
         }
       ]
     },
@@ -513,7 +551,7 @@
       "blocks": [
         {
           "type": "text",
-          "markdown": "1. **A small price is a design tool:** it filters customers, signals value and gives the retailer a reason to care. e.g. ₹1 does work that free cannot.\n2. **In a two-sided model, find the real customer:** the advertiser pays about 95% of the revenue, so the product must be designed for them too.\n3. **Know your one number:** here it is ad revenue per pack. The model is healthy at ₹21, marginal at ₹18 and broken at ₹15.\n4. **Sustainability needs a business that pays for itself:** as the original slide put it, *we sustain ourselves along with sustaining the world*.\n5. **Test the claim you care about most:** the belief that paid packs are littered less is the heart of the idea, and also the least proven. The pilot should measure it from day one."
+          "markdown": "1. **A small price is a design tool:** it filters customers, signals value and gives the retailer a reason to care. e.g. ₹1 does work that free cannot.\n2. **In a two-sided model, find the real customer:** advertisers pay about 95% of the revenue, so the product must be designed for them too.\n3. **Know your one number:** here it is total ad revenue per pack, from all the spaces together. The model is healthy at ₹21, marginal at ₹18 and broken at ₹15.\n4. **Sustainability needs a business that pays for itself:** as the original slide put it, *we sustain ourselves along with sustaining the world*.\n5. **Test the claim you care about most:** the belief that paid packs are littered less is the heart of the idea, and also the least proven. The pilot should measure it from day one."
         },
         {
           "type": "listbox",
