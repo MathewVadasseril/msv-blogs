@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Collects every booklet and post written in the CMS into one file the site loads:
-// content/booklets/*.json + content/posts/*.json  ->  content/library.json
+// content/booklets/*.json + content/posts/*.json + content/cases/*.json  ->  content/library.json
 // Runs on every Netlify deploy (see netlify.toml). No dependencies needed.
 const fs = require('fs');
 const path = require('path');
@@ -32,12 +32,18 @@ const posts = readFolder('posts')
   .map(p => ({ topics: [], summary: '', ...p }))
   .sort((a, b) => String(b.date).localeCompare(String(a.date)));
 
+// Mathew's own projects and case competitions ("My Case Studies" in the editor).
+const cases = readFolder('cases')
+  .filter(c => !c.draft)
+  .map(({ slug, ...c }) => ({ id: slug, topics: [], ...c }))
+  .sort((a, b) => (a.order ?? 999) - (b.order ?? 999) || String(b.year ?? '').localeCompare(String(a.year ?? '')) || a.title.localeCompare(b.title));
+
 // Home page, header and footer text edited under "Site Settings" in the editor.
 const siteFile = path.join(dir('site.json'));
 const site = fs.existsSync(siteFile) ? JSON.parse(fs.readFileSync(siteFile, 'utf8')) : {};
 
-fs.writeFileSync(dir('library.json'), JSON.stringify({ generated: new Date().toISOString(), site, booklets, posts }));
-console.log(`content/library.json: ${booklets.length} booklets, ${posts.length} posts`);
+fs.writeFileSync(dir('library.json'), JSON.stringify({ generated: new Date().toISOString(), site, booklets, posts, cases }));
+console.log(`content/library.json: ${booklets.length} booklets, ${posts.length} posts, ${cases.length} case studies`);
 
 // The /admin editor saves to the branch named in admin/config.yml (main).
 // Netlify sets BRANCH during a build, so on a site that deploys another

@@ -1,0 +1,166 @@
+{
+  "title": "Organco Interiors: the founder trap, from the inside",
+  "summary": "Kochi's first eco-friendly, boutique design-and-build interiors firm. Demand was never the problem. We scaled the half of the business we could not win, and the founders became the bottleneck.",
+  "kind": "Venture",
+  "year": "2023",
+  "event": "Organco Interiors, Kochi",
+  "role": "Co-founder",
+  "outcome": "Closed in 2023",
+  "team": "",
+  "order": 1,
+  "topics": ["Operations", "Founder Lessons", "Business Models"],
+  "icon": "fa-leaf",
+  "color": "from-emerald-500 to-teal-600",
+  "draft": true,
+  "chapters": [
+    {
+      "type": "blocks",
+      "title": "What Organco was",
+      "kicker": "Overview",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Organco Interiors** was a boutique interiors firm in Kochi that sold sustainable design and the build that followed, as one package. We were the first in the city to make eco-friendly interiors our whole offer.\n\nHere we look at what went right, where it broke, and what we would do differently, using the same frameworks we would apply to any other company."
+        },
+        {
+          "type": "metrics",
+          "items": [
+            { "value": "2 → ~12", "label": "Live projects at once" },
+            { "value": "66", "label": "Coordination links at 12 projects" },
+            { "value": "2023", "label": "The year it closed" }
+          ]
+        },
+        {
+          "type": "cards",
+          "items": [
+            { "icon": "fa-leaf", "title": "The offer", "text": "Kochi's first dedicated eco-friendly, boutique design-and-build interiors firm." },
+            { "icon": "fa-house-chimney", "title": "The customer", "text": "High-net-worth families and NRIs buying premium homes, who wanted international-grade, sustainable interiors." },
+            { "icon": "fa-arrow-trend-up", "title": "The early wins", "text": "Incubator backing, a polished pitch deck, premium residential contracts, a strong portfolio and steady high-ticket inbound leads." },
+            { "icon": "fa-flag-checkered", "title": "The outcome", "text": "A pipeline that grew from two projects at once to about twelve, then collapsed in 2023." }
+          ]
+        },
+        {
+          "type": "callout",
+          "heading": "The founder trap",
+          "icon": "fa-lightbulb",
+          "text": "A founder trap is a business that needs its founder's daily effort to survive. That is a job, not an asset. Organco had customers who wanted the product; it broke when demand grew faster than we could personally run things."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "title": "The real root cause: we scaled the half we could not win",
+      "kicker": "Diagnosis",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "Organco sold design and build as one package. Design was our strength and hard to copy. Build was our weakness, because we had no record of finished homes.\n\n1. **No proof, so clients bought only the design:** a family spending crores on a home needs evidence that a firm can deliver. We had strong drawings, not a record of handovers, hence clients trusted us with the design but not with the build.\n2. **Design was our moat:** our sustainable designs came from my own skill set, which competitors could not easily copy.\n3. **Execution was a commodity:** Kochi already had contractors with years of finished projects, their own crews and settled vendors. e.g. any established builder in the city could quote faster and with less risk to the client.\n4. **Going big without credibility multiplied the risk:** each project we tried to build added site, vendor and cash risk, and all of it fell back on the founders."
+        },
+        {
+          "type": "table",
+          "title": "The VRIO test (Barney, 1991): which capability was really ours?",
+          "headers": ["Capability", "Valuable", "Rare", "Hard to copy", "What we should have done"],
+          "rows": [
+            "Sustainable design | Yes | Yes | Yes | Keep it, and charge for it as the product",
+            "Site execution | Yes | No, many contractors | No | Partner with contractors, not own it",
+            "Credibility and track record | Yes | We had none yet | Earned only over time | Borrow it from established partners while we build our own"
+          ]
+        },
+        {
+          "type": "text",
+          "markdown": "In Greiner's terms (Harvard Business Review, 1972), we took on the complexity of a construction company before we had finished Phase 1. We had not yet proved the one thing that was truly ours."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "title": "The failure chain",
+      "kicker": "What happened",
+      "blocks": [
+        {
+          "type": "timeline",
+          "title": "Once we took on execution without proof, each step caused the next",
+          "steps": [
+            { "phase": "Every project was treated as unique", "text": "No standard specifications, packages or templates existed, so each job started from zero." },
+            { "phase": "Knowledge lived in our heads", "text": "Procurement specs, vendor terms and site logic sat in WhatsApp chats and scattered Excel sheets." },
+            { "phase": "Vendors were unmanaged", "text": "We bought in an unorganised local market of artisans and sub-contractors with no service levels and no quality checks." },
+            { "phase": "One missed delivery delayed many sites", "text": "When a supplier failed, work stopped, because nobody else knew the project well enough to step in." },
+            { "phase": "The founders became site managers", "text": "We left strategy to fix fires in person, so nobody was steering the business." },
+            { "phase": "Delays became a cash problem", "text": "Customer payments were tied to construction milestones, so every delay pushed cash further out while costs kept running." },
+            { "phase": "Margins leaked", "text": "Ad-hoc buying and rework meant each project's margin swung widely, and we could not see it until the job closed." },
+            { "phase": "The system broke under growth", "text": "More projects meant more delays, which meant less cash. Thus growth sped up the collapse instead of saving us." }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "title": "Why growth made it worse",
+      "kicker": "The coordination maths",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "Coordination work grows much faster than the number of projects. The links between *n* parts that must talk to each other number **n(n − 1) ÷ 2**, the same idea Fred Brooks used in *The Mythical Man-Month*."
+        },
+        {
+          "type": "table",
+          "title": "Live projects against links to coordinate",
+          "headers": ["Live projects", "Links to coordinate"],
+          "rows": ["2 | 1", "6 | 15", "12 | 66"]
+        },
+        {
+          "type": "text",
+          "markdown": "Going from two projects to twelve multiplied the work six times on paper, but the coordination load sixty-six times. The founders' hours stayed the same, hence the bottleneck."
+        },
+        {
+          "type": "table",
+          "title": "Root causes by layer of the operating model",
+          "headers": ["Layer", "What we had", "What it caused"],
+          "rows": [
+            "Business model | Design and build sold together, with no record of finished builds | Clients bought designs only, and we carried build risk we could not price",
+            "Offer design | Fully bespoke, every job different | No repeatable cost, timeline or quality",
+            "Process and knowledge | Undocumented, held by the founders | Work stopped when one person was missing",
+            "Supply chain | Spot buying from unvetted local vendors | Delays and margin swings",
+            "People and roles | No project managers with real authority | Founders pulled onto every site",
+            "Cash | Milestone billing tied to site progress | Delays turned straight into cash stress",
+            "Governance | Incubator focused on pitching and funding | Nobody asked how we would deliver at scale"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "title": "What we should have done",
+      "kicker": "Lessons",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "The better model was a design studio with build partners: sell design as the product and let credible contractors carry the build. e.g. most architects work this way. They charge a design fee, supervise quality, and leave construction to a builder the client trusts."
+        },
+        {
+          "type": "timeline",
+          "title": "In order",
+          "steps": [
+            { "phase": "Step 1: Sell design as the product", "text": "Charge a clear design fee with stage sign-offs, and make that the core business." },
+            { "phase": "Step 2: Partner on execution", "text": "Choose two or three credible contractors, agree rates and timelines in writing, and keep design supervision ourselves." },
+            { "phase": "Step 3: Build proof before going big", "text": "Finish a handful of homes, photograph them and collect client references before taking on more." },
+            { "phase": "Step 4: Productise the design offer", "text": "Three or four fixed design packages, with custom work priced as a clear extra." },
+            { "phase": "Step 5: Write the playbook early", "text": "One design brief template, one materials library and one partner list by the second hire." },
+            { "phase": "Step 6: Decide on owning execution last", "text": "Only once proof and cash allow it, and only if it adds margin without adding founder load." }
+          ]
+        },
+        {
+          "type": "listbox",
+          "title": "What I take into every project now",
+          "icon": "fa-check",
+          "items": [
+            "**Own only what is hard to copy:** build around the part that is truly ours and partner for the rest.",
+            "**Earn proof before scale:** credibility is built project by project.",
+            "**The holiday test:** if the founder vanished for two weeks, would projects ship and cash come in? If not, the business is still a job.",
+            "**Grow at the speed of the system:** take on no more work than the delivery engine can handle, hence growth that strengthens the business instead of breaking it."
+          ]
+        }
+      ]
+    }
+  ]
+}

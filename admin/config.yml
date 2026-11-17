@@ -89,7 +89,8 @@ collections:
           - { label: Slate → Zinc, value: from-slate-500 to-zinc-700 }
       - { name: draft, label: "Draft (hide from site)", widget: boolean, default: true, required: false, hint: "Disable it to publish on the site." }
 
-      - label: Chapters
+      - &chapters_field
+        label: Chapters
         label_singular: Chapter
         name: chapters
         widget: list
@@ -347,6 +348,66 @@ collections:
                       - { name: pct, label: Percent, widget: number, value_type: int }
                   - { name: milestones, label: Milestones, widget: list, field: { name: milestone, label: Milestone, widget: string } }
 
+  # ---------------------------------------------------------------- My case studies
+  # Mathew's own projects and case competitions, shown on the "Case Studies" page.
+  # Chapters work exactly like booklet chapters.
+  - name: cases
+    label: My Case Studies
+    label_singular: Case Study
+    description: Your own projects and case competitions, shown on the Case Studies page. Drafts are listed under Drafts below.
+    folder: content/cases
+    format: json
+    extension: json
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{title}} · {{kind}} · {{year}}"
+    sortable_fields: [order, year, title]
+    filter: { field: draft, value: [false, null] }   # published only
+    fields: &case_fields
+      - { name: title, label: Title, widget: string }
+      - { name: summary, label: Summary, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [], hint: "One or two sentences shown on the case study's card and under its title." }
+      - name: kind
+        label: Type
+        widget: select
+        default: Project
+        options: [Project, Case competition, Venture, Internship, Consulting]
+      - { name: year, label: Year, widget: string, hint: "e.g. 2023, or 2021–2023" }
+      - { name: event, label: "Organisation or competition", widget: string, required: false, hint: "e.g. Organco Interiors, or IIM Bangalore Vista 2024" }
+      - { name: role, label: My role, widget: string, required: false, hint: "e.g. Co-founder, Team lead" }
+      - { name: outcome, label: Result, widget: string, required: false, hint: "Shown as a badge, e.g. National finalist, Closed in 2023, Winner" }
+      - { name: team, label: Team, widget: string, required: false, hint: "Optional, e.g. 3-person team with A and B" }
+      - { name: order, label: Order on the page, widget: number, value_type: int, default: 99, hint: "Lower numbers come first." }
+      - { name: topics, label: Topics, widget: list, hint: "Comma-separated, e.g. Operations, Strategy." }
+      - name: icon
+        label: Cover icon
+        widget: select
+        default: fa-briefcase
+        options:
+          - { label: Briefcase, value: fa-briefcase }
+          - { label: Trophy, value: fa-trophy }
+          - { label: House, value: fa-house-chimney }
+          - { label: Leaf, value: fa-leaf }
+          - { label: Chart, value: fa-chart-line }
+          - { label: Lightbulb, value: fa-lightbulb }
+          - { label: Rocket, value: fa-rocket }
+          - { label: People, value: fa-people-group }
+          - { label: Chess knight, value: fa-chess-knight }
+          - { label: Presentation, value: fa-person-chalkboard }
+      - name: color
+        label: Cover colour
+        widget: select
+        default: from-emerald-500 to-teal-600
+        options:
+          - { label: Indigo → Violet, value: from-indigo-500 to-violet-500 }
+          - { label: Amber → Orange, value: from-amber-500 to-orange-600 }
+          - { label: Sky → Blue, value: from-sky-500 to-blue-600 }
+          - { label: Emerald → Teal, value: from-emerald-500 to-teal-600 }
+          - { label: Rose → Pink, value: from-rose-500 to-pink-600 }
+          - { label: Slate → Zinc, value: from-slate-500 to-zinc-700 }
+      - { name: draft, label: "Draft (hide from site)", widget: boolean, default: true, required: false, hint: "Disable it to publish on the site." }
+      - *chapters_field
+
   # ---------------------------------------------------------------- Drafts
   # The same posts and booklets, showing only those with Draft switched on.
   - divider: true
@@ -379,6 +440,21 @@ collections:
     filter: { field: draft, value: true }
     fields: *booklet_fields
 
+  - name: case_drafts
+    label: Draft Case Studies
+    label_singular: Draft Case Study
+    description: Case studies with Draft switched on, hidden from the site. Switch Draft off and save to publish.
+    folder: content/cases
+    format: json
+    extension: json
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{title}} · {{kind}} · {{year}}"
+    sortable_fields: [order, year, title]
+    filter: { field: draft, value: true }
+    fields: *case_fields
+
   - divider: true
 
   # ---------------------------------------------------------------- Site text
@@ -397,5 +473,7 @@ collections:
           - { name: homeIntro, label: Home page introduction, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [], required: false, hint: "Paragraph under the title. Supports **bold**, *italic* and [links](https://example.com)." }
           - { name: bookletsHeading, label: Booklets section heading, widget: string, default: Strategy Booklets }
           - { name: postsHeading, label: Blog posts section heading, widget: string, default: Blog Posts }
+          - { name: casesHeading, label: Case studies page title, widget: string, default: My Case Studies }
+          - { name: casesIntro, label: Case studies page introduction, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [], required: false, hint: "Paragraph under the title on the Case Studies page." }
           - { name: footerText, label: Footer text, widget: string, required: false, hint: "Shown after © year and the site name." }
           - { name: footerNote, label: Footer note (right side), widget: string, required: false }
