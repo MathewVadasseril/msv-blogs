@@ -1,0 +1,188 @@
+{
+  "title": "The 1-rupee water bottle: why ₹1 beats free",
+  "summary": "A GIM sustainability project: drinking water in a carton for ₹1, paid for by the ads printed on it, with a seed in the cap. The real question was why charge ₹1 at all.",
+  "kind": "Project",
+  "year": "",
+  "event": "Goa Institute of Management (GIM)",
+  "role": "",
+  "outcome": "Concept pitch",
+  "team": "",
+  "order": 2,
+  "topics": [
+    "Pricing",
+    "Sustainability",
+    "Consumer Behaviour"
+  ],
+  "icon": "fa-bottle-water",
+  "color": "from-sky-500 to-cyan-600",
+  "draft": true,
+  "chapters": [
+    {
+      "type": "blocks",
+      "kicker": "The idea",
+      "title": "Water for ₹1, paid for by the pack it comes in",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "*A sustainability project I presented at the Goa Institute of Management (GIM). About 7 minutes to read.*\n\nThe **1-rupee water bottle** is a carton of drinking water that sells for ₹1. The price does not pay for the water. The advertising printed on every side of the pack does.\n\nMost people hear this and ask one question first: if ads pay for it, why charge ₹1 at all? Why not give it away? That question was the heart of the project, and it is what this post is about."
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/one-rupee-water-cartons.jpg",
+          "alt": "Mock-ups of the ₹1 bottled water carton, with brand advertisements printed on every face",
+          "caption": "The concept pack from my GIM presentation: ₹1 on the front, advertisers on every other face.",
+          "size": "medium"
+        },
+        {
+          "type": "cards",
+          "items": [
+            {
+              "icon": "fa-indian-rupee-sign",
+              "title": "A price of ₹1",
+              "text": "Low enough for anyone to pay, but not zero. The rupee is there to change how people treat the pack, not to cover costs."
+            },
+            {
+              "icon": "fa-rectangle-ad",
+              "title": "Ads on every face",
+              "text": "Brands buy the space on the carton. Their money pays for the water, the bottling and the distribution, with a margin left over."
+            },
+            {
+              "icon": "fa-seedling",
+              "title": "A seed in the cap",
+              "text": "The cap carries a seed. Plant it instead of throwing it away, so the pack ends as a plant, not as litter."
+            },
+            {
+              "icon": "fa-box",
+              "title": "A carton, not plastic",
+              "text": "The concept used a paper-based carton rather than a PET bottle, to cut the plastic that ends up in drains, rivers and the sea."
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "heading": "A note on the numbers",
+          "icon": "fa-circle-info",
+          "text": "The original research and spreadsheets from the project are lost. Every figure below comes from the public sources linked beside it. Where I work through costs, the numbers are **illustrative** and marked as such; they are not results from the project."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "The pricing",
+      "title": "Why ₹1 and not free",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "The **zero-price effect** is the extra pull that *free* has on us, beyond what the saving is worth. Free does not feel like a low price. It feels like a different kind of thing.\n\nHere we look at what that means for a pack of water, in four parts."
+        },
+        {
+          "type": "text",
+          "markdown": "1. **Free changes the decision:** in one experiment, a Lindt truffle at 15 cents beat a Hershey's Kiss at 1 cent, with 73% choosing the Lindt. When both prices dropped by just 1 cent, making the Kiss free, 69% switched to the Kiss ([Shampanier, Mazar & Ariely, Marketing Science, 2007](https://people.duke.edu/~dandan/webfiles/PapersPI/Zero%20as%20a%20Special%20Price.pdf)). e.g. we all pick up the free pen at a stall without needing a pen. Thus free makes people *take* things; it does not make them *value* things.\n2. **A price screens for people who want it:** in Zambia, charging more for a water-purifying chlorine meant fewer households bought it, but the ones who did were more likely to use it. A 10% higher offer price went with about 4% more use among buyers ([Ashraf, Berry & Shapiro, American Economic Review, 2010 (J-PAL summary)](https://www.povertyactionlab.org/evaluation/can-higher-prices-stimulate-product-use-evidence-randomized-experiment-zambia)). e.g. a free shampoo sample sits in a drawer for months; a sachet bought at the kirana shop is bought because it is needed today. Hence ₹1 puts the pack in the hands of someone who is thirsty.\n3. **A price says “this has value”:** something handed out free reads as surplus. A coin changing hands, even ₹1, turns it into a purchase. e.g. a free pamphlet handed out at a traffic signal is dropped within a minute, while a newspaper you paid for is read and folded. This is the core of the idea: in India, *free* is easy to ignore and easy to drop, but a paid pack is something you own.\n4. **Effort makes people care:** the **IKEA effect** is our habit of valuing what we put work into. People who assembled IKEA boxes themselves would pay about 63% more for them than for the same boxes pre-built ([Norton, Mochon & Ariely, Journal of Consumer Psychology, 2012](https://en.wikipedia.org/wiki/IKEA_effect)). e.g. a plant you grew yourself feels worth more than one you bought. Thus the seed in the cap does two jobs: it gives the pack a second life, and it asks for a small effort that makes people care about it."
+        },
+        {
+          "type": "callout",
+          "heading": "Where the evidence pushes back",
+          "icon": "fa-scale-balanced",
+          "text": "The research is not one-sided, and an honest pitch should say so. The Zambia study found **no sunk-cost effect**: paying more did not, by itself, make people use the product more ([Ashraf, Berry & Shapiro, American Economic Review, 2010 (J-PAL summary)](https://www.povertyactionlab.org/evaluation/can-higher-prices-stimulate-product-use-evidence-randomized-experiment-zambia)). In Kenya, free malaria nets were **not wasted more** than paid ones, and demand fell by about 60 percentage points when the price went from zero to $0.60 ([Cohen & Dupas, Quarterly Journal of Economics, 2010 (NBER)](https://www.nber.org/papers/w14406)). So the ₹1 works best as a **filter and a signal**, not as magic. It is worth testing against free in a real pilot rather than assuming."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "The business model",
+      "title": "How the ads pay for the water",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "An **ad-funded product** is one where the user pays little or nothing and a third party pays to reach that user. A newspaper sold below its printing cost works the same way. Here the carton is the newspaper.\n\nThe model only needs one thing to hold: **ad revenue per pack + ₹1 must be greater than the full cost of one pack**, from water to the shop shelf."
+        },
+        {
+          "type": "table",
+          "title": "Unit economics of one 250 ml pack (ILLUSTRATIVE, not from the original project)",
+          "headers": [
+            "Line",
+            "₹ per pack",
+            "Where it comes from"
+          ],
+          "rows": [
+            "Price paid by the customer|1.0|The concept",
+            "Ad revenue per pack|9.0|Low end of the ₹9–20 a real Indian brand charges advertisers (see below)",
+            "**Revenue**|**10.0**|",
+            "Water, treatment and filling|1.5|Illustrative assumption",
+            "Paper-based carton with print|3.0|Illustrative assumption",
+            "Cap with seed|1.0|Illustrative assumption",
+            "Transport and retailer margin|2.5|Illustrative assumption",
+            "**Cost**|**8.0**|",
+            "**Margin per pack**|**2.0**|Illustrative only"
+          ]
+        },
+        {
+          "type": "text",
+          "markdown": "The cost lines are placeholders to show the shape of the model, not quotes. The detailed case study will rebuild them properly. What the table does show is where the risk sits: the model lives or dies on **ad revenue per pack**, not on the ₹1.\n\n### Has anyone made this work?\n\n1. **Wahter (Gurugram, founded 2023):** sells 250 ml of water for ₹1 and 500 ml for ₹2. About 80% of the label is sold to advertisers, who pay roughly ₹9–20 per bottle depending on volume and location ([afaqs!, 3 January 2024](https://www.afaqs.com/news/advertising/how-wahter-is-looking-to-make-water-bottles-an-advertising-medium); [YourStory, 6 March 2024](https://yourstory.com/2024/03/a-husband-wife-duo-leverage-tech-to-make-bottled-drinking-water-affordable)). It claims 2 lakh bottles sold in its first month in Delhi NCR and raised ₹5 crore at a ₹52 crore valuation ([Indian Startup News, 22 June 2024](https://indianstartupnews.com/funding/packaged-drinking-water-startup-wahter-raises-rs-5-crore-in-pre-seed-funding-4774808)). e.g. the same logic as my concept, built with plastic bottles rather than cartons.\n2. **FreeWater (Texas, USA):** gives spring water away free in aluminium bottles and paper cartons, paid for by ads and QR codes on the pack, and gives 10 cents a bottle to build wells in East Africa ([The Daily Star, 17 January 2024](https://www.thedailystar.net/tech-startup/news/how-does-freewater-work-3522056)).\n3. **Mizu and others (Dhaka):** brands sponsor batches of free bottles carrying their label and QR code. Critics in the same report warn that shopkeepers earn little on a free bottle, so they may not push it ([The Business Standard, 17 January 2024](https://www.tbsnews.net/features/panorama/bottled-water-free-will-new-advertising-model-sustain-776254)). Hence a small price also helps the retailer, which free cannot.\n\nThese are not proof that my version would work, but they show advertisers will pay for space on a water pack in South Asia, at prices close to what the model needs."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Why it matters",
+      "title": "The problem it was built for",
+      "blocks": [
+        {
+          "type": "metrics",
+          "items": [
+            {
+              "value": "9.3 Mt",
+              "label": "Plastic pollution India emits a year, the most of any country"
+            },
+            {
+              "value": "~1/5",
+              "label": "India's share of global plastic emissions"
+            },
+            {
+              "value": "41 lakh t",
+              "label": "Plastic waste generated in India in 2020-21 (CPCB)"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "markdown": "A 2024 study in *Nature* ranked India as the world's largest emitter of plastic pollution, at about 9.3 million tonnes a year, roughly a fifth of the global total ([Down To Earth, on Cottom, Cook & Velis, Nature, 2024](https://www.downtoearth.org.in/waste/india-tops-plastic-pollution-rankings-emitting-a-fifth-of-global-plastic-waste)). Official CPCB data put plastic waste generated in India at about 41 lakh tonnes in 2020-21 ([PIB, Ministry of Environment, 27 July 2023](https://pib.gov.in/PressReleasePage.aspx?PRID=1943210)). The two figures measure different things, but both say the same: a lot of what we buy to drink from does not end up where it should.\n\nThe concept answers this in three steps:\n\n- **Step 1, the pack:** a paper-based carton instead of a PET bottle.\n- **Step 2, the price:** ₹1, so the pack is owned, not dropped.\n- **Step 3, the cap:** a seed, so the last piece has a reason to be planted, not binned.\n\nIn the presentation, we mapped it to six UN Sustainable Development Goals: 6 (clean water), 11 (sustainable cities), 12 (responsible consumption), 14 (life below water), 15 (life on land) and 17 (partnerships, here between brands and a public good)."
+        },
+        {
+          "type": "quote",
+          "text": "We sustain ourselves along with sustaining the world.",
+          "author": "The closing line of the GIM presentation"
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Looking back",
+      "title": "What I would test before calling it a business",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "Stress-testing my own idea now, four questions matter most:\n\n1. **Is ₹1 really better than free?** The research above says *maybe*. A pilot that sells ₹1 packs in one area and gives free packs in another, then counts the packs found as litter, would settle it.\n2. **Can the carton be recycled where it is sold?** Paper-based drink cartons usually have plastic and foil layers, so they need their own collection and recycling route. Without one, we swap one waste problem for another.\n3. **Will advertisers keep paying at scale?** The whole margin rests on ad revenue per pack. We need proof that brands come back for a second order, not just a launch campaign.\n4. **Does the seed survive the supply chain?** The seed has to stay alive through bottling, storage and heat, and the cap around it has to break down in soil.\n\nThe idea I would keep is the one at the centre: **a small price changes how people treat a thing**. That is a pricing lesson far beyond water. A detailed case study, with the full unit economics, is coming next."
+        },
+        {
+          "type": "listbox",
+          "title": "Sources",
+          "icon": "fa-link",
+          "items": [
+            "[Shampanier, Mazar & Ariely, Marketing Science, 2007](https://people.duke.edu/~dandan/webfiles/PapersPI/Zero%20as%20a%20Special%20Price.pdf)",
+            "[Ashraf, Berry & Shapiro, American Economic Review, 2010 (J-PAL summary)](https://www.povertyactionlab.org/evaluation/can-higher-prices-stimulate-product-use-evidence-randomized-experiment-zambia)",
+            "[Cohen & Dupas, Quarterly Journal of Economics, 2010 (NBER)](https://www.nber.org/papers/w14406)",
+            "[Norton, Mochon & Ariely, Journal of Consumer Psychology, 2012](https://en.wikipedia.org/wiki/IKEA_effect)",
+            "[Down To Earth, on Cottom, Cook & Velis, Nature, 2024](https://www.downtoearth.org.in/waste/india-tops-plastic-pollution-rankings-emitting-a-fifth-of-global-plastic-waste)",
+            "[PIB, Ministry of Environment, 27 July 2023](https://pib.gov.in/PressReleasePage.aspx?PRID=1943210)",
+            "[afaqs!, 3 January 2024](https://www.afaqs.com/news/advertising/how-wahter-is-looking-to-make-water-bottles-an-advertising-medium)",
+            "[YourStory, 6 March 2024](https://yourstory.com/2024/03/a-husband-wife-duo-leverage-tech-to-make-bottled-drinking-water-affordable)",
+            "[Indian Startup News, 22 June 2024](https://indianstartupnews.com/funding/packaged-drinking-water-startup-wahter-raises-rs-5-crore-in-pre-seed-funding-4774808)",
+            "[The Daily Star, 17 January 2024](https://www.thedailystar.net/tech-startup/news/how-does-freewater-work-3522056)",
+            "[The Business Standard, 17 January 2024](https://www.tbsnews.net/features/panorama/bottled-water-free-will-new-advertising-model-sustain-776254)"
+          ]
+        }
+      ]
+    }
+  ]
+}
