@@ -63,6 +63,8 @@
     .post-body th:not(.msv-widget *), .post-body td:not(.msv-widget *) { border-bottom: 1px solid rgba(120,120,120,.25); padding: .5em .75em; text-align: left; }
     #booklet { transition: opacity .25s ease, transform .25s ease; }
     #booklet.is-switching { opacity: 0; transform: translateY(8px); }
+    .top-link.active { color: #c2410c; background: rgba(194, 65, 12, .08); }
+    .dark .top-link.active { color: #fb923c; background: rgba(251, 146, 60, .12); }
     .nav-link.active { color: #c2410c; background: rgba(194, 65, 12, .08); }
     .dark .nav-link.active { color: #fb923c; background: rgba(251, 146, 60, .12); }
     .nav-link.active .nav-dot { background: currentColor; transform: scale(1.3); }
@@ -91,6 +93,10 @@
           <span id="siteTagline" class="hidden sm:inline text-xs text-ink-700/60 dark:text-white/40 border-l border-ink-200 dark:border-white/10 pl-2.5 ml-0.5">Strategy Booklets</span>
         </a>
       </div>
+      <nav class="flex items-center gap-1 text-sm font-medium" aria-label="Site">
+        <a href="#" data-home class="top-link hidden sm:inline-flex items-center gap-1.5 h-9 px-3 rounded-lg hover:bg-ink-100 dark:hover:bg-white/5" data-top="home"><i class="fa-solid fa-book text-xs opacity-70"></i>Library</a>
+        <a href="#case-studies" data-cases class="top-link inline-flex items-center gap-1.5 h-9 px-3 rounded-lg hover:bg-ink-100 dark:hover:bg-white/5" data-top="cases"><i class="fa-solid fa-briefcase text-xs opacity-70"></i><span id="casesNavLabel">Case Studies</span></a>
+      </nav>
     </div>
   </header>
 
@@ -104,6 +110,10 @@
         <i class="fa-solid fa-house text-accent dark:text-accent-dark"></i><span>Library Home</span>
         <span id="homeCount" class="ml-auto text-[11px] font-mono text-ink-700/50 dark:text-white/40"></span>
       </button>
+      <button data-cases class="cases-link -mt-6 w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium border border-ink-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/5 transition">
+        <i class="fa-solid fa-briefcase text-accent dark:text-accent-dark"></i><span id="casesSideLabel">My Case Studies</span>
+        <span id="casesCount" class="ml-auto text-[11px] font-mono text-ink-700/50 dark:text-white/40"></span>
+      </button>
       <section>
         <h2 class="px-2 mb-3 text-[11px] font-semibold uppercase tracking-[.14em] text-ink-700/50 dark:text-white/40">Select Booklet</h2>
         <ul id="bookletList" class="space-y-1.5"></ul>
@@ -111,6 +121,10 @@
       <section id="postSection">
         <h2 class="px-2 mb-3 text-[11px] font-semibold uppercase tracking-[.14em] text-ink-700/50 dark:text-white/40">Latest Posts</h2>
         <ul id="postList" class="space-y-0.5"></ul>
+      </section>
+      <section id="caseSection">
+        <h2 class="px-2 mb-3 text-[11px] font-semibold uppercase tracking-[.14em] text-ink-700/50 dark:text-white/40">My Case Studies</h2>
+        <ul id="caseList" class="space-y-0.5"></ul>
       </section>
       <section id="chapterSection">
         <h2 class="px-2 mb-3 text-[11px] font-semibold uppercase tracking-[.14em] text-ink-700/50 dark:text-white/40">Chapter Navigation</h2>
@@ -128,6 +142,9 @@
     <!-- Home / library view -->
     <section id="home" class="max-w-5xl mx-auto px-4 sm:px-8 py-10 sm:py-14 hidden"></section>
 
+    <!-- My case studies (projects and case competitions) -->
+    <section id="casesView" class="max-w-5xl mx-auto px-4 sm:px-8 py-10 sm:py-14 hidden"></section>
+
     <!-- Blog post view -->
     <article id="postView" class="max-w-3xl mx-auto px-4 sm:px-8 py-10 sm:py-14 hidden"></article>
 
@@ -135,7 +152,7 @@
     <div id="bookletView" class="hidden">
       <div id="contentBar" class="sticky top-16 z-30 bg-ink-50/90 dark:bg-ink-900/90 backdrop-blur border-b border-ink-200 dark:border-white/10">
         <div class="max-w-4xl mx-auto px-4 sm:px-8 h-14 flex items-center gap-3">
-          <button data-home class="shrink-0 inline-flex items-center gap-1.5 h-8 px-3 rounded-full text-xs font-medium border border-ink-200 dark:border-white/15 hover:bg-white dark:hover:bg-white/5" title="Back to library">
+          <button id="barBack" data-home class="shrink-0 inline-flex items-center gap-1.5 h-8 px-3 rounded-full text-xs font-medium border border-ink-200 dark:border-white/15 hover:bg-white dark:hover:bg-white/5" title="Back to library">
             <i class="fa-solid fa-arrow-left text-[10px]"></i><span class="hidden sm:inline">Library</span>
           </button>
           <span class="shrink-0 w-px h-5 bg-ink-200 dark:bg-white/10"></span>
@@ -186,6 +203,8 @@
   // content/library.json, which is loaded below.
   let BOOKLETS = [];
   let POSTS = [];
+  // Mathew's own projects and case competitions, from content/cases/*.json.
+  let CASES = [];
 
   // Home page, header and footer text, edited under "Site Settings" in the editor.
   const SITE_DEFAULTS = {
@@ -195,6 +214,8 @@
     homeIntro: 'Business strategy booklets and blog posts for case competitors, students and operators. Each booklet moves from a plain-English intuition to a full framework, a real case, a 3-slide deck plan and a startup idea with numbers.',
     bookletsHeading: 'Strategy Booklets',
     postsHeading: 'Blog Posts',
+    casesHeading: 'My Case Studies',
+    casesIntro: 'The ventures I have built and the case competitions I have taken part in, written up the way we would study any company: what we set out to do, what happened, and what we learned.',
     footerText: 'Educational content for strategy students & operators.',
     footerNote: 'Figures in startup models are illustrative.',
   };
@@ -220,7 +241,7 @@
   const esc = str => String(str ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
   // Fields shown as plain text; every other text field may use Markdown (**bold**, *italic*, links).
-  const PLAIN_FIELDS = new Set(['id', 'slug', 'type', 'title', 'kicker', 'icon', 'color', 'volume', 'industry', 'audience', 'topics', 'date', 'headers', 'image', 'alt', 'size']);
+  const PLAIN_FIELDS = new Set(['id', 'slug', 'type', 'title', 'kicker', 'icon', 'color', 'volume', 'industry', 'audience', 'topics', 'kind', 'year', 'date', 'headers', 'image', 'alt', 'size']);
   function renderInlineMarkdown(value, key) {
     if (key === 'markdown') return blockMd(String(value ?? '')); // free-form chapter body
     if (PLAIN_FIELDS.has(key)) return Array.isArray(value) ? value.map(v => esc(v)) : esc(value);
@@ -279,6 +300,15 @@
     };
   }
 
+  // Case studies share the booklet chapter format, plus a few facts about the project.
+  function caseWithDefaults(c) {
+    return withDefaults({
+      icon: 'fa-briefcase', color: 'from-emerald-500 to-teal-600',
+      summary: '', kind: 'Project', year: '', event: '', role: '', outcome: '', team: '', ...c,
+      year: String(c.year ?? ''),
+    });
+  }
+
   function preparePost(p) {
     const words = String(p.body || '').trim().split(/\s+/).filter(Boolean).length;
     return {
@@ -294,6 +324,7 @@
     const merged = { ...SITE_DEFAULTS, ...(raw || {}) };
     const site = Object.fromEntries(Object.entries(merged).map(([k, v]) => [k, esc(v ?? '')]));
     site.homeIntro = inlineMd(String(merged.homeIntro ?? ''));
+    site.casesIntro = inlineMd(String(merged.casesIntro ?? ''));
     site.plainName = String(merged.siteName || SITE_DEFAULTS.siteName); // for browser tab titles
     return site;
   }
@@ -588,12 +619,52 @@
       </div>`,
   };
 
-  function renderBooklet(b) {
-    const chapters = b.chapters.map((c, i) => `
+  function renderChapters(b) {
+    return b.chapters.map((c, i) => `
       <section id="ch${i + 1}" class="chapter mb-20" data-chapter="ch${i + 1}">
         ${chapterHeader(i + 1, c.title, c.kicker)}
         ${(CHAPTER_RENDERERS[c.type] || CHAPTER_RENDERERS.text)(c, b)}
       </section>`).join('');
+  }
+
+  // Facts shown as pills on a case study's cover and card.
+  const caseFacts = c => [
+    c.role && ['fa-user', c.role],
+    c.event && ['fa-building', c.event],
+    c.team && ['fa-people-group', c.team],
+  ].filter(Boolean);
+  const caseKindIcon = kind => ({ 'Case competition': 'fa-trophy', Venture: 'fa-rocket', Internship: 'fa-id-badge', Consulting: 'fa-handshake' }[kind] || 'fa-briefcase');
+
+  function renderCase(c) {
+    const idx = CASES.findIndex(x => x.id === c.id);
+    const next = CASES.length > 1 && idx > -1 ? CASES[(idx + 1) % CASES.length] : null;
+    return `
+      <header class="mb-14">
+        <div class="relative overflow-hidden rounded-3xl bg-ink-900 text-white p-7 sm:p-10">
+          <div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-gradient-to-br ${c.color} opacity-30 blur-2xl"></div>
+          <div class="absolute right-8 bottom-6 text-7xl sm:text-8xl opacity-10"><i class="fa-solid ${c.icon}"></i></div>
+          <p class="relative text-xs font-mono tracking-widest text-white/50 mb-4">MY CASE STUDY · ${c.kind.toUpperCase()}${c.year ? ` · ${c.year}` : ''}</p>
+          <h1 class="relative font-serif text-3xl sm:text-5xl font-semibold leading-[1.1] tracking-tight max-w-3xl">${c.title}</h1>
+          ${c.summary ? `<p class="relative mt-4 text-white/70 text-base sm:text-lg max-w-2xl leading-relaxed">${c.summary}</p>` : ''}
+          <div class="relative mt-7 flex flex-wrap gap-2.5 text-xs font-medium">
+            ${caseFacts(c).map(([icon, text]) => `<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/15"><i class="fa-solid ${icon}"></i>${text}</span>`).join('')}
+            ${c.outcome ? `<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-accent-dark/20 text-orange-200 border border-orange-300/30"><i class="fa-solid fa-flag-checkered"></i>${c.outcome}</span>` : ''}
+          </div>
+        </div>
+      </header>
+
+      ${renderChapters(c)}
+
+      ${next ? `<button data-case="${next.id}" class="mt-10 w-full text-left ${card} p-6 hover:border-ink-900 dark:hover:border-white/40 transition flex items-center justify-between gap-4">
+          <div><p class="text-xs ${muted}">Next case study · ${next.kind}${next.year ? ` · ${next.year}` : ''}</p><p class="font-serif text-xl font-semibold mt-1">${next.title}</p></div>
+          <i class="fa-solid fa-arrow-right text-xl"></i></button>` : `<button data-cases class="mt-10 w-full text-left ${card} p-6 hover:border-ink-900 dark:hover:border-white/40 transition flex items-center justify-between gap-4">
+          <div><p class="text-xs ${muted}">Back to</p><p class="font-serif text-xl font-semibold mt-1">${SITE.casesHeading}</p></div>
+          <i class="fa-solid fa-arrow-left text-xl"></i></button>`}
+    `;
+  }
+
+  function renderBooklet(b) {
+    const chapters = renderChapters(b);
     return `
       <!-- HEADER -->
       <header class="mb-14">
@@ -629,6 +700,11 @@
      HOME / LIBRARY VIEW
      ========================================================= */
   let view = 'home';
+  // The booklet view also shows case studies; docKind says which list currentId belongs to.
+  let docKind = 'booklet';
+  const docs = () => (docKind === 'case' ? CASES : BOOKLETS);
+  const currentDoc = () => docs().find(x => x.id === currentId);
+  let caseFilter = 'All';
   let activeTopic = 'All';
   let query = '';
 
@@ -661,6 +737,15 @@
           <div><span class="font-serif text-2xl font-bold">${totalMin}</span> <span class="${muted}">minutes of reading</span></div>
         </div>
       </div>
+
+      ${CASES.length ? `<button data-cases class="group w-full text-left mb-10 ${card} p-5 sm:p-6 flex items-center gap-4 hover:border-ink-900 dark:hover:border-white/40 transition">
+        <span class="shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white grid place-items-center"><i class="fa-solid fa-briefcase"></i></span>
+        <span class="min-w-0 flex-1">
+          <span class="block font-serif text-xl font-semibold">${SITE.casesHeading}</span>
+          <span class="block text-sm ${muted} mt-0.5">${CASES.length} ${CASES.length === 1 ? 'write-up' : 'write-ups'} of my own projects and case competitions.</span>
+        </span>
+        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+      </button>` : ''}
 
       <div class="flex flex-col gap-4 mb-8">
         <div class="relative max-w-md">
@@ -742,6 +827,60 @@
   }
 
   /* =========================================================
+     MY CASE STUDIES PAGE
+     ========================================================= */
+  function renderCasesPage() {
+    const kinds = [...new Set(CASES.map(c => c.kind))];
+    if (caseFilter !== 'All' && !kinds.includes(caseFilter)) caseFilter = 'All';
+    const shown = CASES.filter(c => caseFilter === 'All' || c.kind === caseFilter);
+    const chipCls = 'topic-chip inline-flex items-center gap-1.5 h-8 px-3.5 rounded-full text-xs font-medium border border-ink-200 dark:border-white/15 hover:border-ink-900 dark:hover:border-white/50 transition';
+    const cards = shown.map(c => `
+      <div class="${card} overflow-hidden flex flex-col hover:shadow-xl hover:shadow-black/5 hover:-translate-y-0.5 transition">
+        <button data-case="${c.id}" class="text-left relative bg-ink-900 text-white p-6 overflow-hidden">
+          <div class="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-gradient-to-br ${c.color} opacity-40 blur-2xl"></div>
+          <div class="absolute right-5 bottom-4 text-5xl opacity-10"><i class="fa-solid ${c.icon}"></i></div>
+          <p class="relative text-[10px] font-mono tracking-widest text-white/50"><i class="fa-solid ${caseKindIcon(c.kind)} mr-1"></i>${c.kind.toUpperCase()}${c.year ? ` · ${c.year}` : ''}</p>
+          <h3 class="relative font-serif text-2xl font-semibold leading-tight mt-2 pr-10">${c.title}</h3>
+          ${c.outcome ? `<span class="relative inline-flex items-center gap-1.5 mt-4 px-2.5 py-1 rounded-full text-[11px] font-medium bg-accent-dark/20 text-orange-200 border border-orange-300/30"><i class="fa-solid fa-flag-checkered"></i>${c.outcome}</span>` : ''}
+        </button>
+        <div class="p-6 flex-1 flex flex-col gap-4">
+          ${c.summary ? `<p class="text-sm leading-relaxed ${muted}">${c.summary}</p>` : ''}
+          ${caseFacts(c).length ? `<ul class="space-y-1.5 text-sm">${caseFacts(c).map(([icon, text]) => `<li class="flex gap-2"><i class="fa-solid ${icon} w-4 mt-1 text-xs ${muted}"></i><span>${text}</span></li>`).join('')}</ul>` : ''}
+          ${c.topics.length ? `<div class="flex flex-wrap gap-1.5">${c.topics.map(t => `<span class="text-[11px] px-2 py-0.5 rounded-md bg-ink-100 dark:bg-white/10">#${t}</span>`).join('')}</div>` : ''}
+          <div class="mt-auto pt-4 border-t border-ink-200 dark:border-white/10 flex items-center justify-between text-xs ${muted}">
+            <span>${c.chapters.length} ${c.chapters.length === 1 ? 'chapter' : 'chapters'}</span>
+            <button data-case="${c.id}" class="font-semibold text-ink-900 dark:text-white hover:text-accent dark:hover:text-accent-dark">Read case study <i class="fa-solid fa-arrow-right ml-1"></i></button>
+          </div>
+        </div>
+      </div>`).join('');
+    $('#casesView').innerHTML = `
+      <button data-home class="inline-flex items-center gap-1.5 h-8 px-3 rounded-full text-xs font-medium border border-ink-200 dark:border-white/15 hover:bg-white dark:hover:bg-white/5 mb-8"><i class="fa-solid fa-arrow-left text-[10px]"></i>Library</button>
+      <div class="mb-10">
+        <p class="text-[11px] font-semibold uppercase tracking-[.14em] text-accent dark:text-accent-dark mb-3">Projects &amp; case competitions</p>
+        <h1 class="font-serif text-4xl sm:text-5xl font-semibold tracking-tight leading-[1.1]">${SITE.casesHeading}</h1>
+        ${SITE.casesIntro ? `<p class="mt-4 text-lg max-w-2xl ${muted} leading-relaxed">${SITE.casesIntro}</p>` : ''}
+      </div>
+      ${kinds.length > 1 ? `<div class="flex flex-wrap gap-2 mb-8">${['All', ...kinds].map(k => `
+        <button data-case-filter="${esc(k)}" class="${chipCls} ${k === caseFilter ? 'active' : ''}" aria-pressed="${k === caseFilter}">${k}<span class="opacity-50 font-mono">${k === 'All' ? CASES.length : CASES.filter(c => c.kind === k).length}</span></button>`).join('')}</div>` : ''}
+      ${shown.length ? `<div class="grid md:grid-cols-2 gap-6">${cards}</div>` : `
+      <div class="${card} p-10 text-center">
+        <i class="fa-solid fa-briefcase text-3xl ${muted}"></i>
+        <p class="font-semibold mt-3">Case studies are on their way</p>
+        <p class="text-sm ${muted} mt-1">Write-ups of my projects and case competitions will appear here soon.</p>
+      </div>`}`;
+  }
+
+  function showCases() {
+    view = 'cases';
+    if (observer) observer.disconnect();
+    showOnly('#casesView');
+    renderCasesPage();
+    renderSidebar();
+    document.title = `${$('#casesView h1').textContent} · ${SITE.plainName}`;
+    window.scrollTo({ top: 0 });
+  }
+
+  /* =========================================================
      SIDEBAR, CONTENT BAR & ROUTING
      ========================================================= */
   function renderSidebar() {
@@ -753,11 +892,21 @@
     }).join('');
     $('.home-link').classList.toggle('bg-white', view === 'home');
     $('.home-link').classList.toggle('dark:bg-white/5', view === 'home');
+    const onCases = view === 'cases' || (view === 'booklet' && docKind === 'case');
+    $('.cases-link').classList.toggle('bg-white', view === 'cases');
+    $('.cases-link').classList.toggle('dark:bg-white/5', view === 'cases');
+    $('#casesCount').textContent = CASES.length || '';
+    $$('.top-link').forEach(l => l.classList.toggle('active', l.dataset.top === (onCases ? 'cases' : view === 'home' ? 'home' : '')));
+    $('#caseSection').classList.toggle('hidden', !CASES.length);
+    $('#caseList').innerHTML = CASES.map(c => {
+      const active = view === 'booklet' && docKind === 'case' && c.id === currentId;
+      return `<li><a href="#case-${c.id}" data-case="${c.id}" class="block px-2.5 py-2 rounded-lg text-sm leading-snug transition ${active ? 'font-semibold bg-white dark:bg-white/5' : 'text-ink-700/80 dark:text-white/70 hover:bg-ink-100 dark:hover:bg-white/5'}">${c.title}<span class="block text-[11px] font-mono mt-0.5 opacity-60">${c.kind}${c.year ? ` · ${c.year}` : ''}</span></a></li>`;
+    }).join('');
     $('#chapterSection').classList.toggle('hidden', view !== 'booklet');
     $('#tipSection').classList.toggle('hidden', view !== 'booklet');
 
     $('#bookletList').innerHTML = BOOKLETS.map(b => {
-      const active = view === 'booklet' && b.id === currentId;
+      const active = view === 'booklet' && docKind === 'booklet' && b.id === currentId;
       return `
         <li>
           <button data-open="${b.id}" class="w-full text-left flex gap-3 p-2.5 rounded-xl transition border ${active
@@ -772,7 +921,7 @@
         </li>`;
     }).join('');
 
-    const current = view === 'booklet' ? BOOKLETS.find(x => x.id === currentId) : null;
+    const current = view === 'booklet' ? currentDoc() : null;
     $('#tipMax').textContent = Math.min(9, chaptersOf(current).length);
     $('#chapterNav').innerHTML = chaptersOf(current).map(c => `
       <a href="#${c.id}" data-target="${c.id}" class="nav-link flex items-center gap-3 px-2.5 py-2 rounded-lg text-sm text-ink-700/80 dark:text-white/60 hover:text-ink-900 dark:hover:text-white transition">
@@ -783,11 +932,18 @@
   }
 
   function renderContentBar() {
-    $('#barLinks').innerHTML = chaptersOf(BOOKLETS.find(x => x.id === currentId)).map(c => `
+    const isCase = docKind === 'case';
+    const back = $('#barBack');
+    back.toggleAttribute('data-home', !isCase);
+    back.toggleAttribute('data-cases', isCase);
+    back.title = isCase ? 'Back to case studies' : 'Back to library';
+    back.querySelector('span').textContent = isCase ? 'Case studies' : 'Library';
+    $('#barLinks').innerHTML = chaptersOf(currentDoc()).map(c => `
       <a href="#${c.id}" data-target="${c.id}" class="bar-link shrink-0 inline-flex items-center gap-1.5 h-8 px-3 rounded-full text-xs font-medium border border-transparent text-ink-700/80 dark:text-white/70 hover:border-ink-200 dark:hover:border-white/15 transition whitespace-nowrap">
         <span class="font-mono opacity-60">${c.num}</span>${c.label}
       </a>`).join('');
-    $('#bookletJump').innerHTML = BOOKLETS.map(b => `<option value="${b.id}" ${b.id === currentId ? 'selected' : ''}>${b.volume} · ${b.title}</option>`).join('');
+    $('#bookletJump').innerHTML = docs().map(b => `<option value="${b.id}" ${b.id === currentId ? 'selected' : ''}>${isCase ? b.kind : b.volume} · ${b.title}</option>`).join('');
+    $('#bookletJump').setAttribute('aria-label', isCase ? 'Jump to case study' : 'Jump to booklet');
   }
 
   function markActiveChapter(id) {
@@ -807,7 +963,7 @@
 
   let currentPost = null;
   function showOnly(id) {
-    ['#home', '#bookletView', '#postView'].forEach(sel => $(sel).classList.toggle('hidden', sel !== id));
+    ['#home', '#casesView', '#bookletView', '#postView'].forEach(sel => $(sel).classList.toggle('hidden', sel !== id));
   }
 
   function showHome() {
@@ -820,16 +976,17 @@
     window.scrollTo({ top: 0 });
   }
 
-  function showBooklet(id, chapter) {
-    const b = BOOKLETS.find(x => x.id === id);
-    if (!b) return showHome();
-    const switching = view === 'booklet' && currentId !== id;
+  function showBooklet(id, chapter, kind = 'booklet') {
+    const b = (kind === 'case' ? CASES : BOOKLETS).find(x => x.id === id);
+    if (!b) return kind === 'case' ? showCases() : showHome();
+    const switching = view === 'booklet' && (currentId !== id || docKind !== kind);
     view = 'booklet';
+    docKind = kind;
     currentId = id;
     showOnly('#bookletView');
     const el = $('#booklet');
     const paint = () => {
-      el.innerHTML = renderBooklet(b);
+      el.innerHTML = kind === 'case' ? renderCase(b) : renderBooklet(b);
       renderSidebar();
       renderContentBar();
       setupScrollSpy();
@@ -865,6 +1022,8 @@
 
   function route(hash, chapter) {
     if (hash.startsWith('post-')) showPost(hash.slice(5));
+    else if (hash === 'case-studies') showCases();
+    else if (hash.startsWith('case-')) showBooklet(hash.slice(5), chapter, 'case');
     else if (BOOKLETS.some(b => b.id === hash)) showBooklet(hash, chapter);
     else showHome();
   }
@@ -898,6 +1057,18 @@
   document.addEventListener('click', e => {
     const home = e.target.closest('[data-home]');
     if (home) { e.preventDefault(); closeMenu(); navigate('home'); return; }
+    const casesLink = e.target.closest('[data-cases]');
+    if (casesLink) { e.preventDefault(); closeMenu(); navigate('case-studies'); return; }
+    const filter = e.target.closest('[data-case-filter]');
+    if (filter) { caseFilter = filter.dataset.caseFilter; renderCasesPage(); return; }
+    const caseLink = e.target.closest('[data-case]');
+    if (caseLink) {
+      e.preventDefault(); closeMenu();
+      const chapter = caseLink.dataset.chapterTarget;
+      if (view === 'booklet' && docKind === 'case' && caseLink.dataset.case === currentId) { if (chapter) scrollToChapter(chapter); return; }
+      navigate('case-' + caseLink.dataset.case, chapter);
+      return;
+    }
     const post = e.target.closest('[data-post]');
     if (post) { e.preventDefault(); closeMenu(); navigate('post-' + post.dataset.post); return; }
     const topic = e.target.closest('[data-topic]');
@@ -911,20 +1082,20 @@
     if (open) {
       e.preventDefault(); closeMenu();
       const chapter = open.dataset.chapterTarget;
-      if (view === 'booklet' && open.dataset.open === currentId) { if (chapter) scrollToChapter(chapter); return; }
+      if (view === 'booklet' && docKind === 'booklet' && open.dataset.open === currentId) { if (chapter) scrollToChapter(chapter); return; }
       openBooklet(open.dataset.open, chapter);
       return;
     }
     const nav = e.target.closest('.nav-link, .bar-link');
     if (nav) { e.preventDefault(); closeMenu(); scrollToChapter(nav.dataset.target); }
   });
-  $('#bookletJump').addEventListener('change', e => openBooklet(e.target.value));
+  $('#bookletJump').addEventListener('change', e => navigate((docKind === 'case' ? 'case-' : '') + e.target.value));
   $('#brand').addEventListener('click', e => { e.preventDefault(); navigate('home'); });
 
   document.addEventListener('keydown', e => {
     if (view !== 'booklet' || e.target.matches('input, textarea, select') || e.metaKey || e.ctrlKey || e.altKey) return;
     const n = parseInt(e.key, 10);
-    const chapters = chaptersOf(BOOKLETS.find(x => x.id === currentId));
+    const chapters = chaptersOf(currentDoc());
     if (n >= 1 && n <= chapters.length) scrollToChapter(chapters[n - 1].id);
   });
 
@@ -965,9 +1136,21 @@
       const booklet = renderInlineMarkdown(withDefaults({ ...data, id: '__preview' }));
       BOOKLETS = [booklet, ...BOOKLETS.filter(x => x.id !== '__preview')];
       view = 'booklet';
+      docKind = 'booklet';
       currentId = '__preview';
       showOnly('#bookletView');
       $('#booklet').innerHTML = renderBooklet(booklet);
+      renderSidebar();
+      renderContentBar();
+      setupScrollSpy();
+    } else if (msg.kind === 'cases') {
+      const item = renderInlineMarkdown(caseWithDefaults({ ...data, id: '__preview' }));
+      CASES = [item, ...CASES.filter(x => x.id !== '__preview')];
+      view = 'booklet';
+      docKind = 'case';
+      currentId = '__preview';
+      showOnly('#bookletView');
+      $('#booklet').innerHTML = renderCase(item);
       renderSidebar();
       renderContentBar();
       setupScrollSpy();
@@ -998,6 +1181,7 @@
       applySiteText();
       BOOKLETS = (data.booklets || []).map(b => renderInlineMarkdown(withDefaults(b)));
       POSTS = (data.posts || []).map(preparePost);
+      CASES = (data.cases || []).map(c => renderInlineMarkdown(caseWithDefaults(c)));
       currentId = BOOKLETS[0]?.id ?? null;
       libraryReady = true;
       if (PREVIEW) { if (pendingPreview) renderPreview(pendingPreview); return; }
