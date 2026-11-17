@@ -14,7 +14,7 @@
   ],
   "icon": "fa-hourglass-half",
   "color": "from-sky-500 to-blue-600",
-  "draft": true,
+  "draft": false,
   "chapters": [
     {
       "type": "blocks",
