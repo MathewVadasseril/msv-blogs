@@ -1,0 +1,201 @@
+{
+  "title": "Same 24 hours? How the affluent now buy time",
+  "summary": "Everyone gets 1,440 minutes a day, but not everyone's minute costs the same. A personal observation on cooks, cleaners, cars and commutes, built out with Becker's economics of time, India's Time Use Survey and research on buying time.",
+  "kind": "Observation",
+  "year": "",
+  "event": "Personal observation, India",
+  "role": "",
+  "outcome": "Field note",
+  "team": "",
+  "order": 8,
+  "topics": [
+    "Economics",
+    "Consumer Behaviour"
+  ],
+  "icon": "fa-hourglass-half",
+  "color": "from-sky-500 to-blue-600",
+  "draft": false,
+  "chapters": [
+    {
+      "type": "blocks",
+      "kicker": "The observation",
+      "title": "Everyone gets 24 hours. Not everyone gets to keep them.",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "*A personal observation, built out with economics and published research. About 10 minutes to read.*\n\nWe are told that everyone has the same 24 hours, so success is about how we use them. I am no longer sure that is true. Look at two households in the same Indian city. In one, a cook makes breakfast, a cleaner does the floors and the dishes, and a car (sometimes with a driver) does the commute. In the other, the same jobs are done by the family itself, mostly by the women, and the commute is a bus, a crowded train or a two-wheeler in traffic.\n\nBoth households get **1,440 minutes** a day. But the first one gets to *choose* what most of its minutes are for. The second one has most of them already spoken for. So the question I want to answer is simple: **has money finally reached the point where the affluent can genuinely buy more time?**\n\nMy short answer: yes. The number of hours is equal. The **price** of an hour is not, and that is exactly what lets one household buy hours from another."
+        },
+        {
+          "type": "metrics",
+          "items": [
+            {
+              "value": "1,440",
+              "label": "Minutes in everyone's day, rich or poor"
+            },
+            {
+              "value": "289 vs 88",
+              "label": "Minutes a day women vs men spend on unpaid domestic work in India (participants aged 6+, 2024)"
+            },
+            {
+              "value": "28.2%",
+              "label": "Share of people in four rich countries who spend any money to buy time each month (Whillans et al. 2017)"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "heading": "How to read the numbers",
+          "icon": "fa-circle-info",
+          "text": "Every figure in this post is sourced, and the full list is at the end. Where I build a worked example (the two households in the table later), the method is shown and the inputs are labelled as illustrative, so you can swap in your own city's numbers."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "The economics",
+      "title": "Time has a price, and the price is your wage",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Opportunity cost of time** is what we give up by spending an hour on one thing rather than the next best thing, usually paid work. It is the idea that turns time into money.\n\nThe economist who made this formal was Gary Becker, in his 1965 paper *A Theory of the Allocation of Time* ([Becker, G. S. (1965), \"A Theory of the Allocation of Time\", The Economic Journal 75(299): 493–517](https://doi.org/10.2307/2228949)). Here we look at his idea in four parts.\n\n1. **Households are small factories:** we do not consume \"dinner\"; we produce it from two inputs, groceries (goods) and cooking (time). e.g. a home-cooked dal needs ₹60 of ingredients and 45 minutes of someone's time. Thus every activity has both a money cost and a time cost.\n2. **The price of time is the wage:** the time cost of an hour is the money that hour could have earned. Becker called money income plus the value of all available time **full income**. e.g. for a consultant earning ₹1,250 an hour, the 45-minute dal really costs ₹60 plus about ₹940 of time. Hence the same dal is far more expensive for a high earner than for a low earner.\n3. **When time gets expensive, people swap it for goods and services:** as wages rise, households move towards activities that use less of their own time and more purchased inputs. e.g. ordering on Swiggy, buying a dishwasher, or hiring a cook. So buying time is not laziness; it is a rational response to a high price of time.\n4. **Someone else's time is the cheapest substitute:** the best substitute for your hour is often another person's hour, bought at their wage. e.g. a cook paid ₹150 an hour replaces an hour worth ₹1,250 to the employer. Thus the trade only works because the two wages are very different."
+        },
+        {
+          "type": "quote",
+          "text": "Everyone has 24 hours, but not everyone's hour costs the same. That price gap is the whole market for time.",
+          "author": "My takeaway"
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "The arithmetic",
+      "title": "Two households, one city: what an hour costs each of them",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "Here we put Becker's idea into rupees. We take one bundle of help, a cook and a cleaner, and price it for two households.\n\n**Step 1, the price of help:** a Mumbai survey reported by Quartz put a maid at about **₹7,000** a month and a cook at over **₹8,500** ([Quartz India, domestic worker wages in six charts, 2016](https://qz.com/india/675217/the-shocking-way-india-is-underpaying-its-maids-nannies-and-cooks-in-six-charts)). Pay has risen since: household-worker minimum salaries rose 7.6% in 2024 alone, and cooks' by 11% ([PTI via The Week, WorkIndia report on household-worker demand and pay, 27 July 2025](https://www.theweek.in/wire-updates/business/2025/07/27/dcm7-biz-maids-demand-report.html)). We use ₹15,500 a month as a conservative total.\n\n**Step 2, the hours it frees:** Indian women who do housework spend **289 minutes** (about 4.8 hours) a day on it ([MoSPI, Time Use Survey (January–December 2024), PIB release, 25 February 2025](https://pib.gov.in/PressReleasePage.aspx?PRID=2106113)). We assume the cook and the cleaner take over 3.5 of those hours a day, or about **105 hours a month**. That makes each bought hour cost about **₹148**.\n\n**Step 3, compare with each household's wage:** we take a professional earning ₹30 lakh a year and a worker earning ₹3 lakh a year, both working about 2,400 hours a year."
+        },
+        {
+          "type": "table",
+          "title": "Illustrative: the same 105 hours, two very different prices",
+          "headers": [
+            "",
+            "Household A (₹30 lakh a year)",
+            "Household B (₹3 lakh a year)"
+          ],
+          "rows": [
+            "Value of one hour of their own time|about ₹1,250|about ₹125",
+            "Cost of one bought hour (cook + cleaner)|about ₹148|about ₹148",
+            "Bought hour as a share of their own hour|12%|118%",
+            "Monthly cost of help as a share of income|about 6%|about 62%",
+            "Does buying time make economic sense?|Clearly yes|No: the hour costs more than it earns"
+          ]
+        },
+        {
+          "type": "text",
+          "markdown": "The table shows the answer to my question in one line. For Household A, an hour of freedom costs about a tenth of what an hour of their work earns, so they buy it without thinking. For Household B, buying the same hour costs more than they could earn with it. Thus **time can be bought, but only by those whose time is expensive**.\n\nThe result is that Household A effectively runs on a **27.5-hour day**: 24 of their own hours plus 3.5 bought from someone else. Household B runs on 24, and a large share of those is already committed to housework and commuting."
+        },
+        {
+          "type": "callout",
+          "heading": "The other side of the trade",
+          "icon": "fa-scale-balanced",
+          "text": "Every hour bought is an hour sold. Quartz estimated close to 20 million people, mostly women, work as cooks, cleaners and maids in India, on average salaries of about ₹3,000 a month nationally (city rates are higher). The cook who frees up Household A's evening often goes home to do her own family's cooking. So buying time does not create hours; it moves them from a low-wage household to a high-wage one."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "India's time data",
+      "title": "Who is time-poor in India? Mostly women",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Time poverty** is the feeling, and often the fact, of having too many things to do and not enough time to do them ([Giurge, L. M., Whillans, A. V. and West, C. (2020), \"Why time poverty matters for individuals, organisations and nations\", Nature Human Behaviour 4(10): 993–1003](https://ideas.repec.org/a/nat/nathum/v4y2020i10d10.1038_s41562-020-0920-z.html)). The authors note that billions are spent each year to reduce material poverty, while time poverty is often ignored.\n\nIndia measures this directly. The National Statistics Office ran its first all-India Time Use Survey in 2019 and a second one in 2024, covering 1,39,487 households and 4,54,192 people aged 6 and above ([MoSPI, Time Use Survey (January–December 2024), PIB release, 25 February 2025](https://pib.gov.in/PressReleasePage.aspx?PRID=2106113)). Here we look at what it shows, in four parts.\n\n1. **Housework is a women's job, by the numbers:** 81.5% of women did unpaid domestic work on the survey day, against 27.1% of men. e.g. the woman who cooks, cleans and does the dishes before leaving for work. Hence the hours a household buys are, in practice, mostly a woman's hours.\n2. **The load is heavy:** women who do housework spend 289 minutes a day on it; men who do it spend 88 minutes. e.g. nearly five hours, close to a second shift. So when a family hires a cook, the time freed is not an abstract household hour; it is often a woman's evening.\n3. **Care adds more:** women aged 15–59 who give unpaid care spend about 140 minutes a day on it; men, about 74 minutes. e.g. looking after a child or an elderly parent. Thus the time budget is tight before any paid work starts.\n4. **The trend points to buying time:** women aged 15–59 cut unpaid domestic work from 315 minutes in 2019 to 305 minutes in 2024, while their participation in paid work rose from 21.8% to 25%. The government reads this as a shift from unpaid to paid activity. e.g. as more women work, more households hire help. Hence the market for bought time is growing, and recruiters see it: demand for household workers on one large job platform more than doubled across most education levels between 2023 and 2024 ([PTI via The Week, WorkIndia report on household-worker demand and pay, 27 July 2025](https://www.theweek.in/wire-updates/business/2025/07/27/dcm7-biz-maids-demand-report.html))."
+        },
+        {
+          "type": "table",
+          "title": "How Indians spend a day (Time Use Survey 2024, minutes per participant, age 6+)",
+          "headers": [
+            "Activity",
+            "Women",
+            "Men",
+            "Who takes part"
+          ],
+          "rows": [
+            "Unpaid domestic services for the household|289|88|81.5% of women, 27.1% of men",
+            "Unpaid caregiving for household members|137|75|34.0% of women, 17.9% of men",
+            "Employment and related activities|341|473|20.7% of women, 60.8% of men",
+            "Self-care and maintenance (sleep, eating, hygiene)|706|710|Everyone"
+          ]
+        },
+        {
+          "type": "callout",
+          "heading": "A note on \"per participant\"",
+          "icon": "fa-circle-info",
+          "text": "These are averages for people who did the activity that day, not for everyone. So a man who did housework spent 88 minutes on it, but only about one man in four did any. Source: [MoSPI, Time Use Survey (January–December 2024), PIB release, 25 February 2025](https://pib.gov.in/PressReleasePage.aspx?PRID=2106113)."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "The commute",
+      "title": "A car buys comfort and control more than it buys minutes",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "The **value of travel time** is the money a person would pay to cut a trip short, and it is usually linked to their wage. Transport is the second big place where money seems to buy time. But in Indian cities, the picture is more interesting than \"car beats bus\".\n\nHere we look at the commute in four parts.\n\n1. **Few households own the time machine:** only about 8% of Indian households own a car (14% in cities), while 54% own a scooter or motorcycle and 55% a bicycle ([ThePrint on NFHS-5 vehicle ownership, 27 May 2022](https://theprint.in/india/only-8-indian-families-own-cars-nfhs-finds-over-50-still-use-bicycles-bikes-scooters/971413/)). e.g. in Mumbai, only 3.6% of trips are by car, against 31.7% by public transport and 47% on foot or by cycle ([Down To Earth (CSE), \"How India moves\", analysis of 40 cities, 9 July 2025](https://www.downtoearth.org.in/air/how-india-moves-our-analysis-of-40-cities-reveals-a-brutally-simple-answer-it-does-not)). Thus the car commute is itself a marker of affluence.\n2. **The car is not always faster:** the TomTom Traffic Index 2024 found that covering 10 km took about **34 minutes** in Kolkata and Bengaluru, an average speed of about 17.5 km/h; even Delhi needed 23 minutes ([Business Standard on the TomTom Traffic Index 2024, 12 January 2025](https://www.business-standard.com/india-news/kolkata-india-most-congested-city-2024-bengaluru-traffic-speed-tomtom-125011200207_1.html)). e.g. a 15 km drive to an office in Bengaluru can take close to an hour. So in a jammed city, money does not buy speed on the road.\n3. **What money buys is usable time:** the real purchase is control and comfort, a seat, air conditioning, no transfers and, with a driver, the commute turned into work or rest. e.g. a manager who takes calls from the back seat has turned 60 dead minutes into 60 working ones. Hence the affluent do not commute less; they lose less of the commute.\n4. **The biggest time purchase is the address:** the surest way to save commute time is to live near work, and that is paid for in rent. Stutzer and Frey found that people with longer commutes report systematically lower well-being, and that a 22-minute one-way commute would need about **35.4%** more monthly income to fully compensate, in German data ([Stutzer, A. and Frey, B. S. (2008), \"Stress that Doesn't Pay: The Commuting Paradox\", Scandinavian Journal of Economics 110(2): 339–366](https://econpapers.repec.org/RePEc:bla:scandj:v:110:y:2008:i:2:p:339-366)). e.g. renting in Koramangala to work in Koramangala. So the rich buy time twice: once through help at home and once through location."
+        },
+        {
+          "type": "quote",
+          "text": "In Bengaluru traffic, a car does not buy you minutes. It buys you a better way to lose them.",
+          "author": "My takeaway"
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "The paradox",
+      "title": "If the rich can buy time, why do they feel so rushed?",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "Here is the twist. If money buys time, the richest people should feel the least rushed. The research says the opposite, and Becker explains why. We look at it in three parts.\n\n1. **Richer households feel more time stress:** using data from Australia, Canada, Germany, Korea and the United States, Hamermesh and Lee found that adults in higher-income households report more time stress for the same hours of paid and household work, and called much of it \"yuppie kvetch\" ([Hamermesh, D. S. and Lee, J. (2007), \"Stressed Out on Four Continents: Time Crunch or Yuppie Kvetch?\", Review of Economics and Statistics 89(2): 374–383 (NBER Working Paper 10186)](https://www.nber.org/papers/w10186)). e.g. the senior professional with a cook, a cleaner and a driver who still says \"I have no time\". Thus buying hours does not buy the feeling of having time.\n2. **Why: each hour gets more valuable:** as the wage rises, every free hour costs more in money not earned, so the pressure to fill it rises too. e.g. the hour freed by the cook goes to more work or to more activities, not to rest. Hence the time saved is often spent, not kept.\n3. **But buying time does help, when used well:** Whillans and colleagues surveyed 6,271 people in the United States, Canada, Denmark and the Netherlands. People who spent money to save time reported higher life satisfaction, and the effect did not depend on income. In a field experiment in Vancouver, 60 working adults were given $40 on two weekends; they were happier on the weekend they bought time than on the weekend they bought a thing ([Whillans, A. V., Dunn, E. W., Smeets, P., Bekkers, R. and Norton, M. I. (2017), \"Buying time promotes happiness\", PNAS 114(32): 8523–8527](https://pmc.ncbi.nlm.nih.gov/articles/PMC5559044/)). e.g. paying for a cleaner instead of a new gadget. Yet only 28.2% bought time at all, against 60.3% of the Dutch millionaires. So most people under-buy time, even when they can afford it."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "What it means",
+      "title": "My answer: equal hours, unequal time",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "Putting the economics and the data together, we take away five lessons.\n\n1. **The 24 hours are equal; the free hours are not:** the affluent can now buy back three to four hours a day of housework and convert commute time into usable time. e.g. Household A's 27.5-hour day. Thus \"everyone has the same 24 hours\" is true for the clock and false for the calendar.\n2. **Time inequality follows wage inequality:** the market for time exists only because one person's hour is cheap enough for another to buy. e.g. a ₹148 hour bought by someone whose hour is worth ₹1,250. Hence in a more equal economy, help at home gets more expensive and the time advantage shrinks.\n3. **In India, buying time is mostly about women's time:** with women doing 289 minutes of housework a day against men's 88, a cook or a cleaner mostly frees a woman's hours. e.g. a working mother's evening. So the time market is also a gender story, and the cheaper and fairer answer is still for men to do more.\n4. **Money buys usable time more than fast time:** in congested cities, a car does not beat traffic; location and a driver do the real work. e.g. paying more rent to live near the office. Hence the biggest time purchase is often the address, not the vehicle.\n5. **Buy time, then protect it:** the research says buying time raises happiness, but richer people still feel rushed because they fill the hours they buy. e.g. using the freed evening for family or sleep rather than more email. Thus the real advantage is not having more hours; it is deciding what they are for."
+        },
+        {
+          "type": "quote",
+          "text": "We all get 24 hours. Money decides how many of them are ours.",
+          "author": "My takeaway"
+        },
+        {
+          "type": "listbox",
+          "title": "Sources",
+          "icon": "fa-link",
+          "items": [
+            "[Becker, G. S. (1965), \"A Theory of the Allocation of Time\", The Economic Journal 75(299): 493–517](https://doi.org/10.2307/2228949)",
+            "[Whillans, A. V., Dunn, E. W., Smeets, P., Bekkers, R. and Norton, M. I. (2017), \"Buying time promotes happiness\", PNAS 114(32): 8523–8527](https://pmc.ncbi.nlm.nih.gov/articles/PMC5559044/)",
+            "[Hamermesh, D. S. and Lee, J. (2007), \"Stressed Out on Four Continents: Time Crunch or Yuppie Kvetch?\", Review of Economics and Statistics 89(2): 374–383 (NBER Working Paper 10186)](https://www.nber.org/papers/w10186)",
+            "[Giurge, L. M., Whillans, A. V. and West, C. (2020), \"Why time poverty matters for individuals, organisations and nations\", Nature Human Behaviour 4(10): 993–1003](https://ideas.repec.org/a/nat/nathum/v4y2020i10d10.1038_s41562-020-0920-z.html)",
+            "[Stutzer, A. and Frey, B. S. (2008), \"Stress that Doesn't Pay: The Commuting Paradox\", Scandinavian Journal of Economics 110(2): 339–366](https://econpapers.repec.org/RePEc:bla:scandj:v:110:y:2008:i:2:p:339-366)",
+            "[MoSPI, Time Use Survey (January–December 2024), PIB release, 25 February 2025](https://pib.gov.in/PressReleasePage.aspx?PRID=2106113)",
+            "[Business Standard on the TomTom Traffic Index 2024, 12 January 2025](https://www.business-standard.com/india-news/kolkata-india-most-congested-city-2024-bengaluru-traffic-speed-tomtom-125011200207_1.html)",
+            "[ThePrint on NFHS-5 vehicle ownership, 27 May 2022](https://theprint.in/india/only-8-indian-families-own-cars-nfhs-finds-over-50-still-use-bicycles-bikes-scooters/971413/)",
+            "[Down To Earth (CSE), \"How India moves\", analysis of 40 cities, 9 July 2025](https://www.downtoearth.org.in/air/how-india-moves-our-analysis-of-40-cities-reveals-a-brutally-simple-answer-it-does-not)",
+            "[Quartz India, domestic worker wages in six charts, 2016](https://qz.com/india/675217/the-shocking-way-india-is-underpaying-its-maids-nannies-and-cooks-in-six-charts)",
+            "[PTI via The Week, WorkIndia report on household-worker demand and pay, 27 July 2025](https://www.theweek.in/wire-updates/business/2025/07/27/dcm7-biz-maids-demand-report.html)"
+          ]
+        }
+      ]
+    }
+  ]
+}
