@@ -43,7 +43,7 @@
             {
               "icon": "fa-scale-balanced",
               "title": "Why Greece suits it",
-              "text": "Food rules in Greece are strict, so vendors cannot carry today's food over to sell tomorrow. Thus the leftover has to go somewhere tonight, and the app is that place."
+              "text": "Food rules in Greece are strict, so vendors cannot carry today's food over to sell tomorrow. Thus the leftover has to go somewhere tonight, and the app is that place. Customers also collect the box themselves, so there is no delivery charge to eat into the low price."
             },
             {
               "icon": "fa-users",
@@ -67,21 +67,15 @@
       "blocks": [
         {
           "type": "text",
-          "markdown": "**Field research** is going to the people who will use and supply a product and asking them, instead of guessing from a desk. Before building any model for India, our team did extensive research on the ground: we interviewed food vendors, and spoke to people who use food and deal apps about how they buy.\n\nThe answer was clear. The mystery model does not work in India, for two reasons."
+          "markdown": "**Field research** is going to the people who will use and supply a product and asking them, instead of guessing from a desk. Before building any model for India, our team did extensive research on the ground: we interviewed food vendors, and spoke to people who use food and deal apps about how they buy.\n\nThe answer was clear. The mystery model does not work in India, for three reasons."
         },
         {
           "type": "text",
-          "markdown": "**(i) Weak pressure to clear food the same day:** In India the rules do not stop a vendor from selling today's food tomorrow. So the vendor has no deadline, and hence no reason to sell it cheap tonight. e.g. unsold sweets or snacks are often simply on the counter again the next morning. Without that deadline, there is no steady supply of boxes.\n\n**(ii) Too many food needs for one surprise box:** This was the bigger reason. A box only works if almost anyone is happy with almost anything in it. Indian diets split far too finely for that: vegetarian, Jain, non-vegetarian, South Indian, North Indian, and more inside each. e.g. a Jain customer who avoids onion and garlic cannot take a chance on a box that may hold a biryani. Thus the \"mystery\" that makes the product fun in Greece becomes a risk the customer will not take in India."
+          "markdown": "**(i) Weak pressure to clear food the same day:** In India the rules do not stop a vendor from selling today's food tomorrow. So the vendor has no deadline, and hence no reason to sell it cheap tonight. e.g. unsold sweets or snacks are often simply on the counter again the next morning. Without that deadline, there is no steady supply of boxes.\n\n**(ii) Too many food needs for one surprise box:** This was the bigger reason. A box only works if almost anyone is happy with almost anything in it. Indian diets split far too finely for that: vegetarian, Jain, non-vegetarian, South Indian, North Indian, and more inside each. e.g. a Jain customer who avoids onion and garlic cannot take a chance on a box that may hold a biryani. Thus the \"mystery\" that makes the product fun in Greece becomes a risk the customer will not take in India.\n\n**(iii) Indians expect delivery to the door:** In Greece the economics work because there is no delivery cost in them: the customer walks in and collects the box. Indian customers are used to food arriving at the doorstep. e.g. Swiggy and Zomato have made a 30-minute delivery the normal way to order. Adding delivery would wipe out the low price that makes the box worth buying, hence the model breaks."
         },
         {
           "type": "text",
           "markdown": "We did not stop at \"no\". To understand why the model works where it does, we went to Greece and **used the startup's app and a competitor's app ourselves**. This showed us the customer experience from ordering to pick-up, and what a market needs for the model to succeed. Those needs became the yardstick for choosing a better country."
-        },
-        {
-          "type": "callout",
-          "heading": "What we still need from Mathew",
-          "icon": "fa-circle-question",
-          "text": "**[To confirm with Mathew]** How many vendors and users we spoke to in India and in which cities, and what the \"India-adapted business model\" on the CV looked like, so we can add it here."
         }
       ]
     },
@@ -147,8 +141,10 @@
           "markdown": "### What the data told us\n\n**Germany and the UK:** Big markets with high food waste and the easiest places to start a business. But both already have strong competitors, including Too Good To Go, which runs the same model as our startup, plus SIRPLUS and foodsharing in Germany and Olio and Karma in the UK. Hence entry there means paying to win customers from a rival.\n\n**Cyprus:** The smallest market, but the highest food waste per person in Europe in our data (397 kg a year) and about €1,000 of waste per inhabitant. It is close to Greece in culture, economy and distance. e.g. people eat out in meze, many small shared dishes, much like Greek dining. And the competition slide shows no consumer app, only a hotel food-waste research project. Thus a launch there needs little new learning and little marketing spend."
         },
         {
-          "type": "text",
-          "markdown": "These are the data points we put on the slides. Read together, they point to Cyprus as the low-cost first step out of Greece, with Germany and the UK as bigger markets for later.\n\n**[To confirm with Mathew]** Was Cyprus the final recommendation to the founders, and did the deck give a phased plan for Germany or the UK? The slides I have do not include a conclusion slide."
+          "type": "callout",
+          "heading": "Our recommendation: Cyprus",
+          "icon": "fa-flag-checkered",
+          "text": "We recommended Cyprus. Germany and the UK are bigger prizes, but winning there means outspending established rivals. Cyprus fitted the founders' budget (which stays confidential), needed the least change to the model, and had no direct competitor. Hence it was the most economical next step."
         }
       ]
     },
@@ -159,17 +155,11 @@
       "blocks": [
         {
           "type": "text",
-          "markdown": "A **storyboard** is the plan of a presentation before any slide is made: one line for what each slide must prove, in the order the audience needs to hear it. We built ours with the help of AI, and shaped it to fit the startup's culture."
+          "markdown": "A **storyboard** is the plan of a presentation before any slide is made: one line for what each slide must prove, in the order the audience needs to hear it. I wrote the content and designed the deck myself, and shaped it to fit the startup's culture. AI played a small, specific part."
         },
         {
           "type": "text",
-          "markdown": "**(i) Start from the client's culture:** The startup is young and informal, and its product is a fun surprise. So the deck had to feel the same: light, visual and quick to read, not a dense consulting report. e.g. every criterion and every section header carries an icon, so a founder can follow the story by skimming.\n\n**(ii) One question per slide:** Each slide answers one question, such as \"how big is the market?\" or \"who is already there?\". This keeps the story moving from criteria, to comparison, to each country.\n\n**(iii) The same template for every country:** Cyprus, Germany and the UK each get the same set of slides: profile and food waste, rules and campaigns, culture, and competitors. Thus the founders can compare countries slide for slide.\n\n**(iv) AI to draft, the team to decide:** We used AI to help lay out the storyline and draft the slide structure, and then checked and filled every slide with our own research. Hence the speed of AI without giving up the judgement."
-        },
-        {
-          "type": "callout",
-          "heading": "What we still need from Mathew",
-          "icon": "fa-circle-question",
-          "text": "**[To confirm with Mathew]** Which AI tools we used for the storyboard and how, and what about the company's culture made this style the right fit, so this section reflects exactly what we did."
+          "markdown": "**(i) Start from the client's culture:** The startup is young and informal, and its product is a fun surprise. So the deck had to feel the same: light, visual and quick to read, not a dense consulting report. e.g. every criterion and every section header carries an icon, so a founder can follow the story by skimming.\n\n**(ii) One question per slide:** Each slide answers one question, such as \"how big is the market?\" or \"who is already there?\". This keeps the story moving from criteria, to comparison, to each country.\n\n**(iii) The same template for every country:** Cyprus, Germany and the UK each get the same set of slides: profile and food waste, rules and campaigns, culture, and competitors. Thus the founders can compare countries slide for slide.\n\n**(iv) AI for images and polish only:** We used AI for two jobs: making the images, and making long content crisp. e.g. a dense paragraph on food regulations was cut down to a few short lines a founder can read at a glance. The research, the storyline and the design were our own, hence the deck says what we found, just more clearly."
         }
       ]
     },
