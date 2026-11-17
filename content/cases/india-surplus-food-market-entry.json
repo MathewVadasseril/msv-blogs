@@ -1,0 +1,231 @@
+{
+  "title": "Can a surplus-food box work in India? A country expansion case study",
+  "summary": "The full market-entry analysis behind our Greek surplus-food project: why India runs on doorstep delivery while Europe walks to the shop, what an India-fit model would look like, who is already here, and why Swiggy and Zomato are the real risk.",
+  "kind": "Consulting",
+  "year": "2024",
+  "event": "A Greek surplus-food mystery-box startup",
+  "role": "Cross-border expansion strategy and an India-adapted business model",
+  "outcome": "Letter of Recommendation",
+  "team": "",
+  "order": 5,
+  "topics": [
+    "Market Entry",
+    "International Expansion",
+    "Unit Economics",
+    "Competitive Strategy"
+  ],
+  "icon": "fa-chart-line",
+  "color": "from-amber-500 to-orange-600",
+  "draft": false,
+  "chapters": [
+    {
+      "type": "blocks",
+      "kicker": "The question",
+      "title": "A model that works in Athens, tested against India",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "*A country expansion case study, built on a project I worked on in 2024. About 12 minutes to read. The startup is not named.*\n\n**Country expansion** is taking a business that works in one market into another, and asking which parts of the model travel and which break. The test is simple: does the new country have the same conditions that made the model work at home?\n\nOur client was a Greek startup that sells **surplus food as a mystery box**: a bag of food a café, bakery or restaurant could not sell today, paid for in an app and collected at closing time. It does decently well in Greece, and its founders asked us about India. We showed that the model would not work in India as it stands, and we presented an India-fit version of it. But our final recommendation was **Cyprus first**: it made more economical sense to grow there before taking on a market as big as India. The full deck and our method are in [the companion case study](#case-greek-surplus-food-expansion).\n\nThis piece goes one level deeper into the India side: what it would take to make the idea work there, using public data on delivery, competitors and the two giants of Indian food delivery."
+        },
+        {
+          "type": "cards",
+          "items": [
+            {
+              "icon": "fa-person-walking",
+              "title": "Greece: you walk to the shop",
+              "text": "The customer collects the box, so there is no delivery cost in the price. That is why a low price still leaves the vendor and the app a margin."
+            },
+            {
+              "icon": "fa-motorcycle",
+              "title": "India: the shop comes to you",
+              "text": "Customers expect food at the door. Add a delivery fee to a cheap leftover box and the deal stops being a deal."
+            },
+            {
+              "icon": "fa-question",
+              "title": "Greece: surprise is fun",
+              "text": "Most Greek customers will eat most things, so not knowing what is inside is part of the appeal."
+            },
+            {
+              "icon": "fa-utensils",
+              "title": "India: surprise is a risk",
+              "text": "Vegetarian, Jain, non-vegetarian, regional diets: a random box will often hold something the buyer cannot eat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Part 1",
+      "title": "Why India expects delivery and Europe does not",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Doorstep delivery** is when the seller, or a platform, carries the order to the buyer. Whether customers expect it depends less on taste and more on three things: what a rider costs, what the weather is like, and what habits the big platforms have built.\n\n**(i) Labour is cheap in India and dear in Europe:** Delivery is mostly the cost of a person's time. In India, investor Samir Arora worked out that if a rider earns ₹20,000 a month and does about 520 deliveries, pay alone adds about **₹38 per order** ([Outlook Business, 2025](https://www.outlookbusiness.com/corporate/only-rs-38-per-order-samir-arora-reveals-basic-maths-behind-delivery-partners-pay)). In Greece the minimum wage alone was set to rise to about **€880 a month** in April 2025 ([To Vima, 2025](https://www.tovima.com/finance/greece-to-raise-minimum-wage-to-880-in-april/)), several times the Indian rider's monthly pay. e.g. a ₹38 delivery cost can hide inside a ₹200 order in Bengaluru; the same trip in Athens costs a few euros, which is a big share of a cheap leftover box. Hence European surplus apps are built around pick-up.\n\n**(ii) Europeans are pulling back from delivery:** In Greece, the share of consumers ordering ready meals online fell to **65%** in 2026 from **76%** in 2025, with delivery charges, fees and minimum orders named as the reasons; a meal that cost €10–12 a few years ago can now cost €20 ([euro2day, citing the GR.EC.A 2026 survey](https://www.euro2day.gr/en/article/2353237/who-got-the-bite-from-online-delivery)). Thus a pick-up-only deal app fits the mood there.\n\n**(iii) The weather makes walking hard in India:** India logged **536 heatwave days** in summer 2024, the highest since 2010, and around 40% of the country saw double the usual number of heatwave days from April to June ([Scroll, citing IMD](https://scroll.in/latest/1070056/india-logged-536-heatwave-days-this-summer-highest-since-2010-imd)). Add the monsoon, and walking a kilometre to collect a bag at 9 pm is not the easy errand it is on a mild Athens evening. So customers lean on delivery even for small orders.\n\n**(iv) The platforms have trained the habit, and keep paying to keep it:** India had nearly **1.2 crore platform workers** in FY25, up from 77 lakh in FY21 ([Inc42, citing the Economic Survey 2025-26](https://inc42.com/features/gig-economys-uneasy-unit-economics-and-the-high-cost-of-home-delivery/)). Swiggy alone spent **₹2,712 crore** on advertising and sales promotion in FY25 ([afaqs!, 2025](https://www.afaqs.com/news/mktg/swiggy-q4-results-ad-spends-rise-135-yoy-to-rs-9772-crore-9052180)). e.g. a decade of free-delivery offers and 10-minute promises has made \"at my door\" the default, hence any new food app is judged against that standard."
+        },
+        {
+          "type": "table",
+          "title": "Pick-up Europe vs delivery India, side by side",
+          "headers": [
+            "Factor",
+            "Greece / Europe",
+            "India",
+            "What it means for a surplus box"
+          ],
+          "rows": [
+            "Cost of a rider|High: Greek minimum wage about €880 a month (2025)|Low: about ₹38 of rider pay per order|Delivery can fit inside an Indian order, not inside a cheap European box",
+            "Customer habit|Pick-up is normal; online meal ordering fell from 76% to 65% (Greece)|Doorstep delivery is the default, backed by heavy platform spend|An Indian user expects the box to come to them",
+            "Weather|Mild most of the year|536 heatwave days in summer 2024, plus monsoon|Walking to collect is a real cost in India",
+            "How the leader works|Too Good To Go: pick-up only, 30–60 minute windows|Zomato Food Rescue: delivered, in-app, within 3 km|The Indian version of the idea already rides on delivery"
+          ]
+        },
+        {
+          "type": "callout",
+          "heading": "The pick-up model at full scale",
+          "icon": "fa-circle-info",
+          "text": "Too Good To Go, the European leader, sells food at about one third of its original price, lets the venue choose the contents, and asks the buyer to collect it in a pick-up window that is often 30 or 60 minutes long. It sold 135 million meals in 2024 across 17 European countries and five outside Europe. Source: Wikipedia, Too Good To Go."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Part 2",
+      "title": "Why the mystery box itself breaks in India",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "Delivery is one problem. The box is another. Our field research in India found two more reasons the model does not travel as it is.\n\n**(i) No deadline on the vendor:** In Greece strict rules mean today's food cannot be sold tomorrow, so the vendor must clear it tonight. In India there is far less pressure to do so, so a vendor can keep yesterday's stock on the counter. India's surplus food regulation from FSSAI (2019) is framed around **donating** food to people in need, not around selling it cheaply before it expires ([FSSAI press release, 2019](https://www.fssai.gov.in/upload/uploadfiles/files/Press_Release_Gazette_Notification_Surplus_Food_06_08_2019.pdf)). Hence there is no built-in daily flow of boxes.\n\n**(ii) Too many diets for one surprise:** A mystery box only works when almost anyone is happy with almost anything. e.g. a Jain customer who avoids onion and garlic, or a vegetarian family, cannot take a chance on a box that might hold chicken. Thus \"mystery\" turns from a feature into a refund request.\n\n**(iii) The waste is real but poorly measured:** The UN's 2024 Food Waste Index has no national household figure for India; it uses city studies ranging from about 20 to 88 kg per person a year, and asks India for better national data ([Down To Earth, on the UNEP report](https://www.downtoearth.org.in/waste/india-needs-more-representative-national-food-waste-studies-says-latest-un-report-95273)). So the size of the opportunity is uncertain, which matters when entry is expensive."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Part 3",
+      "title": "The India-fit model we presented",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "An **adapted business model** keeps the core promise (good food, saved from the bin, at a lower price) and changes the parts that clash with the new market. Ours changed four things."
+        },
+        {
+          "type": "cards",
+          "items": [
+            {
+              "icon": "fa-location-crosshairs",
+              "title": "1. Radius-restricted delivery by the shop",
+              "text": "The shop owner delivers, only within a short radius. No platform rider fleet to fund, and the short trip keeps the cost small. e.g. a bakery's own helper drops orders within the neighbourhood after closing."
+            },
+            {
+              "icon": "fa-eye",
+              "title": "2. Items shown upfront, at a lower price",
+              "text": "No mystery. The customer sees exactly what is on offer, so a Jain or vegetarian buyer can choose safely. This solves the diet problem directly."
+            },
+            {
+              "icon": "fa-bread-slice",
+              "title": "3. Bakery and near-expiry items first",
+              "text": "Breads, cakes, pastries and packaged goods near their date. They are made in batches, easy to list, and suit most diets far better than cooked meals."
+            },
+            {
+              "icon": "fa-battery-three-quarters",
+              "title": "4. A freshness bar on every item",
+              "text": "Each item carries a bar showing how fresh it is, so the discount is explained, not suspicious. e.g. a full bar for bread baked this morning, a low bar for a cake due tomorrow."
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "markdown": "### Drops, not a shop that is always open\n\nFood would be released as **drops**: a batch of items goes live at a set time, users get an alert, and it sells until it runs out. This does three jobs:\n\n**(i) It matches supply:** Surplus appears at predictable times, such as after the evening bake or at closing, so drops go live only then.\n\n**(ii) It creates urgency:** A short window and a limited batch push the user to decide quickly, which is the same pull a limited sneaker drop has.\n\n**(iii) It batches delivery:** Orders in one radius and one window can go out in one trip, hence the shop's delivery cost is shared across several orders."
+        },
+        {
+          "type": "timeline",
+          "title": "How one drop works",
+          "steps": [
+            {
+              "phase": "Evening: the bakery lists its surplus",
+              "text": "Items, quantity, discounted price and a freshness bar for each."
+            },
+            {
+              "phase": "Drop goes live",
+              "text": "Users within the delivery radius get an alert. Only they can see and order."
+            },
+            {
+              "phase": "Short ordering window",
+              "text": "Items sell until the batch or the window runs out."
+            },
+            {
+              "phase": "Shop delivers in one run",
+              "text": "The shop's own person delivers the batch within the radius."
+            },
+            {
+              "phase": "Feedback",
+              "text": "Ratings on freshness and accuracy keep vendors honest and help users trust the next drop."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Part 4",
+      "title": "Who is already in the market",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "There are now competitors in this space in India. A **competitive landscape** is the map of who already serves the customer, and how. Here is what public sources show."
+        },
+        {
+          "type": "table",
+          "title": "Surplus-food players in India (as reported)",
+          "headers": [
+            "Player",
+            "Where",
+            "How it works",
+            "Reported scale"
+          ],
+          "rows": [
+            "Zomato Food Rescue|National, inside the Zomato app|Cancelled orders shown to users within 3 km of the rider for a few minutes, at a lower price; delivered|Over 4 lakh cancelled orders a month at launch (Nov 2024); 150,000+ meals a month saved by March 2025",
+            "Good to Grab|Hyderabad, started 2024|Restaurants and bakeries list surplus at 50% off; items known upfront; customer collects|80+ restaurants, 40,000 users, 10,000+ plates in its first year (Jan 2025)",
+            "Replate|Hyderabad|Surprise bags from bakeries and cafés, packed before closing|About 60 bags a day across about 20 outlets (Jul 2026)",
+            "Plenti|Kerala (Kochi, Trivandrum and others)|Surprise bags at up to 70% off; walk in and show a code|Self-reported 2.5 lakh+ users and 500+ partners"
+          ]
+        },
+        {
+          "type": "text",
+          "markdown": "Sources: [IANS](https://ianslive.in/zomato-introduces-feature-to-rescue-over-4-lakh-cancelled-food-orders-a-month--20241110213308), [Storyboard18](https://cms.storyboard18.com/?p=59100) and [Green Queen](https://www.greenqueen.com.hk/zomato-food-rescue-waste-climate-conscious-delivery-india/) on Zomato Food Rescue; [The Better India](https://thebetterindia.com/398332/good-to-grab-food-waste-solution-sustainability-landfills-app-hyderabad/) on Good to Grab; [Telangana Today](https://telanganatoday.com/hyderabad-startup-replate-helps-bakeries-reduce-food-waste-with-surprise-bags) on Replate; [Plenti's website](https://www.plenti.co.in/) (its figures are self-reported).\n\n**What the map tells us:** The local startups mostly copied the European pick-up model, city by city. Good to Grab already shows items upfront, which supports our view that Indian buyers want to know what they get. And the only player with delivery at scale is Zomato."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Part 5",
+      "title": "The real risk: high CAC, and a giant who can copy you",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Customer acquisition cost (CAC)** is what a business spends in marketing and offers to win one paying customer. In Indian food apps, it is set by the biggest spender in the room.\n\n**(i) We would be bidding against giants for attention:** Swiggy spent **₹977.7 crore** on advertising and promotion in the fourth quarter of FY25 alone, up 135% on the year before ([afaqs!](https://www.afaqs.com/news/mktg/swiggy-q4-results-ad-spends-rise-135-yoy-to-rs-9772-crore-9052180)). A small app has to win the same phone screen and the same notification slot. Thus our CAC would be very high, and every user won is a user they can win back.\n\n**(ii) The feature is easy to copy, and has already been copied:** Zomato's Food Rescue uses the same building blocks as our drops: a short radius, a time limit, an alert on the home page and a lower price. It went from launch in November 2024 to over 150,000 meals a month by March 2025, with customers claiming 75% of eligible orders ([Storyboard18](https://cms.storyboard18.com/?p=59100)). e.g. if a new drop app found traction with bakeries, Zomato or Swiggy could add \"bakery drops\" to an app that is already on crores of phones, at almost no extra CAC.\n\n**(iii) They can win on economics:** Their riders are already on the road, so one more drop is close to free for them, while we would pay for every trip or every vendor helper. Hence they can price below us for as long as it takes.\n\n**(iv) There is one opening, and it is narrow:** Restaurants pushed back when Zomato first made the scheme mandatory and charged a relisting fee; it came back as optional ([Green Queen](https://www.greenqueen.com.hk/zomato-food-rescue-waste-climate-conscious-delivery-india/)). Platforms charge restaurants commissions of around 16–30% ([Outlook Business](https://www.outlookbusiness.com/corporate/only-rs-38-per-order-samir-arora-reveals-basic-maths-behind-delivery-partners-pay)). So vendors want a cheaper, friendlier channel. But a grievance is not a moat."
+        },
+        {
+          "type": "callout",
+          "heading": "Our verdict",
+          "icon": "fa-flag-checkered",
+          "text": "We presented the India-fit model to the founders, but recommended Cyprus first. India needs the model to change a lot, and the changed version is exactly what Swiggy and Zomato could build better and cheaper, so entry there needs deep pockets. Cyprus already behaves like Greece, had no direct competitor and fitted the founders' budget. Hence the plan: grow in Cyprus first, and take on a giant like India later, from a stronger base."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "What I took away",
+      "title": "Lessons for any country expansion",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**(i) Find the hidden subsidy:** In Greece, the customer's own walk was a free delivery service. The model looked simple only because that cost was invisible. Always ask what the home market gives you for free.\n\n**(ii) Culture shows up in the product, not just the marketing:** Diet diversity did not need a better ad. It needed the mystery taken out.\n\n**(iii) Ask who can copy you, not just who competes with you:** In India the threat was not the other surplus-food startups. It was the platforms that could add the feature in a sprint.\n\n**(iv) Sequence the markets:** India is the bigger prize, but not the right first step. Cyprus first was the economical choice for this client's budget, and it keeps India open for later, with the India-fit model ready."
+        },
+        {
+          "type": "text",
+          "markdown": "### Sources\n\n- [Outlook Business: \"Only Rs 38 per order?\" (2025)](https://www.outlookbusiness.com/corporate/only-rs-38-per-order-samir-arora-reveals-basic-maths-behind-delivery-partners-pay)\n- [Inc42: Gig economy's uneasy unit economics (2026)](https://inc42.com/features/gig-economys-uneasy-unit-economics-and-the-high-cost-of-home-delivery/)\n- [To Vima: Greece to raise minimum wage to €880 (2025)](https://www.tovima.com/finance/greece-to-raise-minimum-wage-to-880-in-april/)\n- [euro2day: Who got the \"bite\" from online delivery](https://www.euro2day.gr/en/article/2353237/who-got-the-bite-from-online-delivery)\n- [Scroll: India logged 536 heatwave days, highest since 2010 (2024)](https://scroll.in/latest/1070056/india-logged-536-heatwave-days-this-summer-highest-since-2010-imd)\n- [afaqs!: Swiggy Q4 FY25 ad spends rise 135% to ₹977.7 crore](https://www.afaqs.com/news/mktg/swiggy-q4-results-ad-spends-rise-135-yoy-to-rs-9772-crore-9052180)\n- [Wikipedia: Too Good To Go](https://en.wikipedia.org/wiki/Too_Good_To_Go)\n- [IANS: Zomato introduces Food Rescue (Nov 2024)](https://ianslive.in/zomato-introduces-feature-to-rescue-over-4-lakh-cancelled-food-orders-a-month--20241110213308)\n- [Storyboard18: Food Rescue saves 150,000 meals monthly (Mar 2025)](https://cms.storyboard18.com/?p=59100)\n- [Green Queen: restaurants and Zomato Food Rescue (Nov 2024)](https://www.greenqueen.com.hk/zomato-food-rescue-waste-climate-conscious-delivery-india/)\n- [The Better India: Good to Grab (Jan 2025)](https://thebetterindia.com/398332/good-to-grab-food-waste-solution-sustainability-landfills-app-hyderabad/)\n- [Telangana Today: Replate (2026)](https://telanganatoday.com/hyderabad-startup-replate-helps-bakeries-reduce-food-waste-with-surprise-bags)\n- [Plenti website](https://www.plenti.co.in/)\n- [FSSAI: Surplus food regulations press release (2019)](https://www.fssai.gov.in/upload/uploadfiles/files/Press_Release_Gazette_Notification_Surplus_Food_06_08_2019.pdf)\n- [Down To Earth: UNEP Food Waste Index 2024 and India](https://www.downtoearth.org.in/waste/india-needs-more-representative-national-food-waste-studies-says-latest-un-report-95273)"
+        }
+      ]
+    }
+  ]
+}

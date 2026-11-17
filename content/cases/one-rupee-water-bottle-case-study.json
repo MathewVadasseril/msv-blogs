@@ -1,0 +1,588 @@
+{
+  "title": "The 1-rupee water bottle: the full case study",
+  "summary": "Market, customer psychology, the two-sided model, launch capital, a five-year financial model with ROI and sensitivity, and a South-first rollout for my 2024 GIM project: a ₹1 carton of water paid for by ads.",
+  "kind": "Project",
+  "year": "2024",
+  "event": "Goa Institute of Management (GIM)",
+  "role": "",
+  "outcome": "Concept pitch",
+  "team": "Team project",
+  "order": 3,
+  "topics": [
+    "Pricing",
+    "Sustainability",
+    "Business Models",
+    "Finance"
+  ],
+  "icon": "fa-bottle-water",
+  "color": "from-teal-500 to-sky-600",
+  "draft": false,
+  "chapters": [
+    {
+      "type": "blocks",
+      "kicker": "Overview",
+      "title": "The case in one page",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "*The full case study behind my 2024 GIM sustainability project. For the short version, read [the blog post](#case-one-rupee-water-bottle).*\n\nThe **1-rupee water bottle** is drinking water in a paper-based carton, in 500 ml and 1 litre packs, that sells for ₹1. Advertisers buy every face of the carton, and their money pays for the water, the bottling, the distribution and a margin. The cap carries a seed, so the last piece of the pack can be planted.\n\nHere we look at the idea the way we would look at any company's: the market it enters, the customer behaviour it relies on, how the money flows, what one pack earns, how much capital it needs, what it could return, and how it would roll out across India, starting in the South."
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/one-rupee-water-cartons.jpg",
+          "alt": "Mock-ups of the ₹1 bottled water carton, with brand advertisements printed on every face",
+          "caption": "The concept pack from the GIM presentation.",
+          "size": "medium"
+        },
+        {
+          "type": "metrics",
+          "items": [
+            {
+              "value": "₹11.6 cr",
+              "label": "Capital needed to reach cash break-even (illustrative)"
+            },
+            {
+              "value": "66%",
+              "label": "Five-year IRR, before any exit value (illustrative)"
+            },
+            {
+              "value": "₹15.6",
+              "label": "Ad revenue per pack needed to break even, year 1"
+            }
+          ]
+        },
+        {
+          "type": "cards",
+          "items": [
+            {
+              "icon": "fa-triangle-exclamation",
+              "title": "The problem",
+              "text": "Drinking water on the go comes in plastic, and India emits more plastic pollution than any other country."
+            },
+            {
+              "icon": "fa-lightbulb",
+              "title": "The idea",
+              "text": "A carton of water for ₹1, with ads on every face and a seed in the cap."
+            },
+            {
+              "icon": "fa-scale-balanced",
+              "title": "The tension",
+              "text": "Ads could make it free, so why charge ₹1? Because a small price changes how people treat the pack."
+            },
+            {
+              "icon": "fa-indian-rupee-sign",
+              "title": "The bet",
+              "text": "Several brands share each carton, and together they pay about ₹21 a pack, as in the original project. Below about ₹16, the model loses money."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Project details",
+          "headers": [
+            "Item",
+            "Detail"
+          ],
+          "rows": [
+            "Institution|Goa Institute of Management (GIM)",
+            "Year|2024",
+            "Format|Team project, presented in college as a 10-slide sustainability pitch",
+            "Research|Online interviews with people from my startup network, plus desk research on pricing psychology",
+            "Pack sizes|500 ml and 1 litre",
+            "Ad revenue per pack|₹21 in total, from several advertisers across the carton's ad spaces (the project's own calculation)",
+            "Feedback|Positive"
+          ]
+        },
+        {
+          "type": "callout",
+          "heading": "How to read the numbers",
+          "icon": "fa-circle-info",
+          "text": "The original interview notes and spreadsheets are lost. Two figures come from the project itself: the pack sizes and the ₹21 of total ad revenue per pack. How that ₹21 splits across the ad spaces is our illustration. Market, waste and competitor figures come from the public sources linked beside them. Every cost, volume and return figure is **illustrative**: it shows how the model works, not what the project found. Download [the model spreadsheet](content/models/one-rupee-water-bottle-model.xlsx) to change the assumptions yourself."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Context",
+      "title": "The market and the problem",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Packaged drinking water** is water treated, sealed and sold in a container, from a 250 ml pouch to a 20-litre jar. In India it is a large, growing and crowded market.\n\n1. **Size:** the market was worth about ₹32,040 crore (US$3.6 billion) in 2025 and is projected to reach ₹57,850 crore by 2032 ([IBEF, 30 March 2026](https://www.ibef.org/blogs/india-packaged-drinking-water-industry-demand-trends-and-market-outlook)), roughly 9% a year. e.g. the water bought at every railway platform, bus stand and wedding.\n2. **A clear leader:** Bisleri earned ₹2,690 crore from operations in FY24 and spent ₹101 crore on advertising and promotion ([Goodreturns, on Bisleri FY24 filings, 8 January 2025](https://www.goodreturns.in/news/bisleri-fy24-profit-rises-82-8-percent-to-rs-317-crore-011-1398203.html)). It is reported to hold about 38% of the organised market ([Open, 16 February 2026](https://openthemagazine.com/branding-marketing-and-advertising/indias-15-vs-150-water-battle-can-premium-brands-justify-the-markup)). Hence a new brand cannot win on distribution or ad budget alone.\n3. **Price-led competition:** Reliance's Campa Sure sells 1 litre for ₹15, about 25% below the big brands, and incumbents' margins on water are reported at roughly 10% ([Basis Point Insight, 17 October 2025](https://basispointinsight.com/Story/reliance-turns-bottled-water-into-its-next-big-disruption_4c193abc2bde.html)). Thus price is already the main battleground, and ₹1 is a radical move within it.\n4. **Most sales happen off the shelf:** over two-thirds of sales in 2024 were off-trade, through shops rather than restaurants ([IBEF, 30 March 2026](https://www.ibef.org/blogs/india-packaged-drinking-water-industry-demand-trends-and-market-outlook)). This means the kirana shop and the cart are where the ₹1 pack must win."
+        },
+        {
+          "type": "text",
+          "markdown": "### The waste side\n\nA 2024 study in *Nature* ranked India as the largest emitter of plastic pollution in the world, at about 9.3 million tonnes a year, roughly a fifth of the global total ([Down To Earth, on Cottom, Cook & Velis, Nature, 2024](https://www.downtoearth.org.in/waste/india-tops-plastic-pollution-rankings-emitting-a-fifth-of-global-plastic-waste)). Official CPCB figures put plastic waste generated in India at about 41 lakh tonnes in 2020-21 ([PIB, Ministry of Environment, 27 July 2023](https://pib.gov.in/PressReleasePage.aspx?PRID=1943210)).\n\nPaper-based beverage cartons have their own record. A TERI study found 63.66% of used cartons recycled across 24 cities in 2025, which extrapolates to about 48% nationally, up from 29% in 2011 ([Tetra Pak India, on the TERI used beverage carton study, 26 November 2025](https://www.tetrapak.com/en-in/about-tetra-pak/news-and-events/newsarchive/aseptic-carton-recycling-rates-improving-teri-study)). India uses about 21 billion cartons a year, expected to double by 2030 ([Waste & Recycling Middle East, 18 August 2026](https://www.wasterecyclingmag.com/news/sustainable-packaging/beverage-cartons-hit-48-recycling-rate-in-india-up-from-29-in-2011)). Hence a carton is not waste-free, but it enters a recycling system that is measured and improving."
+        },
+        {
+          "type": "callout",
+          "heading": "The strategic question",
+          "icon": "fa-circle-question",
+          "text": "Can a water brand win by charging almost nothing, if someone other than the drinker pays for the pack, and can that same low price make people treat the pack better?"
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Framework 1",
+      "title": "The customer: why ₹1 and not free",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Price psychology** is the study of how prices change behaviour, beyond what they cost. The interviews in the original project kept returning to one point: in India, what is free is easily thrown away. Here we look at the research behind that, in four effects.\n\n1. **Zero-price effect:** free is treated as a different category, not a low price. When a 1-cent price cut made a Hershey's Kiss free, choice flipped from 73% Lindt to 69% Kiss ([Shampanier, Mazar & Ariely, Marketing Science, 2007](https://people.duke.edu/~dandan/webfiles/PapersPI/Zero%20as%20a%20Special%20Price.pdf)). e.g. we take free pens we do not need. Thus free maximises taking, not valuing.\n2. **Screening:** a price, however small, filters for people who want the product. In Zambia, buyers who faced a higher price for a water purifier were more likely to use it ([Ashraf, Berry & Shapiro, American Economic Review, 2010 (J-PAL summary)](https://www.povertyactionlab.org/evaluation/can-higher-prices-stimulate-product-use-evidence-randomized-experiment-zambia)). e.g. a sachet bought at the kirana shop is bought for today. Hence the ₹1 pack reaches the thirsty, not the curious.\n3. **Signalling:** a price tells people a thing has value. A coin changing hands turns a handout into a purchase. e.g. a pamphlet handed out at a signal is dropped in a minute, while a newspaper you paid for is read. This is the core claim of the project.\n4. **IKEA effect:** we value what we put effort into. People who built IKEA boxes would pay about 63% more for them ([Norton, Mochon & Ariely, Journal of Consumer Psychology, 2012](https://en.wikipedia.org/wiki/IKEA_effect)). e.g. the seed in the cap invites a small effort, planting it, which gives the pack a reason to be kept."
+        },
+        {
+          "type": "table",
+          "title": "Three prices for the same pack",
+          "headers": [
+            "",
+            "Free (ad-funded)",
+            "₹1 (this concept)",
+            "₹15–20 (a normal brand)"
+          ],
+          "rows": [
+            "Who takes it|Everyone, needed or not|People who are thirsty|People who are thirsty and can pay",
+            "How it is treated|A handout|A small purchase|A purchase",
+            "Shopkeeper's reason to stock it|Little or none|A trade incentive per pack, and footfall|A normal margin",
+            "Who pays for the water|Advertisers|Advertisers, plus ₹1|The drinker"
+          ]
+        },
+        {
+          "type": "callout",
+          "heading": "The counter-evidence",
+          "icon": "fa-scale-balanced",
+          "text": "Two studies push back. The Zambia study found **no sunk-cost effect**: paying more did not on its own raise use ([Ashraf, Berry & Shapiro, American Economic Review, 2010 (J-PAL summary)](https://www.povertyactionlab.org/evaluation/can-higher-prices-stimulate-product-use-evidence-randomized-experiment-zambia)). In Kenya, free malaria nets were **not wasted more** than paid ones, while demand fell about 60 percentage points when the price went from zero to $0.60 ([Cohen & Dupas, Quarterly Journal of Economics, 2010 (NBER)](https://www.nber.org/papers/w14406)). So the ₹1 is best defended as a filter and a signal, and the claim that it cuts littering is a hypothesis for the pilot to test."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Framework 2",
+      "title": "The business model: two customers, one pack",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "A **two-sided model** serves two groups at once, and one group pays for the other's access. e.g. a newspaper sells readers to advertisers, and the cover price is a small part of its income. The ₹1 carton works the same way: the drinker gets water, and the advertiser gets the drinker's attention."
+        },
+        {
+          "type": "table",
+          "title": "Business Model Canvas",
+          "headers": [
+            "Block",
+            "For the drinker",
+            "For the advertiser"
+          ],
+          "rows": [
+            "Value proposition|Safe water for ₹1, in a carton, with a seed to plant|An ad held in the hand for several minutes, placed by location",
+            "Channels|Kirana shops, carts, stations, campuses, events|Direct sales team, agency partners",
+            "Relationship|Habit: the ₹1 pack becomes the default|Repeat campaigns, reports by location",
+            "Revenue|₹1 per pack|About ₹21 per pack in total, from several brands buying spaces of different sizes",
+            "Key activities|Co-packed filling, distribution, recycling tie-ups|Selling the space, printing, proving reach",
+            "Key partners|Carton co-packers, seed supplier, recyclers|Brands, agencies, events"
+          ]
+        },
+        {
+          "type": "table",
+          "title": "How ₹21 a pack adds up (illustrative split)",
+          "headers": [
+            "Ad space",
+            "Size",
+            "₹ per pack"
+          ],
+          "rows": [
+            "Front panel, beside the ₹1 mark|Large|₹6.00",
+            "Back panel|Large|₹5.00",
+            "Side panel 1|Medium|₹3.00",
+            "Side panel 2|Medium|₹3.00",
+            "Top strip|Small|₹1.50",
+            "QR offer slot|Small|₹1.50",
+            "Seed-cap tag|Small|₹1.00",
+            "**Total, from several brands**||**₹21.00**"
+          ]
+        },
+        {
+          "type": "text",
+          "markdown": "The ₹21 is not one advertiser's price. A 500 ml or 1 litre carton has several surfaces, big and small, and each can be sold to a different brand. e.g. a phone brand takes the front panel, a food delivery app the back, and a local café the QR offer slot. Hence the carton works like a small magazine: many advertisers, each paying for their own page.\n\n### Why would brands buy space?\n\n1. **Attention time:** a billboard gets a glance; a water pack is held while it is drunk. e.g. reading the label while waiting for a train.\n2. **Placement:** the pack can be sent where a brand's buyers are, e.g. a gym brand on packs near gyms. Wahter geotags its carts for this reason ([afaqs!, 3 January 2024](https://www.afaqs.com/news/advertising/how-wahter-is-looking-to-make-water-bottles-an-advertising-medium)).\n3. **A budget already exists:** Indian brands spent ₹4,140 crore on outdoor advertising in 2023, up 13% in a year ([Media4Growth, on the Pitch Madison Advertising Report 2024](https://www.media4growth.com/research/indian-ooh-adex-at-rs-4140cr-in-2023-records-13-yoy-growth-vs-10-overall-adex-growth-pitch-madison-ad-report-2024-7301)). Hence the pack does not need a new budget, only a slice of an existing one.\n4. **Each space is cheap:** Wahter sells roughly 80% of a plastic label to one advertiser for about ₹9–20 a bottle ([afaqs!, 3 January 2024](https://www.afaqs.com/news/advertising/how-wahter-is-looking-to-make-water-bottles-an-advertising-medium); [YourStory, 6 March 2024](https://yourstory.com/2024/03/a-husband-wife-duo-leverage-tech-to-make-bottled-drinking-water-affordable)). Here the largest space is about ₹6 and the smallest about ₹1, so each brand pays far less than at Wahter, and small local businesses can afford a slot. This means the risk moves: it is less about one brand paying a high price, and more about **selling enough of the spaces** on every pack."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Competition",
+      "title": "Who else is doing this",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Ad-funded, carton and low-price water",
+          "headers": [
+            "Player",
+            "Where",
+            "Price to drinker",
+            "Pack",
+            "How it is paid for"
+          ],
+          "rows": [
+            "Wahter|Delhi NCR, India|₹1 for 250 ml, ₹2 for 500 ml|Plastic bottle|About 80% of the label sold to advertisers at ₹9–20 a bottle",
+            "FreeWater|USA|Free|Aluminium bottle or paper carton|Ads and QR codes; 10 cents a bottle to wells in East Africa",
+            "Mizu and others|Dhaka, Bangladesh|Free|Plastic bottle, with plans to switch|Brands sponsor batches with their label and QR code",
+            "Kevala Niru, Impact Water, Backbay|India|Premium|Paper carton|The drinker pays",
+            "Campa Sure, Bisleri and others|India|₹15 a litre and up|Plastic bottle|The drinker pays",
+            "**1-rupee carton (this concept)**|Concept|₹1|Paper carton, seed in cap|Ads on every face, plus ₹1"
+          ]
+        },
+        {
+          "type": "text",
+          "markdown": "Sources: Wahter ([afaqs!, 3 January 2024](https://www.afaqs.com/news/advertising/how-wahter-is-looking-to-make-water-bottles-an-advertising-medium); [Indian Startup News, 22 June 2024](https://indianstartupnews.com/funding/packaged-drinking-water-startup-wahter-raises-rs-5-crore-in-pre-seed-funding-4774808)), FreeWater ([The Daily Star, 17 January 2024](https://www.thedailystar.net/tech-startup/news/how-does-freewater-work-3522056)), Mizu ([The Business Standard, 17 January 2024](https://www.tbsnews.net/features/panorama/bottled-water-free-will-new-advertising-model-sustain-776254)), carton brands ([Zee Zest, 26 August 2025](https://zeezest.com/food/how-india-is-reimagining-water-in-paper-cartons-9537)), Campa Sure ([Basis Point Insight, 17 October 2025](https://basispointinsight.com/Story/reliance-turns-bottled-water-into-its-next-big-disruption_4c193abc2bde.html)).\n\n**What the comparison tells us:**\n\n1. **The ad model works in India:** Wahter claims 2 lakh bottles sold in its first month and raised ₹5 crore at a ₹52 crore valuation ([Indian Startup News, 22 June 2024](https://indianstartupnews.com/funding/packaged-drinking-water-startup-wahter-raises-rs-5-crore-in-pre-seed-funding-4774808)). Thus advertisers will pay for water packs here.\n2. **Carton water already exists, but as a premium product:** brands such as Kevala Niru sell water in cartons, with plants that include one in Coimbatore, each able to fill at least 8 lakh packs a month ([Zee Zest, 26 August 2025](https://zeezest.com/food/how-india-is-reimagining-water-in-paper-cartons-9537)). Hence the carton supply chain exists, and the ₹1 concept would be the first to take it to the mass market.\n3. **Free has a retail problem:** in Dhaka, critics warned shopkeepers earn little on a free bottle and may not push it ([The Business Standard, 17 January 2024](https://www.tbsnews.net/features/panorama/bottled-water-free-will-new-advertising-model-sustain-776254)). Hence the ₹1, plus a fixed trade incentive per pack, buys the shopkeeper's interest."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "The numbers",
+      "title": "Unit economics of one pack",
+      "blocks": [
+        {
+          "type": "callout",
+          "heading": "Illustrative costs",
+          "icon": "fa-calculator",
+          "text": "The ₹21 total ad revenue per pack and the pack sizes come from the 2024 project. Every cost line is an assumption to show the model's shape, not a supplier quote. Replace them with real quotes before using the model for a decision."
+        },
+        {
+          "type": "table",
+          "title": "One pack, year 1 (₹)",
+          "headers": [
+            "Line",
+            "500 ml",
+            "1 L"
+          ],
+          "rows": [
+            "Water and co-packer filling|₹2.00|₹3.00",
+            "Carton and print|₹4.50|₹6.50",
+            "Seed cap|₹1.20|₹1.20",
+            "Freight|₹1.00|₹1.80",
+            "Trade incentive to shop or cart|₹2.00|₹2.50",
+            "**Variable cost**|**₹10.70**|**₹15.00**",
+            "Recycling and collection bins|₹0.30|₹0.30",
+            "Ad revenue (₹21 from all spaces, less 15% agency commission)|₹17.85|₹17.85",
+            "Price paid by the drinker|₹1.00|₹1.00",
+            "**Margin per pack, if every space is sold**|**₹7.85**|**₹3.55**"
+          ]
+        },
+        {
+          "type": "text",
+          "markdown": "Two adjustments turn this into the year-1 economics we use in the model:\n\n1. **Not every space is sold:** in year 1 we assume 85% of the ad-space value on each pack is sold, rising to 95% by year 5. Unsold spaces carry our own message. This is the **ad fill rate**, like the occupancy rate of a hotel: rooms of different sizes, and the empty ones earn nothing.\n2. **The mix:** both sizes sell for ₹1. We assume 30% of packs are 1 litre and the rest 500 ml, which gives a blended cost of ₹12.29 per pack in year 1, falling about 3% a year with scale.\n\n**Break-even ad revenue** is the total a pack's ad spaces must bring in so that the pack neither earns nor loses money. In year 1 it is **₹15.6 per pack** at our assumed fill rate. Put the other way, with spaces priced at ₹21 in total, we must sell about **63% of the space** on each pack to break even. e.g. selling the two large panels and both side panels, but none of the small spaces, gives ₹17, which clears it."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Capital",
+      "title": "The capital needed to launch",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Launch capital** is the cash a business burns before it pays for itself: equipment, early losses, and money tied up waiting for customers to pay. For this model it has three parts.\n\n1. **Assets:** carts, coolers, cap tooling and the ad platform. We stay **asset-light** at first and use contract co-packers to fill the cartons, so there is no factory in year 1.\n2. **Early losses:** sales staff, the team and the first campaigns cost money before volumes are large.\n3. **Working capital:** advertisers usually pay after the campaign runs. We assume 60 days, while we pay suppliers in 30. e.g. this gap alone ties up ₹2.0 cr by the end of year 2."
+        },
+        {
+          "type": "table",
+          "title": "Year 0 and year 1 (₹ crore, illustrative)",
+          "headers": [
+            "Use",
+            "What it covers",
+            "₹ cr",
+            "When"
+          ],
+          "rows": [
+            "Before launch|Licences, water testing, carton design, pilot run|0.8|Year 0",
+            "Carts, coolers and kiosks|About 150 points of sale in two cities|1.0|Year 1",
+            "Seed-cap tooling and print plates|One-time moulds and plates for two pack sizes|0.4|Year 1",
+            "Ad booking and geotag platform|Lets brands buy packs by location and see reach|0.4|Year 1",
+            "Collection bins and warehouse fit-out|Recycling points at sale locations; one hub|0.4|Year 1",
+            "Operating losses and working capital|Year-1 EBITDA −₹1.44 cr; advertisers pay after 60 days|1.9|Year 1",
+            "**Cash needed to reach the end of year 1**||**4.9**|"
+          ]
+        },
+        {
+          "type": "text",
+          "markdown": "The cash need keeps growing until the business turns cash-positive in year 4. At its lowest point, at the end of year 3, the model is **₹11.6 cr** below zero. That trough includes an own carton-filling line in year 3, so we stop paying a co-packer's margin. For comparison, a 32,000 litre-a-day bottled water plant with an automatic PET line costs about ₹3.3 crore in total capital ([NIIR Project Consultancy Services, 2026](https://www.niir.org/how-to-start/packaged-drinking-water-plant/)), and small plants start at ₹5–60 lakh ([Plumint, 25 October 2025](https://www.plumint.com/blog-details/mineral-water-plant-setup-cost-business-plan)). Carton filling lines cost more, so we assume ₹5 crore.\n\n### How we would raise it\n\n- **Step 1, seed round, about ₹6 crore:** covers year 0 and year 1 (₹4.9 cr) with a buffer for delays. Raised against the pilot plan and two or three signed advertisers.\n- **Step 2, Series A, about ₹8 crore in year 2:** funds the South expansion and the own filling line, raised once the pilot proves how much of the space sells and how many brands renew.\n\nTogether that is about ₹14 crore, the ₹11.6 cr peak plus a 20% buffer. Hence raising in two steps lets the second, larger cheque be priced on proof rather than on a slide deck."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Returns",
+      "title": "The five-year financial model and ROI",
+      "blocks": [
+        {
+          "type": "callout",
+          "heading": "Illustrative model",
+          "icon": "fa-table",
+          "text": "Every figure in this chapter comes from [the model spreadsheet](content/models/one-rupee-water-bottle-model.xlsx), built on the assumptions in the previous two chapters. Change the yellow input cells in the spreadsheet and the whole model updates."
+        },
+        {
+          "type": "table",
+          "title": "Profit and cash flow (₹ crore)",
+          "headers": [
+            "",
+            "Year 1",
+            "Year 2",
+            "Year 3",
+            "Year 4",
+            "Year 5"
+          ],
+          "rows": [
+            "Packs sold (crore)|0.3|1.2|3.5|8|15",
+            "Ad revenue, net of commission|4.6|19.3|57.5|134.2|254.4",
+            "Sales at ₹1|0.3|1.2|3.5|8.0|15.0",
+            "**Revenue**|4.9|20.5|61.0|142.2|269.4",
+            "Variable costs|3.7|14.3|40.5|89.7|162.8",
+            "Gross profit|1.2|6.2|20.5|52.5|106.6",
+            "Fixed costs|2.6|5.5|11.0|18.0|26.0",
+            "**EBITDA**|-1.4|0.7|9.5|34.5|80.6",
+            "Capex|2.2|2.5|7.5|4.0|5.0",
+            "Tax|0.0|0.0|1.2|7.8|19.1",
+            "Change in working capital|0.4|1.5|4.1|8.6|13.7",
+            "**Free cash flow**|-4.1|-3.4|-3.4|14.1|42.8",
+            "Cumulative cash|-4.9|-8.3|-11.6|2.5|45.3"
+          ]
+        },
+        {
+          "type": "metrics",
+          "items": [
+            {
+              "value": "₹11.6 cr",
+              "label": "Peak capital needed"
+            },
+            {
+              "value": "3.8 years",
+              "label": "Payback on the cash invested"
+            },
+            {
+              "value": "66%",
+              "label": "Five-year IRR, no exit value"
+            },
+            {
+              "value": "₹20.2 cr",
+              "label": "NPV at 15%, no exit value"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "markdown": "**Return on investment (ROI)** is what the business gives back for each rupee put in. We read it three ways:\n\n1. **Cash back:** by the end of year 5, every ₹1 of peak capital has become about ₹4.9 of cash, before any sale of the company.\n2. **IRR:** the yearly return the cash flows earn is about 66%. It is high because the losses are small and early, while the profits are large and late. Hence it is very sensitive to how much ad revenue each pack brings in, as the next chapter shows.\n3. **NPV:** discounting each year's cash at 15%, the five years are worth ₹20.2 cr today, with no value for the business after year 5. If the business were valued at 6 times its year-5 EBITDA, NPV rises to ₹261 cr.\n\n### A sense check on scale\n\nYear-5 ad revenue of ₹254 cr would be about 6% of India's 2023 outdoor ad spend of ₹4,140 crore ([Media4Growth, on the Pitch Madison Advertising Report 2024](https://www.media4growth.com/research/indian-ooh-adex-at-rs-4140cr-in-2023-records-13-yoy-growth-vs-10-overall-adex-growth-pitch-madison-ad-report-2024-7301)). Year-5 volume of 15 crore packs is small against a ₹32,040 crore water market ([IBEF, 30 March 2026](https://www.ibef.org/blogs/india-packaged-drinking-water-industry-demand-trends-and-market-outlook)). This means the limit on growth is advertiser demand, not drinkers."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Stress test",
+      "title": "Sensitivity analysis",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Sensitivity analysis** changes one assumption at a time and watches the result move. It tells us which numbers to prove first. Base case: ₹21 of ad space per pack, 85% of it sold in year 1, NPV ₹20.2 cr."
+        },
+        {
+          "type": "table",
+          "title": "1. Total ad revenue per pack decides the business",
+          "headers": [
+            "Ad revenue per pack, all spaces",
+            "NPV, 5 years",
+            "Capital needed",
+            "Year-5 EBITDA",
+            "Payback",
+            "IRR"
+          ],
+          "rows": [
+            "₹12|−₹66.1 cr|Keeps losing money|−₹28.4 cr|Not within 5 years|n/a",
+            "₹15|−₹32.4 cr|Keeps losing money|₹7.9 cr|Not within 5 years|n/a",
+            "₹18|−₹4.5 cr|₹20.7 cr|₹44.3 cr|5.0 years|2%",
+            "**₹21 (project)**|₹20.2 cr|₹11.6 cr|₹80.6 cr|3.8 years|66%",
+            "₹24|₹44.7 cr|₹5.6 cr|₹116.9 cr|3.2 years|118%"
+          ]
+        },
+        {
+          "type": "table",
+          "title": "3. Which assumptions move NPV most (low case / high case)",
+          "headers": [
+            "Assumption",
+            "NPV, low case",
+            "NPV, high case",
+            "Swing"
+          ],
+          "rows": [
+            "Total ad revenue per pack ±20% (₹16.8 / ₹25.2)|−₹14.5 cr|₹54.5 cr|₹69.0 cr",
+            "Pack cost ±20%|−₹3.8 cr|₹44.0 cr|₹47.8 cr",
+            "Volume ±30%|₹1.9 cr|₹38.5 cr|₹36.6 cr",
+            "Agency commission 25% / 10%|−₹0.1 cr|₹30.3 cr|₹30.4 cr",
+            "Share of ad space sold −10 / +5 points|₹1.8 cr|₹29.4 cr|₹27.6 cr",
+            "Days to collect ad payments 90 / 30|₹8.4 cr|₹32.0 cr|₹23.6 cr",
+            "Fixed costs ±25%|₹13.2 cr|₹27.2 cr|₹14.0 cr"
+          ]
+        },
+        {
+          "type": "table",
+          "title": "2. How much of the space we sell",
+          "headers": [
+            "Share of ad-space value sold, year 1 → year 5",
+            "NPV, 5 years",
+            "Capital needed",
+            "Year-5 EBITDA",
+            "Payback"
+          ],
+          "rows": [
+            "60% → 70%|−₹27.9 cr|Not recovered in 5 years|₹13.7 cr|Not within 5 years",
+            "70% → 80%|−₹7.5 cr|Not recovered in 5 years|₹40.4 cr|Not within 5 years",
+            "80% → 90%|₹11.1 cr|₹14.5 cr|₹67.2 cr|4.1 years",
+            "**85% → 95% (base)**|₹20.2 cr|₹11.6 cr|₹80.6 cr|3.8 years",
+            "90% → 100%|₹29.4 cr|₹8.8 cr|₹94.0 cr|3.5 years"
+          ]
+        },
+        {
+          "type": "table",
+          "title": "4. NPV by ad revenue per pack and volume (volume as % of the base plan)",
+          "headers": [
+            "",
+            "50%",
+            "75%",
+            "100%",
+            "125%"
+          ],
+          "rows": [
+            "₹15 a pack|−₹41.8 cr|−₹37.1 cr|−₹32.4 cr|−₹27.7 cr",
+            "₹18 a pack|−₹24.9 cr|−₹13.7 cr|−₹4.5 cr|₹4.7 cr",
+            "₹21 a pack|−₹10.5 cr|₹5.0 cr|₹20.2 cr|₹35.4 cr",
+            "₹24 a pack|₹2.0 cr|₹23.4 cr|₹44.7 cr|₹66.0 cr"
+          ]
+        },
+        {
+          "type": "text",
+          "markdown": "**What the tables tell us:**\n\n1. **Ad revenue per pack is everything:** at ₹18 of total ad revenue the five-year NPV is already negative, and at ₹15 the business never pays back. e.g. a ₹3 drop in ad revenue per pack costs more than a 30% drop in volume.\n2. **Selling the space matters as much as pricing it:** if only 70% of the space sells in year 1 instead of 85%, the business does not pay back within five years. Hence the sales team, and a booking platform that lets small local brands fill the small spaces, are as important as the big advertisers.\n3. **Pack cost is next:** a 20% rise in carton and filling costs turns the NPV negative. Thus firm supplier quotes come before any launch.\n4. **Volume helps only when the pack makes money:** at ₹15, selling more just loses more. This means we do not scale until the unit economics work in one city.\n5. **Fixed costs matter least:** the team and office are small next to the per-pack numbers, so cutting them is not the lever."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Go to market",
+      "title": "A phased rollout, starting in the South",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Phased rollout** means entering one region at a time, and moving on only when the last one meets clear targets. We start in the South for three reasons:\n\n1. **Supply is already there:** Tamil Nadu has the largest number of packaged water licence holders in India, with Andhra Pradesh second ([Statista, packaged water licence holders by state, 2021 data](https://www.statista.com/statistics/1376143/india-packaged-drinking-water-manufacturers-by-state/)). Carton water is already filled in Coimbatore ([Zee Zest, 26 August 2025](https://zeezest.com/food/how-india-is-reimagining-water-in-paper-cartons-9537)). Hence co-packers are close.\n2. **Dense, young cities:** Bengaluru, Chennai, Hyderabad and Kochi have large student and office populations, the audience advertisers want to reach.\n3. **Away from the closest rival:** Wahter started in Delhi NCR. Starting in the South avoids a head-on fight while the model is proven."
+        },
+        {
+          "type": "timeline",
+          "title": "Five phases over five years",
+          "steps": [
+            {
+              "phase": "Phase 1, year 1: Bengaluru and Chennai (30 lakh packs)",
+              "text": "Pilot in two cities: about 150 carts and kiosks at colleges, metro stations and tech parks. Co-packed in Tamil Nadu. Test ₹1 against free in matched areas. Gate to move on: at least 80% of the ad space sold at list price, and at least 60% of brands renew."
+            },
+            {
+              "phase": "Phase 2, year 2: rest of the South (1.2 crore packs)",
+              "text": "Add Hyderabad, Kochi, Coimbatore, Mysuru and Goa (beaches, tourists, and GIM as a campus partner). Sign regional brands and agencies. Raise the Series A."
+            },
+            {
+              "phase": "Phase 3, year 3: deepen the South (3.5 crore packs)",
+              "text": "Railway stations, bus stands, events and tier-2 towns. Commission our own carton-filling line in Tamil Nadu. Set up carton collection with recyclers in every city."
+            },
+            {
+              "phase": "Phase 4, year 4: the West (8 crore packs)",
+              "text": "Mumbai, Pune and Ahmedabad, with national brands buying packs across regions. Add a co-packer in the West before building a second line."
+            },
+            {
+              "phase": "Phase 5, year 5: North and East (15 crore packs)",
+              "text": "Delhi NCR and Kolkata. Compete with Wahter on the carton and the seed, and offer brands national reach in one booking."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Targets that decide each phase",
+          "headers": [
+            "Measure",
+            "Target before the next phase",
+            "Why it matters"
+          ],
+          "rows": [
+            "Ad revenue per pack, all spaces|₹19 or more|Below about ₹16 the model loses money (chapter 9)",
+            "Advertiser renewal rate|60% or more|Proves brands come back, not just try it once",
+            "Share of ad space sold|80% or more|Unsold spaces earn nothing; below about 70% the model does not pay back",
+            "Packs found as litter, ₹1 vs free|Lower at ₹1|Tests the core claim of the project",
+            "Cartons collected for recycling|Rising each quarter|The sustainability promise needs proof"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Risks",
+      "title": "What could break it, and how to reduce it",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Main risks",
+          "headers": [
+            "Risk",
+            "Why it matters",
+            "How to reduce it"
+          ],
+          "rows": [
+            "Not enough space sells|At 70% sold, the model does not pay back in five years|Pre-sell the large panels; let local businesses book small spaces online",
+            "Space prices are lower than planned|At ₹18 a pack in total, NPV is negative|Sell 3–6 month packages by location; price the front panel on proven reach",
+            "Carton costs more than assumed|A 20% rise removes most of the value|Get quotes from two co-packers before launch",
+            "Advertisers pay late|Ties up cash and raises the capital needed|Ask for 50% upfront on first campaigns",
+            "Cartons are not collected|Swaps one waste problem for another|Partner with carton recyclers; bins at every sale point",
+            "Seed fails or the cap does not break down|The sustainability story weakens|Test seed types for heat and storage; use a compostable cap",
+            "Shops will not stock it|No reach for advertisers|Pay a fixed trade incentive per pack",
+            "Food safety and licensing|Packaged water needs certification and testing|Fill through licensed, tested partners"
+          ]
+        },
+        {
+          "type": "text",
+          "markdown": "The pattern is clear: almost every serious risk comes back to selling the ad space. Hence the company is, at heart, an advertising business that happens to sell water."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Takeaways",
+      "title": "What the case teaches",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "1. **A small price is a design tool:** it filters customers, signals value and gives the retailer a reason to care. e.g. ₹1 does work that free cannot.\n2. **In a two-sided model, find the real customer:** advertisers pay about 95% of the revenue, so the product must be designed for them too.\n3. **Know your one number:** here it is total ad revenue per pack, from all the spaces together. The model is healthy at ₹21, marginal at ₹18 and broken at ₹15.\n4. **Sustainability needs a business that pays for itself:** as the original slide put it, *we sustain ourselves along with sustaining the world*.\n5. **Test the claim you care about most:** the belief that paid packs are littered less is the heart of the idea, and also the least proven. The pilot should measure it from day one."
+        },
+        {
+          "type": "listbox",
+          "title": "Sources",
+          "icon": "fa-link",
+          "items": [
+            "[IBEF, 30 March 2026](https://www.ibef.org/blogs/india-packaged-drinking-water-industry-demand-trends-and-market-outlook)",
+            "[Goodreturns, on Bisleri FY24 filings, 8 January 2025](https://www.goodreturns.in/news/bisleri-fy24-profit-rises-82-8-percent-to-rs-317-crore-011-1398203.html)",
+            "[Open, 16 February 2026](https://openthemagazine.com/branding-marketing-and-advertising/indias-15-vs-150-water-battle-can-premium-brands-justify-the-markup)",
+            "[Basis Point Insight, 17 October 2025](https://basispointinsight.com/Story/reliance-turns-bottled-water-into-its-next-big-disruption_4c193abc2bde.html)",
+            "[Tetra Pak India, on the TERI used beverage carton study, 26 November 2025](https://www.tetrapak.com/en-in/about-tetra-pak/news-and-events/newsarchive/aseptic-carton-recycling-rates-improving-teri-study)",
+            "[Waste & Recycling Middle East, 18 August 2026](https://www.wasterecyclingmag.com/news/sustainable-packaging/beverage-cartons-hit-48-recycling-rate-in-india-up-from-29-in-2011)",
+            "[Zee Zest, 26 August 2025](https://zeezest.com/food/how-india-is-reimagining-water-in-paper-cartons-9537)",
+            "[Statista, packaged water licence holders by state, 2021 data](https://www.statista.com/statistics/1376143/india-packaged-drinking-water-manufacturers-by-state/)",
+            "[NIIR Project Consultancy Services, 2026](https://www.niir.org/how-to-start/packaged-drinking-water-plant/)",
+            "[Plumint, 25 October 2025](https://www.plumint.com/blog-details/mineral-water-plant-setup-cost-business-plan)",
+            "[Media4Growth, on the Pitch Madison Advertising Report 2024](https://www.media4growth.com/research/indian-ooh-adex-at-rs-4140cr-in-2023-records-13-yoy-growth-vs-10-overall-adex-growth-pitch-madison-ad-report-2024-7301)",
+            "[Shampanier, Mazar & Ariely, Marketing Science, 2007](https://people.duke.edu/~dandan/webfiles/PapersPI/Zero%20as%20a%20Special%20Price.pdf)",
+            "[Ashraf, Berry & Shapiro, American Economic Review, 2010 (J-PAL summary)](https://www.povertyactionlab.org/evaluation/can-higher-prices-stimulate-product-use-evidence-randomized-experiment-zambia)",
+            "[Cohen & Dupas, Quarterly Journal of Economics, 2010 (NBER)](https://www.nber.org/papers/w14406)",
+            "[Norton, Mochon & Ariely, Journal of Consumer Psychology, 2012](https://en.wikipedia.org/wiki/IKEA_effect)",
+            "[Down To Earth, on Cottom, Cook & Velis, Nature, 2024](https://www.downtoearth.org.in/waste/india-tops-plastic-pollution-rankings-emitting-a-fifth-of-global-plastic-waste)",
+            "[PIB, Ministry of Environment, 27 July 2023](https://pib.gov.in/PressReleasePage.aspx?PRID=1943210)",
+            "[afaqs!, 3 January 2024](https://www.afaqs.com/news/advertising/how-wahter-is-looking-to-make-water-bottles-an-advertising-medium)",
+            "[YourStory, 6 March 2024](https://yourstory.com/2024/03/a-husband-wife-duo-leverage-tech-to-make-bottled-drinking-water-affordable)",
+            "[Indian Startup News, 22 June 2024](https://indianstartupnews.com/funding/packaged-drinking-water-startup-wahter-raises-rs-5-crore-in-pre-seed-funding-4774808)",
+            "[The Daily Star, 17 January 2024](https://www.thedailystar.net/tech-startup/news/how-does-freewater-work-3522056)",
+            "[The Business Standard, 17 January 2024](https://www.tbsnews.net/features/panorama/bottled-water-free-will-new-advertising-model-sustain-776254)"
+          ]
+        }
+      ]
+    }
+  ]
+}
