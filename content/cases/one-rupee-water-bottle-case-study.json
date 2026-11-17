@@ -16,7 +16,7 @@
   ],
   "icon": "fa-bottle-water",
   "color": "from-teal-500 to-sky-600",
-  "draft": true,
+  "draft": false,
   "chapters": [
     {
       "type": "blocks",
