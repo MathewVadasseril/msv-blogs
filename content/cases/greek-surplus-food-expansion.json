@@ -7,7 +7,7 @@
   "role": "Cross-border expansion strategy and an India-adapted business model",
   "outcome": "Letter of Recommendation",
   "team": "",
-  "order": 3,
+  "order": 4,
   "topics": [
     "Market Entry",
     "International Expansion",
@@ -16,7 +16,7 @@
   ],
   "icon": "fa-person-chalkboard",
   "color": "from-emerald-500 to-teal-600",
-  "draft": true,
+  "draft": false,
   "chapters": [
     {
       "type": "blocks",
