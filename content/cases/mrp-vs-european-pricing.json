@@ -1,0 +1,146 @@
+{
+  "title": "Same Coke, €0.90 or €4: why India's MRP kills the premium",
+  "summary": "In Europe one can of Coke sells for €0.90 in a supermarket and €4 at a kiosk, and both sell. In India the MRP printed on the can makes that impossible. A personal observation on reference prices, context and the visible ceiling.",
+  "kind": "Observation",
+  "year": "",
+  "event": "Personal observation, Europe and India",
+  "role": "",
+  "outcome": "Field note",
+  "team": "",
+  "order": 5,
+  "topics": [
+    "Pricing",
+    "Consumer Behaviour"
+  ],
+  "icon": "fa-tags",
+  "color": "from-red-500 to-rose-600",
+  "draft": true,
+  "chapters": [
+    {
+      "type": "blocks",
+      "kicker": "The observation",
+      "title": "One can of Coke, two prices, and both sell",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "*A personal observation from Europe, not a client project. About 7 minutes to read.*\n\nIn Europe I noticed something that would never happen at home. The same 330 ml can of Coca-Cola sold for about **€0.90** in a supermarket and for about **€4** at a kiosk and at a venue a short walk away. Same can, same drink, more than four times the price. And both were selling.\n\nIn India that cannot happen, because of three letters printed on the can: **MRP**. This post looks at why, and at the psychology that lets Europe run two profitable markets for one product while India runs only one."
+        },
+        {
+          "type": "metrics",
+          "items": [
+            {
+              "value": "~€0.90",
+              "label": "A 330 ml can of Coke in a European supermarket (what I saw)"
+            },
+            {
+              "value": "~€4",
+              "label": "The same can at a kiosk or venue (what I saw)"
+            },
+            {
+              "value": "₹40",
+              "label": "The MRP printed on a 300 ml Coke can in India, wherever it is sold"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "heading": "A note on the numbers",
+          "icon": "fa-circle-info",
+          "text": "The euro prices are my own observation, not a survey. Public data shows the same spread: German supermarket deals on a 330 ml can have run from about €0.35 to €0.99 ([Supermarktcheck, Coca-Cola price reports](https://www.supermarktcheck.de/product/12394-coca-cola-)), while a small Coke in a Berlin restaurant averages €2.80, in a range of €2 to €4 ([Numbeo, Berlin, May 2024](https://www.numbeo.com/cost-of-living/in/Berlin)). The ₹40 MRP is from a wholesale listing ([Hyperpure listing, Coca-Cola 300 ml can, MRP ₹40](https://www.hyperpure.com/in/coca-cola-300-ml-can-mrp-40-pc))."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "The rules",
+      "title": "India prints a ceiling; Europe leaves the price to the shop",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "The **MRP (Maximum Retail Price)** is the highest price at which a packaged product can be sold in India, inclusive of all taxes. It is printed on the pack by the manufacturer, and no shop may charge more.\n\nHere we look at how the two systems work, in four parts.\n\n1. **The MRP is the law:** under Rule 6 of the Legal Metrology (Packaged Commodities) Rules, 2011, every pre-packaged product must declare its price as \"MRP ₹... inclusive of all taxes\" ([Legal Metrology (Packaged Commodities) Rules, 2011, Rule 6 (iPleaders summary)](https://blog.ipleaders.in/legal-metrology-rules/)). Selling above the MRP is an offence that can be fined. e.g. a ₹20 packet of Parle-G costs ₹20 in a Kochi kirana and in a Delhi mall. Thus the price is fixed by the brand for the whole country.\n2. **No second price for premium places:** from 1 January 2018, the rules say \"no person shall declare different MRPs (dual MRP) on an identical pre-packaged commodity\". The government said this was aimed at complaints about higher prices in cinema halls, airports and malls ([Deccan Chronicle, 30 June 2017](https://www.deccanchronicle.com/business/economy/300617/no-dual-mrps-from-2018-cinemas-malls-cannot-charge-extra.html); [Business Insider India, 2017](https://www.businessinsider.in/from-jan-1-2018-youll-pay-as-per-the-mrp-for-mineral-water-bottles-at-movie-halls/articleshow/59382769.cms)). e.g. a bottle of water at the airport carries the same MRP as one at the railway station. Hence even the obvious premium venues lost their premium on packaged goods.\n3. **In Europe, the shop sets the price:** there is no MRP. Each retailer decides what to charge. In fact, EU competition law stops the brand from fixing the shop's price: **resale price maintenance** (a supplier imposing a fixed or minimum resale price) is a hardcore restriction under Article 4(a) of Regulation 2022/720. A brand may only *recommend* a price or set a maximum ([Cuatrecasas, on EU Regulation 2022/720, 2023](https://www.cuatrecasas.com/en/global/competition-eu-law/art/resale-price-restrictions-a-new-horizon-under-the-new-vertical-block-exemption-regulation)). e.g. Coca-Cola cannot tell a Paris café what to charge for a can. Thus the price follows the place.\n4. **So one can becomes many products:** because the price is free, the same can is priced for where it is sold. A supermarket sells it as groceries; a kiosk sells it as cold, now and here. Hence Europe gets two markets, each with its own margin."
+        },
+        {
+          "type": "table",
+          "title": "Same can, two systems",
+          "headers": [
+            "",
+            "India",
+            "Europe"
+          ],
+          "rows": [
+            "Who sets the shelf price?|The manufacturer, as the MRP printed on the pack|Each retailer",
+            "Can a shop charge more than the printed price?|No; selling above MRP is an offence|There is no printed price to exceed",
+            "Can a venue charge a premium on a sealed can?|No; dual MRP is banned since 2018|Yes, freely",
+            "Can the brand fix the shop's price?|Yes; that is what the MRP does|No; fixed or minimum resale prices are banned",
+            "What the shopper compares against|The number printed on the can|Memory, context and the place"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "The psychology",
+      "title": "Why a €4 Coke still sells in Europe",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "A **reference price** is the price a buyer has in mind to judge whether a price is fair. It can come from memory (what I usually pay) or from something in front of them (a tag, a menu, a printed number).\n\nThe €4 can sells because Europe lets the reference price move with the situation. Here we look at the four forces behind that."
+        },
+        {
+          "type": "text",
+          "markdown": "1. **Reference prices depend on the setting:** in Richard Thaler's 1985 \"beer on the beach\" study, people were asked what they would pay for the same cold beer. When it came from a fancy resort hotel, the median answer was **$2.65**; from a small, run-down grocery store, it was **$1.50** ([The Decision Lab, on Thaler (1985)](https://thedecisionlab.com/biases/mental-accounting)). e.g. the same can feels expensive at €4 in Lidl but fair at €4 on a stadium concourse. Thus people judge the price against the place, not against the product.\n2. **Convenience pricing:** this is charging more for the time, effort and timing a buyer saves. The kiosk is not selling Coke; it is selling *cold Coke, right here, right now*. e.g. a commuter on a hot platform will not walk twenty minutes to a supermarket to save €3. Hence the premium pays for the location and the fridge, not the drink.\n3. **Price as part of the experience:** at a venue the drink is part of an occasion: a match, a concert, a view. The higher price fits the occasion and can even feel right. e.g. a coffee on Piazza San Marco is expected to cost more than one at a station bar, and people pay for the square. So the price becomes part of what is bought.\n4. **No printed number to argue with:** since the can carries no price, the buyer has no fixed anchor in their hand. The only comparison is a memory of a supermarket far away. Thus the gap between €0.90 and €4 is never shown side by side, and both prices survive.\n\nThe result is **price segmentation**: one product, sold to two kinds of need at two prices. The supermarket earns on volume; the kiosk and the venue earn on margin. Both make a profit."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "India",
+      "title": "Why a ₹400 Coke would not sell here",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Price sensitivity** is how much a buyer's decision changes when the price changes. Indian shoppers are known for it, but the MRP adds something stronger than income: it prints the reference price on the product.\n\nAt about ₹100 to the euro, the kiosk's €4 would be close to ₹400, ten times the ₹40 MRP. Here we look at why that price would fail, in four parts.\n\n1. **The MRP is a visible ceiling:** the reference price is not in the buyer's memory; it is in their hand. Any price above it reads as cheating, not as a premium. e.g. a shopkeeper who asks ₹50 for a ₹40 can is met with \"MRP se zyada kyun?\" (why more than the MRP?). Thus there is no room for a convenience premium.\n2. **The law backs the shopper:** charging above the MRP is an offence, and since 2018 even airports, malls and cinemas cannot print a higher one ([Deccan Chronicle, 30 June 2017](https://www.deccanchronicle.com/business/economy/300617/no-dual-mrps-from-2018-cinemas-malls-cannot-charge-extra.html)). e.g. a passenger can complain about an overpriced bottle of water at the airport. Hence the premium is not just unpopular; it is illegal.\n3. **The MRP is the price to beat, not the price to pay:** because the MRP is the *maximum*, Indian shoppers read it as the top and look for less. e.g. quick-commerce apps show the MRP struck through above a lower price, and a wholesaler lists the ₹40 can at ₹29.40 ([Hyperpure listing, Coca-Cola 300 ml can, MRP ₹40](https://www.hyperpure.com/in/coca-cola-300-ml-can-mrp-40-pc)). So the market competes *below* the MRP, never above it.\n4. **An everyday product, not an occasion:** in India a cold drink is a small daily purchase, bought often and compared often. e.g. a family buying four cans notices ₹10 extra at once. Thus the room for a premium on a sealed can is close to zero.\n\nHence the same can splits into **one market** in India: one price, competed on availability and discounts. Europe gets two."
+        },
+        {
+          "type": "callout",
+          "heading": "The twist: Indians do pay a premium, once the MRP is gone",
+          "icon": "fa-lightbulb",
+          "text": "In December 2017 the Supreme Court ruled that hotels and restaurants may charge above the MRP for bottled water, because \"there is an element of service in it\" and \"nobody goes to a restaurant to simply buy a bottle of water\" ([Business Today, 13 December 2017](https://www.businesstoday.in/latest/economy-politics/story/supreme-court-allows-restaurants-charge-above-mrp-bottled-water-88026-2017-12-13)). And in cinemas, PVR INOX's food and beverage spend per head hit a record **₹148** in April to June 2025, against an average ticket of ₹254 ([Business Standard, 7 August 2025](https://www.business-standard.com/markets/capital-market-news/pvr-inox-gains-as-q1-losses-narrow-125080700622_1.html)). A cola poured into a cup has no printed MRP, so the premium sells. **So the barrier in India is not willingness to pay. It is the number printed on the pack.**"
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "What it means",
+      "title": "Lessons for brands and founders",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "Putting the two markets side by side, we take away four lessons.\n\n1. **In Europe, price the place:** the same product can earn a volume margin in shops and a premium margin at venues. e.g. a craft soda brand can sell a 4-pack in a supermarket and single cans at festivals at three times the price. Thus distribution choice is also a pricing choice.\n2. **In India, sell the occasion, not the pack:** a premium works only when the product becomes a service or an experience with no printed number. e.g. a café's cold coffee or a cinema's combo sells at a price no sealed can could carry. Hence Indian brands earn their premium through cafés, restaurants and cinemas.\n3. **The MRP you print is the ceiling you live with:** whatever goes on the pack becomes every shopper's reference price, everywhere, for the life of that pack. e.g. brands launch a new pack size or a premium variant to set a new MRP, rather than raising the old one. So in India, pack design is pricing strategy.\n4. **Read \"price sensitivity\" with care:** some of what looks like Indian price sensitivity is really reference-price sensitivity. The same shopper who refuses ₹50 for a ₹40 can happily pays far more for a drink in a cup at the cinema. Thus the job is to change the reference, not just to cut the price."
+        },
+        {
+          "type": "quote",
+          "text": "In Europe the place sets the price. In India the can does.",
+          "author": "My takeaway"
+        },
+        {
+          "type": "listbox",
+          "title": "Sources",
+          "icon": "fa-link",
+          "items": [
+            "[Legal Metrology (Packaged Commodities) Rules, 2011, Rule 6 (iPleaders summary)](https://blog.ipleaders.in/legal-metrology-rules/)",
+            "[Deccan Chronicle, 30 June 2017](https://www.deccanchronicle.com/business/economy/300617/no-dual-mrps-from-2018-cinemas-malls-cannot-charge-extra.html)",
+            "[Business Insider India, 2017](https://www.businessinsider.in/from-jan-1-2018-youll-pay-as-per-the-mrp-for-mineral-water-bottles-at-movie-halls/articleshow/59382769.cms)",
+            "[Business Today, 13 December 2017](https://www.businesstoday.in/latest/economy-politics/story/supreme-court-allows-restaurants-charge-above-mrp-bottled-water-88026-2017-12-13)",
+            "[Cuatrecasas, on EU Regulation 2022/720, 2023](https://www.cuatrecasas.com/en/global/competition-eu-law/art/resale-price-restrictions-a-new-horizon-under-the-new-vertical-block-exemption-regulation)",
+            "[The Decision Lab, on Thaler (1985)](https://thedecisionlab.com/biases/mental-accounting)",
+            "[Numbeo, Berlin, May 2024](https://www.numbeo.com/cost-of-living/in/Berlin)",
+            "[Supermarktcheck, Coca-Cola price reports](https://www.supermarktcheck.de/product/12394-coca-cola-)",
+            "[Hyperpure listing, Coca-Cola 300 ml can, MRP ₹40](https://www.hyperpure.com/in/coca-cola-300-ml-can-mrp-40-pc)",
+            "[Business Standard, 7 August 2025](https://www.business-standard.com/markets/capital-market-news/pvr-inox-gains-as-q1-losses-narrow-125080700622_1.html)"
+          ]
+        }
+      ]
+    }
+  ]
+}
