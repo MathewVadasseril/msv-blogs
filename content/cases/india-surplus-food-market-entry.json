@@ -25,7 +25,7 @@
       "blocks": [
         {
           "type": "text",
-          "markdown": "*A country expansion case study, built on a project I worked on in 2024. About 12 minutes to read. The startup is not named.*\n\n**Country expansion** is taking a business that works in one market into another, and asking which parts of the model travel and which break. The test is simple: does the new country have the same conditions that made the model work at home?\n\nOur client was a Greek startup that sells **surplus food as a mystery box**: a bag of food a café, bakery or restaurant could not sell today, paid for in an app and collected at closing time. It does decently well in Greece, and its founders asked us about India. We said no to the model as it stands, and recommended Cyprus instead. The full deck and our method are in [the companion case study](#case-greek-surplus-food-expansion).\n\nThis piece goes one level deeper. It asks what it would actually take to make the idea work in India, using public data on delivery, competitors and the two giants of Indian food delivery."
+          "markdown": "*A country expansion case study, built on a project I worked on in 2024. About 12 minutes to read. The startup is not named.*\n\n**Country expansion** is taking a business that works in one market into another, and asking which parts of the model travel and which break. The test is simple: does the new country have the same conditions that made the model work at home?\n\nOur client was a Greek startup that sells **surplus food as a mystery box**: a bag of food a café, bakery or restaurant could not sell today, paid for in an app and collected at closing time. It does decently well in Greece, and its founders asked us about India. We showed that the model would not work in India as it stands, and we presented an India-fit version of it. But our final recommendation was **Cyprus first**: it made more economical sense to grow there before taking on a market as big as India. The full deck and our method are in [the companion case study](#case-greek-surplus-food-expansion).\n\nThis piece goes one level deeper into the India side: what it would take to make the idea work there, using public data on delivery, competitors and the two giants of Indian food delivery."
         },
         {
           "type": "cards",
@@ -101,7 +101,7 @@
     {
       "type": "blocks",
       "kicker": "Part 3",
-      "title": "The India-fit model we proposed",
+      "title": "The India-fit model we presented",
       "blocks": [
         {
           "type": "text",
@@ -171,7 +171,7 @@
       "blocks": [
         {
           "type": "text",
-          "markdown": "When we did the project, the space in India was close to empty. It is not empty now. A **competitive landscape** is the map of who already serves the customer, and how. Here is what public sources show."
+          "markdown": "There are now competitors in this space in India. A **competitive landscape** is the map of who already serves the customer, and how. Here is what public sources show."
         },
         {
           "type": "table",
@@ -208,7 +208,7 @@
           "type": "callout",
           "heading": "Our verdict",
           "icon": "fa-flag-checkered",
-          "text": "India fails on two counts for this client: the model has to change a lot to fit, and once it fits, the changed version is exactly what Swiggy and Zomato can build better and cheaper. That is why we recommended Cyprus: a market that already behaves like Greece, with no direct competitor and a cost of entry the founders could afford."
+          "text": "We presented the India-fit model to the founders, but recommended Cyprus first. India needs the model to change a lot, and the changed version is exactly what Swiggy and Zomato could build better and cheaper, so entry there needs deep pockets. Cyprus already behaves like Greece, had no direct competitor and fitted the founders' budget. Hence the plan: grow in Cyprus first, and take on a giant like India later, from a stronger base."
         }
       ]
     },
@@ -219,7 +219,7 @@
       "blocks": [
         {
           "type": "text",
-          "markdown": "**(i) Find the hidden subsidy:** In Greece, the customer's own walk was a free delivery service. The model looked simple only because that cost was invisible. Always ask what the home market gives you for free.\n\n**(ii) Culture shows up in the product, not just the marketing:** Diet diversity did not need a better ad. It needed the mystery taken out.\n\n**(iii) Ask who can copy you, not just who competes with you:** In India the threat was not the other surplus-food startups. It was the platforms that could add the feature in a sprint.\n\n**(iv) The economical answer can beat the exciting one:** India is the bigger story. Cyprus was the better business decision for this client's budget."
+          "markdown": "**(i) Find the hidden subsidy:** In Greece, the customer's own walk was a free delivery service. The model looked simple only because that cost was invisible. Always ask what the home market gives you for free.\n\n**(ii) Culture shows up in the product, not just the marketing:** Diet diversity did not need a better ad. It needed the mystery taken out.\n\n**(iii) Ask who can copy you, not just who competes with you:** In India the threat was not the other surplus-food startups. It was the platforms that could add the feature in a sprint.\n\n**(iv) Sequence the markets:** India is the bigger prize, but not the right first step. Cyprus first was the economical choice for this client's budget, and it keeps India open for later, with the India-fit model ready."
         },
         {
           "type": "text",
