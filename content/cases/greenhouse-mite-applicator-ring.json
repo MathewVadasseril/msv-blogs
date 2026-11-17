@@ -1,0 +1,413 @@
+{
+  "title": "The €0.63 ring: when a business case needed an engineer",
+  "summary": "A client challenge in Finland: a fungus that kills a greenhouse pest, but only if you can keep it alive on the plant. I went back to my mechanical engineering degree to design a snap-on applicator ring, then costed it, and corrected our own numbers on the way.",
+  "kind": "Project",
+  "year": "2025",
+  "event": "Client challenge, LUT University, Finland",
+  "role": "Designed the applicator ring (CAD) and built the unit-cost model",
+  "outcome": "Presented to the clients",
+  "team": "4-person team",
+  "order": 10,
+  "topics": [
+    "Product Design",
+    "Unit Economics",
+    "Commercialisation",
+    "Sustainability"
+  ],
+  "icon": "fa-leaf",
+  "color": "from-emerald-500 to-teal-600",
+  "draft": true,
+  "chapters": [
+    {
+      "type": "blocks",
+      "kicker": "Overview",
+      "title": "A business case that needed an engineer",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "*A client challenge at LUT University, Finland, 2025. Our team of four worked for two clients: a Finnish public research institute and a company that makes biological pest control. Both stay unnamed here, and so do my teammates. About 15 minutes to read, with every slide from our client presentation along the way.*\n\nA **commercialisation challenge** asks a team to take something that works in a lab and turn it into something a customer will buy and use. Our clients had a fungus that kills a pest called the tomato russet mite. The science was sound. The open question was practical: **how do you get a fragile, living fungus onto a tomato plant in a greenhouse, cheaply, and keep it alive long enough to work?**\n\nI came to the challenge as a business student. But the answer we gave was a small plastic ring with a hinge, a toothed lock and a gel insert. I designed it by going back to my bachelor's degree in mechanical engineering. That is the story of this case study, and the lesson I took from it: **no skill you have learned is wasted. Each one is an arrow in your quiver. The real skill is judging which arrow to use, and when to combine them.**"
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greenhouse-mite-applicator-ring-slide-01.jpg",
+          "alt": "Slide 1 of 10. Title slide: Mite control challenge in tomato greenhouses, a client challenge at LUT University, Finland, 2025. Client and team names are removed.",
+          "caption": "Slide 1 of 10. The cover. The client names and my teammates' names have been removed.",
+          "size": "wide"
+        },
+        {
+          "type": "metrics",
+          "items": [
+            {
+              "value": "4",
+              "label": "People in the team"
+            },
+            {
+              "value": "3",
+              "label": "Delivery ideas tested on paper"
+            },
+            {
+              "value": "1",
+              "label": "Applicator ring designed in CAD"
+            },
+            {
+              "value": "≈ €0.21",
+              "label": "Materials per ring"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "heading": "The answer, in one line",
+          "icon": "fa-flag-checkered",
+          "text": "Don't spray the fungus across the greenhouse. Clip it to each stem in a reusable ring that keeps it moist, blocks the mites' path up the plant, and can be recharged. Materials come to about €0.21 a ring. With labour, the honest first-season cost is about €0.63, and labour, not plastic, is the number to attack."
+        },
+        {
+          "type": "listbox",
+          "title": "How this write-up is built",
+          "icon": "fa-list-ol",
+          "items": [
+            "**The pest:** what the tomato russet mite is, and why growers notice it too late.",
+            "**The cure, and its catch:** a fungus that works, but only in conditions the mite avoids.",
+            "**The ideas we killed:** a clip-on felt and a retro-fitted drip line, and why each lost.",
+            "**Back to my bachelor's:** designing the applicator ring part by part.",
+            "**The numbers:** materials, labour and an honest correction of the cost we presented.",
+            "**The roadmap:** five steps from prototype to greenhouse, and what is still missing.",
+            "**Reflection:** combining skills, and why judgement is the skill on top."
+          ]
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greenhouse-mite-applicator-ring-slide-02.jpg",
+          "alt": "Slide 2 of 10. Section divider reading Part A, Client presentation.",
+          "caption": "Slide 2 of 10. Part A of our submission: the presentation we gave to the clients. Every slide follows below, in order.",
+          "size": "wide"
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Point 1: the pest",
+      "title": "A mite you cannot see, doing damage you see too late",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "The **tomato russet mite** (*Aculops lycopersici*) is a pest about a fifth of a millimetre long. It is too small to see with the naked eye. It feeds on the stems, leaves and fruit of tomato, potato, pepper and tobacco plants.\n\nBefore thinking about any product, we had to understand the organism. Here the skill was not business at all; it was reading biology closely enough to find the facts that matter commercially. Three stood out."
+        },
+        {
+          "type": "text",
+          "markdown": "**(i) It breeds fast:** A mite develops in five to seven days and can lay up to four eggs a day. So a few mites in week one become a colony by week three. e.g. like a leak in a roof, the damage you see is weeks behind the damage done.\n\n**(ii) It loves the conditions growers create:** It thrives in dry, hot greenhouses and fields. Hence a well-heated greenhouse is close to ideal for it.\n\n**(iii) It opens the door to other pests:** The mite interferes with the plant's own defence system (the jasmonic acid pathway). Thus a plant weakened by mites is exposed to secondary pests as well."
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greenhouse-mite-applicator-ring-slide-03.jpg",
+          "alt": "Slide 3 of 10. Understanding the organism (problem): what tomato russet mites are, their hosts, life cycle, feeding sites and damage symptoms, with a microscope image of the mite.",
+          "caption": "Slide 3 of 10. The problem organism: hosts, life cycle and damage. The fact that matters most commercially is speed: five to seven days from egg to adult.",
+          "size": "wide"
+        },
+        {
+          "type": "text",
+          "markdown": "We then mapped what a grower actually sees. At **level 1** the stems bronze slightly and lose their fine hairs, which is easy to miss. At **level 2** the leaves curl, wither and drop. At **level 3** the stem dies back, fruit falls and the plant dies.\n\nThe business insight from this slide is simple: **by the time a grower notices, the mites are already established**. Hence any solution has to work *before* the damage shows, which means it must sit on the plant all the time, not be applied after a problem is spotted."
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greenhouse-mite-applicator-ring-slide-04.jpg",
+          "alt": "Slide 4 of 10. Stages of development of mite on tomato plant: level 1 slight bronzing and hairless stems, level 2 leaf curling, withering and lower leaf drop, level 3 severe stem necrosis, fruit drop and plant death. All levels leave the plant prone to secondary pest attack.",
+          "caption": "Slide 4 of 10. Three levels of damage. A grower usually notices at level 2, when the colony is already large. This shaped our brief: protection has to be on the plant before symptoms appear.",
+          "size": "wide"
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Point 2: the cure, and its catch",
+      "title": "A fungus that works, in conditions the mite avoids",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Biological control** means fighting a pest with one of its natural enemies instead of a chemical. Our clients' answer to the mite was a fungus, *Hirsutella thompsonii*. Its spores stick to a mite, grow through its outer shell and kill it from the inside.\n\nOn paper the fungus is close to ideal. It leaves no chemical residue, barely touches beneficial insects, and mites do not easily become resistant to it. It is also non-toxic to people. Because it multiplies on the mites it kills, a small dose can keep working."
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greenhouse-mite-applicator-ring-slide-05.jpg",
+          "alt": "Slide 5 of 10. Understanding the organism (solution): about the fungus Hirsutella thompsonii, its targets, properties (22 to 28 degrees, above 80% relative humidity), requirements and field advantages.",
+          "caption": "Slide 5 of 10. The solution organism. Read the requirements box as a design brief: it needs moisture, it hates UV light, and it has to stay in contact with the stem.",
+          "size": "wide"
+        },
+        {
+          "type": "text",
+          "markdown": "Then we found the catch. The fungus grows best at **22–28 °C and above 80% relative humidity**, and **UV light** damages it. The mite, as we saw, prefers it **hot and dry**. So the cure struggles in exactly the places the pest likes most.\n\nThis was the turning point of the project. Spraying spores across a greenhouse would waste most of them: they would dry out or sit in the light before they ever met a mite. **The problem was no longer biology. It was delivery.** And delivery is a design problem.\n\nThis is the first place where combining skills mattered. A business lens alone would have said \"price the spray and find distributors\". An engineer's lens turned the fungus's needs into a list of requirements a product must meet."
+        },
+        {
+          "type": "table",
+          "title": "Turning biology into a design brief",
+          "headers": [
+            "What the fungus needs",
+            "What the product must do"
+          ],
+          "rows": [
+            "High humidity (above 80% RH)|Hold moisture right next to the spores, whatever the air in the greenhouse is like",
+            "Shelter from UV light|Cover the spores, not leave them exposed on a leaf",
+            "Contact with the mite|Sit where the mites travel, so they cannot get round it",
+            "A gentle hold on the plant|Grip the stem firmly without crushing it",
+            "Fresh spores over a season|Let staff check and recharge it easily"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Point 3: the ideas we killed",
+      "title": "Two good-looking ideas that lost",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "Before the ring, we tested two other ways to deliver the fungus. Both looked sensible. Both failed against the brief above, and saying no to them was as important as the idea we kept."
+        },
+        {
+          "type": "text",
+          "markdown": "**(i) Clip-on felt:** A felt pad loaded with spores, held on the stem by a simple clip. It is cheap and quick to fit. But the felt tears easily, it does little to stop mites, and **a clip's pressure cannot be controlled**, so it can damage the stem. e.g. like a clothes peg on a thin branch, it either slips or bites.\n\n**(ii) Retro-fitted drip irrigation:** Adapt the greenhouse's water pipes to carry fungal solution to each plant automatically. This one fits **TRIZ**, an engineering method for solving problems by reusing what a system already has, here the water lines. It is automated and protects the whole crop. But the upfront cost is high, and workers could be exposed to the solution. Hence it fails on cost and on safety."
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greenhouse-mite-applicator-ring-slide-06.jpg",
+          "alt": "Slide 6 of 10. Ideas that could not make it through: a clip-on felt (easy and cheap, but less effective, easily damaged and with uncontrolled pressure) and retro-fitted drip irrigation (follows TRIZ, protects the whole ecosystem and is automated, but has a high initial cost and a chance of toxic exposure to employees).",
+          "caption": "Slide 6 of 10. The two ideas we dropped, with what we liked and why each lost. The clip's flaw, uncontrolled pressure, became the first thing the final design had to fix.",
+          "size": "wide"
+        },
+        {
+          "type": "quote",
+          "text": "Each rejected idea left behind one requirement. The clip taught us about pressure; the drip line taught us about cost and safety.",
+          "author": "What the dead ends were worth"
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Point 4: back to my bachelor's",
+      "title": "Designing the applicator ring",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "This is where I reached for an arrow I had not used in years. My bachelor's degree is in **mechanical engineering**, and the brief now looked like an engineering brief: a part that clamps onto a cylinder of varying size, holds a soft insert, survives a humid environment for several seasons, and can be opened and closed by hand thousands of times.\n\nOur answer was a **snap-on applicator ring**: a plastic collar that closes around the base of each tomato stem and holds a spore-loaded insert against it. The mites climb the stem; the ring sits across their path, so they must cross the insert to move on."
+        },
+        {
+          "type": "timeline",
+          "title": "How the ring works, step by step",
+          "steps": [
+            {
+              "phase": "Step 1: Load",
+              "text": "Open the outer casing and insert a felt pad loaded with fungal spores."
+            },
+            {
+              "phase": "Step 2: Fit",
+              "text": "Clip the collar around the stem. The insert's adhesive surface holds it against the stem."
+            },
+            {
+              "phase": "Step 3: Block",
+              "text": "Mites moving up the plant meet the insert; the ring leaves no gap to go round it."
+            },
+            {
+              "phase": "Step 4: Infect",
+              "text": "Spores attach to the mites, grow through their outer shell and kill them, then spread further."
+            },
+            {
+              "phase": "Step 5: Monitor and recharge",
+              "text": "Colour-coded collars show their age. Staff check and recharge the insert every two to three weeks with a spore spray, and replace it once a season."
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greenhouse-mite-applicator-ring-slide-07.jpg",
+          "alt": "Slide 7 of 10. Solution, applicator ring: the mechanism flow from collar assembly and installation to felt-mite interaction, infection and spread, monitoring, and recharge and reuse, with a concept illustration of the snap-on fungal delivery system and a render of the green ring on a stem.",
+          "caption": "Slide 7 of 10. The mechanism, a concept illustration and a render of the ring on a stem. The flow on the left is the whole product in seven boxes.",
+          "size": "wide"
+        },
+        {
+          "type": "text",
+          "markdown": "The drawing on the next slide is mine, done in CAD the way I was taught as an engineering student: a plan view of the closed ring, a section through one half, and a cross-section showing the insert inside the casing. Each part answers one line of the brief."
+        },
+        {
+          "type": "text",
+          "markdown": "**(i) Toothed locking mechanism:** Interlocking teeth let the ring close in small steps and release with a firm pull. This is the direct fix for the clip's flaw: **pressure becomes something you set, not something you hope for**. Thus the insert grips the stem without crushing it, and one ring fits stems of different thickness.\n\n**(ii) Inner and outer lock:** A second lock between the inner and outer rings closes the gap where mites could slip past. Hence the barrier works all the way round.\n\n**(iii) Hinge:** A hinge lets the ring swing open so the insert can be changed without taking the ring off the plant. This keeps the labour per recharge low.\n\n**(iv) Hydrogel insert:** The insert is a gel with a web-like structure, made from PVA, chitosan and glycerol on a coir felt. It does two jobs: its tacky surface holds it to the stem, and it **keeps the spores moist** whatever the air is like. e.g. like a wet sponge in a soap dish, it gives the fungus its own small humid climate. Colour coding can show when the spores are running low.\n\n**(v) Outer casing:** Made from PLA, a common and cheap plastic, with a water-repelling outer surface so unwanted bacteria do not grow on it. It also shields the insert from direct light. It should last five to seven seasons, so its cost is spread thin."
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greenhouse-mite-applicator-ring-slide-08.jpg",
+          "alt": "Slide 8 of 10. Function of applicator ring: CAD drawing with a plan view of the closed ring, a half-ring section and a cross-section, labelled locking mechanism, felt, outer casing, inner and outer locking mechanism, inner adhesive, and hinge and lock.",
+          "caption": "Slide 8 of 10. My CAD drawing of the ring, with what each part does. This is the slide where the mechanical engineering came back.",
+          "size": "wide"
+        },
+        {
+          "type": "callout",
+          "heading": "Why the engineering mattered to the business case",
+          "icon": "fa-gears",
+          "text": "Every engineering choice here is also a cost choice. A ring that is reusable for five to seven seasons spreads the plastic cost. A hinge that lets staff swap the insert in seconds cuts labour. Thus the design and the unit economics were never two separate pieces of work."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Point 5: the numbers",
+      "title": "What a ring costs, corrected",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "**Unit cost** is what it costs to make and fit one unit, before any profit. We built ours for a greenhouse of **25,000 plants**, one ring per plant, from material prices and an estimate of the time to fit each ring.\n\nOn the day we presented **€0.25 per ring**. While writing this case study I re-checked the slide and found a mistake I want to show openly: the labour line was too low. The materials were right; the labour was not."
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greenhouse-mite-applicator-ring-slide-09.jpg",
+          "alt": "Slide 9 of 10. Materials and costs: a table of felt, hydrogel, fungus and outer casing with prices for 25,000 pieces, totalling 5,275 euros, plus a labour estimate of 40 seconds per plant. As presented, the slide shows 17 hours of labour and a cost of 0.25 euros per ring.",
+          "caption": "Slide 9 of 10. Our cost slide as presented on the day. The materials hold up; the labour line does not. 25,000 plants at 40 seconds each is about 278 hours, not 17. The corrected figures are below.",
+          "size": "wide"
+        },
+        {
+          "type": "table",
+          "title": "Materials for 25,000 rings (from our slide)",
+          "headers": [
+            "Part",
+            "Total",
+            "Per ring"
+          ],
+          "rows": [
+            "Felt (coir)|€1,250|€0.050",
+            "Hydrogel (PVA, chitosan, glycerol)|€710|€0.028",
+            "Fungus (12.5 litres)|€190|€0.008",
+            "Outer casing (PLA, 5–7 seasons)|€3,125|€0.125",
+            "**Materials total**|**€5,275**|**€0.211**"
+          ]
+        },
+        {
+          "type": "text",
+          "markdown": "**The labour, corrected:** We allowed 30 seconds to fit a ring and 10 seconds to move between plants, so **40 seconds a plant**. For 25,000 plants that is 1,000,000 seconds, or **about 278 hours**. Our slide said 17 hours. At the €38 an hour we used, labour is **about €10,560**, or **€0.42 a ring**. (The slide also listed the fungus at €0.07 a ring; the €190 total works out to under one cent.)"
+        },
+        {
+          "type": "table",
+          "title": "Cost per ring: as presented and corrected",
+          "headers": [
+            "",
+            "As presented",
+            "Corrected"
+          ],
+          "rows": [
+            "Materials|€0.21|€0.21",
+            "Labour to fit|€0.03 (17 hours)|€0.42 (≈ 278 hours)",
+            "**First season, per ring**|**€0.25**|**≈ €0.63**",
+            "Later seasons (casing reused, new insert, refit)|not shown|≈ €0.51",
+            "Average over a 5-season casing life|not shown|≈ €0.53"
+          ]
+        },
+        {
+          "type": "metrics",
+          "items": [
+            {
+              "value": "€0.21",
+              "label": "Materials per ring"
+            },
+            {
+              "value": "€0.42",
+              "label": "Labour per ring, corrected"
+            },
+            {
+              "value": "≈ €0.63",
+              "label": "First-season cost per ring"
+            },
+            {
+              "value": "≈ 2/3",
+              "label": "Share of cost that is labour"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "markdown": "The correction changes the headline, but it makes the case **more** interesting, not less. Two things follow.\n\n**(i) Labour is the number to design against:** About two thirds of the cost is the time to fit a ring. So the best place to save money is not cheaper plastic but a faster fit. e.g. if a better snap and a pre-loaded insert brought the time down to 15 seconds a plant, labour would fall to about €0.16 a ring and the first-season cost to about €0.37. Hence the hinge and lock are not details; they are the cost model.\n\n**(ii) This is a cost, not a price:** €0.63 is what a ring costs to make and fit. A price to growers would add a margin for the maker and for distribution, and it should be set against what growers spend today on sprays and lost plants. We did not have that comparison, and it is the first thing I would add."
+        },
+        {
+          "type": "callout",
+          "heading": "Why I show the mistake",
+          "icon": "fa-magnifying-glass",
+          "text": "A case study that hides its errors teaches nothing. The design work was mine to be proud of; the labour slip was ours to learn from. Checking units, here seconds to hours, is the oldest habit in engineering, and it was the one we skipped under deadline pressure."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Point 6: the roadmap",
+      "title": "Five steps from drawing to greenhouse",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "A design on a slide is a hypothesis. We closed with a plan to test it in five steps, each one de-risking the next."
+        },
+        {
+          "type": "timeline",
+          "title": "Our implementation plan",
+          "steps": [
+            {
+              "phase": "Step 1: Prototype",
+              "text": "Build the ring, develop the spore-loaded hydrogel insert, and test the lock, moisture retention and how well the insert sticks to stems."
+            },
+            {
+              "phase": "Step 2: Lab testing and iteration",
+              "text": "Controlled greenhouse trials that track how long the fungus stays alive against how many mites it kills."
+            },
+            {
+              "phase": "Step 3: Field testing",
+              "text": "Partner with agricultural companies for large-scale trials, and refine the design from feedback and durability tests."
+            },
+            {
+              "phase": "Step 4: Optimisation",
+              "text": "Finalise materials and design for cost and sustainability, and find partners to scale up production."
+            },
+            {
+              "phase": "Step 5: Application",
+              "text": "Fit the rings on working crops and check the results in a real growing environment."
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "image": "images/uploads/greenhouse-mite-applicator-ring-slide-10.jpg",
+          "alt": "Slide 10 of 10. Implementation plan: five steps from prototype development, lab testing and iteration, field testing, optimisation, to application in real time.",
+          "caption": "Slide 10 of 10. The roadmap we presented. Each step answers a question the previous one could not.",
+          "size": "wide"
+        },
+        {
+          "type": "text",
+          "markdown": "Looking back, I would add three things the plan does not yet cover.\n\n**(i) The cost of recharging:** We costed fitting the ring once, but staff recharge the insert every two to three weeks. That labour belongs in the model.\n\n**(ii) A comparison with today's spend:** What does a grower spend now on sprays and lost plants per plant per season? Without that, we know the cost but not the value.\n\n**(iii) A time-to-fit trial:** Since labour is two thirds of the cost, the first prototype test should be a stopwatch, not just a microscope."
+        }
+      ]
+    },
+    {
+      "type": "blocks",
+      "kicker": "Reflection",
+      "title": "Arrows in the quiver: combining skills, and the judgement on top",
+      "blocks": [
+        {
+          "type": "text",
+          "markdown": "When I moved from mechanical engineering into business, part of me filed the engineering away as a past life. This project showed me that was wrong. **No skill you have learned is useless.** Each one is an arrow in your quiver, and each makes you better at the next problem.\n\nBut having the arrows is not the point. This project needed four kinds of thinking, and the value came from using each one at the right moment, then handing over to the next."
+        },
+        {
+          "type": "text",
+          "markdown": "**(i) Biology, to read the problem:** Understanding the mite and the fungus told us the real problem was delivery, not the cure. e.g. a doctor's first job is the diagnosis, not the prescription.\n\n**(ii) Engineering, to give it a form:** The fungus's needs became a requirement list, and the requirement list became a ring with a lock, a hinge and a gel insert.\n\n**(iii) Economics, to test if it is worth it:** Unit costs showed which part of the design drives the money, and the corrected numbers showed that fitting time matters more than plastic.\n\n**(iv) Storytelling, to make the client follow:** Introduction, analysis, result, roadmap. A client who can follow the logic will trust the answer."
+        },
+        {
+          "type": "callout",
+          "heading": "Where judgement comes in",
+          "icon": "fa-scale-balanced",
+          "text": "Knowing many things is common. Knowing which one the problem needs right now is rare. Judgement was deciding to stop pricing a spray and start designing a ring; deciding to kill the drip line even though it was the cleverest idea; and, in hindsight, deciding which numbers to check twice. e.g. a cricket captain does not bowl the fastest bowler every over; the skill is picking the right bowler for the batter at the crease."
+        },
+        {
+          "type": "text",
+          "markdown": "So this is what I take from the challenge. Collect skills without worrying whether they \"fit\" your current career. Then build the judgement to combine them: lead with the one the problem needs, bring in the next when the question changes, and check the work with the one you trust least. Hence the engineer in me designed the ring, the business student costed it, and both of us should have checked the hours."
+        },
+        {
+          "type": "quote",
+          "text": "No skill learned is wasted. They are arrows in your quiver, and judgement is knowing which one to draw.",
+          "author": "My takeaway from the challenge"
+        }
+      ]
+    }
+  ]
+}
