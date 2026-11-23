@@ -96,7 +96,7 @@
       <nav class="flex items-center gap-1 text-sm font-medium" aria-label="Site">
         <a href="#" data-home class="top-link hidden sm:inline-flex items-center gap-1.5 h-9 px-3 rounded-lg hover:bg-ink-100 dark:hover:bg-white/5" data-top="home"><i class="fa-solid fa-book text-xs opacity-70"></i>Library</a>
         <a href="#case-studies" data-cases class="top-link inline-flex items-center gap-1.5 h-9 px-3 rounded-lg hover:bg-ink-100 dark:hover:bg-white/5" data-top="cases"><i class="fa-solid fa-briefcase text-xs opacity-70"></i><span id="casesNavLabel">Case Studies</span></a>
-        <a href="#prep" data-prep class="top-link inline-flex items-center gap-1.5 h-9 px-3 rounded-lg hover:bg-ink-100 dark:hover:bg-white/5" data-top="prep"><i class="prep-icon fa-solid fa-graduation-cap text-xs opacity-70"></i><span class="hidden sm:inline">Prep Materials</span><span class="sr-only sm:hidden">Prep Materials</span></a>
+        <a href="#prep" data-prep class="top-link inline-flex items-center gap-1.5 h-9 px-3 rounded-lg hover:bg-ink-100 dark:hover:bg-white/5" data-top="prep"><i class="prep-icon fa-solid fa-graduation-cap text-xs opacity-70"></i><span class="prep-name hidden sm:inline">Scholar&rsquo;s Vault</span><span class="prep-name sr-only sm:hidden">Scholar&rsquo;s Vault</span></a>
       </nav>
     </div>
   </header>
@@ -116,7 +116,7 @@
         <span id="casesCount" class="ml-auto text-[11px] font-mono text-ink-700/50 dark:text-white/40"></span>
       </button>
       <button data-prep class="prep-link -mt-6 w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium border border-ink-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/5 transition">
-        <i class="prep-icon fa-solid fa-graduation-cap text-accent dark:text-accent-dark"></i><span>Prep Materials</span>
+        <i class="prep-icon fa-solid fa-graduation-cap text-accent dark:text-accent-dark"></i><span class="prep-name">Scholar&rsquo;s Vault</span>
         <span id="prepCount" class="ml-auto text-[11px] font-mono text-ink-700/50 dark:text-white/40"></span>
       </button>
       <section>
@@ -132,7 +132,7 @@
         <ul id="caseList" class="space-y-0.5"></ul>
       </section>
       <section id="prepSection" class="hidden">
-        <h2 class="px-2 mb-3 text-[11px] font-semibold uppercase tracking-[.14em] text-ink-700/50 dark:text-white/40">Prep Materials</h2>
+        <h2 class="px-2 mb-3 text-[11px] font-semibold uppercase tracking-[.14em] text-ink-700/50 dark:text-white/40"><span class="prep-name">Scholar&rsquo;s Vault</span></h2>
         <ul id="prepList" class="space-y-0.5"></ul>
       </section>
       <section id="chapterSection">
@@ -228,7 +228,7 @@
     postsHeading: 'Blog Posts',
     casesHeading: 'My Case Studies',
     casesIntro: 'The ventures I have built and the case competitions I have taken part in, written up the way we would study any company: what we set out to do, what happened, and what we learned.',
-    prepHeading: 'Prep Materials',
+    prepHeading: 'Scholar’s Vault',
     prepIntro: 'Study guides, handbooks and practice workbooks for MBA entrants and case competitors. Each one explains the basics in plain words, then gives you something to practise on.',
     footerText: 'Educational content for strategy students & operators.',
     footerNote: 'Figures in startup models are illustrative.',
@@ -920,6 +920,7 @@
      This is a sign-in screen on a public site: it keeps casual visitors out, but the
      files themselves can still be opened by anyone who has their exact address.
      ========================================================= */
+  const plainText = html => { const d = document.createElement('div'); d.innerHTML = String(html ?? ''); return d.textContent; };
   const PREP_SESSION_KEY = 'msv-prep-session';
   const PREP_ACCESS = {
     required: false,     // set from content/prep/access.json
@@ -1033,7 +1034,7 @@
   function withPrep(fn) {
     if (prepState === 'ready') return fn();
     showOnly('#prepView');
-    $('#prepView').innerHTML = `<p class="text-sm ${muted}"><i class="fa-solid fa-spinner fa-spin mr-2"></i>Loading the prep materials…</p>`;
+    $('#prepView').innerHTML = `<p class="text-sm ${muted}"><i class="fa-solid fa-spinner fa-spin mr-2"></i>Opening the vault…</p>`;
     loadPrep().then(() => (prepState === 'ready' ? fn() : showPrep()));
   }
 
@@ -1072,7 +1073,7 @@
         <div class="relative overflow-hidden rounded-3xl bg-ink-900 text-white p-7 sm:p-10">
           <div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-gradient-to-br ${m.color} opacity-30 blur-2xl"></div>
           <div class="absolute right-8 bottom-6 text-7xl sm:text-8xl opacity-10"><i class="fa-solid ${m.icon}"></i></div>
-          <p class="relative text-xs font-mono tracking-widest text-white/50 mb-4">PREP MATERIALS · ${String(m.kind).toUpperCase()}</p>
+          <p class="relative text-xs font-mono tracking-widest text-white/50 mb-4">${plainText(SITE.prepHeading).toUpperCase()} · ${String(m.kind).toUpperCase()}</p>
           <h1 class="relative font-serif text-3xl sm:text-5xl font-semibold leading-[1.1] tracking-tight max-w-3xl">${m.title}</h1>
           ${m.summary ? `<p class="relative mt-4 text-white/70 text-base sm:text-lg max-w-2xl leading-relaxed">${m.summary}</p>` : ''}
           <div class="relative mt-7 flex flex-wrap gap-2.5 text-xs font-medium">
@@ -1086,7 +1087,7 @@
       ${renderChapters(m)}
 
       ${next ? `<button data-prep-item="${next.id}" class="mt-10 w-full text-left ${card} p-6 hover:border-ink-900 dark:hover:border-white/40 transition flex items-center justify-between gap-4">
-          <div><p class="text-xs ${muted}">Next in prep materials · ${next.kind}</p><p class="font-serif text-xl font-semibold mt-1">${next.title}</p></div>
+          <div><p class="text-xs ${muted}">Next in ${SITE.prepHeading} · ${next.kind}</p><p class="font-serif text-xl font-semibold mt-1">${next.title}</p></div>
           <i class="fa-solid fa-arrow-right text-xl"></i></button>` : ''}
     `;
   }
@@ -1111,8 +1112,8 @@
       return head + `
       <form id="prepLogin" class="${card} p-7 sm:p-9 max-w-md mx-auto" autocomplete="on" novalidate>
         <span class="inline-grid place-items-center w-12 h-12 rounded-2xl bg-ink-100 dark:bg-white/10"><i class="fa-solid fa-lock text-lg text-accent dark:text-accent-dark"></i></span>
-        <h2 class="font-serif text-2xl font-semibold mt-4">Student sign-in</h2>
-        <p class="text-sm ${muted} mt-1.5 leading-relaxed">These guides and workbooks are for enrolled students. Sign in with the username and password Mathew gave you.</p>
+        <h2 class="font-serif text-2xl font-semibold mt-4">Sign in to ${SITE.prepHeading}</h2>
+        <p class="text-sm ${muted} mt-1.5 leading-relaxed">The vault holds guides and workbooks for enrolled students. Sign in with the username and password Mathew gave you.</p>
         <label class="block text-sm font-medium mt-6" for="prepUser">Username</label>
         <input id="prepUser" name="username" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" required class="${field}" />
         <label class="block text-sm font-medium mt-4" for="prepPass">Password</label>
@@ -1130,7 +1131,7 @@
       return head + notice('fa-triangle-exclamation', 'The prep materials couldn’t be loaded', `content/prep/index.json is missing or unreadable (${esc(prepError)}). It is made by <code>node scripts/build-content.js</code>.`);
     }
     if (!PREP.length) {
-      return head + notice('fa-graduation-cap', 'Prep materials are on their way', 'Study guides and workbooks will appear here soon.');
+      return head + notice('fa-graduation-cap', 'The vault is being stocked', 'Study guides and workbooks will appear here soon.');
     }
     const cards = PREP.map(m => `
       <div class="${card} overflow-hidden flex flex-col hover:shadow-xl hover:shadow-black/5 hover:-translate-y-0.5 transition">
@@ -1173,7 +1174,7 @@
     };
     if (prepState === 'ready' || prepState === 'locked' || prepState === 'error') paint();
     else {
-      $('#prepView').innerHTML = `<p class="text-sm ${muted}"><i class="fa-solid fa-spinner fa-spin mr-2"></i>Loading the prep materials…</p>`;
+      $('#prepView').innerHTML = `<p class="text-sm ${muted}"><i class="fa-solid fa-spinner fa-spin mr-2"></i>Opening the vault…</p>`;
       loadPrep().then(paint);
     }
     renderSidebar();
@@ -1249,14 +1250,14 @@
     back.toggleAttribute('data-home', !isCase && !isPrep);
     back.toggleAttribute('data-cases', isCase);
     back.toggleAttribute('data-prep', isPrep);
-    back.title = isCase ? 'Back to case studies' : isPrep ? 'Back to prep materials' : 'Back to library';
-    back.querySelector('span').textContent = isCase ? 'Case studies' : isPrep ? 'Prep materials' : 'Library';
+    back.title = isCase ? 'Back to case studies' : isPrep ? `Back to ${plainText(SITE.prepHeading)}` : 'Back to library';
+    back.querySelector('span').textContent = isCase ? 'Case studies' : isPrep ? plainText(SITE.prepHeading) : 'Library';
     $('#barLinks').innerHTML = chaptersOf(currentDoc()).map(c => `
       <a href="#${c.id}" data-target="${c.id}" class="bar-link shrink-0 inline-flex items-center gap-1.5 h-8 px-3 rounded-full text-xs font-medium border border-transparent text-ink-700/80 dark:text-white/70 hover:border-ink-200 dark:hover:border-white/15 transition whitespace-nowrap">
         <span class="font-mono opacity-60">${c.num}</span>${c.label}
       </a>`).join('');
     $('#bookletJump').innerHTML = docs().map(b => `<option value="${b.id}" ${b.id === currentId ? 'selected' : ''}>${isCase || isPrep ? b.kind : b.volume} · ${b.title}</option>`).join('');
-    $('#bookletJump').setAttribute('aria-label', isCase ? 'Jump to case study' : isPrep ? 'Jump to prep material' : 'Jump to booklet');
+    $('#bookletJump').setAttribute('aria-label', isCase ? 'Jump to case study' : isPrep ? 'Jump to guide' : 'Jump to booklet');
   }
 
   function markActiveChapter(id) {
@@ -1547,6 +1548,7 @@
       currentId = BOOKLETS[0]?.id ?? null;
       libraryReady = true;
       if (PREVIEW) { if (pendingPreview) renderPreview(pendingPreview); return; }
+      $$('.prep-name').forEach(el => { el.innerHTML = SITE.prepHeading; });
       route(location.hash.slice(1));
       checkPrepAccess().then(() => { if (!PREVIEW) renderSidebar(); });
     })

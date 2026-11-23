@@ -97,8 +97,8 @@ if (prepLogins.length) {
     return { user, salt, hash };
   });
   fs.writeFileSync(accessFile, JSON.stringify({ iterations: PREP_HASH_ITERATIONS, logins }));
-  console.log(`content/prep/access.json: ${logins.length} student logins (Prep Materials needs a sign-in)`);
+  console.log(`content/prep/access.json: ${logins.length} student logins (Scholar's Vault needs a sign-in)`);
 } else {
   fs.rmSync(accessFile, { force: true });
-  console.log('content/prep/access.json: no PREP_LOGINS secret, so Prep Materials is open to everyone');
+  console.log('content/prep/access.json: no PREP_LOGINS secret, so Scholar’s Vault is open to everyone');
 }
