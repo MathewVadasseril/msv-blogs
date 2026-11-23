@@ -158,8 +158,6 @@ CMS.registerPreviewTemplate('booklets', sitePreview('booklets'));
 CMS.registerPreviewTemplate('booklet_drafts', sitePreview('booklets'));
 CMS.registerPreviewTemplate('cases', sitePreview('cases'));
 CMS.registerPreviewTemplate('case_drafts', sitePreview('cases'));
-CMS.registerPreviewTemplate('prep', sitePreview('prep'));
-CMS.registerPreviewTemplate('prep_drafts', sitePreview('prep'));
 CMS.registerPreviewTemplate('site', sitePreview('settings'));
 
 /* ------------------------------------------------------------------ 3. Bracketed notes
@@ -303,7 +301,7 @@ function toast(message) {
    it's off. Site Settings has no drafts, so it always reads "Publish". Whenever the
    button would publish (by click or Cmd/Ctrl+S), the confirmation above appears first;
    saving a draft goes straight through. */
-const PUBLISHABLE = /^#\/collections\/(posts|booklets|cases|prep|post_drafts|booklet_drafts|case_drafts|prep_drafts)\/(new|entries\/)/;
+const PUBLISHABLE = /^#\/collections\/(posts|booklets|cases|post_drafts|booklet_drafts|case_drafts)\/(new|entries\/)/;
 
 const saveButton = () =>
   document.querySelector('[role="toolbar"][aria-label="Primary"] .sui.button.primary');
