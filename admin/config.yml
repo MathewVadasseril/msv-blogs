@@ -461,9 +461,9 @@ collections:
   # (entries and downloads) stays inside content/prep/ so it can go behind a sign-in later.
   - divider: true
   - name: prep
-    label: Prep Materials
-    label_singular: Prep Material
-    description: Study guides, handbooks and workbooks, shown on the Prep Materials page. Downloads are stored in content/prep/files. Drafts are listed under Draft Prep Materials below.
+    label: Scholar's Vault
+    label_singular: Vault guide
+    description: Study guides, handbooks and workbooks, shown in Scholar's Vault, the signed-in student section. Downloads are stored in content/prep/files. Drafts are listed under Vault Drafts below.
     folder: content/prep
     format: json
     extension: json
@@ -524,9 +524,9 @@ collections:
       - *chapters_field
 
   - name: prep_drafts
-    label: Draft Prep Materials
-    label_singular: Draft Prep Material
-    description: Prep materials with Draft switched on, hidden from the site. Switch Draft off and save to publish.
+    label: Vault Drafts
+    label_singular: Vault draft
+    description: Vault guides with Draft switched on, hidden from the site. Switch Draft off and save to publish.
     folder: content/prep
     format: json
     extension: json
@@ -558,7 +558,7 @@ collections:
           - { name: postsHeading, label: Blog posts section heading, widget: string, default: Blog Posts }
           - { name: casesHeading, label: Case studies page title, widget: string, default: My Case Studies }
           - { name: casesIntro, label: Case studies page introduction, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [], required: false, hint: "Paragraph under the title on the Case Studies page." }
-          - { name: prepHeading, label: Prep materials page title, widget: string, default: Prep Materials }
-          - { name: prepIntro, label: Prep materials page introduction, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [], required: false, hint: "Paragraph under the title on the Prep Materials page." }
+          - { name: prepHeading, label: "Scholar's Vault page title", widget: string, default: "Scholar’s Vault" }
+          - { name: prepIntro, label: "Scholar's Vault page introduction", widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [], required: false, hint: "Paragraph under the title on the Prep Materials page." }
           - { name: footerText, label: Footer text, widget: string, required: false, hint: "Shown after © year and the site name." }
           - { name: footerNote, label: Footer note (right side), widget: string, required: false }

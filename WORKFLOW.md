@@ -79,17 +79,17 @@ npx serve .        # then open the address it prints
 
 Opening `index.html` directly from disk won't work, because the browser blocks it from loading `content/library.json`.
 
-## Prep Materials
+## Scholar's Vault (Prep Materials)
 
-Study guides, handbooks and workbooks for students, on their own page at `#prep` (header, sidebar and a card on the home page). Each one opens at `#prep-<file name>`.
+Study guides, handbooks and workbooks for students, in the signed-in section called **Scholar's Vault** (renamed from Prep Materials; the name is the "page title" in **Site Settings**), on their own page at `#prep` (header, sidebar and a card on the home page). Each one opens at `#prep-<file name>`.
 
-- **Where things live:** everything for this section is inside `content/prep/`. Entries are `content/prep/*.json` ("Prep Materials" in the editor), downloads and pictures are in `content/prep/files/`, and the build writes `content/prep/index.json`. None of it goes into `content/library.json`, and the site only loads it when someone opens the section.
+- **Where things live:** everything for this section is inside `content/prep/`. Entries are `content/prep/*.json` ("Scholar's Vault" in the editor), downloads and pictures are in `content/prep/files/`, and the build writes `content/prep/index.json`. None of it goes into `content/library.json`, and the site only loads it when someone opens the section.
 - **An entry** has the same chapters as a booklet, plus Type (Guide, Handbook, Workbook…), who it's for, level, time needed, and a list of downloads shown above the first chapter.
 - **Not linked on purpose:** the answer key for the *Finance before Day One* case stays in Google Drive, for mentors only.
 
 ### Student logins
 
-Prep Materials asks for a username and password. Each student gets their own login.
+Scholar's Vault asks for a username and password. Each student gets their own login.
 
 **Add, change or remove logins:**
 
