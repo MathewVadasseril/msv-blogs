@@ -87,3 +87,11 @@ Opening `index.html` directly from disk won't work, because the browser blocks i
 - **Permissions:** Contents → **Read and write** (GitHub adds Metadata: Read-only automatically)
 
 When the token expires, create a new one the same way and sign in again.
+
+## Sharing a link on LinkedIn
+
+The site moves between pages with `#` links, and LinkedIn ignores everything after the `#`, so a plain link always previews as the home page. Share the **share link** instead; it shows the right title, summary and picture, then opens the page:
+
+`https://mathewvadasseril.github.io/msv-blogs/share/<file-name>/`
+
+`<file-name>` is the JSON file's name without `.json`, e.g. `share/greek-surplus-food-expansion/`. Share pages are made on every deploy, so new posts get one automatically. The picture is the first JPG/PNG in the post, or `images/og-default.png`.
