@@ -909,24 +909,92 @@
      PREP MATERIALS
      Study guides, handbooks and workbooks from content/prep/. They are bundled into
      content/prep/index.json (not library.json) and only fetched when someone opens
-     this section, so the whole content/prep/ folder can later sit behind a sign-in.
+     this section.
 
-     To lock it later (see "Prep Materials" in WORKFLOW.md):
-       1. Host the site where content/prep/ can be protected, so the files themselves
-          need a sign-in (a password on the page alone would not hide them).
-       2. Set locked: true below, and fill in isSignedIn() and signIn() for the sign-in
-          service. If the server answers 401 or 403, the page shows the sign-in screen too.
+     STUDENT LOGINS: on each deploy, scripts/build-content.js reads the PREP_LOGINS
+     secret (one "username: password" per line) and writes content/prep/access.json
+     with a salted hash of each password, never the password itself. When that file
+     exists, visitors must sign in before the section opens. With no secret (e.g. on
+     your computer), the section stays open. See "Student logins" in WORKFLOW.md.
+
+     This is a sign-in screen on a public site: it keeps casual visitors out, but the
+     files themselves can still be opened by anyone who has their exact address.
      ========================================================= */
+  const PREP_SESSION_KEY = 'msv-prep-session';
   const PREP_ACCESS = {
-    locked: false,
-    isSignedIn: async () => true,   // e.g. () => !!netlifyIdentity.currentUser()
-    signIn: () => {},                // e.g. () => netlifyIdentity.open('login')
+    required: false,     // set from content/prep/access.json
+    logins: [],          // [{ user, salt, hash }]
+    iterations: 150000,
+    user: '',            // who is signed in
   };
 
   let PREP = [];
   let prepState = 'idle';            // idle | loading | ready | locked | error
   let prepError = '';
-  const prepLocked = () => PREP_ACCESS.locked && prepState !== 'ready';
+  let prepLoginError = '';
+  let prepAccessChecked = null;
+  const prepLocked = () => PREP_ACCESS.required && prepState !== 'ready';
+
+  const store = {
+    get() {
+      for (const s of [window.sessionStorage, window.localStorage]) {
+        try { const v = s.getItem(PREP_SESSION_KEY); if (v) return JSON.parse(v); } catch (_) {}
+      }
+      return null;
+    },
+    set(v, remember) {
+      try { (remember ? window.localStorage : window.sessionStorage).setItem(PREP_SESSION_KEY, JSON.stringify(v)); } catch (_) {}
+    },
+    clear() {
+      for (const s of [window.sessionStorage, window.localStorage]) { try { s.removeItem(PREP_SESSION_KEY); } catch (_) {} }
+    },
+  };
+
+  // Reads content/prep/access.json once. No file means no sign-in is needed.
+  function checkPrepAccess() {
+    if (!prepAccessChecked) {
+      prepAccessChecked = fetch(`content/prep/access.json?v=${Date.now()}`, { cache: 'no-store' })
+        .then(res => (res.ok ? res.json() : null))
+        .then(data => {
+          PREP_ACCESS.logins = list(data?.logins);
+          PREP_ACCESS.iterations = data?.iterations || PREP_ACCESS.iterations;
+          PREP_ACCESS.required = PREP_ACCESS.logins.length > 0;
+          // A saved sign-in stays valid only while that student's password is unchanged.
+          const saved = store.get();
+          const ok = saved && PREP_ACCESS.logins.some(l => l.user === saved.user && l.hash === saved.hash);
+          if (ok) PREP_ACCESS.user = saved.user; else if (saved) store.clear();
+        })
+        .catch(() => {});
+    }
+    return prepAccessChecked;
+  }
+
+  async function hashPassword(password, salt, user) {
+    const enc = new TextEncoder();
+    const key = await crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveBits']);
+    const bits = await crypto.subtle.deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt: enc.encode(`${salt}:${user}`), iterations: PREP_ACCESS.iterations }, key, 256);
+    return [...new Uint8Array(bits)].map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  async function prepSignIn(username, password, remember) {
+    const user = String(username || '').trim().toLowerCase();
+    const login = PREP_ACCESS.logins.find(l => l.user === user);
+    // Hash even for an unknown username, so a wrong name and a wrong password take the same time.
+    const hash = await hashPassword(String(password || ''), login ? login.salt : 'none', user);
+    if (!login || hash !== login.hash) { prepLoginError = 'That username and password don’t match. Check both and try again.'; return false; }
+    prepLoginError = '';
+    PREP_ACCESS.user = user;
+    store.set({ user, hash }, remember);
+    return true;
+  }
+
+  function prepSignOut() {
+    store.clear();
+    PREP_ACCESS.user = '';
+    PREP = [];
+    prepState = 'idle';
+    navigate('prep');
+  }
 
   function prepWithDefaults(m) {
     return withDefaults({
@@ -945,7 +1013,8 @@
 
   async function loadPrep() {
     if (prepState === 'ready') return;
-    if (PREP_ACCESS.locked && !(await PREP_ACCESS.isSignedIn())) { prepState = 'locked'; return; }
+    await checkPrepAccess();
+    if (PREP_ACCESS.required && !PREP_ACCESS.user) { prepState = 'locked'; return; }
     prepState = 'loading';
     try {
       const res = await fetch(`content/prep/index.json?v=${Date.now()}`, { cache: 'no-store' });
@@ -1038,8 +1107,24 @@
         ${button}
       </div>`;
     if (prepState === 'locked') {
-      return head + notice('fa-lock', 'Sign in to open the prep materials', 'These guides and workbooks are for signed-in members. Sign in, and everything here opens straight away.',
-        `<button data-prep-signin class="mt-6 inline-flex items-center gap-2 h-10 px-5 rounded-full text-sm font-semibold bg-ink-900 text-white dark:bg-white dark:text-ink-900"><i class="fa-solid fa-right-to-bracket"></i>Sign in</button>`);
+      const field = 'mt-1.5 w-full h-11 px-3.5 rounded-xl text-base border border-ink-200 dark:border-white/15 bg-white dark:bg-white/5 focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-accent-dark';
+      return head + `
+      <form id="prepLogin" class="${card} p-7 sm:p-9 max-w-md mx-auto" autocomplete="on" novalidate>
+        <span class="inline-grid place-items-center w-12 h-12 rounded-2xl bg-ink-100 dark:bg-white/10"><i class="fa-solid fa-lock text-lg text-accent dark:text-accent-dark"></i></span>
+        <h2 class="font-serif text-2xl font-semibold mt-4">Student sign-in</h2>
+        <p class="text-sm ${muted} mt-1.5 leading-relaxed">These guides and workbooks are for enrolled students. Sign in with the username and password Mathew gave you.</p>
+        <label class="block text-sm font-medium mt-6" for="prepUser">Username</label>
+        <input id="prepUser" name="username" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" required class="${field}" />
+        <label class="block text-sm font-medium mt-4" for="prepPass">Password</label>
+        <div class="relative">
+          <input id="prepPass" name="password" type="password" autocomplete="current-password" required class="${field} pr-11" />
+          <button type="button" data-prep-showpass class="absolute right-1.5 top-[calc(50%+3px)] -translate-y-1/2 w-9 h-9 grid place-items-center rounded-lg ${muted} hover:bg-ink-100 dark:hover:bg-white/10" aria-label="Show password"><i class="fa-regular fa-eye"></i></button>
+        </div>
+        <label class="mt-4 flex items-center gap-2 text-sm ${muted}"><input id="prepRemember" type="checkbox" class="w-4 h-4 accent-[#c2410c]" />Keep me signed in on this device</label>
+        <p id="prepLoginError" role="alert" class="${prepLoginError ? '' : 'hidden'} mt-4 text-sm rounded-lg px-3 py-2 bg-rose-50 text-rose-700 border border-rose-200 dark:bg-rose-500/10 dark:text-rose-300 dark:border-rose-400/30">${esc(prepLoginError)}</p>
+        <button type="submit" class="mt-6 w-full inline-flex items-center justify-center gap-2 h-11 rounded-full text-sm font-semibold bg-ink-900 text-white dark:bg-white dark:text-ink-900 disabled:opacity-60"><i class="fa-solid fa-right-to-bracket"></i><span>Sign in</span></button>
+        <p class="text-xs ${muted} mt-5 text-center">No login yet? Ask Mathew for one.</p>
+      </form>`;
     }
     if (prepState === 'error') {
       return head + notice('fa-triangle-exclamation', 'The prep materials couldn’t be loaded', `content/prep/index.json is missing or unreadable (${esc(prepError)}). It is made by <code>node scripts/build-content.js</code>.`);
@@ -1067,7 +1152,12 @@
           </div>
         </div>
       </div>`).join('');
-    return head + `<div class="grid md:grid-cols-2 gap-6">${cards}</div>`;
+    const who = PREP_ACCESS.required && PREP_ACCESS.user ? `
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-6 text-sm ${muted}">
+        <span><i class="fa-solid fa-circle-user mr-1.5"></i>Signed in as <strong class="text-ink-900 dark:text-white">${esc(PREP_ACCESS.user)}</strong></span>
+        <button data-prep-signout class="inline-flex items-center gap-1.5 h-8 px-3 rounded-full text-xs font-medium border border-ink-200 dark:border-white/15 hover:bg-white dark:hover:bg-white/5"><i class="fa-solid fa-right-from-bracket text-[10px]"></i>Sign out</button>
+      </div>` : '';
+    return head + who + `<div class="grid md:grid-cols-2 gap-6">${cards}</div>`;
   }
 
   function showPrep() {
@@ -1078,6 +1168,7 @@
       if (view !== 'prep') return;
       $('#prepView').innerHTML = renderPrepPage();
       renderSidebar();
+      if (prepState === 'locked') $('#prepUser')?.focus({ preventScroll: true });
       document.title = `${$('#prepView h1').textContent} · ${SITE.plainName}`;
     };
     if (prepState === 'ready' || prepState === 'locked' || prepState === 'error') paint();
@@ -1293,7 +1384,15 @@
       navigate('prep-' + prepItem.dataset.prepItem, chapter);
       return;
     }
-    if (e.target.closest('[data-prep-signin]')) { PREP_ACCESS.signIn(); return; }
+    if (e.target.closest('[data-prep-signout]')) { prepSignOut(); return; }
+    const showPass = e.target.closest('[data-prep-showpass]');
+    if (showPass) {
+      const input = $('#prepPass'); const show = input.type === 'password';
+      input.type = show ? 'text' : 'password';
+      showPass.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+      showPass.innerHTML = `<i class="fa-regular ${show ? 'fa-eye-slash' : 'fa-eye'}"></i>`;
+      return;
+    }
     const filter = e.target.closest('[data-case-filter]');
     if (filter) { caseFilter = filter.dataset.caseFilter; renderCasesPage(); return; }
     const caseLink = e.target.closest('[data-case]');
@@ -1323,6 +1422,22 @@
     }
     const nav = e.target.closest('.nav-link, .bar-link');
     if (nav) { e.preventDefault(); closeMenu(); scrollToChapter(nav.dataset.target); }
+  });
+  document.addEventListener('submit', async e => {
+    if (e.target.id !== 'prepLogin') return;
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.disabled = true; btn.querySelector('span').textContent = 'Signing in…';
+    const ok = await prepSignIn($('#prepUser').value, $('#prepPass').value, $('#prepRemember').checked);
+    if (ok) {
+      prepState = 'idle';
+      const want = location.hash.slice(1);
+      route(want.startsWith('prep') ? want : 'prep');
+    } else {
+      btn.disabled = false; btn.querySelector('span').textContent = 'Sign in';
+      const err = $('#prepLoginError'); err.textContent = prepLoginError; err.classList.remove('hidden');
+      $('#prepPass').select();
+    }
   });
   $('#bookletJump').addEventListener('change', e => navigate(({ case: 'case-', prep: 'prep-' }[docKind] || '') + e.target.value));
   $('#brand').addEventListener('click', e => { e.preventDefault(); navigate('home'); });
@@ -1433,6 +1548,7 @@
       libraryReady = true;
       if (PREVIEW) { if (pendingPreview) renderPreview(pendingPreview); return; }
       route(location.hash.slice(1));
+      checkPrepAccess().then(() => { if (!PREVIEW) renderSidebar(); });
     })
     .catch(err => {
       libraryReady = true;
