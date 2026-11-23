@@ -29,7 +29,7 @@ jobs:
       - name: Collect the files that make up the site
         run: |
           mkdir _site
-          cp -r index.html admin content images _site/
+          cp -r index.html admin content images share _site/
 
       - uses: actions/configure-pages@v5
 

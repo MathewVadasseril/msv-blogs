@@ -4,7 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mathew - Blogs</title>
-  <meta name="description" content="An interactive digital library of business strategy booklets: frameworks, case studies, case-competition slide strategy and startup ideas." />
+  <meta name="description" content="Business case studies, strategy booklets and blog posts by Mathew: real projects, case competitions and the numbers behind them." />
+  <link rel="canonical" href="https://mathewvadasseril.github.io/msv-blogs/" />
+  <!-- Link previews (LinkedIn, WhatsApp, X). Each case study also gets its own share page: see scripts/build-content.js -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mathew - Blogs" />
+  <meta property="og:title" content="Mathew - Blogs: business case studies and strategy booklets" />
+  <meta property="og:description" content="Real projects, case competitions and the numbers behind them, written for students, case competitors and operators." />
+  <meta property="og:url" content="https://mathewvadasseril.github.io/msv-blogs/" />
+  <meta property="og:image" content="https://mathewvadasseril.github.io/msv-blogs/images/og-default.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="627" />
+  <meta name="twitter:card" content="summary_large_image" />
 
 
   <!-- Tailwind CSS -->
@@ -238,6 +249,7 @@
       return `<div class="msv-widget my-8">${(BLOCK_RENDERERS[block.type] || (() => ''))(block)}</div>`;
     } catch (_) { return ''; }
   }
+  const plainText = html => { const t = document.createElement('textarea'); t.innerHTML = String(html ?? ''); return t.value; }; // for tab titles
   const esc = str => String(str ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
   // Fields shown as plain text; every other text field may use Markdown (**bold**, *italic*, links).
@@ -990,7 +1002,7 @@
       renderSidebar();
       renderContentBar();
       setupScrollSpy();
-      document.title = `${b.title.replace(/&amp;/g, '&')} · ${SITE.plainName}`;
+      document.title = `${plainText(b.title)} · ${SITE.plainName}`;
       if (chapter) setTimeout(() => scrollToChapter(chapter), 60);
       else window.scrollTo({ top: 0, behavior: switching ? 'smooth' : 'auto' });
       requestAnimationFrame(() => el.classList.remove('is-switching'));
@@ -1016,7 +1028,7 @@
       </div>
       <div class="post-body mt-8">${p.html}</div>`;
     renderSidebar();
-    document.title = `${p.title.replace(/&amp;/g, '&')} · ${SITE.plainName}`;
+    document.title = `${plainText(p.title)} · ${SITE.plainName}`;
     window.scrollTo({ top: 0 });
   }
 
