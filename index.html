@@ -89,13 +89,14 @@
         </button>
         <a href="#" class="flex items-center gap-2.5" id="brand">
           <span class="w-8 h-8 rounded-lg bg-ink-900 dark:bg-white text-white dark:text-ink-900 grid place-items-center text-sm"><i class="fa-solid fa-book-open"></i></span>
-          <span id="siteName" class="font-serif text-lg font-semibold tracking-tight">Mathew - Blogs</span>
+          <span id="siteName" class="font-serif text-lg font-semibold tracking-tight whitespace-nowrap">Mathew - Blogs</span>
           <span id="siteTagline" class="hidden sm:inline text-xs text-ink-700/60 dark:text-white/40 border-l border-ink-200 dark:border-white/10 pl-2.5 ml-0.5">Strategy Booklets</span>
         </a>
       </div>
       <nav class="flex items-center gap-1 text-sm font-medium" aria-label="Site">
         <a href="#" data-home class="top-link hidden sm:inline-flex items-center gap-1.5 h-9 px-3 rounded-lg hover:bg-ink-100 dark:hover:bg-white/5" data-top="home"><i class="fa-solid fa-book text-xs opacity-70"></i>Library</a>
         <a href="#case-studies" data-cases class="top-link inline-flex items-center gap-1.5 h-9 px-3 rounded-lg hover:bg-ink-100 dark:hover:bg-white/5" data-top="cases"><i class="fa-solid fa-briefcase text-xs opacity-70"></i><span id="casesNavLabel">Case Studies</span></a>
+        <a href="#prep" data-prep class="top-link inline-flex items-center gap-1.5 h-9 px-3 rounded-lg hover:bg-ink-100 dark:hover:bg-white/5" data-top="prep"><i class="prep-icon fa-solid fa-graduation-cap text-xs opacity-70"></i><span class="hidden sm:inline">Prep Materials</span><span class="sr-only sm:hidden">Prep Materials</span></a>
       </nav>
     </div>
   </header>
@@ -114,6 +115,10 @@
         <i class="fa-solid fa-briefcase text-accent dark:text-accent-dark"></i><span id="casesSideLabel">My Case Studies</span>
         <span id="casesCount" class="ml-auto text-[11px] font-mono text-ink-700/50 dark:text-white/40"></span>
       </button>
+      <button data-prep class="prep-link -mt-6 w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium border border-ink-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/5 transition">
+        <i class="prep-icon fa-solid fa-graduation-cap text-accent dark:text-accent-dark"></i><span>Prep Materials</span>
+        <span id="prepCount" class="ml-auto text-[11px] font-mono text-ink-700/50 dark:text-white/40"></span>
+      </button>
       <section>
         <h2 class="px-2 mb-3 text-[11px] font-semibold uppercase tracking-[.14em] text-ink-700/50 dark:text-white/40">Select Booklet</h2>
         <ul id="bookletList" class="space-y-1.5"></ul>
@@ -125,6 +130,10 @@
       <section id="caseSection">
         <h2 class="px-2 mb-3 text-[11px] font-semibold uppercase tracking-[.14em] text-ink-700/50 dark:text-white/40">My Case Studies</h2>
         <ul id="caseList" class="space-y-0.5"></ul>
+      </section>
+      <section id="prepSection" class="hidden">
+        <h2 class="px-2 mb-3 text-[11px] font-semibold uppercase tracking-[.14em] text-ink-700/50 dark:text-white/40">Prep Materials</h2>
+        <ul id="prepList" class="space-y-0.5"></ul>
       </section>
       <section id="chapterSection">
         <h2 class="px-2 mb-3 text-[11px] font-semibold uppercase tracking-[.14em] text-ink-700/50 dark:text-white/40">Chapter Navigation</h2>
@@ -144,6 +153,9 @@
 
     <!-- My case studies (projects and case competitions) -->
     <section id="casesView" class="max-w-5xl mx-auto px-4 sm:px-8 py-10 sm:py-14 hidden"></section>
+
+    <!-- Prep materials (study guides and handbooks; built to go behind a sign-in later) -->
+    <section id="prepView" class="max-w-5xl mx-auto px-4 sm:px-8 py-10 sm:py-14 hidden"></section>
 
     <!-- Blog post view -->
     <article id="postView" class="max-w-3xl mx-auto px-4 sm:px-8 py-10 sm:py-14 hidden"></article>
@@ -216,6 +228,8 @@
     postsHeading: 'Blog Posts',
     casesHeading: 'My Case Studies',
     casesIntro: 'The ventures I have built and the case competitions I have taken part in, written up the way we would study any company: what we set out to do, what happened, and what we learned.',
+    prepHeading: 'Prep Materials',
+    prepIntro: 'Study guides, handbooks and practice workbooks for MBA entrants and case competitors. Each one explains the basics in plain words, then gives you something to practise on.',
     footerText: 'Educational content for strategy students & operators.',
     footerNote: 'Figures in startup models are illustrative.',
   };
@@ -325,6 +339,7 @@
     const site = Object.fromEntries(Object.entries(merged).map(([k, v]) => [k, esc(v ?? '')]));
     site.homeIntro = inlineMd(String(merged.homeIntro ?? ''));
     site.casesIntro = inlineMd(String(merged.casesIntro ?? ''));
+    site.prepIntro = inlineMd(String(merged.prepIntro ?? ''));
     site.plainName = String(merged.siteName || SITE_DEFAULTS.siteName); // for browser tab titles
     return site;
   }
@@ -702,7 +717,8 @@
   let view = 'home';
   // The booklet view also shows case studies; docKind says which list currentId belongs to.
   let docKind = 'booklet';
-  const docs = () => (docKind === 'case' ? CASES : BOOKLETS);
+  const listFor = kind => (kind === 'case' ? CASES : kind === 'prep' ? PREP : BOOKLETS);
+  const docs = () => listFor(docKind);
   const currentDoc = () => docs().find(x => x.id === currentId);
   let caseFilter = 'All';
   let activeTopic = 'All';
@@ -746,6 +762,15 @@
         </span>
         <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
       </button>` : ''}
+
+      <button data-prep class="group w-full text-left ${CASES.length ? '-mt-6' : ''} mb-10 ${card} p-5 sm:p-6 flex items-center gap-4 hover:border-ink-900 dark:hover:border-white/40 transition">
+        <span class="shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 text-white grid place-items-center"><i class="prep-icon fa-solid ${prepLocked() ? 'fa-lock' : 'fa-graduation-cap'}"></i></span>
+        <span class="min-w-0 flex-1">
+          <span class="block font-serif text-xl font-semibold">${SITE.prepHeading}</span>
+          <span class="block text-sm ${muted} mt-0.5">Study guides, handbooks and practice workbooks for MBA entrants and case competitors.</span>
+        </span>
+        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+      </button>
 
       <div class="flex flex-col gap-4 mb-8">
         <div class="relative max-w-md">
@@ -881,6 +906,191 @@
   }
 
   /* =========================================================
+     PREP MATERIALS
+     Study guides, handbooks and workbooks from content/prep/. They are bundled into
+     content/prep/index.json (not library.json) and only fetched when someone opens
+     this section, so the whole content/prep/ folder can later sit behind a sign-in.
+
+     To lock it later (see "Prep Materials" in WORKFLOW.md):
+       1. Host the site where content/prep/ can be protected, so the files themselves
+          need a sign-in (a password on the page alone would not hide them).
+       2. Set locked: true below, and fill in isSignedIn() and signIn() for the sign-in
+          service. If the server answers 401 or 403, the page shows the sign-in screen too.
+     ========================================================= */
+  const PREP_ACCESS = {
+    locked: false,
+    isSignedIn: async () => true,   // e.g. () => !!netlifyIdentity.currentUser()
+    signIn: () => {},                // e.g. () => netlifyIdentity.open('login')
+  };
+
+  let PREP = [];
+  let prepState = 'idle';            // idle | loading | ready | locked | error
+  let prepError = '';
+  const prepLocked = () => PREP_ACCESS.locked && prepState !== 'ready';
+
+  function prepWithDefaults(m) {
+    return withDefaults({
+      icon: 'fa-graduation-cap', color: 'from-rose-500 to-pink-600',
+      summary: '', kind: 'Guide', level: '', time: '', ...m,
+      audience: m.audience || '',
+      downloads: list(m.downloads).filter(d => d && d.file),
+    });
+  }
+
+  // Download links keep their file path as written; their label and note may use inline Markdown.
+  function preparePrep(m) {
+    const item = prepWithDefaults(m);
+    return { ...renderInlineMarkdown(item), downloads: item.downloads.map(d => ({ file: String(d.file), label: inlineMd(String(d.label || '')), note: inlineMd(String(d.note || '')) })) };
+  }
+
+  async function loadPrep() {
+    if (prepState === 'ready') return;
+    if (PREP_ACCESS.locked && !(await PREP_ACCESS.isSignedIn())) { prepState = 'locked'; return; }
+    prepState = 'loading';
+    try {
+      const res = await fetch(`content/prep/index.json?v=${Date.now()}`, { cache: 'no-store' });
+      if (res.status === 401 || res.status === 403) { prepState = 'locked'; return; }
+      if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+      const data = await res.json();
+      PREP = (data.prep || []).map(preparePrep);
+      prepState = 'ready';
+    } catch (err) {
+      prepState = 'error';
+      prepError = err.message;
+    }
+  }
+
+  // Runs fn once the prep materials are loaded, or shows the sign-in / error screen.
+  function withPrep(fn) {
+    if (prepState === 'ready') return fn();
+    showOnly('#prepView');
+    $('#prepView').innerHTML = `<p class="text-sm ${muted}"><i class="fa-solid fa-spinner fa-spin mr-2"></i>Loading the prep materials…</p>`;
+    loadPrep().then(() => (prepState === 'ready' ? fn() : showPrep()));
+  }
+
+  const prepFacts = m => [
+    m.audience && ['fa-user-graduate', m.audience],
+    m.level && ['fa-signal', m.level],
+    m.time && ['fa-regular fa-clock', m.time],
+  ].filter(Boolean);
+  const fileIcon = f => ({ pdf: 'fa-file-pdf', xlsx: 'fa-file-excel', xls: 'fa-file-excel', csv: 'fa-file-csv', pptx: 'fa-file-powerpoint', docx: 'fa-file-word' }[String(f).split('.').pop().toLowerCase()] || 'fa-file-arrow-down');
+  const factIcon = icon => (icon.includes(' ') ? icon : `fa-solid ${icon}`);
+
+  function renderDownloads(m) {
+    if (!m.downloads.length) return '';
+    return `
+      <div class="${card} p-5 sm:p-6 mb-14">
+        <p class="text-[11px] font-semibold uppercase tracking-[.14em] ${muted} mb-4"><i class="fa-solid fa-download mr-1.5 text-accent dark:text-accent-dark"></i>Downloads</p>
+        <div class="grid sm:grid-cols-2 gap-3">
+          ${m.downloads.map(d => `
+            <a href="${esc(String(d.file).replace(/^\//, ''))}" download class="group flex items-center gap-3 rounded-xl border border-ink-200 dark:border-white/10 p-3.5 hover:border-ink-900 dark:hover:border-white/40 transition">
+              <span class="shrink-0 w-10 h-10 rounded-lg bg-ink-100 dark:bg-white/10 grid place-items-center"><i class="fa-solid ${fileIcon(d.file)} text-accent dark:text-accent-dark"></i></span>
+              <span class="min-w-0 flex-1">
+                <span class="block text-sm font-semibold leading-snug">${d.label || 'Download'}</span>
+                ${d.note ? `<span class="block text-xs ${muted} mt-0.5">${d.note}</span>` : ''}
+              </span>
+              <i class="fa-solid fa-arrow-down text-xs ${muted} group-hover:translate-y-0.5 transition"></i>
+            </a>`).join('')}
+        </div>
+      </div>`;
+  }
+
+  function renderPrepItem(m) {
+    const idx = PREP.findIndex(x => x.id === m.id);
+    const next = PREP.length > 1 && idx > -1 ? PREP[(idx + 1) % PREP.length] : null;
+    return `
+      <header class="mb-8">
+        <div class="relative overflow-hidden rounded-3xl bg-ink-900 text-white p-7 sm:p-10">
+          <div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-gradient-to-br ${m.color} opacity-30 blur-2xl"></div>
+          <div class="absolute right-8 bottom-6 text-7xl sm:text-8xl opacity-10"><i class="fa-solid ${m.icon}"></i></div>
+          <p class="relative text-xs font-mono tracking-widest text-white/50 mb-4">PREP MATERIALS · ${String(m.kind).toUpperCase()}</p>
+          <h1 class="relative font-serif text-3xl sm:text-5xl font-semibold leading-[1.1] tracking-tight max-w-3xl">${m.title}</h1>
+          ${m.summary ? `<p class="relative mt-4 text-white/70 text-base sm:text-lg max-w-2xl leading-relaxed">${m.summary}</p>` : ''}
+          <div class="relative mt-7 flex flex-wrap gap-2.5 text-xs font-medium">
+            ${prepFacts(m).map(([icon, text]) => `<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/15"><i class="${factIcon(icon)}"></i>${text}</span>`).join('')}
+          </div>
+        </div>
+      </header>
+
+      ${renderDownloads(m)}
+
+      ${renderChapters(m)}
+
+      ${next ? `<button data-prep-item="${next.id}" class="mt-10 w-full text-left ${card} p-6 hover:border-ink-900 dark:hover:border-white/40 transition flex items-center justify-between gap-4">
+          <div><p class="text-xs ${muted}">Next in prep materials · ${next.kind}</p><p class="font-serif text-xl font-semibold mt-1">${next.title}</p></div>
+          <i class="fa-solid fa-arrow-right text-xl"></i></button>` : ''}
+    `;
+  }
+
+  function renderPrepPage() {
+    const head = `
+      <button data-home class="inline-flex items-center gap-1.5 h-8 px-3 rounded-full text-xs font-medium border border-ink-200 dark:border-white/15 hover:bg-white dark:hover:bg-white/5 mb-8"><i class="fa-solid fa-arrow-left text-[10px]"></i>Library</button>
+      <div class="mb-10">
+        <p class="text-[11px] font-semibold uppercase tracking-[.14em] text-accent dark:text-accent-dark mb-3">Guides, handbooks &amp; workbooks</p>
+        <h1 class="font-serif text-4xl sm:text-5xl font-semibold tracking-tight leading-[1.1]">${SITE.prepHeading}</h1>
+        ${SITE.prepIntro ? `<p class="mt-4 text-lg max-w-2xl ${muted} leading-relaxed">${SITE.prepIntro}</p>` : ''}
+      </div>`;
+    const notice = (icon, title, text, button = '') => `
+      <div class="${card} p-10 text-center max-w-xl mx-auto">
+        <span class="inline-grid place-items-center w-14 h-14 rounded-2xl bg-ink-100 dark:bg-white/10"><i class="fa-solid ${icon} text-xl text-accent dark:text-accent-dark"></i></span>
+        <p class="font-serif text-2xl font-semibold mt-4">${title}</p>
+        <p class="text-sm ${muted} mt-2 leading-relaxed">${text}</p>
+        ${button}
+      </div>`;
+    if (prepState === 'locked') {
+      return head + notice('fa-lock', 'Sign in to open the prep materials', 'These guides and workbooks are for signed-in members. Sign in, and everything here opens straight away.',
+        `<button data-prep-signin class="mt-6 inline-flex items-center gap-2 h-10 px-5 rounded-full text-sm font-semibold bg-ink-900 text-white dark:bg-white dark:text-ink-900"><i class="fa-solid fa-right-to-bracket"></i>Sign in</button>`);
+    }
+    if (prepState === 'error') {
+      return head + notice('fa-triangle-exclamation', 'The prep materials couldn’t be loaded', `content/prep/index.json is missing or unreadable (${esc(prepError)}). It is made by <code>node scripts/build-content.js</code>.`);
+    }
+    if (!PREP.length) {
+      return head + notice('fa-graduation-cap', 'Prep materials are on their way', 'Study guides and workbooks will appear here soon.');
+    }
+    const cards = PREP.map(m => `
+      <div class="${card} overflow-hidden flex flex-col hover:shadow-xl hover:shadow-black/5 hover:-translate-y-0.5 transition">
+        <button data-prep-item="${m.id}" class="text-left relative bg-ink-900 text-white p-6 overflow-hidden">
+          <div class="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-gradient-to-br ${m.color} opacity-40 blur-2xl"></div>
+          <div class="absolute right-5 bottom-4 text-5xl opacity-10"><i class="fa-solid ${m.icon}"></i></div>
+          <p class="relative text-[10px] font-mono tracking-widest text-white/50">${String(m.kind).toUpperCase()}</p>
+          <h3 class="relative font-serif text-2xl font-semibold leading-tight mt-2 pr-10">${m.title}</h3>
+        </button>
+        <div class="p-6 flex-1 flex flex-col gap-4">
+          ${m.summary ? `<p class="text-sm leading-relaxed ${muted}">${m.summary}</p>` : ''}
+          ${prepFacts(m).length ? `<ul class="space-y-1.5 text-sm">${prepFacts(m).map(([icon, text]) => `<li class="flex gap-2"><i class="${factIcon(icon)} w-4 mt-1 text-xs ${muted}"></i><span>${text}</span></li>`).join('')}</ul>` : ''}
+          <div class="flex flex-wrap gap-1.5">
+            ${chaptersOf(m).map(c => `<a href="#prep-${m.id}" data-prep-item="${m.id}" data-chapter-target="${c.id}" title="${c.label}" class="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full border border-ink-200 dark:border-white/15 hover:border-accent hover:text-accent dark:hover:border-accent-dark dark:hover:text-accent-dark">${c.num}</a>`).join('')}
+          </div>
+          <div class="mt-auto pt-4 border-t border-ink-200 dark:border-white/10 flex items-center justify-between gap-3 text-xs ${muted}">
+            <span>${m.chapters.length} ${m.chapters.length === 1 ? 'part' : 'parts'}${m.downloads.length ? ` · <i class="fa-solid fa-download mx-0.5"></i> ${m.downloads.length} ${m.downloads.length === 1 ? 'download' : 'downloads'}` : ''}</span>
+            <button data-prep-item="${m.id}" class="font-semibold text-ink-900 dark:text-white hover:text-accent dark:hover:text-accent-dark">Open <i class="fa-solid fa-arrow-right ml-1"></i></button>
+          </div>
+        </div>
+      </div>`).join('');
+    return head + `<div class="grid md:grid-cols-2 gap-6">${cards}</div>`;
+  }
+
+  function showPrep() {
+    view = 'prep';
+    if (observer) observer.disconnect();
+    showOnly('#prepView');
+    const paint = () => {
+      if (view !== 'prep') return;
+      $('#prepView').innerHTML = renderPrepPage();
+      renderSidebar();
+      document.title = `${$('#prepView h1').textContent} · ${SITE.plainName}`;
+    };
+    if (prepState === 'ready' || prepState === 'locked' || prepState === 'error') paint();
+    else {
+      $('#prepView').innerHTML = `<p class="text-sm ${muted}"><i class="fa-solid fa-spinner fa-spin mr-2"></i>Loading the prep materials…</p>`;
+      loadPrep().then(paint);
+    }
+    renderSidebar();
+    window.scrollTo({ top: 0 });
+  }
+
+
+  /* =========================================================
      SIDEBAR, CONTENT BAR & ROUTING
      ========================================================= */
   function renderSidebar() {
@@ -896,7 +1106,17 @@
     $('.cases-link').classList.toggle('bg-white', view === 'cases');
     $('.cases-link').classList.toggle('dark:bg-white/5', view === 'cases');
     $('#casesCount').textContent = CASES.length || '';
-    $$('.top-link').forEach(l => l.classList.toggle('active', l.dataset.top === (onCases ? 'cases' : view === 'home' ? 'home' : '')));
+    const onPrep = view === 'prep' || (view === 'booklet' && docKind === 'prep');
+    $$('.top-link').forEach(l => l.classList.toggle('active', l.dataset.top === (onCases ? 'cases' : onPrep ? 'prep' : view === 'home' ? 'home' : '')));
+    $('.prep-link').classList.toggle('bg-white', view === 'prep');
+    $('.prep-link').classList.toggle('dark:bg-white/5', view === 'prep');
+    $('#prepCount').textContent = PREP.length || '';
+    $$('.prep-icon').forEach(i => { i.classList.toggle('fa-lock', prepLocked()); i.classList.toggle('fa-graduation-cap', !prepLocked()); });
+    $('#prepSection').classList.toggle('hidden', !PREP.length);
+    $('#prepList').innerHTML = PREP.map(m => {
+      const active = view === 'booklet' && docKind === 'prep' && m.id === currentId;
+      return `<li><a href="#prep-${m.id}" data-prep-item="${m.id}" class="block px-2.5 py-2 rounded-lg text-sm leading-snug transition ${active ? 'font-semibold bg-white dark:bg-white/5' : 'text-ink-700/80 dark:text-white/70 hover:bg-ink-100 dark:hover:bg-white/5'}">${m.title}<span class="block text-[11px] font-mono mt-0.5 opacity-60">${m.kind}</span></a></li>`;
+    }).join('');
     $('#caseSection').classList.toggle('hidden', !CASES.length);
     $('#caseList').innerHTML = CASES.map(c => {
       const active = view === 'booklet' && docKind === 'case' && c.id === currentId;
@@ -933,17 +1153,19 @@
 
   function renderContentBar() {
     const isCase = docKind === 'case';
+    const isPrep = docKind === 'prep';
     const back = $('#barBack');
-    back.toggleAttribute('data-home', !isCase);
+    back.toggleAttribute('data-home', !isCase && !isPrep);
     back.toggleAttribute('data-cases', isCase);
-    back.title = isCase ? 'Back to case studies' : 'Back to library';
-    back.querySelector('span').textContent = isCase ? 'Case studies' : 'Library';
+    back.toggleAttribute('data-prep', isPrep);
+    back.title = isCase ? 'Back to case studies' : isPrep ? 'Back to prep materials' : 'Back to library';
+    back.querySelector('span').textContent = isCase ? 'Case studies' : isPrep ? 'Prep materials' : 'Library';
     $('#barLinks').innerHTML = chaptersOf(currentDoc()).map(c => `
       <a href="#${c.id}" data-target="${c.id}" class="bar-link shrink-0 inline-flex items-center gap-1.5 h-8 px-3 rounded-full text-xs font-medium border border-transparent text-ink-700/80 dark:text-white/70 hover:border-ink-200 dark:hover:border-white/15 transition whitespace-nowrap">
         <span class="font-mono opacity-60">${c.num}</span>${c.label}
       </a>`).join('');
-    $('#bookletJump').innerHTML = docs().map(b => `<option value="${b.id}" ${b.id === currentId ? 'selected' : ''}>${isCase ? b.kind : b.volume} · ${b.title}</option>`).join('');
-    $('#bookletJump').setAttribute('aria-label', isCase ? 'Jump to case study' : 'Jump to booklet');
+    $('#bookletJump').innerHTML = docs().map(b => `<option value="${b.id}" ${b.id === currentId ? 'selected' : ''}>${isCase || isPrep ? b.kind : b.volume} · ${b.title}</option>`).join('');
+    $('#bookletJump').setAttribute('aria-label', isCase ? 'Jump to case study' : isPrep ? 'Jump to prep material' : 'Jump to booklet');
   }
 
   function markActiveChapter(id) {
@@ -963,7 +1185,7 @@
 
   let currentPost = null;
   function showOnly(id) {
-    ['#home', '#casesView', '#bookletView', '#postView'].forEach(sel => $(sel).classList.toggle('hidden', sel !== id));
+    ['#home', '#casesView', '#prepView', '#bookletView', '#postView'].forEach(sel => $(sel).classList.toggle('hidden', sel !== id));
   }
 
   function showHome() {
@@ -977,8 +1199,8 @@
   }
 
   function showBooklet(id, chapter, kind = 'booklet') {
-    const b = (kind === 'case' ? CASES : BOOKLETS).find(x => x.id === id);
-    if (!b) return kind === 'case' ? showCases() : showHome();
+    const b = listFor(kind).find(x => x.id === id);
+    if (!b) return kind === 'case' ? showCases() : kind === 'prep' ? showPrep() : showHome();
     const switching = view === 'booklet' && (currentId !== id || docKind !== kind);
     view = 'booklet';
     docKind = kind;
@@ -986,7 +1208,7 @@
     showOnly('#bookletView');
     const el = $('#booklet');
     const paint = () => {
-      el.innerHTML = kind === 'case' ? renderCase(b) : renderBooklet(b);
+      el.innerHTML = kind === 'case' ? renderCase(b) : kind === 'prep' ? renderPrepItem(b) : renderBooklet(b);
       renderSidebar();
       renderContentBar();
       setupScrollSpy();
@@ -1023,6 +1245,8 @@
   function route(hash, chapter) {
     if (hash.startsWith('post-')) showPost(hash.slice(5));
     else if (hash === 'case-studies') showCases();
+    else if (hash === 'prep') showPrep();
+    else if (hash.startsWith('prep-')) withPrep(() => showBooklet(hash.slice(5), chapter, 'prep'));
     else if (hash.startsWith('case-')) showBooklet(hash.slice(5), chapter, 'case');
     else if (BOOKLETS.some(b => b.id === hash)) showBooklet(hash, chapter);
     else showHome();
@@ -1059,6 +1283,17 @@
     if (home) { e.preventDefault(); closeMenu(); navigate('home'); return; }
     const casesLink = e.target.closest('[data-cases]');
     if (casesLink) { e.preventDefault(); closeMenu(); navigate('case-studies'); return; }
+    const prepLink = e.target.closest('[data-prep]');
+    if (prepLink) { e.preventDefault(); closeMenu(); navigate('prep'); return; }
+    const prepItem = e.target.closest('[data-prep-item]');
+    if (prepItem) {
+      e.preventDefault(); closeMenu();
+      const chapter = prepItem.dataset.chapterTarget;
+      if (view === 'booklet' && docKind === 'prep' && prepItem.dataset.prepItem === currentId) { if (chapter) scrollToChapter(chapter); return; }
+      navigate('prep-' + prepItem.dataset.prepItem, chapter);
+      return;
+    }
+    if (e.target.closest('[data-prep-signin]')) { PREP_ACCESS.signIn(); return; }
     const filter = e.target.closest('[data-case-filter]');
     if (filter) { caseFilter = filter.dataset.caseFilter; renderCasesPage(); return; }
     const caseLink = e.target.closest('[data-case]');
@@ -1089,7 +1324,7 @@
     const nav = e.target.closest('.nav-link, .bar-link');
     if (nav) { e.preventDefault(); closeMenu(); scrollToChapter(nav.dataset.target); }
   });
-  $('#bookletJump').addEventListener('change', e => navigate((docKind === 'case' ? 'case-' : '') + e.target.value));
+  $('#bookletJump').addEventListener('change', e => navigate(({ case: 'case-', prep: 'prep-' }[docKind] || '') + e.target.value));
   $('#brand').addEventListener('click', e => { e.preventDefault(); navigate('home'); });
 
   document.addEventListener('keydown', e => {
@@ -1151,6 +1386,18 @@
       currentId = '__preview';
       showOnly('#bookletView');
       $('#booklet').innerHTML = renderCase(item);
+      renderSidebar();
+      renderContentBar();
+      setupScrollSpy();
+    } else if (msg.kind === 'prep') {
+      const item = preparePrep({ ...data, id: '__preview' });
+      PREP = [item, ...PREP.filter(x => x.id !== '__preview')];
+      prepState = 'ready';
+      view = 'booklet';
+      docKind = 'prep';
+      currentId = '__preview';
+      showOnly('#bookletView');
+      $('#booklet').innerHTML = renderPrepItem(item);
       renderSidebar();
       renderContentBar();
       setupScrollSpy();

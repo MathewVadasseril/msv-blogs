@@ -56,3 +56,14 @@ if (branch && branch !== 'main') {
   fs.writeFileSync(configPath, config.replace(/^  branch: main$/m, `  branch: ${branch}`));
   console.log(`admin/config.yml: editor will save to the "${branch}" branch`);
 }
+
+// Prep Materials (study guides, handbooks and workbooks for students).
+// Kept out of library.json on purpose: everything for this section lives under
+// content/prep/ (entries, the bundle below, and downloads in content/prep/files/),
+// so the whole folder can later be put behind a sign-in. See "Prep Materials" in WORKFLOW.md.
+const prep = readFolder('prep')
+  .filter(m => m.slug !== 'index' && !m.draft)
+  .map(({ slug, ...m }) => ({ id: slug, topics: [], downloads: [], ...m }))
+  .sort((a, b) => (a.order ?? 999) - (b.order ?? 999) || a.title.localeCompare(b.title));
+fs.writeFileSync(path.join(dir('prep'), 'index.json'), JSON.stringify({ generated: new Date().toISOString(), prep }));
+console.log(`content/prep/index.json: ${prep.length} prep materials`);

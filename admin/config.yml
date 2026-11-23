@@ -456,6 +456,88 @@ collections:
     filter: { field: draft, value: true }
     fields: *case_fields
 
+  # ---------------------------------------------------------------- Prep materials
+  # Study guides, handbooks and workbooks for students. Everything for this section
+  # (entries and downloads) stays inside content/prep/ so it can go behind a sign-in later.
+  - divider: true
+  - name: prep
+    label: Prep Materials
+    label_singular: Prep Material
+    description: Study guides, handbooks and workbooks, shown on the Prep Materials page. Downloads are stored in content/prep/files. Drafts are listed under Draft Prep Materials below.
+    folder: content/prep
+    format: json
+    extension: json
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{title}} · {{kind}}"
+    sortable_fields: [order, title]
+    filter: { field: draft, value: [false, null] }   # published only
+    fields: &prep_fields
+      - { name: title, label: Title, widget: string }
+      - { name: summary, label: Summary, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [], hint: "One or two sentences shown on the card and under the title." }
+      - name: kind
+        label: Type
+        widget: select
+        default: Guide
+        options: [Guide, Handbook, Workbook, Notes, Question bank]
+      - { name: audience, label: Who it's for, widget: string, required: false, hint: "e.g. Post-CAT students and MBA entrants" }
+      - { name: level, label: Level, widget: string, required: false, hint: "e.g. Beginner" }
+      - { name: time, label: Time needed, widget: string, required: false, hint: "e.g. About 4 hours" }
+      - name: downloads
+        label: Downloads
+        label_singular: Download
+        widget: list
+        required: false
+        hint: "Files readers can download (PDF, Excel, PowerPoint). Shown in a box above the first chapter."
+        fields:
+          - { name: label, label: Button text, widget: string }
+          - { name: file, label: File, widget: file, media_folder: /content/prep/files, public_folder: content/prep/files }
+          - { name: note, label: Small note, widget: string, required: false, hint: "e.g. 97 pages, 3.3 MB" }
+      - { name: order, label: Order on the page, widget: number, value_type: int, default: 99, hint: "Lower numbers come first." }
+      - { name: topics, label: Topics, widget: list, required: false }
+      - name: icon
+        label: Cover icon
+        widget: select
+        default: fa-graduation-cap
+        options:
+          - { label: Graduation cap, value: fa-graduation-cap }
+          - { label: Rupee, value: fa-indian-rupee-sign }
+          - { label: Factory, value: fa-industry }
+          - { label: Book, value: fa-book }
+          - { label: Calculator, value: fa-calculator }
+          - { label: Chart, value: fa-chart-line }
+          - { label: Lightbulb, value: fa-lightbulb }
+          - { label: Briefcase, value: fa-briefcase }
+      - name: color
+        label: Cover colour
+        widget: select
+        default: from-rose-500 to-pink-600
+        options:
+          - { label: Indigo → Violet, value: from-indigo-500 to-violet-500 }
+          - { label: Amber → Orange, value: from-amber-500 to-orange-600 }
+          - { label: Sky → Blue, value: from-sky-500 to-blue-600 }
+          - { label: Emerald → Teal, value: from-emerald-500 to-teal-600 }
+          - { label: Rose → Pink, value: from-rose-500 to-pink-600 }
+          - { label: Slate → Zinc, value: from-slate-500 to-zinc-700 }
+      - { name: draft, label: "Draft (hide from site)", widget: boolean, default: true, required: false, hint: "Disable it to publish on the site." }
+      - *chapters_field
+
+  - name: prep_drafts
+    label: Draft Prep Materials
+    label_singular: Draft Prep Material
+    description: Prep materials with Draft switched on, hidden from the site. Switch Draft off and save to publish.
+    folder: content/prep
+    format: json
+    extension: json
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{title}} · {{kind}}"
+    sortable_fields: [order, title]
+    filter: { field: draft, value: true }
+    fields: *prep_fields
+
   - divider: true
 
   # ---------------------------------------------------------------- Site text
@@ -476,5 +558,7 @@ collections:
           - { name: postsHeading, label: Blog posts section heading, widget: string, default: Blog Posts }
           - { name: casesHeading, label: Case studies page title, widget: string, default: My Case Studies }
           - { name: casesIntro, label: Case studies page introduction, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [], required: false, hint: "Paragraph under the title on the Case Studies page." }
+          - { name: prepHeading, label: Prep materials page title, widget: string, default: Prep Materials }
+          - { name: prepIntro, label: Prep materials page introduction, widget: markdown, minimal: true, buttons: [bold, italic, strikethrough, link, code], editor_components: [], required: false, hint: "Paragraph under the title on the Prep Materials page." }
           - { name: footerText, label: Footer text, widget: string, required: false, hint: "Shown after © year and the site name." }
           - { name: footerNote, label: Footer note (right side), widget: string, required: false }

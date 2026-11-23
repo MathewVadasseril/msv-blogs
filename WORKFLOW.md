@@ -79,6 +79,21 @@ npx serve .        # then open the address it prints
 
 Opening `index.html` directly from disk won't work, because the browser blocks it from loading `content/library.json`.
 
+## Prep Materials
+
+Study guides, handbooks and workbooks for students, on their own page at `#prep` (header, sidebar and a card on the home page). Each one opens at `#prep-<file name>`.
+
+- **Where things live:** everything for this section is inside `content/prep/`. Entries are `content/prep/*.json` ("Prep Materials" in the editor), downloads and pictures are in `content/prep/files/`, and the build writes `content/prep/index.json`. None of it goes into `content/library.json`, and the site only loads it when someone opens the section.
+- **An entry** has the same chapters as a booklet, plus Type (Guide, Handbook, Workbook…), who it's for, level, time needed, and a list of downloads shown above the first chapter.
+- **Not linked on purpose:** the answer key for the *Finance before Day One* case stays in Google Drive, for mentors only.
+
+### Putting it behind a sign-in later
+
+The section is built so only one folder and one setting need to change:
+
+1. **Protect the files, not just the page.** GitHub Pages can't password-protect anything, so anyone with the address can open `content/prep/`. Move the live site (or just `content/prep/`) to a host that can require a sign-in for that folder, e.g. Netlify with Identity and a role-based rule for `/content/prep/*`, or Cloudflare Access in front of the site.
+2. **Turn on the lock screen.** In `index.html`, set `PREP_ACCESS.locked` to `true` and fill in `isSignedIn()` and `signIn()` for the chosen sign-in service. Visitors who aren't signed in then see a lock icon and a "Sign in" screen instead of the materials. If the server answers 401 or 403 for `content/prep/index.json`, the same screen appears, so step 1 alone already hides the content.
+
 ## Editor sign-in
 
 `/admin` signs in with a GitHub **fine-grained personal access token**:
