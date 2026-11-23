@@ -24,6 +24,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Bundle posts and booklets into content/library.json
+        # Student logins for Prep Materials (one "username: password" per line).
+        env:
+          PREP_LOGINS: ${{ secrets.PREP_LOGINS }}
         run: node scripts/build-content.js
 
       - name: Collect the files that make up the site

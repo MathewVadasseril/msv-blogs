@@ -87,12 +87,28 @@ Study guides, handbooks and workbooks for students, on their own page at `#prep`
 - **An entry** has the same chapters as a booklet, plus Type (Guide, Handbook, Workbook…), who it's for, level, time needed, and a list of downloads shown above the first chapter.
 - **Not linked on purpose:** the answer key for the *Finance before Day One* case stays in Google Drive, for mentors only.
 
-### Putting it behind a sign-in later
+### Student logins
 
-The section is built so only one folder and one setting need to change:
+Prep Materials asks for a username and password. Each student gets their own login.
 
-1. **Protect the files, not just the page.** GitHub Pages can't password-protect anything, so anyone with the address can open `content/prep/`. Move the live site (or just `content/prep/`) to a host that can require a sign-in for that folder, e.g. Netlify with Identity and a role-based rule for `/content/prep/*`, or Cloudflare Access in front of the site.
-2. **Turn on the lock screen.** In `index.html`, set `PREP_ACCESS.locked` to `true` and fill in `isSignedIn()` and `signIn()` for the chosen sign-in service. Visitors who aren't signed in then see a lock icon and a "Sign in" screen instead of the materials. If the server answers 401 or 403 for `content/prep/index.json`, the same screen appears, so step 1 alone already hides the content.
+**Add, change or remove logins:**
+
+1. On GitHub, open the repo's **Settings → Secrets and variables → Actions**.
+2. Create (or edit) the secret **`PREP_LOGINS`**. Put one student per line, as `username: password`, e.g.
+
+   ```
+   asha: Tea-Time-42
+   rahul: blue moon 7
+   ```
+
+   Usernames ignore capital letters, and lines starting with `#` are ignored.
+3. Republish the site so the change takes effect: **Actions → Deploy to GitHub Pages → Run workflow** (or just publish anything).
+
+To remove a student, delete their line and republish. Anyone signed in with a deleted or changed login is signed out on their next visit.
+
+**How it works:** on each deploy, `scripts/build-content.js` writes `content/prep/access.json` with a salted PBKDF2 hash of each password (never the password itself). The page checks a sign-in against it, and remembers the student for the browser session, or on that device if they tick "Keep me signed in". With no `PREP_LOGINS` secret (for example when previewing on your computer, or on the Netlify test site), the section stays open.
+
+**Limits:** this is a sign-in screen on a public site. It keeps casual visitors out, but anyone with the exact address of a file (a PDF, a picture, `content/prep/index.json`) can still open it, and the repository itself is public. For a real lock, `content/prep/` would need a host that can require a sign-in for files, such as Netlify with Identity or Cloudflare Access.
 
 ## Editor sign-in
 
