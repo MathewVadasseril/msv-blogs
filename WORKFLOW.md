@@ -79,36 +79,40 @@ npx serve .        # then open the address it prints
 
 Opening `index.html` directly from disk won't work, because the browser blocks it from loading `content/library.json`.
 
-## Scholar's Vault (Prep Materials)
+## Scholar's Vault (students only)
 
-Study guides, handbooks and workbooks for students, in the signed-in section called **Scholar's Vault** (renamed from Prep Materials; the name is the "page title" in **Site Settings**), on their own page at `#prep` (header, sidebar and a card on the home page). Each one opens at `#prep-<file name>`.
+Study guides, handbooks and workbooks for students, at `#prep` (header, sidebar and a card on the home page); each guide opens at `#prep-<file name>`. The page title and introduction are in **Site Settings**.
 
-- **Where things live:** everything for this section is inside `content/prep/`. Entries are `content/prep/*.json` ("Scholar's Vault" in the editor), downloads and pictures are in `content/prep/files/`, and the build writes `content/prep/index.json`. None of it goes into `content/library.json`, and the site only loads it when someone opens the section.
-- **An entry** has the same chapters as a booklet, plus Type (Guide, Handbook, Workbook…), who it's for, level, time needed, and a list of downloads shown above the first chapter.
-- **Not linked on purpose:** the answer key for the *Finance before Day One* case stays in Google Drive, for mentors only.
+**The guides are not in this repository.** They live in a private Supabase storage bucket, and Supabase hands them only to a signed-in student on one of their recorded devices. This repository holds only the vault *page* (`index.html`, the "SCHOLAR'S VAULT" block).
 
-### Student logins
+| What | Where |
+|---|---|
+| The guides, PDFs, workbook and pictures | Private repo **`MathewVadasseril/msv-vault`**, folder `guides/`. Every push uploads them to the Supabase bucket `vault` (its Actions tab shows "Publish vault"). |
+| Supabase rules (private bucket, 2-device limit, who may read) | `msv-vault/supabase/setup.sql`, applied by the same workflow |
+| Students | Supabase dashboard → **Authentication → Users** |
+| Each student's devices | Supabase dashboard → **Table Editor → `vault_devices`** |
+| Supabase address and publishable key | `index.html` (`VAULT`). Both are public by design. |
 
-Scholar's Vault asks for a username and password. Each student gets their own login.
+The secret key and database address are GitHub secrets on `msv-vault` (`SUPABASE_SERVICE_KEY`, `SUPABASE_DB_URL`) and never appear in this repository.
 
-**Add, change or remove logins:**
+### Students
 
-1. On GitHub, open the repo's **Settings → Secrets and variables → Actions**.
-2. Create (or edit) the secret **`PREP_LOGINS`**. Put one student per line, as `username: password`, e.g.
+- **Add a student:** Supabase → **Authentication → Users → Add user → Create new user**. Email: their username followed by `@vault.local` (e.g. `asha@vault.local`), a password, and tick **Auto confirm user**. They sign in with just `asha` and the password.
+- **Remove a student:** delete them on the same page. They are locked out at once.
+- **Change a password:** open the student and set a new one.
+- **Two devices each.** A sign-in from a third device is refused with "You're already signed in on 2 devices". A "device" is really one browser: Chrome and Safari on one phone count as two, and so do a private window or cleared browser data. **To reset:** Table Editor → `vault_devices`, delete that student's rows.
+- Only accounts ending in `@vault.local` can read the vault, and **Allow new users to sign up** should stay off (Authentication → Sign In / Providers).
 
-   ```
-   asha: Tea-Time-42
-   rahul: blue moon 7
-   ```
+### Editing the guides
 
-   Usernames ignore capital letters, and lines starting with `#` are ignored.
-3. Republish the site so the change takes effect: **Actions → Deploy to GitHub Pages → Run workflow** (or just publish anything).
+Edit or add files in `msv-vault/guides/` (one `.json` per guide, same format as before; pictures and downloads in `guides/files/`, referred to as `content/prep/files/...` inside the guides). Push, and "Publish vault" uploads them within a minute or two. Files deleted from `guides/files/` are removed from the bucket too.
 
-To remove a student, delete their line and republish. Anyone signed in with a deleted or changed login is signed out on their next visit.
+### How it stays locked
 
-**How it works:** on each deploy, `scripts/build-content.js` writes `content/prep/access.json` with a salted PBKDF2 hash of each password (never the password itself). The page checks a sign-in against it, and remembers the student for the browser session, or on that device if they tick "Keep me signed in". With no `PREP_LOGINS` secret (for example when previewing on your computer, or on the Netlify test site), the section stays open.
-
-**Limits:** this is a sign-in screen on a public site. It keeps casual visitors out, but anyone with the exact address of a file (a PDF, a picture, `content/prep/index.json`) can still open it, and the repository itself is public. For a real lock, `content/prep/` would need a host that can require a sign-in for files, such as Netlify with Identity or Cloudflare Access.
+- The page signs in with Supabase, records the device (`claim_device`), downloads `index.json` from the bucket, and swaps every picture and download for a **signed link that expires after an hour**.
+- The bucket's rule only answers a student signed in on a device recorded for that sign-in, so the 2-device limit can't be skipped from the page.
+- What it can't stop: a student downloading a PDF and passing it on.
+- **Free plan:** Supabase pauses free projects after about a week with no activity. A weekly workflow in `msv-vault` ("Keep vault awake") prevents it; if the vault still says it can't be opened, restore the project from the Supabase dashboard.
 
 ## Editor sign-in
 

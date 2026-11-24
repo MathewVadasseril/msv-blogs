@@ -906,91 +906,131 @@
   }
 
   /* =========================================================
-     PREP MATERIALS
-     Study guides, handbooks and workbooks from content/prep/. They are bundled into
-     content/prep/index.json (not library.json) and only fetched when someone opens
-     this section.
+     SCHOLAR'S VAULT (the students-only section, still at #prep)
+     The guides are NOT in this repository. They live in a private Supabase storage
+     bucket ("vault"), uploaded from the private msv-vault repository, and Supabase
+     releases them only to a signed-in student on one of their 2 recorded devices.
+     Students are created in the Supabase dashboard as <username>@vault.local; they
+     sign in here with just the username. See "Scholar's Vault" in WORKFLOW.md.
 
-     STUDENT LOGINS: on each deploy, scripts/build-content.js reads the PREP_LOGINS
-     secret (one "username: password" per line) and writes content/prep/access.json
-     with a salted hash of each password, never the password itself. When that file
-     exists, visitors must sign in before the section opens. With no secret (e.g. on
-     your computer), the section stays open. See "Student logins" in WORKFLOW.md.
-
-     This is a sign-in screen on a public site: it keeps casual visitors out, but the
-     files themselves can still be opened by anyone who has their exact address.
+     The Supabase address and publishable key below are meant to be public: what a
+     visitor can do with them is decided by the rules in msv-vault/supabase/setup.sql.
      ========================================================= */
-  const plainText = html => { const d = document.createElement('div'); d.innerHTML = String(html ?? ''); return d.textContent; };
-  const PREP_SESSION_KEY = 'msv-prep-session';
-  const PREP_ACCESS = {
-    required: false,     // set from content/prep/access.json
-    logins: [],          // [{ user, salt, hash }]
-    iterations: 150000,
-    user: '',            // who is signed in
+  const VAULT = {
+    url: 'https://sxfizhpypkcbgcusjcgb.supabase.co',
+    key: 'sb_publishable_CQMSTwEfvEbL505gquS_Lg_Y1jr-1bN',
+    lib: 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/dist/umd/supabase.js',
+    domain: '@vault.local',
+    linkHours: 1,                               // how long a picture or PDF link keeps working
   };
+  const plainText = html => { const d = document.createElement('div'); d.innerHTML = String(html ?? ''); return d.textContent; };
+  const PREP_ACCESS = { required: true, user: '' };   // user = the signed-in student's username
 
   let PREP = [];
   let prepState = 'idle';            // idle | loading | ready | locked | error
   let prepError = '';
   let prepLoginError = '';
-  let prepAccessChecked = null;
   const prepLocked = () => PREP_ACCESS.required && prepState !== 'ready';
 
-  const store = {
-    get() {
-      for (const s of [window.sessionStorage, window.localStorage]) {
-        try { const v = s.getItem(PREP_SESSION_KEY); if (v) return JSON.parse(v); } catch (_) {}
-      }
-      return null;
+  const safeStore = kind => { try { const s = window[kind]; s.getItem('x'); return s; } catch (_) { return null; } };
+  const LOCAL = safeStore('localStorage');
+  const SESSION = safeStore('sessionStorage');
+  const REMEMBER_KEY = 'msv-vault-remember';
+  const DEVICE_KEY = 'msv-vault-device';
+
+  // Sign-ins are kept for the browser session, or on this device with "Keep me signed in".
+  const authStorage = {
+    getItem: k => SESSION?.getItem(k) ?? LOCAL?.getItem(k) ?? null,
+    setItem: (k, v) => {
+      const remember = LOCAL?.getItem(REMEMBER_KEY) === '1';
+      (remember ? SESSION : LOCAL)?.removeItem(k);
+      (remember ? LOCAL : SESSION)?.setItem(k, v);
     },
-    set(v, remember) {
-      try { (remember ? window.localStorage : window.sessionStorage).setItem(PREP_SESSION_KEY, JSON.stringify(v)); } catch (_) {}
-    },
-    clear() {
-      for (const s of [window.sessionStorage, window.localStorage]) { try { s.removeItem(PREP_SESSION_KEY); } catch (_) {} }
-    },
+    removeItem: k => { SESSION?.removeItem(k); LOCAL?.removeItem(k); },
   };
 
-  // Reads content/prep/access.json once. No file means no sign-in is needed.
-  function checkPrepAccess() {
-    if (!prepAccessChecked) {
-      prepAccessChecked = fetch(`content/prep/access.json?v=${Date.now()}`, { cache: 'no-store' })
-        .then(res => (res.ok ? res.json() : null))
-        .then(data => {
-          PREP_ACCESS.logins = list(data?.logins);
-          PREP_ACCESS.iterations = data?.iterations || PREP_ACCESS.iterations;
-          PREP_ACCESS.required = PREP_ACCESS.logins.length > 0;
-          // A saved sign-in stays valid only while that student's password is unchanged.
-          const saved = store.get();
-          const ok = saved && PREP_ACCESS.logins.some(l => l.user === saved.user && l.hash === saved.hash);
-          if (ok) PREP_ACCESS.user = saved.user; else if (saved) store.clear();
-        })
-        .catch(() => {});
+  // A random id for this browser, so Supabase can count each student's devices.
+  function deviceId() {
+    const store = LOCAL || SESSION;
+    let id = store?.getItem(DEVICE_KEY);
+    if (!id) {
+      id = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(36).slice(2)).replace(/-/g, '');
+      store?.setItem(DEVICE_KEY, id);
     }
-    return prepAccessChecked;
+    return id;
+  }
+  function deviceLabel() {
+    const ua = navigator.userAgent;
+    const browser = /Edg\//.test(ua) ? 'Edge' : /OPR\//.test(ua) ? 'Opera' : /Firefox\//.test(ua) ? 'Firefox' : /Chrome\//.test(ua) ? 'Chrome' : /Safari\//.test(ua) ? 'Safari' : 'Browser';
+    const os = /iPhone|iPad/.test(ua) ? 'iPhone/iPad' : /Android/.test(ua) ? 'Android' : /Mac OS X/.test(ua) ? 'Mac' : /Windows/.test(ua) ? 'Windows' : /Linux/.test(ua) ? 'Linux' : 'device';
+    return `${browser} on ${os}`;
   }
 
-  async function hashPassword(password, salt, user) {
-    const enc = new TextEncoder();
-    const key = await crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveBits']);
-    const bits = await crypto.subtle.deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt: enc.encode(`${salt}:${user}`), iterations: PREP_ACCESS.iterations }, key, 256);
-    return [...new Uint8Array(bits)].map(b => b.toString(16).padStart(2, '0')).join('');
+  // Loads the Supabase library only when someone opens the vault, so the blog stays light.
+  let vaultClientPromise = null;
+  function vaultClient() {
+    if (!vaultClientPromise) {
+      vaultClientPromise = new Promise((resolve, reject) => {
+        if (window.supabase?.createClient) return resolve();
+        const tag = document.createElement('script');
+        tag.src = VAULT.lib;
+        tag.onload = resolve;
+        tag.onerror = () => reject(new Error('the sign-in service couldn’t be loaded. Check your connection and try again'));
+        document.head.appendChild(tag);
+      }).then(() => window.supabase.createClient(VAULT.url, VAULT.key, {
+        auth: { storage: authStorage, persistSession: true, autoRefreshToken: true, detectSessionInUrl: false },
+      }));
+      vaultClientPromise.catch(() => { vaultClientPromise = null; });
+    }
+    return vaultClientPromise;
+  }
+
+  const userFromEmail = email => String(email || '').replace(VAULT.domain, '');
+  const DEVICE_LIMIT_MSG = 'You’re already signed in on 2 devices. Ask Mathew to reset your devices, then try again.';
+
+  // Records this device for the signed-in student. Supabase refuses a third device.
+  async function claimDevice(sb) {
+    const { data, error } = await sb.rpc('claim_device', { p_device_id: deviceId(), p_label: deviceLabel() });
+    if (error) throw new Error(error.message);
+    if (data?.ok) return '';
+    return data?.reason === 'device_limit' ? DEVICE_LIMIT_MSG : 'This account can’t open the vault. Ask Mathew to check it.';
+  }
+
+  // Shows the sign-in badge in the sidebar straight away, without loading the library.
+  function checkPrepAccess() {
+    try {
+      const raw = authStorage.getItem(`sb-${new URL(VAULT.url).hostname.split('.')[0]}-auth-token`);
+      PREP_ACCESS.user = raw ? userFromEmail(JSON.parse(raw)?.user?.email) : '';
+    } catch (_) { PREP_ACCESS.user = ''; }
+    return Promise.resolve();
   }
 
   async function prepSignIn(username, password, remember) {
-    const user = String(username || '').trim().toLowerCase();
-    const login = PREP_ACCESS.logins.find(l => l.user === user);
-    // Hash even for an unknown username, so a wrong name and a wrong password take the same time.
-    const hash = await hashPassword(String(password || ''), login ? login.salt : 'none', user);
-    if (!login || hash !== login.hash) { prepLoginError = 'That username and password don’t match. Check both and try again.'; return false; }
-    prepLoginError = '';
-    PREP_ACCESS.user = user;
-    store.set({ user, hash }, remember);
-    return true;
+    const user = String(username || '').trim().toLowerCase().replace(VAULT.domain, '');
+    if (!user || !password) { prepLoginError = 'Enter your username and password.'; return false; }
+    LOCAL?.setItem(REMEMBER_KEY, remember ? '1' : '0');
+    try {
+      const sb = await vaultClient();
+      const { error } = await sb.auth.signInWithPassword({ email: user + VAULT.domain, password: String(password) });
+      if (error) {
+        prepLoginError = error.status === 400 || /invalid/i.test(error.message)
+          ? 'That username and password don’t match. Check both and try again.'
+          : `The vault couldn’t be reached (${error.message}). Try again in a minute.`;
+        return false;
+      }
+      const problem = await claimDevice(sb);
+      if (problem) { await sb.auth.signOut({ scope: 'local' }); prepLoginError = problem; return false; }
+      prepLoginError = '';
+      PREP_ACCESS.user = user;
+      return true;
+    } catch (err) {
+      prepLoginError = `The vault couldn’t be reached: ${err.message}.`;
+      return false;
+    }
   }
 
-  function prepSignOut() {
-    store.clear();
+  async function prepSignOut() {
+    try { const sb = await vaultClient(); await sb.auth.signOut({ scope: 'local' }); } catch (_) { authStorage.removeItem(`sb-${new URL(VAULT.url).hostname.split('.')[0]}-auth-token`); }
     PREP_ACCESS.user = '';
     PREP = [];
     prepState = 'idle';
@@ -1012,17 +1052,34 @@
     return { ...renderInlineMarkdown(item), downloads: item.downloads.map(d => ({ file: String(d.file), label: inlineMd(String(d.label || '')), note: inlineMd(String(d.note || '')) })) };
   }
 
+  // Fetches the guides from the private bucket. Every picture and download path in them
+  // (content/prep/files/...) is swapped for a signed link that expires after VAULT.linkHours.
   async function loadPrep() {
     if (prepState === 'ready') return;
-    await checkPrepAccess();
-    if (PREP_ACCESS.required && !PREP_ACCESS.user) { prepState = 'locked'; return; }
     prepState = 'loading';
     try {
-      const res = await fetch(`content/prep/index.json?v=${Date.now()}`, { cache: 'no-store' });
-      if (res.status === 401 || res.status === 403) { prepState = 'locked'; return; }
-      if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
-      const data = await res.json();
-      PREP = (data.prep || []).map(preparePrep);
+      const sb = await vaultClient();
+      const { data: { session } } = await sb.auth.getSession();
+      if (!session) { PREP_ACCESS.user = ''; prepState = 'locked'; return; }
+      PREP_ACCESS.user = userFromEmail(session.user?.email);
+      const problem = await claimDevice(sb);       // also catches a device reset since last visit
+      if (problem) {
+        await sb.auth.signOut({ scope: 'local' });
+        PREP_ACCESS.user = ''; prepLoginError = problem; prepState = 'locked'; return;
+      }
+      const bucket = sb.storage.from('vault');
+      const { data: blob, error } = await bucket.download('index.json');
+      if (error) throw new Error(error.message || 'index.json could not be read');
+      let text = await blob.text();
+      const pattern = /content\/prep\/(files\/[^"')\s\\]+)/g;
+      const paths = [...new Set([...text.matchAll(pattern)].map(m => m[1]))];
+      if (paths.length) {
+        const { data: signed, error: signError } = await bucket.createSignedUrls(paths, VAULT.linkHours * 3600);
+        if (signError) throw new Error(signError.message);
+        const links = new Map(signed.filter(x => x.signedUrl).map(x => [x.path, x.signedUrl]));
+        text = text.replace(pattern, (whole, p) => links.get(p) || whole);
+      }
+      PREP = (JSON.parse(text).prep || []).map(preparePrep);
       prepState = 'ready';
     } catch (err) {
       prepState = 'error';
@@ -1128,7 +1185,7 @@
       </form>`;
     }
     if (prepState === 'error') {
-      return head + notice('fa-triangle-exclamation', 'The prep materials couldn’t be loaded', `content/prep/index.json is missing or unreadable (${esc(prepError)}). It is made by <code>node scripts/build-content.js</code>.`);
+      return head + notice('fa-triangle-exclamation', 'The vault couldn’t be opened', `Please refresh the page in a minute. If it keeps happening, tell Mathew. (${esc(prepError)})`);
     }
     if (!PREP.length) {
       return head + notice('fa-graduation-cap', 'The vault is being stocked', 'Study guides and workbooks will appear here soon.');
@@ -1385,7 +1442,7 @@
       navigate('prep-' + prepItem.dataset.prepItem, chapter);
       return;
     }
-    if (e.target.closest('[data-prep-signout]')) { prepSignOut(); return; }
+    if (e.target.closest('[data-prep-signout]')) { prepSignOut(); return; }  // async; re-opens the sign-in form
     const showPass = e.target.closest('[data-prep-showpass]');
     if (showPass) {
       const input = $('#prepPass'); const show = input.type === 'password';
