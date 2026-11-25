@@ -927,6 +927,7 @@
   const PREP_ACCESS = { required: true, user: '' };   // user = the signed-in student's username
 
   let PREP = [];
+  let PREP_STREAMS = null;           // { entry, streams } from the vault bundle (streams.json in msv-vault), or null
   let prepState = 'idle';            // idle | loading | ready | locked | error
   let prepError = '';
   let prepLoginError = '';
@@ -1033,6 +1034,7 @@
     try { const sb = await vaultClient(); await sb.auth.signOut({ scope: 'local' }); } catch (_) { authStorage.removeItem(`sb-${new URL(VAULT.url).hostname.split('.')[0]}-auth-token`); }
     PREP_ACCESS.user = '';
     PREP = [];
+    PREP_STREAMS = null;
     prepState = 'idle';
     navigate('prep');
   }
@@ -1079,7 +1081,9 @@
         const links = new Map(signed.filter(x => x.signedUrl).map(x => [x.path, x.signedUrl]));
         text = text.replace(pattern, (whole, p) => links.get(p) || whole);
       }
-      PREP = (JSON.parse(text).prep || []).map(preparePrep);
+      const bundle = JSON.parse(text);
+      PREP = (bundle.prep || []).map(preparePrep);
+      PREP_STREAMS = bundle.streams && Array.isArray(bundle.streams.streams) ? bundle.streams : null;
       prepState = 'ready';
     } catch (err) {
       prepState = 'error';
@@ -1153,7 +1157,7 @@
     const head = `
       <button data-home class="inline-flex items-center gap-1.5 h-8 px-3 rounded-full text-xs font-medium border border-ink-200 dark:border-white/15 hover:bg-white dark:hover:bg-white/5 mb-8"><i class="fa-solid fa-arrow-left text-[10px]"></i>Library</button>
       <div class="mb-10">
-        <p class="text-[11px] font-semibold uppercase tracking-[.14em] text-accent dark:text-accent-dark mb-3">Guides, handbooks &amp; workbooks</p>
+        <p class="text-[11px] font-semibold uppercase tracking-[.14em] text-accent dark:text-accent-dark mb-3">${PREP_STREAMS ? 'Cohorts, guides &amp; workbooks' : 'Guides, handbooks &amp; workbooks'}</p>
         <h1 class="font-serif text-4xl sm:text-5xl font-semibold tracking-tight leading-[1.1]">${SITE.prepHeading}</h1>
         ${SITE.prepIntro ? `<p class="mt-4 text-lg max-w-2xl ${muted} leading-relaxed">${SITE.prepIntro}</p>` : ''}
       </div>`;
@@ -1190,7 +1194,7 @@
     if (!PREP.length) {
       return head + notice('fa-graduation-cap', 'The vault is being stocked', 'Study guides and workbooks will appear here soon.');
     }
-    const cards = PREP.map(m => `
+    const cardFor = m => `
       <div class="${card} overflow-hidden flex flex-col hover:shadow-xl hover:shadow-black/5 hover:-translate-y-0.5 transition">
         <button data-prep-item="${m.id}" class="text-left relative bg-ink-900 text-white p-6 overflow-hidden">
           <div class="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-gradient-to-br ${m.color} opacity-40 blur-2xl"></div>
@@ -1209,13 +1213,110 @@
             <button data-prep-item="${m.id}" class="font-semibold text-ink-900 dark:text-white hover:text-accent dark:hover:text-accent-dark">Open <i class="fa-solid fa-arrow-right ml-1"></i></button>
           </div>
         </div>
-      </div>`).join('');
+      </div>`;
     const who = PREP_ACCESS.required && PREP_ACCESS.user ? `
       <div class="flex flex-wrap items-center justify-between gap-3 mb-6 text-sm ${muted}">
         <span><i class="fa-solid fa-circle-user mr-1.5"></i>Signed in as <strong class="text-ink-900 dark:text-white">${esc(PREP_ACCESS.user)}</strong></span>
         <button data-prep-signout class="inline-flex items-center gap-1.5 h-8 px-3 rounded-full text-xs font-medium border border-ink-200 dark:border-white/15 hover:bg-white dark:hover:bg-white/5"><i class="fa-solid fa-right-from-bracket text-[10px]"></i>Sign out</button>
       </div>` : '';
-    return head + who + `<div class="grid md:grid-cols-2 gap-6">${cards}</div>`;
+    if (!PREP_STREAMS) return head + who + `<div class="grid md:grid-cols-2 gap-6">${PREP.map(cardFor).join('')}</div>`;
+    return head + who + renderStreams(cardFor);
+  }
+
+  // The vault home with streams: Day Zero as the common start, then the streams
+  // (open ones as wide cards, coming-soon ones below), then every other guide.
+  // Stream names and wording come from the private bundle, so nothing here is public.
+  function renderStreams(cardFor) {
+    const byId = id => PREP.find(m => m.id === id);
+    const { entry = {}, streams = [] } = PREP_STREAMS;
+    const label = 'text-[11px] font-semibold uppercase tracking-[.14em]';
+    const step = (n, title, text) => `
+      <div class="flex items-start gap-3 mb-5">
+        <span class="shrink-0 w-8 h-8 rounded-full bg-ink-900 text-white dark:bg-white dark:text-ink-900 grid place-items-center text-sm font-semibold">${n}</span>
+        <div><h2 class="font-serif text-2xl font-semibold leading-tight">${esc(title)}</h2>${text ? `<p class="text-sm ${muted} mt-1">${esc(text)}</p>` : ''}</div>
+      </div>`;
+    const guideChips = ids => list(ids).map(byId).filter(Boolean).map(g => `
+      <a href="#prep-${g.id}" data-prep-item="${g.id}" class="inline-flex items-center gap-1.5 text-xs px-2.5 py-1.5 rounded-full border border-ink-200 dark:border-white/15 hover:border-accent hover:text-accent dark:hover:border-accent-dark dark:hover:text-accent-dark"><i class="fa-solid ${g.icon} text-[10px]"></i>${g.title}</a>`).join('');
+    const covers = (items, tick, cols = 'sm:grid-cols-2') => list(items).length ? `<ul class="grid ${cols} gap-x-5 gap-y-1.5 text-sm">${list(items).map(c => `<li class="flex gap-2"><i class="fa-solid ${tick} mt-1 text-xs"></i><span>${esc(c)}</span></li>`).join('')}</ul>` : '';
+
+    const start = byId(entry.guide);
+    const entryHtml = start ? `
+      <section class="mb-12">
+        ${step(1, entry.title || 'Start here', entry.text || '')}
+        <button data-prep-item="${start.id}" class="group w-full text-left relative overflow-hidden rounded-3xl bg-ink-900 text-white p-6 sm:p-8 dark:ring-1 dark:ring-white/10">
+          <div class="absolute -right-16 -top-20 w-72 h-72 rounded-full bg-gradient-to-br ${start.color} opacity-40 blur-3xl"></div>
+          <div class="absolute right-6 bottom-4 text-7xl opacity-10"><i class="fa-solid ${start.icon}"></i></div>
+          <p class="relative ${label} text-white/55">${esc(entry.badge || 'The common entry point')} · ${String(start.kind)}</p>
+          <h3 class="relative font-serif text-3xl sm:text-4xl font-semibold mt-2">${start.title}</h3>
+          ${start.summary ? `<p class="relative text-white/75 mt-3 max-w-2xl leading-relaxed">${start.summary}</p>` : ''}
+          <div class="relative mt-5 flex flex-wrap gap-2 text-xs font-medium">
+            ${prepFacts(start).map(([icon, text]) => `<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/15"><i class="${factIcon(icon)}"></i>${text}</span>`).join('')}
+          </div>
+          <span class="relative mt-6 inline-flex items-center gap-2 h-10 px-5 rounded-full bg-white text-ink-900 text-sm font-semibold">Open ${esc(entry.cta || 'Day Zero')} <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i></span>
+        </button>
+      </section>` : '';
+
+    const isOpen = s => s.status === 'open' && byId(s.course);
+    const openOnes = streams.filter(isOpen);
+    const soonOnes = streams.filter(s => !isOpen(s));
+    const openCard = s => {
+      const g = byId(s.course);
+      return `
+      <div class="${card} overflow-hidden mb-5">
+        <button data-prep-item="${g.id}" class="group w-full text-left relative bg-ink-900 text-white p-6 sm:p-8 overflow-hidden">
+          <div class="absolute -right-12 -top-16 w-64 h-64 rounded-full bg-gradient-to-br ${s.color || g.color} opacity-45 blur-3xl"></div>
+          <div class="absolute right-6 bottom-3 text-7xl opacity-10"><i class="fa-solid ${s.icon || g.icon}"></i></div>
+          <div class="relative flex flex-wrap items-center gap-2 ${label}">
+            <span class="px-2.5 py-1 rounded-full bg-white/10">Stream ${esc(s.n)}</span>
+            <span class="px-2.5 py-1 rounded-full bg-emerald-400 text-ink-900"><i class="fa-solid fa-circle text-[6px] align-middle mr-1"></i>Open now</span>
+          </div>
+          <h3 class="relative font-serif text-3xl font-semibold mt-3 pr-10">${esc(s.title)}</h3>
+          <p class="relative text-white/75 mt-2 max-w-2xl leading-relaxed">${esc(s.summary || '')}</p>
+        </button>
+        <div class="p-6 sm:p-8 grid md:grid-cols-5 gap-6">
+          <div class="md:col-span-3">
+            <p class="${label} ${muted} mb-3">What we cover</p>
+            ${covers(s.covers, 'fa-check text-emerald-600 dark:text-emerald-400')}
+          </div>
+          <div class="md:col-span-2">
+            <p class="${label} ${muted} mb-3">Guides this stream uses</p>
+            <div class="flex flex-wrap gap-1.5">${guideChips(s.guides)}</div>
+          </div>
+          <div class="md:col-span-5 pt-5 border-t border-ink-200 dark:border-white/10 flex flex-wrap items-center justify-between gap-3 text-sm ${muted}">
+            <span>${prepFacts(g).map(([icon, text]) => `<span class="inline-flex items-center gap-1.5 mr-4"><i class="${factIcon(icon)} text-xs"></i>${text}</span>`).join('')}</span>
+            <button data-prep-item="${g.id}" class="inline-flex items-center gap-2 h-10 px-5 rounded-full bg-ink-900 text-white dark:bg-white dark:text-ink-900 font-semibold">Open the stream <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>`;
+    };
+    const soonCard = s => `
+      <div class="rounded-2xl border-2 border-dashed border-ink-200 dark:border-white/15 p-6 flex flex-col">
+        <div class="flex items-center justify-between gap-3">
+          <span class="w-11 h-11 rounded-xl bg-ink-100 dark:bg-white/10 grid place-items-center ${muted}"><i class="fa-solid ${s.icon || 'fa-hourglass-half'}"></i></span>
+          <span class="text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-ink-100 dark:bg-white/10 ${muted}"><i class="fa-solid fa-hourglass-half mr-1"></i>Coming soon</span>
+        </div>
+        <p class="${label} ${muted} mt-4">Stream ${esc(s.n)}</p>
+        <h3 class="font-serif text-xl font-semibold leading-snug mt-1">${esc(s.title)}</h3>
+        <p class="text-sm ${muted} mt-2 leading-relaxed">${esc(s.summary || '')}</p>
+        ${list(s.covers).length ? `<div class="mt-4 ${muted}">${covers(s.covers, 'fa-minus', 'grid-cols-1')}</div>` : ''}
+        ${list(s.guides).some(byId) ? `<div class="mt-auto pt-5"><p class="text-xs ${muted} mb-2">${esc(s.meanwhile || 'Until it opens, start with')}</p><div class="flex flex-wrap gap-1.5">${guideChips(s.guides)}</div></div>` : ''}
+      </div>`;
+    const streamHtml = streams.length ? `
+      <section class="mb-14">
+        ${step(start ? 2 : 1, PREP_STREAMS.title || 'Pick your stream', PREP_STREAMS.text || '')}
+        ${openOnes.map(openCard).join('')}
+        ${soonOnes.length ? `<div class="grid md:grid-cols-3 gap-5">${soonOnes.map(soonCard).join('')}</div>` : ''}
+      </section>` : '';
+
+    const featured = new Set([entry.guide, ...streams.map(s => s.course)].filter(Boolean));
+    const rest = PREP.filter(m => !featured.has(m.id));
+    const restHtml = rest.length ? `
+      <section>
+        <h2 class="font-serif text-2xl font-semibold">${esc(PREP_STREAMS.guidesTitle || 'Every guide in the vault')}</h2>
+        <p class="text-sm ${muted} mt-1 mb-6">${esc(PREP_STREAMS.guidesText || 'The streams link into these guides week by week. You can also read any of them on your own.')}</p>
+        <div class="grid md:grid-cols-2 gap-6">${rest.map(cardFor).join('')}</div>
+      </section>` : '';
+    return entryHtml + streamHtml + restHtml;
   }
 
   function showPrep() {
