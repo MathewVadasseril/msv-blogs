@@ -114,6 +114,10 @@ Edit or add files in `msv-vault/guides/` (one `.json` per guide, same format as 
 - What it can't stop: a student downloading a PDF and passing it on.
 - **Free plan:** Supabase pauses free projects after about a week with no activity. A weekly workflow in `msv-vault` ("Keep vault awake") prevents it; if the vault still says it can't be opened, restore the project from the Supabase dashboard.
 
+### AI tutor
+
+Signed-in students see an **Ask the tutor** button on every vault page. It opens a chat panel that answers from the vault guides and links to the chapter it used, with a note that answers can be wrong. The answering, who may use it and the daily question cap all live in the private msv-vault repository (`supabase/functions/tutor` and the `tutor_` tables in `supabase/setup.sql`); see "AI tutor" in its README. This site only shows the panel.
+
 ## Editor sign-in
 
 `/admin` signs in with a GitHub **fine-grained personal access token**:
